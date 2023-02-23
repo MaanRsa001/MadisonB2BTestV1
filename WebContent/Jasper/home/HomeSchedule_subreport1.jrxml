@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="HomeSchedule_subreport1" pageWidth="595" pageHeight="555" orientation="Landscape" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="240a037e-3a1f-4cd6-a354-faac9f7e1ddf">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="homescheduletbl_1" uuid="4b5cdbbc-0697-48c1-aa02-dd9092ebc0c0">
+		<parameter name="Quoteno" class="java.lang.String"/>
+		<parameter name="Pvbranch" class="java.lang.String"/>
+		<parameter name="imagePath" class="java.lang.String"/>
+		<parameter name="coverage_id" class="java.lang.String"/>
+		<parameter name="scheme_id" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[select distinct * from table (Home_Schedule($P{Quoteno},'HOMESCHEDULETBL',$P{Pvbranch},$P{coverage_id},$P{scheme_id}))
+order by coverages_id]]>
+		</queryString>
+		<field name="CERTIFICATE_NO" class="java.lang.String"/>
+		<field name="POLICY_NO" class="java.lang.String"/>
+		<field name="VECHICLE_OWNER" class="java.lang.String"/>
+		<field name="NAME_ADDRESS_INSURED" class="java.lang.String"/>
+		<field name="SUM_INSURED" class="java.lang.String"/>
+		<field name="PREMIUM" class="java.lang.String"/>
+		<field name="VECHICLE_REG_NO" class="java.lang.String"/>
+		<field name="MAKE" class="java.lang.String"/>
+		<field name="MODEL" class="java.lang.String"/>
+		<field name="TYPE" class="java.lang.String"/>
+		<field name="COLOUR" class="java.lang.String"/>
+		<field name="ENGINE_NO" class="java.lang.String"/>
+		<field name="CHASSIS_NO" class="java.lang.String"/>
+		<field name="DISK_NO" class="java.lang.String"/>
+		<field name="DATE_OF_ISSUE" class="java.lang.String"/>
+		<field name="EXPIRY_DATE" class="java.lang.String"/>
+		<field name="TIME" class="java.lang.String"/>
+		<field name="QUARTER" class="java.lang.String"/>
+		<field name="CC" class="java.lang.String"/>
+		<field name="DURATION_OF_COVER" class="java.lang.String"/>
+		<field name="AGENT" class="java.lang.String"/>
+		<field name="PLACE_OF_ISSUE" class="java.lang.String"/>
+		<field name="DESCRIPTION_OF_USE" class="java.lang.String"/>
+		<field name="POLICYTYPE" class="java.lang.String"/>
+		<field name="POLICY_TERM" class="java.lang.String"/>
+		<field name="HEADER_IMG" class="java.lang.String"/>
+		<field name="RECIEPT_DATE" class="java.lang.String"/>
+		<field name="BILL_NO" class="java.lang.String"/>
+		<field name="CLIENT_NO" class="java.lang.String"/>
+		<field name="INSURED" class="java.lang.String"/>
+		<field name="CLASS" class="java.lang.String"/>
+		<field name="MOTOR_CONTRIBUTION" class="java.lang.String"/>
+		<field name="POLICY_FEE" class="java.lang.String"/>
+		<field name="TOTAL_AMOUNT" class="java.lang.String"/>
+		<field name="AMT_WORD" class="java.lang.String"/>
+		<field name="POBOX" class="java.lang.String"/>
+		<field name="CITY" class="java.lang.String"/>
+		<field name="COUNTRY" class="java.lang.String"/>
+		<field name="PHONE" class="java.lang.String"/>
+		<field name="FAX" class="java.lang.String"/>
+		<field name="EMAIL" class="java.lang.String"/>
+		<field name="CONTRIBUTION" class="java.lang.String"/>
+		<field name="PERIOD_OF_INSURANCE" class="java.lang.String"/>
+		<field name="DUE_DATE" class="java.lang.String"/>
+		<field name="DUE_AMOUNT" class="java.lang.String"/>
+		<field name="PERC" class="java.lang.String"/>
+		<field name="REMARKS" class="java.lang.String"/>
+		<field name="INSURED_CODE" class="java.lang.String"/>
+		<field name="OCCUPATION" class="java.lang.String"/>
+		<field name="BRANCH_NAME" class="java.lang.String"/>
+		<field name="MANUFACTURE_YEAR" class="java.lang.String"/>
+		<field name="BASIC_PREMIUM" class="java.lang.String"/>
+		<field name="CURRENCY" class="java.lang.String"/>
+		<field name="INSURANCE_PROVIDED" class="java.lang.String"/>
+		<field name="FIRST_AMOUNT_PAYABLE" class="java.lang.String"/>
+		<field name="CONDITIONS" class="java.lang.String"/>
+		<field name="POLICY_DATE" class="java.lang.String"/>
+		<field name="COUNT1" class="java.lang.String"/>
+		<field name="QUOTE_NO" class="java.lang.String"/>
+		<field name="QUOTATION_ISSUED_ON" class="java.lang.String"/>
+		<field name="QUOTATION_VALID_FOR" class="java.lang.String"/>
+		<field name="VAT" class="java.lang.String"/>
+		<field name="THIRD_PARTY_LIMITS_LIABILITY" class="java.lang.String"/>
+		<field name="RATE" class="java.lang.String"/>
+		<field name="VECHICLE_PREMIUM" class="java.lang.String"/>
+		<field name="ADDRESS2" class="java.lang.String"/>
+		<field name="ADDRESS3" class="java.lang.String"/>
+		<field name="PAYMENT_MODE" class="java.lang.String"/>
+		<field name="BANK_NAME" class="java.lang.String"/>
+		<field name="BRANCH_EMAIL" class="java.lang.String"/>
+		<field name="BRANCH_PHONE" class="java.lang.String"/>
+		<field name="BRANCH_COUNTRY" class="java.lang.String"/>
+		<field name="POLICYSTARTDATE" class="java.lang.String"/>
+		<field name="POLICYENDDATE" class="java.lang.String"/>
+		<field name="INCEPTION_DATE" class="java.lang.String"/>
+		<field name="BRANCH_CODE" class="java.lang.String"/>
+		<field name="EFFECTIVE_DATE" class="java.lang.String"/>
+		<field name="BROKER_CODE" class="java.lang.String"/>
+		<field name="LOCATION1" class="java.lang.String"/>
+		<field name="SECTION1" class="java.lang.String"/>
+		<field name="DESCRIPTION" class="java.lang.String"/>
+		<field name="INSURED_AMOUNT" class="java.lang.String"/>
+		<field name="DATE_PLACE" class="java.lang.String"/>
+		<field name="COVERAGES_NAME" class="java.lang.String"/>
+		<field name="STATUS" class="java.lang.String"/>
+		<field name="RENEWAL" class="java.lang.String"/>
+		<field name="QUOTE_INFO" class="java.lang.String"/>
+		<field name="QUO_DES" class="java.lang.String"/>
+		<field name="COVERAGES_ID" class="java.lang.String"/>
+		<field name="LOC" class="java.lang.String"/>
+	</subDataset>
+	<parameter name="Pvbranch" class="java.lang.String"/>
+	<parameter name="Quoteno" class="java.lang.String"/>
+	<parameter name="coverage_id" class="java.lang.String"/>
+	<parameter name="imagePath" class="java.lang.String"/>
+	<parameter name="scheme_id" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select  * from table (Home_Schedule($P{Quoteno},'ALL',$P{Pvbranch},$P{coverage_id},$P{scheme_id}))
+order by coverages_id]]>
+	</queryString>
+	<field name="CERTIFICATE_NO" class="java.lang.String"/>
+	<field name="POLICY_NO" class="java.lang.String"/>
+	<field name="VECHICLE_OWNER" class="java.lang.String"/>
+	<field name="NAME_ADDRESS_INSURED" class="java.lang.String"/>
+	<field name="SUM_INSURED" class="java.lang.String"/>
+	<field name="PREMIUM" class="java.lang.String"/>
+	<field name="VECHICLE_REG_NO" class="java.lang.String"/>
+	<field name="MAKE" class="java.lang.String"/>
+	<field name="MODEL" class="java.lang.String"/>
+	<field name="TYPE" class="java.lang.String"/>
+	<field name="COLOUR" class="java.lang.String"/>
+	<field name="ENGINE_NO" class="java.lang.String"/>
+	<field name="CHASSIS_NO" class="java.lang.String"/>
+	<field name="DISK_NO" class="java.lang.String"/>
+	<field name="DATE_OF_ISSUE" class="java.lang.String"/>
+	<field name="EXPIRY_DATE" class="java.lang.String"/>
+	<field name="TIME" class="java.lang.String"/>
+	<field name="QUARTER" class="java.lang.String"/>
+	<field name="CC" class="java.lang.String"/>
+	<field name="DURATION_OF_COVER" class="java.lang.String"/>
+	<field name="AGENT" class="java.lang.String"/>
+	<field name="PLACE_OF_ISSUE" class="java.lang.String"/>
+	<field name="DESCRIPTION_OF_USE" class="java.lang.String"/>
+	<field name="POLICYTYPE" class="java.lang.String"/>
+	<field name="POLICY_TERM" class="java.lang.String"/>
+	<field name="HEADER_IMG" class="java.lang.String"/>
+	<field name="RECIEPT_DATE" class="java.lang.String"/>
+	<field name="BILL_NO" class="java.lang.String"/>
+	<field name="CLIENT_NO" class="java.lang.String"/>
+	<field name="INSURED" class="java.lang.String"/>
+	<field name="CLASS" class="java.lang.String"/>
+	<field name="MOTOR_CONTRIBUTION" class="java.lang.String"/>
+	<field name="POLICY_FEE" class="java.lang.String"/>
+	<field name="TOTAL_AMOUNT" class="java.lang.String"/>
+	<field name="AMT_WORD" class="java.lang.String"/>
+	<field name="POBOX" class="java.lang.String"/>
+	<field name="CITY" class="java.lang.String"/>
+	<field name="COUNTRY" class="java.lang.String"/>
+	<field name="PHONE" class="java.lang.String"/>
+	<field name="FAX" class="java.lang.String"/>
+	<field name="EMAIL" class="java.lang.String"/>
+	<field name="CONTRIBUTION" class="java.lang.String"/>
+	<field name="PERIOD_OF_INSURANCE" class="java.lang.String"/>
+	<field name="DUE_DATE" class="java.lang.String"/>
+	<field name="DUE_AMOUNT" class="java.lang.String"/>
+	<field name="PERC" class="java.lang.String"/>
+	<field name="REMARKS" class="java.lang.String"/>
+	<field name="INSURED_CODE" class="java.lang.String"/>
+	<field name="OCCUPATION" class="java.lang.String"/>
+	<field name="BRANCH_NAME" class="java.lang.String"/>
+	<field name="MANUFACTURE_YEAR" class="java.lang.String"/>
+	<field name="BASIC_PREMIUM" class="java.lang.String"/>
+	<field name="CURRENCY" class="java.lang.String"/>
+	<field name="INSURANCE_PROVIDED" class="java.lang.String"/>
+	<field name="FIRST_AMOUNT_PAYABLE" class="java.lang.String"/>
+	<field name="CONDITIONS" class="java.lang.String"/>
+	<field name="POLICY_DATE" class="java.lang.String"/>
+	<field name="COUNT1" class="java.lang.String"/>
+	<field name="QUOTE_NO" class="java.lang.String"/>
+	<field name="QUOTATION_ISSUED_ON" class="java.lang.String"/>
+	<field name="QUOTATION_VALID_FOR" class="java.lang.String"/>
+	<field name="VAT" class="java.lang.String"/>
+	<field name="THIRD_PARTY_LIMITS_LIABILITY" class="java.lang.String"/>
+	<field name="RATE" class="java.lang.String"/>
+	<field name="VECHICLE_PREMIUM" class="java.lang.String"/>
+	<field name="ADDRESS2" class="java.lang.String"/>
+	<field name="ADDRESS3" class="java.lang.String"/>
+	<field name="PAYMENT_MODE" class="java.lang.String"/>
+	<field name="BANK_NAME" class="java.lang.String"/>
+	<field name="BRANCH_EMAIL" class="java.lang.String"/>
+	<field name="BRANCH_PHONE" class="java.lang.String"/>
+	<field name="BRANCH_COUNTRY" class="java.lang.String"/>
+	<field name="POLICYSTARTDATE" class="java.lang.String"/>
+	<field name="POLICYENDDATE" class="java.lang.String"/>
+	<field name="INCEPTION_DATE" class="java.lang.String"/>
+	<field name="BRANCH_CODE" class="java.lang.String"/>
+	<field name="EFFECTIVE_DATE" class="java.lang.String"/>
+	<field name="BROKER_CODE" class="java.lang.String"/>
+	<field name="LOCATION1" class="java.lang.String"/>
+	<field name="SECTION1" class="java.lang.String"/>
+	<field name="DESCRIPTION" class="java.lang.String"/>
+	<field name="INSURED_AMOUNT" class="java.lang.String"/>
+	<field name="DATE_PLACE" class="java.lang.String"/>
+	<field name="COVERAGES_NAME" class="java.lang.String"/>
+	<field name="STATUS" class="java.lang.String"/>
+	<field name="RENEWAL" class="java.lang.String"/>
+	<field name="QUOTE_INFO" class="java.lang.String"/>
+	<field name="QUO_DES" class="java.lang.String"/>
+	<field name="COVERAGES_ID" class="java.lang.String"/>
+	<field name="LOC" class="java.lang.String"/>
+	<field name="BRICKS" class="java.lang.String"/>
+	<field name="PREMISES" class="java.lang.String"/>
+	<field name="TYPE_OF_PROP" class="java.lang.String"/>
+	<field name="HEADING" class="java.lang.String"/>
+	<group name="HOME">
+		<groupExpression><![CDATA[$F{COVERAGES_ID}]]></groupExpression>
+		<groupHeader>
+			<band height="21" splitType="Stretch">
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement uuid="5e9996b4-1db0-478a-ac4a-4e273dd38806" stretchType="RelativeToBandHeight" x="0" y="9" width="541" height="12"/>
+					<box leftPadding="3">
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="Arial" size="9" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{COVERAGES_NAME}]]></textFieldExpression>
+				</textField>
+			</band>
+			<band height="12">
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement uuid="04cbae7f-9e56-47d3-8de6-cdb65b576947" stretchType="RelativeToBandHeight" x="0" y="0" width="168" height="12"/>
+					<box>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="9" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Description"]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement uuid="9e552f4d-e754-4cda-a8e6-cc835865cd7d" stretchType="RelativeToBandHeight" x="378" y="0" width="163" height="12"/>
+					<box>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="9" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Sum Insured"]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement uuid="03bd5601-15a2-4be6-b705-a5852924a4b7" stretchType="RelativeToBandHeight" x="168" y="0" width="210" height="12"/>
+					<box leftPadding="4">
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.75"/>
+						<rightPen lineWidth="0.75"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{HEADING}==null?"":$F{HEADING}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="12" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="36a615ef-472d-465a-9347-7596bc57a5fc" stretchType="RelativeToBandHeight" x="0" y="0" width="168" height="12"/>
+				<box leftPadding="4">
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DESCRIPTION}==null?"":$F{DESCRIPTION}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="c4569441-2d1a-4b8b-8d78-b8ffe3298040" stretchType="RelativeToBandHeight" x="168" y="0" width="210" height="12"/>
+				<box leftPadding="4">
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DATE_PLACE}==null?"":$F{DATE_PLACE}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="12969019-65ec-409f-a5f9-b11eaaf2ef8d" stretchType="RelativeToBandHeight" x="378" y="0" width="163" height="12"/>
+				<box leftPadding="0" rightPadding="3">
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{INSURED_AMOUNT}==null?"":$F{INSURED_AMOUNT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

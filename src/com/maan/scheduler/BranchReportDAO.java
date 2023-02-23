@@ -1,0 +1,92 @@
+package com.maan.scheduler;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.commons.lang3.StringUtils;
+
+import com.maan.common.LogManager;
+import com.maan.common.MyJdbcTemplate;
+
+public class BranchReportDAO extends MyJdbcTemplate {
+	
+	public int getBranchReportCount(String startDate,String endDate,String policyStatus,String productId,String branchCode) {
+		int result = 0;
+		try {
+			String query = getQuery("GET_BRANCH_REPORT_CNT");
+			Object[] args = new Object[]{startDate,endDate,policyStatus,branchCode,"ALL",
+										startDate,endDate,policyStatus,branchCode,"ALL"};
+			LogManager.info("Query==> " + query);
+			LogManager.info("Args==> " + StringUtils.join(args, "~~"));
+			result = this.mytemplate.queryForInt(query, args);
+			LogManager.info("Result==> " + result);
+		}
+		catch(Exception exception) {
+			LogManager.debug(exception);
+		}
+		return result;
+	}
+	
+	public List<Map<String,Object>> getBranchDetailsList() {
+		List<Map<String,Object>> resultList = new ArrayList<Map<String,Object>>();
+		try {
+			String query = getQuery("GET_BRANCHDETAILS_LIST");
+			LogManager.info("Query==> " + query);
+			resultList = this.mytemplate.queryForList(query);
+		}
+		catch(Exception exception) {
+			LogManager.debug(exception);
+		}
+		return resultList;
+	}
+	
+	public int getScheduleCount(String startDate,String endDate,String branchCode) {
+		int result = 0;
+		try {
+//			String query = getQuery("GET_BRANCH_SCHEDULE_CNT");
+//			Object[] args = new Object[]{branchCode,startDate,endDate};
+//			LogManager.info("Query==> " + query);
+//			LogManager.info("Args==> " + StringUtils.join(args, "~~"));
+//			result = this.mytemplate.queryForInt(query, args);
+//			LogManager.info("Result==> " + result);
+		}
+		catch(Exception exception) {
+			LogManager.debug(exception);
+		}
+		return result;
+	}
+	
+	public int getDebitCount(String startDate,String endDate,String branchCode, String type) {
+		int result = 0;
+		try {
+			String query = getQuery("GET_BRANCH_DEBIT_CNT");
+			Object[] args = new Object[]{branchCode,type,startDate,endDate};
+			LogManager.info("Query==> " + query);
+			LogManager.info("Args==> " + StringUtils.join(args, "~~"));
+			result = this.mytemplate.queryForInt(query, args);
+			LogManager.info("Result==> " + result);
+		}
+		catch(Exception exception) {
+			LogManager.debug(exception);
+		}
+		return result;
+	}
+	
+	public int getCreditCount(String startDate,String endDate,String branchCode, String type) {
+		int result = 0;
+		try {
+			String query = getQuery("GET_BRANCH_CREDIT_CNT");
+			Object[] args = new Object[]{branchCode,type,startDate,endDate};
+			LogManager.info("Query==> " + query);
+			LogManager.info("Args==> " + StringUtils.join(args, "~~"));
+			result = this.mytemplate.queryForInt(query, args);
+			LogManager.info("Result==> " + result);
+		}
+		catch(Exception exception) {
+			LogManager.debug(exception);
+		}
+		return result;
+	}
+
+}

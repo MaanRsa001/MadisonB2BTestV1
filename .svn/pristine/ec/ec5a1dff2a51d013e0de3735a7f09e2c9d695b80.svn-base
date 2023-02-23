@@ -1,0 +1,244 @@
+
+##claim
+label.refrenceNumber = Reference Number
+label.entryDate = Entry Date
+##policy info
+claim.Policy.Details = Policy Details
+claim.policyNo=Policy Number
+claim.startDate=Start Date
+claim.quote.no = Quote No
+claim.quote.date = Quote Date
+claim.product = Product
+claim.premium = Premium
+
+##customer info
+claim.customer.details = Customer Information
+claim.customer.name = Customer Name
+claim.email = Email
+customer Info
+claim.core.application.code = Core Application Code
+claim.address =Address
+claim.city = City/Town
+claim.po.box = PO Box
+claim.mobile.number = Mobile Number
+##premium information
+claim.premium.info = Premium Information
+claim.basic.premium = Basic Premium
+claim.discount = Discount
+claim.optional.cover = Optional Cover
+#claim.policyFee = Policy Fee
+claim.policyFee = VAT
+claim.totalPremiumPayable = Total Premium
+
+##vehicle details
+claim.vehicle.details = Vehicle Details
+claim.make = Make
+claim.model = Model
+claim.manufacture.year= Manufacture Year
+claim.sum.insured = Sum Insured
+claim.cubic.capacity/tonnage = Engine Capacity
+claim.seating.capacity = Seating Capacity
+claim.no.of.cylinder = No. of Cylinder
+claim.area.coverage = Area Coverage
+claim.agency.repair = Agency Repair
+claim.registration.number= Registration Number
+claim.chassis.number = Chassis Number
+claim.engine.number = Engine Number
+claim.vehicle.colour = Vehicle Colour
+claim.vehicle.registered.location = Vehicle Registered Location
+claim.plate.color = Plate Color
+claim.leased = Leased
+claim.bank.of.finance = Bank of Finance
+#claim.vehicle.usage= Vehicle Usage
+claim.vehicle.usage= Type of Body
+#claim.typeOfBody=Type of Body
+claim.typeOfBody=Vehicle Usage
+
+##claim driver details
+claim.driver.details = Driver Details
+claim.driver.dob = Date of Birth
+claim.driver.nationality = Nationality
+claim.driver.licence.no = Licence No 
+claim.driver.licence.expiry.date = Licence Expiry Date
+claim.driver.claim.amount = Claim Amount
+
+label.claim.sno = S.No
+label.claim.claimNo=Claim No
+label.claim.view = View
+claim.lossDate=Loss Date
+claim.intimationDate=Intimation Date
+claim.lossDescription=Loss Description
+claim.remarks=Remarks
+claim.claimIntimation=Claim Intimation
+claim.claimDetails=Claim Details
+motor.loss.details.saved = Loss details saved successfully.
+motor.clickToAddVehicleDetails = Click to add vehicle details
+
+label.claim.intimated.successfully = Claim saved successfully,
+label.claim.no.is =Your claim number is :
+
+error.motor.claim.loss.date = Please Choose Loss Date
+error.motor.claim.loss.description = Please Enter Loss Description
+error.pleaseCloseTheOpenedClaim = Claim pending close the claim.
+
+
+error.lossDate=Select Loss Date
+error.validLossDate=Please Select Valid Loss date
+error.claim.motor.remarks = Please Enter Remarks
+claim.closed.successfully =Claim Closed Successfully
+updated.sucessfully = Updated Sucessfully
+#########################
+
+label.claimIntimation = Claim Intimation
+label.policyHolderDetails = Policy Holder Details
+label.vehicleDetails = Vehicle Details
+label.policyNo = Policy No.
+label.coverNoteNo = Cover Note No.
+label.periodOfInsurance = Period Of Insurace
+label.from = From
+label.to = To
+label.nameOfTheInsured = Name of the Insured
+label.occupuation = Occupation
+label.telephoneNo = Telephone No
+label.insuredsEmailAddress = Insured's Email Address 
+label.physicalAddress = Address
+label.colour = Colour
+label.soleOwner = Sole Owner
+label.driverDetails = Driver Details
+label.nameOfDriver = Name of Driver
+label.dob = Date of Birth
+label.licenseNo = License No.
+label.dateObtained = Date Obtained
+label.lossDamageTheftDetails = Loss/Damage/Theft Details
+label.date = Date
+label.time = Time
+label.speed = Speed
+label.place = Place
+label.purposeforwhichthevehiclewasbeingusedatthetimeofaccident = Purpose for which the vehicle was being used at the time of accident
+label.missingPartsDetails = If only parts were stolen from the vehicle, please give full details
+label.reportedToPolice = Was the accident reported to the police?
+label.dateReported = Date reported
+label.timeReported = Time Reported
+label.policeVisited  = Did the Police visit the of accident? 
+label.nameofpoliceofficer = Name of police officer
+label.identityNo = Identity No
+label.nameofpolicestation = Name of police station
+label.locationofDamagedVehicleWMobile = Please give the location of the damaged vehicle and state if mobile
+label.accidentHappendStatement = Statement Of how the Accident Happened (Please give a full description in your own (driver's) words
+label.driverPassengerThirdPartyInjuries = Driver/Passenger/Third Party Injuries
+label.name = Name
+label.address = Address
+label.phoneNo = Phone No
+label.natureOfInjury = Nature Of Injury
+label.hospitalPersonsAttened = Name of Hospital where the injured persons were attended 
+label.nameofhospital = Name of Hospital
+label.nameofdoctor = Name of doctor
+label.thirdPartyPropertyDamage = Third Party Property Damage
+label.propertyMotorVehicleDetails = Property/Motor Vehicle Details
+label.involvesThirdParty = IF THE ACCIDENT INVOLVES ATHIRD PARTY, PLEASEINDICATE
+label.nameofOwner = Name of Owner
+label.ownertelephoneNo = Telephone No
+label.nameofInsurer = Name of Insurer
+label.declartion = I do hereby to the best of my knowledge and belief, warrant the truth of the foregoing statements in everyrespect and agree that if I have made any false or fraudulent statement, the policy shall be cancelled and claim forfeited. <br/> I agree to provide additional information to the company if required.
+label.Are.you.the.sole.owner.of.the.vehicle = Are you the sole owner of the vehicle? 
+label.If.not.name.of.other.interested.parties.Financiers = If not, name of other interested parties/Financiers
+label.make  = Make
+label.year = Year
+label.regNo = Register No
+label.engineNo = Engine No
+label.chassisNo = Chassis No
+label.mobileNo = MobileNo
+label.email = Email
+label.lossDescriptionn = Loss Description
+label.lossStatus = Loss Status
+label.homePremiumInformation = Home Premium Information
+coverage.details = Coverages Detail
+coverage.sumInsured = Coverages SumInsured
+label.premium = Premium
+label.claimNumber = Reference Number
+label.model = Model
+
+error.claim.soleOwnerYN = Please Select Sole Owner
+error.claim.financier = Please enter If not, name of other interested parties/Financiers
+error.claim.nameOfDriver = Please enter Name of Driver
+error.claim.dob = Please enter Date of Birth
+error.claim.licenceNo = Please enter License No.
+error.claim.dateObtained = Please enter Date Obtained
+error.claim.lossDate = Please select Date
+error.claim.lossTime = Please enter time
+error.claim.lossSpeed = Please enter Speed
+error.claim.lossPlace = Please enter Place
+error.claim.lossPurposeDesc = Please enter Purpose for which the vehicle was being used at the time of accident
+error.claim.lossDetailDesc = Please enter If only parts were stolen from the vehicle, please give full details
+error.claim.lossDateReported = Please select Date reported
+error.claim.lossTimeReported = Please enter Time Reported
+error.claim.policeOfficerName = Please enter Name of police officer
+error.claim.identityNo = Please enter Identity No
+error.claim.policeStationName = Please enter Name of police station
+error.claim.lossLocation = Please give the location of the damaged vehicle and state if mobile
+error.claim.driverDescription = Please enter Statement Of how the Accident Happened (Please give a full description in your own (drivers) words
+error.claim.declaration = Please select Declaration
+error.loss.police.report.yn = Please select whether Police Visit the Accident
+error.loss.report.yn = Please select whether the accident was reported to police
+
+error.claim.hospitalName = Please enter Name of Hospital
+error.claim.nameOfDoctor = Please enter Name of doctor
+error.claim.doctorTelephoneNumber = Please enter Telephone No
+error.claim.thirdPartyName = Please enter Name
+error.claim.thirdPartyPropertyDetail = Please enter Property/Motor Vehicle Details
+error.claim.thirdPartyOwnerName = Please enter Name of Owner
+error.claim.tpOwnerTelephoneNo = Please enter Telephone No
+error.claim.driverName = Please enter Name of Driver
+error.claim.physicalAddress = Please enter Physical Address
+error.claim.registerNo = Please enter Register No
+error.claim.make = Please enter Make
+error.claim.nameOfInsurer = Please enter Name of Insurer
+error.lossDescriptionn = Please enter loss description
+error.lossStatus = Please select loss status
+
+ 
+##Endorsement
+label.endorement.list=Endorsement Request List
+label.engine.no= Engine No
+label.sno = S.No
+label.ref.no=Ref No
+label.endor.status = Endorsement Status
+label.claim.status = Claim Status
+label.admin.status= Approved Status
+label.endt.type=Endorsement Type
+label.entry.date=Entry Date
+label.vehicletypedesc=Vehicle Type
+error.endtType = Choose Endorsement
+error.agent.remarks=Enter Agent Remarks
+label.endorement=Financial Endorsement Request
+lable.dropdown.endorsement=Endorsement
+label.agent.remarks=User Remarks
+label.admin.remarks=Admin Remarks
+claim.vehicleDetails = Vehicle Details
+message.endtRequest =Endorsement Request has made successfully
+error.choose.loss.status = Please Choose Loss Status
+error.enter.loss.description =Please Enter Loss Description
+
+
+error.todate = Choose the To Date
+error.fromdate = Choose the From Date
+error.diff.date = To date should be greater than the From Date 
+
+
+## Claim admin
+label.fromDate = From Date
+label.toDate =To Date
+label.claim.report = Claim Report
+label.claim.comprehensive.and.fire.and.theft = Comprehensive/Third Party Fire and Theft
+label.claim.third.party = Third Party Liability
+label.master.sno = S.No
+label.policyNumber = Policy Number
+label.status = Status
+label.view = View
+message.sucessfully = Inserted Sucessfully
+error.admin.status = Please Select Status
+##Endorsement
+label.endt.Reports=Endorsement Report
+label.endorsement.details=Endorsement Details
+label.remarks =Remarks
+label.customerName =Customer Name

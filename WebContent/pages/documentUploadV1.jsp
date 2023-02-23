@@ -1,0 +1,775 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
+<%@page import="org.json.simple.JSONObject"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+	
+	<link rel="shortcut icon" href="<%=request.getContextPath()%>/images/favicon.ico" />
+   
+	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/assets/CssLibrary/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/assets/CssLibrary/glyphicon.min.css" />
+	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/StyleV1.css" />
+    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/all.css" /> 
+    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/bootstrap/css/datepicker3.css">
+	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/bootstrap/css/bootstrap-datetimepicker.css">	 
+	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/assets/CssLibrary/dataTables.bootstrap.min.css">  
+   
+	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/bootstrap/css/datepicker3.css">
+	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/bootstrap/css/bootstrap-datetimepicker.css">	 
+	
+	<script type="text/javascript" src="<%=request.getContextPath()%>/assets/CssLibrary/jquery.min.js"></script>
+    <script type="text/javascript" src="<%=request.getContextPath()%>/assets/CssLibrary/bootstrap.min.js"></script>
+    <script type="text/javascript" src="<%=request.getContextPath()%>/assets/CssLibrary/popper.min.js"></script>
+    
+    <script type="text/javascript" src="<%=request.getContextPath()%>/js/common.js"></script>
+	<script src="${pageContext.request.contextPath}/js/numeral.min.js"></script>
+	
+	<script src="<%=request.getContextPath()%>/bootstrap/js/bootstrap-datepicker.js" type="text/javascript"></script>
+	<script src="<%=request.getContextPath()%>/bootstrap/js/bootstrap-datetimepicker.js" type="text/javascript"></script>
+	
+	<script type="text/javascript" src="<%=request.getContextPath()%>/assets/CssLibrary/dataTables.bootstrap.min.js"></script>
+	<script type="text/javascript" src="<%=request.getContextPath()%>/assets/CssLibrary/dataTables.responsive.min.js"></script>
+	<script type="text/javascript" src="<%=request.getContextPath()%>/assets/CssLibrary/jquery.dataTables.min.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function () {
+		  $('#tadaTable').DataTable({
+	    	  "responsive": true,
+	        "columnDefs": {
+	          "orderable": false
+	        },
+	        language: {
+	          //customize pagination prev and next buttons: use arrows instead of words
+	          'paginate': {
+	            'previous': '<span><i class="fas fa-chevron-circle-left"></i></span>',
+	            'next': '<span><i class="fas fa-chevron-circle-right"></i></span>'
+	          },
+	          //customize number of elements to be displayed
+	          "lengthMenu": '<select class="form-control input-sm">' +
+	            '<option value="10">10</option>' +
+	            '<option value="20">20</option>' +
+	            '<option value="30">30</option>' +
+	            '<option value="40">40</option>' +
+	            '<option value="50">50</option>' +
+	            '<option value="-1">All</option>' +
+	            '</select>'
+	        }
+	      })
+	    });
+	
+		$(document).ready(function () {
+		  $('#QuoteDocTable').DataTable({
+	    	  "responsive": true,
+	        "columnDefs": {
+	          "orderable": false
+	        },
+	        language: {
+	          //customize pagination prev and next buttons: use arrows instead of words
+	          'paginate': {
+	            'previous': '<span><i class="fas fa-chevron-circle-left"></i></span>',
+	            'next': '<span><i class="fas fa-chevron-circle-right"></i></span>'
+	          },
+	          //customize number of elements to be displayed
+	          "lengthMenu": '<select class="form-control input-sm">' +
+	            '<option value="10">10</option>' +
+	            '<option value="20">20</option>' +
+	            '<option value="30">30</option>' +
+	            '<option value="40">40</option>' +
+	            '<option value="50">50</option>' +
+	            '<option value="-1">All</option>' +
+	            '</select>'
+	        }
+	      })
+	    });
+	
+	 </script>
+	
+		<style type="">
+		
+		.bluecolortable th:first-child{
+  border-radius: 20px 0px 0px 0px  !important;
+
+}
+.bluecolortable th:last-child{
+  border-radius: 0px 20px 0px 0px  !important;
+
+}
+.rowevencolor td:first-child{
+  border-radius: 0px 0px 0px 20px  !important;
+
+}
+.rowevencolor td:last-child{
+  border-radius: 0px 0px 20px 0px  !important;
+
+}
+.rowevencolor tr:nth-child(even) {
+  background-color: powderblue !important
+}
+
+#QuoteDocTable{
+  font-family: "Lato_Regular";
+  border-radius: 20px !important;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.25), 
+              0 2px 2px rgba(0,0,0,0.20), 
+              0 4px 4px rgba(0,0,0,0.15), 
+              0 8px 8px rgba(0,0,0,0.10),
+              0 16px 16px rgba(0,0,0,0.05);
+  font-size: 15px;         
+}
+@media only screen and (max-width: 600px) {
+  
+  /* Force table to not be like tables anymore */
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+  }
+  /* Hide table headers (but not display: none;, for accessibility) */
+  thead tr,
+  tfoot tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+  td {
+    /* Behave  like a "row" */
+    border: none;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding-left: 50% !important;
+  }
+  td:before {
+    /* Now like a table header */
+    position: absolute;
+    /* Top/left values mimic padding */
+    top: 6px;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+  }
+  
+  .table td:nth-child(1) {
+      background: #ccc;
+      height: 100%;
+      top: 0;
+      left: 0;
+      font-weight: bold;
+  }
+  /*
+	Label the data
+	*/
+  td:nth-of-type(1):before {
+    content: "S.No";
+  }	
+  td:nth-of-type(2):before {
+    content: "Vehicle Usage";
+  }
+  td:nth-of-type(3):before {
+    content: "Make";
+  }
+  td:nth-of-type(4):before {
+    content: "Model";
+  }
+ /* td:nth-of-type(5):before {
+    content: "Type Of Body";
+  }*/
+  td:nth-of-type(5):before {
+    content: "Vehicle Value";
+  }
+  
+  .dataTables_length {
+    display: none;
+  }
+  }
+
+.inputBox {
+  outline :none !important;
+  border :none !important;
+}
+.inputBox : focus {
+  outline :none !important;
+  border :none !important;
+}
+    .form-control-sm{
+    height :35px;
+    }
+    
+#tadaTable_paginate .paginate_button {
+    display: none;
+}
+.dataTables_info {
+    display: none;
+}
+.dataTables_length {
+    display: none;
+}
+.dataTables_filter{
+    display: none;
+}
+.dataTables_paginate {
+    display: none;
+}    
+</style>
+	</head>
+	<body>
+	<s:set var="uploadDocList" value="%{uploadDocList}"/>
+	<s:set var="documentList" value="%{documentList}"/>
+		<div id="page" class="content" style="padding:15px">
+			<s:form id="form1" name="form1" method="post" theme="simple" enctype="multipart/form-data">
+				<s:if test='"view".equals(reqFrom)'>
+  			<ul class="nav nav-tabs">
+		    	<li class="active"><a data-toggle="tab" href="#customer">Cusotmer Uploaded</a></li>
+		    	<li><a data-toggle="tab" href="#surveyor">Surveyor Uploaded</a></li>
+		  	</ul>
+		  	<div class="tab-content">
+		  		<div id="customer" class="tab-pane fade in active">
+			   		<s:if test='custAttachedDocs!=null && custAttachedDocs.size()>0'>
+						<div class="row">
+							<table class="table-sm table table-bordered table-hover" cellspacing="0" width="100%" id="tadaTable">
+								<thead class="bluecolortable">
+									<tr>
+										<th>S.No.</th>
+										<th>Type</th>
+										<th>File</th>
+										<th>Description</th>
+										<th></th>
+									</tr>
+								</thead>
+								<tbody>
+									<s:iterator value="custAttachedDocs" var="list" status="stat">
+										<tr>
+											<td align="center"><s:property value="#stat.count"/></td>
+											<td>
+												<s:property value="#list.DocumentTypeId"/>
+											</td>
+											<td>
+												<s:property value="#list.FileName"/>
+											</td> 
+											<td>
+												<s:property value="#list.Description"/>
+											</td>
+											<td align="center">
+												<button type="button" class="btn btn-sm btn-info" onclick="downloadDoc('<s:property value="#list.FilePath"/>','<s:property value="#list.FileName"/>')">
+													<i class="glyphicon glyphicon-save"></i>
+												</button>
+											</td>
+										</tr>
+									</s:iterator>
+								</tbody>
+							</table>
+						</div>
+	       			</s:if>
+	       			<s:else>
+	       				<font color="blue">No Documents Uploaded</font>
+	       			</s:else>
+		    	</div>
+		    	<div id="surveyor" class="tab-pane fade">
+		      		<s:if test='surveyorAttachedDocs!=null && surveyorAttachedDocs.size()>0'>
+						<div class="row">
+							<table class="table-sm table table-bordered table-hover" cellspacing="0" width="100%" id="tadaTable">
+								<thead class="bluecolortable">
+									<tr>
+										<th>S.No.</th>
+										<th>Type</th>
+										<th>File</th>
+										<th>Description</th>
+										<th ></th>
+									</tr>
+								</thead>
+								<tbody>
+										<s:iterator value="surveyorAttachedDocs" var="list" status="stat">
+										<tr>
+											<td align="center"><s:property value="#stat.count"/></td>
+											<td>
+												<s:property value="#list.DOCUMENT_DESC"/>
+											</td>
+											<td>
+												<s:property value="#list.FILE_NAME"/>
+											</td> 
+											<td>
+												<s:property value="#list.DESCRIPTION"/>
+											</td>
+											<td align="center">
+												<button type="button" class="btn btn-sm btn-info" onclick="downloadDoc('<s:property value="#list.FILE_PATH_NAME"/>','<s:property value="#list.FILE_NAME"/>')">
+													<i class="glyphicon glyphicon-save"></i>
+												</button>
+											</td>
+										</tr>
+										</s:iterator>
+								</tbody>
+							</table>
+						</div>
+		       		</s:if>
+		       		<s:else>
+	       				<font color="blue">No Documents Uploaded</font>
+	       			</s:else>
+		    	</div>
+		  	</div>
+	</s:if>
+				<s:else>
+		<br class="clear"/>
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<b id="errorDesc" style="color:red"></b>
+				<s:actionerror cssStyle="color:red;"/>
+				<s:actionmessage cssStyle="color:green;"/>
+			</div>
+		</div>
+		<br class="clear"/>
+		<s:if test='"65".equalsIgnoreCase(#session.product_id) && vehicleDetailsById != null && vehicleDetailsById.size()>0'>
+			<s:set var="multiVehicleDtls" value="%{vehicleDetailsById}"/>
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">				
+					<div class="panel panel-primary">
+        				<%-- <h3><s:text name="motor.vehicleDetails" /></h3>
+                        <hr><br> --%>
+						<table class="table-sm table table-bordered table-hover" cellspacing="0" width="100%" id="tadaTable">
+							<thead class="bluecolortable">
+						        <tr>
+									<th><s:label theme="simple" value="S.No." /></th>
+									<th><s:label theme="simple" value="Vehicle Usuage"/></th>
+									<th><s:label theme="simple" value="Make" /></th>
+									<th><s:label theme="simple" value="Model" /></th>
+									<th><s:label theme="simple" value="Sum Insured" /></th>
+								</tr>
+							</thead>
+							<tbody class="rowevencolor">
+								<tr>
+									<td>1</td>
+									<td><s:property value='#multiVehicleDtls.get("VEHICLETYPE_DESC")' /></td>
+									<td><s:property value='#multiVehicleDtls.get("MAKE_NAME")' /></td>					
+									<td><s:property value='#multiVehicleDtls.get("MODEL_NAME")'/> </td>
+									<td><s:property value='#multiVehicleDtls.get("SUMINSURED_VALUE_LOCAL")' /></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<br class="clear"/>
+		</s:if>
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				
+				<table id="QuoteDocTable" class="table-sm table table-bordered table-hover" cellspacing="0" width="100%">
+					<thead class="bluecolortable">
+						<tr>
+							<th>S.No.</th>
+							<th>Type</th>
+							<th>File</th>
+							<th>Description</th>
+							<th ></th>
+							<th ></th>
+						</tr>
+					</thead>
+					<tbody class="rowevencolor">
+					<s:set var="uploadDocListVar" value="uploadDocList"/>
+					<s:set var="uploadDocListSizeVar" value="#uploadDocListVar.size()"/>
+						<s:if test="#uploadDocListVar != null && #uploadDocListVar.size>0">
+						<s:iterator value="#uploadDocListVar" var="list" status="stat">
+						<tr>
+						<td align="center"><s:property value="#stat.count"/></td>
+						<td>
+								<s:property value="#list.DocumentTypeId"/>
+						</td>
+						<td>
+								<s:property value="#list.FileName"/>
+						</td> 
+						<td>
+								<s:property value="#list.Description"/>
+						</td>
+						<td align="center">
+									<button type="button" class="btn btn-sm btn-info" onclick="downloadDoc('<s:property value="#list.FilePath"/>','<s:property value="#list.FileName"/>')">
+										<i class="glyphicon glyphicon-save"></i>
+									</button>
+							</td>
+							<td align="center">
+									<button type="button" class="btn btn-sm btn-danger" onclick="return deleteDoc('<s:property value="#list.FilePath"/>','<s:property value="#list.DocumentTypeId"/>')">
+										<i class="glyphicon glyphicon-remove-sign"></i>
+									</button>
+							</td>
+							
+							<!--<td align="center">
+								<s:if test='#documentDtls.get(""+#record.DOCUMENT_ID)!=null && !"".equals(#documentDtls.get(""+#record.DOCUMENT_ID))'>
+									<button type="button" class="btn btn-sm btn-info" onclick="downloadDoc('<s:property value='#documentDtls.get(""+#record.DOCUMENT_ID)'/>')">
+										<i class="glyphicon glyphicon-save"></i>
+									</button>
+								</s:if>
+							</td>-->
+						</tr>
+						</s:iterator>
+						</s:if>
+						<s:else>
+						<tr>
+							<td align="center"><strong>1</strong>
+							<s:hidden name="serialNos[%{0}]" id="serialNos%{0}" value="1"/></td>
+							<!--<td>
+								<s:property value="#record.DOCUMENT_DESC"/>
+								<s:if test='"Y".equals(#record.MANDATORY_STATUS)'>
+									<font color="red">*</font>
+								</s:if>
+							</td>-->
+							<td>
+								<s:select name="documentIdList[0]" theme="simple"  id="documentIdList[0]" cssClass="form-control form-control-sm" list="documentList" listKey="Code" listValue="Description" headerKey="" headerValue="-Select-" />
+							</td>
+							<td>
+								<s:file name="upload" id="upload[0]" theme="simple"  cssClass="form-control form-control-sm"/>
+								<!-- <input type='file' name='upload' id='upload[0]'  class='form-control' /> -->
+							</td> 
+							<td>
+								<s:textfield name="docDescription[0]" theme="simple"  id="docDescription[0]" cssClass="form-control form-control-sm" cssStyle="text:" maxlength="50"/>
+							</td>
+	
+							<td colspan="2" >
+								<s:hidden id="chk1" theme="simple"  onclick="deleteRow(chk1, this)"/>
+							</td>
+							</tr>
+					</s:else>
+					</tbody>
+				</table>
+			
+				<div class="boxcontent" align="right">
+			    	<input type="button" name="addadd" value="Add" class="btn btn-sm btn-primary" onclick="addQuoDocRow()" />
+			    </div>
+			</div>
+		</div>
+		<br>
+		
+		<div class="row">
+			<div class="offset-4">
+				<s:submit type="button" cssClass="btn btn-sm btn-danger" value="Close" onclick="wclose();"/>
+			</div>
+			<div class=" offset-1">
+				<s:submit type="button" cssClass="btn btn-sm btn-success" value="Upload" onclick="return docupload();"/>
+			</div>
+		</div>
+		
+	</s:else>
+				<s:hidden name="applicationNo"/>
+				<s:hidden name="quoteNo"/>
+				<s:hidden name="vehicleId"/>
+				<s:hidden name="deleteVehicleId"/>
+				<s:hidden name="filePath" id="filePath"/>
+				<s:hidden name="fileName" id="fileName"/>
+				<s:hidden name="reqFrom" id="reqFrom"/>
+				<s:hidden name="product_id" id="product_id" value="#session.product_id"/>
+				<s:hidden name="documenttypeId" id="documenttypeId"/>
+			</s:form>
+		</div>
+		<script type="text/javascript">
+		
+		var slNo=2;
+		
+		function docupload() {
+			var error = "";
+			 	 try{
+			document.getElementById('errorDesc').innerHTML = "";
+			var table = document.getElementById('QuoteDocTable');
+			var rowCount = table.rows.length;
+			//var size='<s:property value="claimUploadDocList.size()"/>';
+			var listSize='<s:property value="#uploadDocListSizeVar"/>';
+			//alert(listSize);
+			var size='0';
+			var i=parseInt(size);
+			//var j=i;
+			var j=parseInt(listSize);
+			while( i<(slNo-1)) {
+				//alert();
+				try{
+					var value =document.getElementById("serialNos"+i+"").value;
+					//alert(value);
+
+					if(value != null && value != ''){
+						var file=document.getElementById('upload['+ i +']').files ;
+						if(document.getElementById('upload['+ i +']').value == "") {
+							error+="please choose file at row "+ (j+1) + "<br/>"
+						} else{
+							error += validateFile((i+1), document.getElementById('upload['+i+']').value);
+						}
+						if(document.getElementById('documentIdList['+ i +']').value == "") {
+							error+="please select document Type at row "+ (j+1) + "<br/>"
+						}
+						j++;
+					}
+					i++;
+				}catch(e) {
+					//alert();
+					//j++;
+					i++;
+					console.debug(e);
+				}
+			}
+			if(error.length > 0) {
+				document.getElementById('errorDesc').innerHTML = error;
+				//document.getElementById('proceed1').disabled = false;
+				$("html, body").animate({ scrollTop: 0 }, 600);
+			}else if(i!=parseInt(size)){
+			//alert("i "+i+"size "+parseInt(size));
+				document.form1.action = "${pageContext.request.contextPath}/submitdocumentV1DoUpload";
+				document.form1.submit();
+			}
+			 	}catch(e) {
+			console.debug(e);
+			}
+			  return false;
+		}
+		
+		/*function doupload() {
+			 
+				document.getElementById('errorDesc').innerHTML = "";
+				var error = "";
+				var size = '<s:property value="documentList.size()"/>';
+				for(i=0 ; i<size ; i++) {
+					if(document.getElementById('uploadMadatoryYN['+i+']').value == "Y") {
+						error += validateFile((i+1), document.getElementById('upload['+i+']').value);
+					}
+					if(document.getElementById('upload['+ i +']').value == "") {
+						document.getElementById('documentIdList['+i+']').value = "";
+					} else {
+						$('#documentIdList['+i+']').val($('#documentIdOrgList['+i+']').val());
+						document.getElementById('documentIdList['+i+']').value = document.getElementById('documentIdOrgList['+i+']').value;
+					}
+				}
+				if(error.length > 0) {
+					document.getElementById('errorDesc').innerHTML = error;
+					$('html').animate({ scrollTop: 0 }, 'fast');
+				} else {
+					document.form1.action = "${pageContext.request.contextPath}/submitdocumentMotor";
+					document.form1.submit();
+				}
+			 
+			return false;
+		}*/
+		function validateFile(rownum, sFileName) {
+			var error = "";
+			var _validFileExtensions = [".jpg", ".jpeg", ".bmp", ".gif",".docx", ".png",".pdf",".doc",".xls",".xlsx",".txt"];
+			//var sFileName = oInput.value;
+            if (sFileName.length > 0) {
+            	var blnValid = false;
+                for (var j = 0; j < _validFileExtensions.length; j++) {
+                    var sCurExtension = _validFileExtensions[j];
+                    if (sFileName.substr(sFileName.length - sCurExtension.length, sCurExtension.length).toLowerCase() == sCurExtension.toLowerCase()) {
+                        blnValid = true;
+                        break;
+                    }
+                }
+                if (!blnValid) {
+                	error = "Please select valid file ( " + _validFileExtensions.join(", ") + " ) at " + rownum + "<br/>";
+                }
+            } else {
+            	error = "Please select file ( " + _validFileExtensions.join(", ") + " ) at " + rownum + "<br/>";
+			}
+			return error;
+		}
+		function wclose() {
+			window.close();
+		}
+		function downloadDoc(filePath,sFileName) {
+				const link = document.createElement('a');
+		        link.setAttribute('target', '_blank');
+		        link.setAttribute('href', 'http://192.168.1.11:8085/madison/document/download?FilePath='+filePath);
+		        link.setAttribute('download', sFileName);
+		        document.body.appendChild(link);
+		        link.click();
+		        link.remove();
+			}
+			
+			/* document.getElementById('fileName').value = sFileName;
+			document.getElementById('filePath').value = filePath;
+			document.form1.action = "${pageContext.request.contextPath}/downloaddocumentDoUpload";
+			document.form1.submit();
+		} */
+	function deleteDoc(filePath,DocumentTypeId) {
+		var decision = confirm("File will be deleted. Do You Want to continue? ","");
+			if (decision==true){
+				document.getElementById('filePath').value = filePath;
+				document.getElementById('documenttypeId').value = DocumentTypeId;
+				document.form1.action = "${pageContext.request.contextPath}/deletedocumentV1DoUpload";
+				document.form1.submit();
+				}
+			return false;
+		}
+			
+		function createDocList(cell, rowCount){
+			element = document.createElement("select");
+        	element.className = "form-control form-control-sm";
+        	element.name = "documentIdList["+(rowCount-1)+"]";
+        	element.id = "documentIdList["+(rowCount-1)+"]";
+        		var objOption = document.createElement("option");
+        	 objOption.text = '-Select-';
+        	 objOption.value = '';
+         	if(document.all && !window.opera){
+         		element.add(objOption);
+        		}else{
+         			element.add(objOption, null);
+         		}
+        		 <s:iterator value="documentList">
+	        	 var objOption = document.createElement("option");
+	         	objOption.text = '<s:property value="Description"/>';
+	         	objOption.value = '<s:property value="Code"/>';
+	         	if(document.all && !window.opera){
+	         		element.add(objOption);
+	         	}else{
+	         		element.add(objOption, null);
+	         }
+         </s:iterator>
+         
+         
+       cell.appendChild(element);
+	}
+		/*function addQuoDocRow(){
+			var table = document.getElementById('QuoteDocTable');
+			var rowCount = table.rows.length;
+			var row = table.insertRow(rowCount);
+			row.className="runtext";
+			row.id = "new_"+rowCount;
+			
+			cell = row.insertCell(0);     
+	    	cell.align = "center"; 
+	     	cell.innerHTML = rowCount;
+	     	var element = document.createElement("input");
+			element.className = "form-control form-control-sm";	 
+		 	element.type = "hidden";	
+			element.value=rowCount;
+			cell.appendChild(element);
+			
+			
+			cell = row.insertCell(1);
+	   		createDocList(cell, rowCount);	 	
+			
+		
+			
+			cell = row.insertCell(2);
+			var element = document.createElement("input");
+			element.className = "form-control form-control-sm";
+			element.name = "upload";
+			element.id = "upload["+(rowCount-1)+"]";
+			element.type = "file";
+
+			cell.appendChild(element);
+			
+			cell = row.insertCell(3);
+			var element = document.createElement("input");
+			element.className = "form-control form-control-sm";
+			element.type = "text";
+			element.name = "docDescription["+(rowCount-1)+"]";
+			element.maxlength = "50";
+			element.id = "docDescription["+(rowCount-1)+"]";
+			cell.appendChild(element);
+			
+			cell = row.insertCell(4);
+			cell.align = "center";
+			cell.setAttribute('colSpan', '2');
+			var element = document.createElement("input");
+			element.type = "checkbox";
+			element.id = "chk"+rowCount;
+			element.onclick = function () {deleteRow(this.id,this)};	
+		    cell.appendChild(element);
+		}*/
+		
+		function addQuoDocRow(){
+			var table = document.getElementById('QuoteDocTable');
+			var rowCount = table.rows.length;
+			var row = table.insertRow(rowCount);
+			row.className="runtext";
+			row.id = "new_"+rowCount;
+			cell = row.insertCell(0);     
+	    	cell.align = "center"; 
+	     	cell.innerHTML = "<strong>"+rowCount+"</strong>";
+	     	var element = document.createElement("input");
+			element.className = "form-control form-control-sm";	 
+		 	element.type = "hidden";	
+			element.value=slNo;
+			cell.appendChild(element);
+			
+			element = document.createElement("input");
+		       element.type = "hidden";
+		       element.name = "serialNos["+(slNo-1)+"]";
+		       element.id = "serialNos"+(slNo-1)+"";
+		       element.value = slNo;
+		       cell.appendChild(element);
+			
+			cell = row.insertCell(1);
+	   		createDocList(cell, slNo);	 	
+			
+			cell = row.insertCell(2);
+			var element = document.createElement("input");
+			element.className = "form-control form-control-sm";
+			element.name = "upload";
+			element.id = "upload["+(slNo-1)+"]";
+			element.type = "file";
+
+			cell.appendChild(element);
+			
+			cell = row.insertCell(3);
+			var element = document.createElement("input");
+			element.className = "form-control form-control-sm";
+			element.type = "text";
+			element.name = "docDescription["+(slNo-1)+"]";
+			element.maxlength = "50";
+			element.id = "docDescription["+(slNo-1)+"]";
+			cell.appendChild(element);
+			
+			cell = row.insertCell(4);
+			cell.align = "center";
+			cell.setAttribute('colSpan', '2');
+			var element = document.createElement("input");
+			element.type = "checkbox";
+			element.id = "chk"+slNo;
+			element.onclick = function () {deleteRow(this.id,this)};	
+		    cell.appendChild(element);
+		    slNo++;
+		}
+			/*function deleteRow(id, el) {
+				var decision = confirm("Row will be deleted. Do You Want to continue? ","");{
+				if (decision==true){
+					while (el.parentNode && el.tagName.toLowerCase() != 'tr') {
+						el = el.parentNode;
+					}
+					if (el.parentNode && el.parentNode.rows.length > 1) {
+						el.parentNode.removeChild(el);
+					}
+				} else {
+					document.getElementById(id).checked=false;
+				}	   
+			}
+		}*/
+			function deleteRow(id, el) {
+				var listSize='<s:property value="#uploadDocListSizeVar"/>';
+				var table = document.getElementById('QuoteDocTable');
+					var rowCount = table.rows.length;
+				
+					var decision = confirm("Row will be deleted. Do You Want to continue? ","");{
+						if (decision==true){
+							while (el.parentNode && el.tagName.toLowerCase() != 'tr') {
+								el = el.parentNode;
+							}
+							if (el.parentNode && el.parentNode.rows.length > 1) {
+								el.parentNode.removeChild(el);
+							}
+							var renum = '1';
+							if(listSize=='0'){
+								renum = 1;
+							}
+							else{
+								renum = parseInt(listSize)+1;
+							}
+							$("tr td strong").each(function() {
+							    $(this).text(renum);
+							    renum++;
+							});
+							
+						} else {
+							document.getElementById(id).checked=false;
+						}
+					}
+				}
+		
+		
+	</script>
+	</body>
+</html>

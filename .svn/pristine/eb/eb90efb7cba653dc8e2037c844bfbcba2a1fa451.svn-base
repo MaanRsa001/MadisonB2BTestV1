@@ -1,0 +1,344 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="ISO-8859-1">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/dataTables/css/dataTables.responsive.css">
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/dataTables/css/dataTables.jqueryui.css">
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/dataTables/css/dataTables.tableTools.css">
+	<script type="text/javascript" src="${pageContext.request.contextPath}/dataTables/js/dataTables.responsive.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/dataTables/js/dataTables.tableTools.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+ 		  $('#tadaTable').DataTable({
+	    	  "responsive": true,
+	        "columnDefs": {
+	          "orderable": false
+	        },
+	        language: {
+	          //customize pagination prev and next buttons: use arrows instead of words
+	          'paginate': {
+	            'previous': '<span><i class="fas fa-chevron-circle-left"></i></span>',
+	            'next': '<span><i class="fas fa-chevron-circle-right"></i></span>'
+	          },
+	          //customize number of elements to be displayed
+	          "lengthMenu": '<select class="form-control input-sm">' +
+	            '<option value="10">10</option>' +
+	            '<option value="20">20</option>' +
+	            '<option value="30">30</option>' +
+	            '<option value="40">40</option>' +
+	            '<option value="50">50</option>' +
+	            '<option value="-1">All</option>' +
+	            '</select>'
+	        }
+	      })
+	    });
+	    
+    </script>
+	<style type="text/css">
+		.input-group-text {
+		    background-color: white;
+		    color: #e2a53a;
+		}
+		
+		#loading {
+		  width: 100%;
+		  height: 100%;
+		  top: 0px;
+		  left: 0px;
+		  position: fixed;
+		  display: block;
+		  opacity: 0.7;
+		  background-color: black;
+		  z-index: 99;
+		  opacity:0.5;
+		  text-align: center;
+		}
+		
+		#loading-image {
+		  position: absolute;
+		  top: 30%;
+		  left: 45%;
+		  z-index: 100;
+		  width: 100px;
+		  height: 100px;
+		}
+	</style>
+
+</head>
+<body>
+
+<div class="container">
+<s:form name="custList" id="custList" theme="simple">
+<div id="loading" style="width:100%">
+   <img id="loading-image" src="${pageContext.request.contextPath}/images/madisonSymbolLogo.png"/>
+</div>
+
+<div class="container vehDtl">
+	<s:if test='issuer != null'>
+		<div class="Card_Parent ">
+			<div class="card card-5">
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						<span style="color:red;"><s:actionerror/></span>
+					</div>
+				</div>
+				<div class="VehicleTableheading">
+					<div class="row">
+						<div class="col-md-6" align="justify">
+							  <h3>Broker Information</h3>
+						</div>
+					</div><hr>
+				</div>
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+		  				<div class="row">
+		  					<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+		  						<label class="labelHeader"><s:text name="customer.broker.name"  /><font color="red">*</font></label>
+		  						<div class="tbox">
+		  							<s:select name="brokerCode" id="brokerCode" list="brokerList" headerKey="" headerValue="---Select---" listKey="CODE" listValue="CODEDESC" cssClass="form-control "  onchange="getExecutive('?brokerCode='+this.value,'executiveList');getCustList();" />
+		                 			<s:hidden name="brokerName" />
+		  						</div>
+		  					</div>
+		  					<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+		  						<label class="labelHeader"><s:text name="customer.executive.bdm"  /><font color="red">*</font></label>
+		  						<div class="tbox">
+		  							<div id="executiveList"><s:select name="executive" list="executiveList" headerKey="" headerValue="---Select---" listKey="CODE" listValue="CODEDESC" cssClass="form-control "  disabled="#disable" value='executive==null?getText("customer.executiveDefault"):executive' onchange="getCustList();"/></div>
+		  						</div>
+		  					</div>
+		  					<!-- <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 mt-4 offset-1">
+		  						<button type="button" onclick="getCustList();" class="btn btn-sm btn-primary" value="New Customer">Submit</button>
+		  					</div> -->
+		  				</div>  				
+					</div>
+				</div><br>
+			</div>
+		</div><br>
+	</s:if>
+	<s:if test='((issuer == null && (mode==null || mode=="")) || (issuer != null && mode=="custList"))'>
+	<div class="Card_Parent ">
+        <div class="card card-5">
+			<div class="VehicleTableheading">
+				<div class="row">
+					<div class="col-md-6" align="justify">
+						  <h3>CUSTOMER LIST</h3>
+					</div>
+					<div class="col-md-6" align="right">
+						<input type="button" onclick="existPage('<s:property value="%{#session.product_id}"/>');" class="btn btn-sm btn-primary" value="New Customer">
+					</div>
+				</div><hr>
+			</div>
+			  <ul class="nav nav-pills" role="tablist">
+			    <li class="nav-item">
+			      <!-- <a class="nav-link active" data-toggle="pill" href="#home">Individual</a> -->
+			      <a class='nav-link ${display=="individual"?"active":""}' data-toggle="pill" href="#" onClick="submitCust('individual')">Individual</a>
+			    </li>
+			    <li class="nav-item">
+			      <!-- <a class="nav-link" data-toggle="pill" href="#menu1">Corporate</a> -->
+			      <a class='nav-link ${display=="corporate"?"active":""}' data-toggle="pill" href="#" onClick="submitCust('corporate')">Corporate</a>
+			    </li>
+			  </ul>
+			
+			  <!-- Tab panes -->
+			  <div class="tab-content">
+			    <!-- <div id="home" class="container tab-pane active"><br> -->
+			    <div id="home" class="container tab-pane active"><br>
+			    <s:if test='display == "individual"'>
+			      <h3>Customer Individual List</h3><hr>
+		       </s:if>
+		       <s:elseif test='display == "corporate"'>
+			      <h3>Customer Corporate List</h3><hr>
+		       </s:elseif>
+			      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+			      <table class="table table-bordered table-hover" cellspacing="0" width="100%" id="tadaTable">
+					<thead class="bluecolortable" >
+						<tr>
+							<th><s:text name="S No." /></th>
+							<th><s:text name="Policy Holder Name" /></th>
+							<th><s:text name="Email Id" /></th>
+							<th><s:text name="Contact No." /></th>
+							<th><s:text name="Select" /></th>
+							<th><s:text name="Edit" /></th>
+							<th><s:text name="NRC." /></th>
+							<th><s:text name="Passport No" /></th>
+							<th><s:text name="Company Reg No" /></th>
+							<th><s:text name="Address" /></th>
+						</tr>
+					</thead>
+			      <tbody class="rowevencolor">
+			    	<s:iterator value="customerList" var="view" status="status">
+				        <tr>
+				        	<td align="center"><s:property value="#status.count" /></td>
+							<td align="center"><s:property value="#view.FIRST_NAME" /> &nbsp;<s:property value="#view.LAST_NAME" /></td>
+							<td align="center"><s:property value="#view.EMAIL" /> </td>
+							<td align="center"><s:property value="#view.MOBILE" /></td>
+							<td align="center">
+					            <div class="action_icons">
+					               <a href="#" onclick="fnSubmit('<s:property value="#view.CUSTOMER_ID" />','<s:property value="%{#session.product_id}"/>')"><i class="fas fa-user-edit"></i></a>
+					            </div>
+							</td>
+							<td align="center">
+					            <div class="action_icons">
+					               <a href="#" data-refresh="true" data-keyboard="false" data-toggle="modal" data-target="#custModal" onclick="fnEdit('<s:property value="#view.CUSTOMER_ID" />','custEditAjax')"><i class="fas fa-pencil-alt"></i></a>
+					            </div>
+							</td>
+							<td align="center"><s:property value="#view.NRC" /></td>
+							<td align="center"><s:property value="#view.PASSPORT_NUMBER" /></td>
+							<td align="center"><s:property value="#view.COMPANY_REG_NO" /></td>
+							<td align="center"><s:property value="#view.ADDRESS" /></td>
+				        </tr>
+			        </s:iterator>
+				</tbody>
+			   </table>
+			      </div>
+			    </div>
+			   
+			    <%-- <s:if test='display == "corporate"'>
+			    <!-- <div id="menu1" class="container tab-pane fade"><br> -->
+			    <div id="menu1" class="container tab-pane active"><br>
+			      <h3>Customer Corporate List</h3><hr>
+			      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+			     <table class="table table-bordered table-hover" cellspacing="0" width="100%" id="tadaTable2">
+					<thead class="bluecolortable" >
+						<tr>
+							<th><s:text name="S No." /></th>
+							<th><s:text name="Policy Holder Name" /></th>
+							<th><s:text name="Email Id" /></th>
+							<th><s:text name="Contact No." /></th>
+							<th><s:text name="Select" /></th>
+							<th><s:text name="Edit" /></th>
+							<th><s:text name="NRC." /></th>
+							<th><s:text name="Passport No" /></th>
+							<th><s:text name="Company Reg No" /></th>
+							<th><s:text name="Address" /></th>
+						</tr>
+					</thead>
+					
+			      <tbody class="rowevencolor">
+			    	<s:iterator value="customerCorporateList" var="view" status="status">
+				        <tr>
+				        	<td align="center"><s:property value="#status.count" /></td>
+							<td align="center"><s:property value="#view.FIRST_NAME" /></td>
+							<td align="center"><s:property value="#view.EMAIL"/> </td>
+							<td align="center"><s:property value="#view.MOBILE" /></td>
+							<td align="center">
+					            <div class="action_icons">
+					              <a href="#" onclick="fnSubmit('<s:property value="#view.CUSTOMER_ID" />','<s:property value="%{#session.product_id}"/>')"><i class="fas fa-user-edit"></i></a>
+					            </div>
+							</td>
+							<td align="center">
+					            <div class="action_icons">
+					               <a href="#" data-refresh="true" data-keyboard="false" data-toggle="modal" data-target="#custModal" onclick="fnEdit('<s:property value="#view.CUSTOMER_ID" />','custEditAjax')"><i class="fas fa-pencil-alt"></i></a>
+					            </div>
+							</td>
+							<td align="center"><s:property value="#view.NRC" /></td>
+							<td align="center"><s:property value="#view.PASSPORT_NUMBER" /></td>
+							<td align="center"><s:property value="#view.COMPANY_REG_NO" /></td>
+							<td align="center"><s:property value="#view.ADDRESS" /></td>
+				        </tr>
+			        </s:iterator>
+				</tbody>
+			   </table></div>
+			    </div>
+			    </s:if> --%>
+			  </div>
+		  </div>
+	  </div>
+	  <%-- <s:hidden name="brokerCode"/>
+  		<s:hidden name="executive"/> --%>
+	  </s:if>
+	  
+	  <div class="container modal_VehicleDetails">
+		    <div class="modal fade" id="custModal">
+		      <div class="modal-dialog  modal-lg">
+		        <div class="modal-content">
+		        	<div class="modal-header">
+				      	<h5 class="modal-title">Customer Details</h5>
+				      	<i class="far fa-times-circle mt-2" data-dismiss="modal"></i>
+				    </div>
+				    <div class="modal-body">
+		          		<div id="custEditAjax"></div>
+		          	</div>
+		        </div>
+		      </div>
+		    </div>
+		</div>
+	  
+  </div>
+ 
+  <s:hidden name="mode"/>
+  <s:hidden name="customerId"/>
+  <s:hidden name="display"/>
+  </s:form>
+</div>
+</body>
+<script type="text/javascript">
+
+function fnEdit(custId,id){
+	var val = '?customerId='+custId;
+    postRequest('${pageContext.request.contextPath}/editCustInfoCustomer.action'+val, id);
+}
+function toggleCompanyRegistration(val) {
+	if(val=="CORPORATE") {
+		document.getElementById('companyRegNo').disabled = false;
+	}
+	else {
+		document.getElementById('companyRegNo').value = "";
+		document.getElementById('companyRegNo').disabled = true;
+	}
+}
+function fnUpdCustomer(custId) {
+	//var val = '?customerId='+custId;
+	document.custList.mode.value='custUpd';
+	document.custList.customerId.value=custId;
+	postFormRequest('${pageContext.request.contextPath}/updateCustDetailAjaxCustomer.action', 'custEditAjax','custList');
+	return false;
+}
+
+function fnSubmit(custId,prodId){
+	  document.custList.customerId.value=custId;
+	  //document.custList.customerName.value=firstName;
+	  //document.custList.custLastName.value=lastName;
+	  //document.custList.email.value=email;
+	  //document.custList.mobileNo.value=mobile;
+	  //document.custList.title.value=title;
+	  //document.custList.customerType.value=custType;
+	  if(prodId=='65'){
+		  document.custList.mode.value='edit';
+		  document.custList.action = "${pageContext.request.contextPath}/vehicleDtlMotor.action";
+	  }else if(prodId=='30'){
+		  document.custList.action = "${pageContext.request.contextPath}/packageSelectionHome.action";
+	  }
+	  
+	  document.custList.submit();
+}
+
+function existPage(prodId){
+	document.custList.mode.value='add';
+	if(prodId=='65'){
+		  document.custList.action = "${pageContext.request.contextPath}/editQuoteNewMotor.action";
+	  }else if(prodId=='30'){
+		  document.custList.action = "${pageContext.request.contextPath}/packageSelectionHome.action";
+	  }
+	document.custList.submit();
+}
+function getExecutive(val, id) {
+	postRequest('${pageContext.request.contextPath}/'+id+'Customer.action'+val, id);
+}
+function getCustList(){
+	document.custList.action = "${pageContext.request.contextPath}/issuerCustListCustomer.action";
+	document.custList.submit();
+}
+function submitCust(display){
+	document.custList.display.value=display;
+	<s:if test='issuer!=null && !"".equalsIgnoreCase(issuer)'>
+		document.custList.action = "${pageContext.request.contextPath}/issuerCustListCustomer.action";
+	</s:if>
+	<s:else>
+		document.custList.action = "${pageContext.request.contextPath}/editQuoteCustDataCustomer.action";
+	</s:else>
+	document.custList.submit();
+}
+</script>
+</html>

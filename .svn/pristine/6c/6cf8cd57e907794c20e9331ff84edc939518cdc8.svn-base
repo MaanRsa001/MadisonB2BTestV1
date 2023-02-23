@@ -1,0 +1,1630 @@
+@import url("../css/Font.css");
+
+/* table.dataTable thead .sorting {
+  background-image: url("../assets/Images/chevron-down-solid.svg");
+  background-position:right;
+  background-repeat: no-repeat;
+  background-size: 10px;
+} */
+
+.label-warning {\n  .label-variant(@label-warning-bg);\n}
+                                    
+.label-warning {
+  background-color: #f0ad4e;
+}
+.label-warning[href]:hover,
+.label-warning[href]:focus {
+  background-color: #ec971f;
+}
+
+.label-success {
+  background-color: #5cb85c;
+}
+.label-success[href]:hover,
+.label-success[href]:focus {
+  background-color: #449d44;
+}
+
+ .labelHeader {
+ 	font-weight:bold;
+ 	font-family: 'NunitoSans-Bold', sans-serif;
+ 	font-size:15px;
+ }
+/*1st and 2nd page*/
+
+ .vehInfo .card {
+            padding: 12px 20px 14px 130px;
+            border: 0px !important
+        }
+        
+        .vehInfo .Card_Parent, .vehDtl .Card_Parent {
+            border-radius: 4px;
+            background: #fff;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, .08), 0 0 6px rgba(0, 0, 0, .05);
+            transition: .3s transform cubic-bezier(.155, 1.105, .295, 1.12), .3s box-shadow, .3s -webkit-transform cubic-bezier(.155, 1.105, .295, 1.12);
+        }
+        
+        .vehInfo .card-5 {
+            background-image: url("../assets/Images/delivery.png");
+            background-repeat: no-repeat;
+            background-position: left;
+            background-size: 170px;
+        }
+        .vehInfo h3, .vehDtl .card h3 {
+            font-weight: 700;
+            color: #261e6a;
+        }
+        
+        .vehDtl .card {
+            padding: 10px 10px 10px 10px;
+            border: 0px !important
+        }
+        .vehInfo .LabelHeading{
+        	font-weight: bolder;
+        }
+        /*.vehInfo .LabelHeading, .labelValues{
+        	font-size: 13px;
+        }*/
+        @media only screen and (max-width: 994px) {
+            .vehInfo .card-5 {
+                background-image: url("../assets/Images/delivery.png");
+                background-repeat: no-repeat;
+                background-position: top;
+                background-size: 130px;
+
+            }
+            .vehInfo .card {
+                padding: 120px 20px 14px 12px;
+                border: 0px !important
+            }
+
+        }
+        
+   .PolicyInformationPage .card {
+      padding: 12px 10px 10px 150px;
+      border: 0px !important
+    }
+
+    .PolicyInformationPage .Card_Parent {
+      border-radius: 4px;
+      background: #fff;
+      box-shadow: 0 6px 10px rgba(0, 0, 0, .08), 0 0 6px rgba(0, 0, 0, .05);
+      transition: .3s transform cubic-bezier(.155, 1.105, .295, 1.12), .3s box-shadow, .3s -webkit-transform cubic-bezier(.155, 1.105, .295, 1.12);
+    }
+
+    .PolicyInformationPage .card h3 {
+      font-weight: 700;
+      color: #261e6a;
+    }
+
+    .PolicyInformationPage .card-1 {
+      background-image: url("../assets/Images/write.png");
+      background-repeat: no-repeat;
+      background-position: left;
+      background-size: 140px;
+    }
+
+    .PolicyInformationPage .card-21 {
+      background-image: url("../assets/Images/write.png");
+      background-repeat: no-repeat;
+      background-position: left;
+      background-size: 140px;
+    }
+    .PolicyInformationPage hr{
+      margin: 10px 0px;
+    }
+    .PolicyInformationPage .btn-outline-primary{
+      border-radius: 0px;
+      font-weight: bolder;
+    }
+
+/* 1st and 2nd page*/
+
+ /* 3rd page*/
+ .tabBorder li{
+ 	border: 1px solid #e9ecef;
+ 	 box-shadow: 0 1px 1px rgba(0,0,0,0.11), 
+              0 2px 2px rgba(0,0,0,0.11), 
+              0 4px 4px rgba(0,0,0,0.11), 
+              0 6px 8px rgba(0,0,0,0.11),
+              0 8px 16px rgba(0,0,0,0.11);
+
+ }
+.PolicyPage .card {
+            padding: 12px 20px 14px 130px;
+            border: 0px !important
+        }
+
+        .PolicyPage .Card_Parent {
+            border-radius: 4px;
+            background: #fff;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, .08), 0 0 6px rgba(0, 0, 0, .05);
+            transition: .3s transform cubic-bezier(.155, 1.105, .295, 1.12), .3s box-shadow, .3s -webkit-transform cubic-bezier(.155, 1.105, .295, 1.12);
+        }
+
+        .PolicyPage .Card_Parent:hover {
+            /*transform: scale(1.02);*/
+            /*box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06);*/
+        }
+
+        .PolicyPage .card h3 {
+            font-weight: 700;
+            color: #261e6a;
+        }
+
+        .PolicyPage .card-1 {
+            background-image: url("../assets/Images/email.png");
+            background-repeat: no-repeat;
+            background-position: left;
+            background-size: 170px;
+        }
+
+        .PolicyPage .card-2 {
+            background-image: url("../assets/Images/target.png");
+            background-repeat: no-repeat;
+            background-position: left;
+            background-size: 170px;
+        }
+
+        .PolicyPage .card-3 {
+            background-image: url("../assets/Images/settings.png");
+            background-repeat: no-repeat;
+            background-position: left;
+            background-size: 170px;
+        }
+
+        .PolicyPage .card-4 {
+            background-image: url("../assets/Images/credit-card2.png");
+            background-repeat: no-repeat;
+            background-position: left;
+            background-size: 170px;
+        }
+
+        .PolicyPage .card-5 {
+            background-image: url("../assets/Images/delivery.png");
+            background-repeat: no-repeat;
+            background-position: left;
+            background-size: 170px;
+        }
+
+        .PolicyPage .input-group-text {
+            background-color: white;
+            color: #e2a53a;
+        }
+
+        .PolicyPage .form-control,
+        .input-group-text {
+            border-radius: 0px;
+            height: 40px;
+            font-size: 15px;
+            /*font-weight: bolder;*/
+
+        }
+
+        .PolicyPage .form-control:focus {
+            outline: none !important;
+            border: 1px solid #dee2e6;
+            box-shadow: 0 0 10px white;
+        }
+
+        .PolicyPage .RadioButtonHeading,
+        .PolicyPage .RadioButtonValues {
+            font-size: 12px;
+        }
+
+        .PolicyPage .heightLow {
+            height: 20px !important;
+        }
+
+        .PolicyPage .QuotationDetails li {
+            padding: 3px;
+            font-size: 15px;
+            border: none;
+            background-color: white;
+
+        }
+
+        .PolicyPage .QuotationDetails .LabelHeading {
+            font-weight: bolder;
+        }
+
+        .PolicyPage .QuotationDetails .labelValues {
+            text-align: center;
+        }
+
+        .PolicyPage .QuotationDetails .list-group-item-primary {
+            background-color: white;
+            font-weight: bolder;
+            font-size: 15px !important;
+
+        }
+
+        .PolicyPage .VechicleQuotationDetails .nav-pills .nav-link.active,
+        .PolicyPage .VechicleQuotationDetails .nav-pills .show>.nav-link {
+            color: #fff;
+            background-color: #261e6a;
+            border-radius: 0px;
+            text-align: center;
+            display: block;
+        }
+
+        .PolicyPage .VechicleQuotationDetails .nav-pills .nav-link {
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+            border-radius: 0px;
+
+        }
+
+        .PolicyPage .document_button .btn {
+            border-radius: 0px;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+
+        }
+
+        .PolicyPage .ModeOfPayment label{
+            font-size: 15px;
+
+        }
+        .PolicyPage .ModeOfPayment .LabelHeading {
+            font-weight: bolder;
+        }
+
+        .PolicyPage .ModeOfPayment .LabelHeading {
+            font-weight: bolder;
+        }
+
+        .PolicyPage .customerType ul li {
+            /* font-size: 12px; */
+            border: 1px solid #dee2e6 !important;
+            margin-left: 10px;
+        }
+
+        .PolicyPage .customerType ul li:first-child {
+            border: 0px !important;
+            font-weight: bolder;
+            text-align: left;
+        }
+
+        .PolicyPage .premiumBorder {
+            border: 2px solid white;
+            padding: 10px;
+            border-radius: 4px;
+            background-color: white;
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25),
+                0 2px 2px rgba(0, 0, 0, 0.20),
+                0 4px 4px rgba(0, 0, 0, 0.15),
+                0 8px 8px rgba(0, 0, 0, 0.10),
+                0 16px 16px rgba(0, 0, 0, 0.05);
+        }
+
+        .PolicyPage .premiumBorder .fa-rupee-sign {
+            padding: 2px;
+        }
+
+        .PolicyPage hr {
+            margin: 5px 0px;
+            font-weight: bolder;
+            color: white !important;
+        }
+        .PolicyPage .GeneratePolicy p{
+            font-size: 15px;
+        }
+        .PolicyPage .PolicyInformation label{
+            font-size: 15px;
+        }
+        .PolicyPage .PolicyInformation .LabelHeading{
+            font-weight: bolder;
+        }
+
+
+        @media only screen and (max-width: 994px) {
+            .PolicyPage .card-1 {
+                background-image: url("../assets/Images/email.png");
+                background-repeat: no-repeat;
+                background-position: top;
+                background-size: 130px;
+
+            }
+            .PolicyPage .card-3 {
+                background-image: url("../assets/Images/settings.png");
+                background-repeat: no-repeat;
+                background-position: top;
+                background-size: 130px;
+
+            }
+            .PolicyPage .card-4 {
+                background-image: url("../assets/Images/credit-card2.png");
+                background-repeat: no-repeat;
+                background-position: top;
+                background-size: 130px;
+
+            }
+
+            .PolicyPage .card-5 {
+                background-image: url("../assets/Images/delivery.png");
+                background-repeat: no-repeat;
+                background-position: top;
+                background-size: 130px;
+
+            }
+
+            .PolicyPage .card {
+                padding: 20px 20px 14px 12px;
+                border: 0px !important
+            }
+
+
+        }
+        
+        .addvechi .nav-tabs .nav-item.show .nav-link, .addvechi .nav-tabs .nav-link.active {
+		   	color: black;
+	  		background-color: #e9ecef;
+		    border-color: #dee2e6 #dee2e6 #fff;
+		}
+		
+		.nav-tabs .nav-link {
+		    border: 2px solid transparent;
+		    border-top-left-radius: .25rem;
+		    border-top-right-radius: .25rem;
+		}
+
+         .mytap .nav-tabs .nav-link{
+           border-color:  #dee2e6 white #dee2e6 #dee2e6;
+            background-color: #261e6a ;
+              box-shadow: 0 1px 1px rgba(0,0,0,0.15), 
+              0 2px 2px rgba(0,0,0,0.15), 
+              0 4px 4px rgba(0,0,0,0.15), 
+              0 8px 8px rgba(0,0,0,0.15);
+              color:white;
+            
+         }
+         .mytap .nav-tabs .nav-item.show .nav-link, .mytap .nav-tabs .nav-link.active {
+		    color: black;
+		    background-color: white;
+		    border-color:  #dee2e6 white #dee2e6 #dee2e6;
+		}
+		.mytap .tab-content{
+		  border:1px solid #dee2e6;
+		}
+        
+        /* 3rd page*/
+        
+        
+        
+.dropdownmenus{
+	/* background-color: red !important;*/
+}
+.dropdown:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown .dropdown-menu ul{
+list-style-type:none;
+padding:2px;
+padding-top: 0px;
+}
+.dropdown .dropdown-menu ul li{
+margin-top:2px;
+padding:4px !important;
+ background-color: #261e6a !important;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.11), 
+              0 2px 2px rgba(0,0,0,0.11), 
+              0 4px 4px rgba(0,0,0,0.11), 
+              0 6px 8px rgba(0,0,0,0.11),
+              0 8px 16px rgba(0,0,0,0.11);
+
+}
+.dropdown .dropdown-menu ul li a{
+color:white !important;
+font-family: 'NunitoSans-Black', sans-serif;
+text-decoration:none;
+}
+
+.dropdown .dropdown-menu{
+min-width:200px;
+max-width:100%;
+}
+
+.numbersEmail span{
+	font-family: 'NunitoSans-Black', sans-serif;
+}
+
+@media only screen and (max-width: 600px) {
+  .mobileResolutionTop{
+    margin-top: 10px;
+  }
+	.jumbotronpadd{
+		padding:30px;
+		margin-left:5px;
+	}
+	.numbersEmail{
+		/* text-align:center; */
+	}	
+			 			 
+}
+
+
+
+.dataTables_wrapper .ui-toolbar {
+  background-color: white !important;
+  margin-top: 10px;
+}
+.leftsidecontents span{
+  font-family: 'NunitoSans-Black', sans-serif;
+  font-size: 15px;
+}
+.leftsidecontents ul li:not(:last-child){
+  padding: 0px !important;
+  border: 0px;
+}
+
+/*.leftsidecontents .list-group-item:first-child {
+  color: white !important;
+  padding: 0.4rem 0.25rem !important;
+  background-color: #261e6a;
+  border-radius: 3px !important;
+  text-shadow: 0 1px 0 #ccc,
+  0 2px 0 #c9c9c9,
+  0 3px 0 #bbb,
+  0 4px 0 #b9b9b9,
+  0 5px 0 #aaa,
+  0 6px 1px rgba(0,0,0,.1),
+  0 0 5px rgba(0,0,0,.1),
+  0 1px 3px rgba(0,0,0,.3),
+  0 3px 5px rgba(0,0,0,.2),
+  0 5px 10px rgba(0,0,0,.25),
+  0 10px 10px rgba(0,0,0,.2),
+  0 20px 20px rgba(0,0,0,.15);
+}*/
+
+.mgen-logo{
+  width: 200px;
+}
+
+.heading-brand h3{
+font-family: 'NunitoSans-Black', sans-serif;
+padding: 0 !important;
+margin: 0;
+}
+.navbarContainer i{
+  color: #030399;
+}
+
+.insurancename{
+  padding: 0.4rem 0.25rem;
+  /*background-color: #261e6a;*/
+  border-radius: 3px !important;
+  border : none;
+}
+
+.insurancename h3{
+  margin: 0 !important;
+  /*font-family: 'NunitoSans-Black1', sans-serif;*/
+  color: #261e6a;
+  font-weight:700;
+ /* text-shadow: 0 1px 0 #ccc,
+               0 2px 0 #c9c9c9,
+               0 3px 0 #bbb,
+               0 4px 0 #b9b9b9,
+               0 5px 0 #aaa,
+               0 6px 1px rgba(0,0,0,.1),
+               0 0 5px rgba(0,0,0,.1),
+               0 1px 3px rgba(0,0,0,.3),
+               0 3px 5px rgba(0,0,0,.2),
+               0 5px 10px rgba(0,0,0,.25),
+               0 10px 10px rgba(0,0,0,.2),
+               0 20px 20px rgba(0,0,0,.15);*/
+}
+.navbar-light{
+  padding: .2rem .4rem;
+  background-color: #261e6a !important;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.11), 
+              0 2px 2px rgba(0,0,0,0.11), 
+              0 4px 4px rgba(0,0,0,0.11), 
+              0 6px 8px rgba(0,0,0,0.11),
+              0 8px 16px rgba(0,0,0,0.11);
+}
+.menubarContainer .nav-item .nav-link{
+  color: white !important;
+  /*font-family: 'NunitoSans-Black', sans-serif;*/
+  margin-right: 10px;
+}
+.menubarContainer .navbar-brand{
+  color: #e2a53a !important;
+  font-family: 'NunitoSans-Black', sans-serif;
+  font-weight: bolder;
+
+}
+.navbar-toggler-icon, .navbar-toggler{
+  color: white !important;
+  background-color: white !important;
+
+}
+.sticky {
+  position: -webkit-sticky;
+  position: -moz-sticky;
+  position: -ms-sticky;
+  position: -o-sticky;
+  top: 15px;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+  color: #fff;
+  background-color: #030399;
+}
+/*.card-body .nav-item .nav-link{
+  font-family: "Changa";
+}*/
+.dasboardContainer .card-header{
+  font-family: 'NunitoSans-Black', sans-serif;
+  background-color: #030399;
+  color: #fff !important;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.11), 
+  0 2px 2px rgba(0,0,0,0.11), 
+  0 4px 4px rgba(0,0,0,0.11), 
+  0 6px 8px rgba(0,0,0,0.11),
+  0 8px 16px rgba(0,0,0,0.11);
+}
+			
+.bordernone{
+  border:0 !important;
+  text-decoration: none !important;
+}					  
+	
+.bordernone.btn, .modal-footer .btn{
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.11), 
+  0 2px 2px rgba(0,0,0,0.11), 
+  0 4px 4px rgba(0,0,0,0.11), 
+  0 6px 8px rgba(0,0,0,0.11),
+  0 8px 16px rgba(0,0,0,0.11);
+}
+							 
+.FormsContainer .card-header{
+  background-color: #e2a53a;
+  font-family: 'NunitoSans-Black', sans-serif;
+}							
+	
+.FormsContainer .menu1 .table th{
+ font-family: 'NunitoSans-Black', sans-serif;
+}
+
+.FormsContainer .menu1 .table td{
+ font-family: 'NunitoSans-Black', sans-serif;
+}
+.form-control{
+  border-radius: 0 !important;
+}
+.card-body .nav-pills .nav-item .nav-link{
+  border-radius: 0 !important;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.11), 
+              0 2px 2px rgba(0,0,0,0.11), 
+              0 4px 4px rgba(0,0,0,0.11), 
+              0 6px 8px rgba(0,0,0,0.11),
+              0 8px 16px rgba(0,0,0,0.11);
+
+}
+
+
+.modal{
+  font-family: 'NunitoSans-Black', sans-serif;
+
+}
+.modal-header h5{
+  font-family: 'NunitoSans-Bold', sans-serif;
+  font-weight: bolder;
+
+}
+.modal-header{
+  background-color: #030399;
+  padding: .55rem;
+  color: white;
+  box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+}
+.fa-times-circle{
+  cursor: pointer;
+}
+.action_icons{
+  white-space: nowrap;
+  overflow: hidden;
+}
+.action_icons a{
+  text-align: center;
+	float: left;
+	width: 36px;
+	height: 36px;
+	border-radius: 100%;
+	margin-right: 7px; /*space between*/
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+.action_icons a i{
+	font-size: 15px;
+  line-height: 38px;
+	color: #030399;
+}
+.seaterbox{
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  background-color: #030399;
+  color:  white;
+  font-weight: bolder;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+
+}
+.vehiclebox{
+  padding: 5px;
+}
+.vehiclebox ul li{
+  color: #030399;
+  padding: 10px;
+  /* border: 0px; */
+  border-radius: 0px;
+  margin-top: 1px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  
+}
+.list-group-item:first-child {
+  border-top-left-radius:0px;
+  border-top-right-radius:0px;
+}
+.list-group-item:last-child {
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+.loginpagebutton ul li{
+	padding:0px !important;
+	border:0px ;
+}					   
+
+.table-responsive thead{
+  background-color: #e2a53a;
+  color: white;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.15), 
+  0 2px 2px rgba(0,0,0,0.15), 
+  0 4px 4px rgba(0,0,0,0.15), 
+  0 8px 8px rgba(0,0,0,0.15);
+}
+.fa-sort{
+  font-size: 10px;
+}
+.Vehiclechoosed table thead{
+  background-color: #e2a53a;
+  color: white;
+
+}
+
+.LoginContainer .jumbotron{
+  /* background-color: white !important; */
+  min-height: 300px;
+  max-height:100%;
+				  
+  background-color:rgba(255,255,255,0.5);
+  padding: 1rem !important;
+  margin: 0 !important;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.LoginContainer .jumbotronService{
+  /* background-color: white !important; */
+  min-height: 100px;
+  max-height:100%;
+				  
+  background-color:rgba(255,255,255,0.5);
+  padding: 1rem !important;
+  margin: 0 !important;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.LoginContainer .jumbotron h4{
+  font-family: 'NunitoSans-Bold', sans-serif;
+  font-weight:900;
+  color: #261e6a;
+}
+.LoginContainer .input-group-text{
+  background-color: white !important;
+  color: #e2a53a;
+  
+}
+.LoginContainer .jumbotron .btn{
+  border-radius: 0px !important;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+
+}
+.LoginContainer .mgencontents{
+  font-family: 'NunitoSans-Black', sans-serif;
+}
+.imgcontent{
+  background-image: url("../assets/Images/istockphoto-836284400-612x612.jpg");
+  padding: 90px;
+  background-size: cover;
+  background-position: center center;
+}
+.LoginContainer .form-control:focus {
+  outline: none !important;
+  border:1px solid white;
+  box-shadow: 0 0 10px white;
+}
+.form-control, .input-group-text{
+  border-radius: 0 !important;
+  height: 40px;
+}
+.form-control:focus{
+  outline: none !important;
+  border:1px solid #dee2e6;
+  box-shadow: 0 0 10px white;
+}
+
+.oops a{
+  color: #261e6a;
+  font-family: 'NunitoSans-ExtraBold', sans-serif;
+  font-weight:bolder;
+
+}
+.dasboardContainer{
+  /* background-color: powderblue; */
+  padding: 15px;
+}
+.dasboardContainer .card{
+  /* background-color:powderblue; */
+  border: none;
+}
+.dasboardContainer .card-body{
+  background-color: white;
+  border-radius: 30px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+/*hr{
+  margin: 0 !important;
+}*/
+/*.btn-default{
+  background-color: #261e6a;
+  color: white;
+  height: 50px;
+}*/
+.Mobileapps span, .roadtax .fa-road{
+  font-size: 40px;
+  color: #e2a53a;
+}
+.dasboardContainer .card-body {
+  padding: 0.25rem;
+}
+.PolicyInformation .card-header{
+  background-color: #e2a53a;
+  padding: 0px;
+}
+.PolicyInformation .card-footer {
+  padding: 3px;
+}
+.PolicyInformation h5{
+  font-family: 'NunitoSans-Black', sans-serif;
+  color: #261e6a;
+}
+.PolicyInformation .input-group-text{
+  background-color: white !important;
+  color: #e2a53a;
+  
+}
+.PolicyInformation .card-body{
+  font-family: 'NunitoSans-Black', sans-serif;
+}
+/*.PolicyInformation .card{
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}*/
+.PolicyInformation .card-footer, .card-header{
+  background-color: white ;
+}
+.PolicyInformation .card, .card-header, .card-footer{
+  border: 0 !important;
+}
+.VehicleTableheading{
+  border-radius: 5px;
+  padding: 7px;
+  /*background-color: #e2a53a;*/
+}
+.VehicleTableheading h5{
+  margin: 0 !important;
+  padding: 5px;
+  font-family: 'NunitoSans-Black', sans-serif;
+  color: #261e6a;
+  font-weight: bolder;
+}
+.VehicleTableheading .bordernone{
+  background-color: #261e6a;
+  border:0 !important;
+  text-decoration: none !important;
+}
+.dataTables_length {
+  float: left;
+}
+.tadaTable_filter {
+  float: left;
+  margin-left: 62%;
+}
+div.dataTables_wrapper div.dataTables_filter input{
+  border-radius: 30px;
+  border: 1px solid #ced4da;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+#tadaTable_filter label input{
+  outline: none !important;
+}
+#tadaTable2_filter label input{
+  outline: none !important;
+}
+div.dataTables_wrapper div.dataTables_length select {
+  border-radius: 30px !important;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+ #tadaTable_paginate  .previous, .next {
+  background-color: dodgerblue !important;
+  padding: 12px !important;
+  border-radius: 20px !important;
+  margin-left: 2px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  color: black !important;
+}
+
+#tadaTable2_paginate  .previous, .next {
+  background-color: dodgerblue !important;
+  padding: 12px !important;
+  border-radius: 20px !important;
+  margin-left: 2px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  color: black !important;
+}
+
+#tadaTable_paginate .paginate_button{
+  background-color: dodgerblue !important;
+  padding: 12px !important;
+  border-radius: 20px !important;
+  margin-left: 2px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  color: black;
+
+} 
+
+#tadaTable2_paginate .paginate_button{
+  background-color: dodgerblue !important;
+  padding: 12px !important;
+  border-radius: 20px !important;
+  margin-left: 2px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  color: black;
+
+} 
+.dataTables_paginate {
+  padding-top: 9px !important
+  
+}
+
+.dataTables_info{
+  float: left !important;
+  padding-top: 8px !important;
+  color:#261e6a !important;
+  font-weight: bold;
+  font-family: 'NunitoSans-Black', sans-serif;
+
+}
+#tadaTable{
+  font-family: 'NunitoSans-Black', sans-serif;
+ 
+  border-radius: 20px !important;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.25), 
+              0 2px 2px rgba(0,0,0,0.20), 
+              0 4px 4px rgba(0,0,0,0.15), 
+              0 8px 8px rgba(0,0,0,0.10),
+              0 16px 16px rgba(0,0,0,0.05);
+  font-size: 15px;         
+}
+
+#tadaTable tr{
+  margin-top: 2px;
+
+}
+
+#tadaTable2{
+  font-family: 'NunitoSans-Black', sans-serif;
+  overflow: hidden;
+  border-radius: 20px !important;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.25), 
+              0 2px 2px rgba(0,0,0,0.20), 
+              0 4px 4px rgba(0,0,0,0.15), 
+              0 8px 8px rgba(0,0,0,0.10),
+              0 16px 16px rgba(0,0,0,0.05);
+  font-size: 15px;         
+}
+
+#tadaTable2 tr{
+  margin-top: 2px;
+
+}
+#tadaTable3{
+  font-family: 'NunitoSans-Black', sans-serif;
+  overflow: hidden;
+  border-radius: 20px !important;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.25), 
+              0 2px 2px rgba(0,0,0,0.20), 
+              0 4px 4px rgba(0,0,0,0.15), 
+              0 8px 8px rgba(0,0,0,0.10),
+              0 16px 16px rgba(0,0,0,0.05);
+  font-size: 15px;         
+}
+
+#tadaTable3 tr{
+  margin-top: 2px;
+
+}
+#tadaTable3_paginate  .previous, .next {
+  background-color: dodgerblue !important;
+  padding: 12px !important;
+  border-radius: 20px !important;
+  margin-left: 2px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  color: black !important;
+}
+
+#tadaTable3_paginate .paginate_button{
+  background-color: dodgerblue !important;
+  padding: 12px !important;
+  border-radius: 20px !important;
+  margin-left: 2px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  color: black;
+
+}
+#tadaTable4{
+  font-family: 'NunitoSans-Black', sans-serif;
+  overflow: hidden;
+  border-radius: 20px !important;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.25), 
+              0 2px 2px rgba(0,0,0,0.20), 
+              0 4px 4px rgba(0,0,0,0.15), 
+              0 8px 8px rgba(0,0,0,0.10),
+              0 16px 16px rgba(0,0,0,0.05);
+  font-size: 15px;         
+}
+
+#tadaTable4 tr{
+  margin-top: 2px;
+
+}
+#tadaTable4_paginate  .previous, .next {
+  background-color: dodgerblue !important;
+  padding: 12px !important;
+  border-radius: 20px !important;
+  margin-left: 2px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  color: black !important;
+}
+
+#tadaTable4_paginate .paginate_button{
+  background-color: dodgerblue !important;
+  padding: 12px !important;
+  border-radius: 20px !important;
+  margin-left: 2px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  color: black;
+
+}
+#tadaTable5{
+  font-family: 'NunitoSans-Black', sans-serif;
+  overflow: hidden;
+  border-radius: 20px !important;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.25), 
+              0 2px 2px rgba(0,0,0,0.20), 
+              0 4px 4px rgba(0,0,0,0.15), 
+              0 8px 8px rgba(0,0,0,0.10),
+              0 16px 16px rgba(0,0,0,0.05);
+  font-size: 15px;         
+}
+
+#tadaTable5 tr{
+  margin-top: 2px;
+
+}
+#tadaTable5_paginate  .previous, .next {
+  background-color: dodgerblue !important;
+  padding: 12px !important;
+  border-radius: 20px !important;
+  margin-left: 2px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  color: black !important;
+}
+
+#tadaTable5_paginate .paginate_button{
+  background-color: dodgerblue !important;
+  padding: 12px !important;
+  border-radius: 20px !important;
+  margin-left: 2px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  color: black;
+
+}
+#tadaTable6{
+  font-family: 'NunitoSans-Black', sans-serif;
+  overflow: hidden;
+  border-radius: 20px !important;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.25), 
+              0 2px 2px rgba(0,0,0,0.20), 
+              0 4px 4px rgba(0,0,0,0.15), 
+              0 8px 8px rgba(0,0,0,0.10),
+              0 16px 16px rgba(0,0,0,0.05);
+  font-size: 15px;         
+}
+
+#tadaTable6 tr{
+  margin-top: 2px;
+
+}
+#tadaTable6_paginate  .previous, .next {
+  background-color: dodgerblue !important;
+  padding: 12px !important;
+  border-radius: 20px !important;
+  margin-left: 2px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  color: black !important;
+}
+
+#tadaTable6_paginate .paginate_button{
+  background-color: dodgerblue !important;
+  padding: 12px !important;
+  border-radius: 20px !important;
+  margin-left: 2px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  color: black;
+
+}
+#tadaTable_wrapper{
+  margin-top: 20px;
+}
+/*.bluecolortable, .tablefoot{
+  background-color: #261e6a !important;
+  color: white;
+  font-family: 'NunitoSans-SemiBold', sans-serif;
+}*/
+/*.bluecolortable th, .tablefoot th{
+  border: none !important;
+  white-space: nowrap;
+}*/
+.bluecolortable th{
+  border: none !important;
+  white-space: nowrap;
+}
+.bluecolortable{
+  background-color: #261e6a !important;
+  color: white;
+  font-family: 'NunitoSans-SemiBold', sans-serif;
+}
+
+.bluecolortable th:first-child{
+  border-radius: 20px 0px 0px 0px  !important;
+
+}
+.bluecolortable th:last-child{
+  border-radius: 0px 20px 0px 0px  !important;
+
+}
+tbody tr:last-child td:first-child{
+  border-radius: 0px 0px 0px 20px  !important;
+
+}
+tbody tr:last-child td:last-child{
+  border-radius: 0px 0px 20px 0px  !important;
+
+}
+.rowevencolor tr:nth-child(even) {
+  background-color: powderblue !important
+}
+.wrapper {
+  margin-top: 5vh;
+}
+
+/*.table-hover > tbody > tr:hover {
+    background-color: lighten(cyan, 40%);
+    box-shadow: 0 1px 1px rgba(0,0,0,0.15), 
+    0 2px 2px rgba(0,0,0,0.15), 
+    0 4px 4px rgba(0,0,0,0.15), 
+    0 8px 8px rgba(0,0,0,0.15);
+
+}*/
+
+.table {
+  @media only screen and (min-width: 768px) {
+    table-layout: fixed;
+    max-width: 100% !important;
+  }
+}
+
+thead {
+  background: #ddd;
+}
+
+.table td:nth-child(2) {
+  overflow: hidden;
+  /* //white-space: nowrap; */
+  text-overflow: ellipsis;
+}
+
+.getQuote .btn{
+  background-color: #261e6a;
+  border:0 !important;
+  text-decoration: none !important;
+  color: white !important;
+}
+
+table.dataTable thead th.sorting:after,
+table.dataTable thead th.sorting_asc:after,
+table.dataTable thead th.sorting_desc:after {
+    position: absolute;
+    top: 12px;
+    right: 8px;
+    display: block;
+    color: #fff704 !important;
+    font-family: "Font Awesome\ 5 Free";
+}
+ 
+table.dataTable thead th.sorting:after {
+  font-weight: 900; /* regular style/weight */
+    content: "\f0dc";
+    color: #e2a53a;
+    font-size: 0.8em;
+    padding-top: 0.12em;
+}
+table.dataTable thead th.sorting_asc:after {
+  font-weight: 900; /* regular style/weight */
+    content: "\f0de";
+}
+table.dataTable thead th.sorting_desc:after {
+  font-weight: 900; /* regular style/weight */
+    content: "\f0dd";
+}
+ 
+div.dataTables_scrollBody table.dataTable thead th.sorting:after,
+div.dataTables_scrollBody table.dataTable thead th.sorting_asc:after,
+div.dataTables_scrollBody table.dataTable thead th.sorting_desc:after {
+    content: "";
+}
+ 
+/* In Bootstrap and Foundation the padding top is a little different from the DataTables stylesheet */
+table.table thead th.sorting:after,
+table.table thead th.sorting_asc:after,
+table.table thead th.sorting_desc:after {
+    top: 8px;
+}
+
+@media only screen and (max-width: 993px) {
+  
+  /* Force table to not be like tables anymore */
+  /*table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+  }*/
+  /* Hide table headers (but not display: none;, for accessibility) */
+  /*thead tr,
+  tfoot tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }*/
+  /*td {*/
+    /* Behave  like a "row" */
+    /*border: none;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding-left: 50% !important;
+  }*/
+  /*td:before {*/
+    /* Now like a table header */
+    /*position: absolute;*/
+    /* Top/left values mimic padding */
+    /*top: 6px;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+  }*/
+  
+  /*.table td:nth-child(1) {
+      background: #ccc;
+      height: 100%;
+      top: 0;
+      left: 0;
+      font-weight: bold;
+  }*/
+  /*
+	Label the data
+	*/
+  /*td:nth-of-type(1):before {
+    content: "S.No";
+  }
+  td:nth-of-type(2):before {
+    content: "Vehicle Usage";
+  }
+  td:nth-of-type(3):before {
+    content: "Make";
+  }
+  td:nth-of-type(4):before {
+    content: "Model";
+  }
+  td:nth-of-type(5):before {
+    content: "Type Of Body";
+  }
+  td:nth-of-type(6):before {
+    content: "Vehicle Value";
+  }
+  td:nth-of-type(7):before {
+    content: "Action";
+  }
+  
+  .dataTables_length {
+    display: none;
+  }*/
+  
+  /* Product Selection*/
+  
+   .dasboardContainer .card-header {
+            font-family: 'NunitoSans-Black', sans-serif;
+            background-color: #030399;
+            color: #fff !important;
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.11),
+                0 2px 2px rgba(0, 0, 0, 0.11),
+                0 4px 4px rgba(0, 0, 0, 0.11),
+                0 6px 8px rgba(0, 0, 0, 0.11),
+                0 8px 16px rgba(0, 0, 0, 0.11);
+        }
+
+        .dasboardContainer {
+
+            padding: 15px;
+        }
+
+        .dasboardContainer .text-center {
+            font-size: 12px;
+        }
+
+        .dasboardContainer .card {
+            /* background-color:powderblue; */
+            border: none;
+        }
+
+        .dasboardContainer .card-body {
+            background-color: white;
+            border-radius: 30px;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        }
+        .dasboardContainer .card-link {
+            color: #261e6a ;
+            font-weight: bold;
+            font-size: 11px;
+        }
+
+        .dasboardContainer .card-body {
+            padding: 0.25rem;
+        }
+
+        hr {
+            margin: 0 !important;
+        }
+
+        .Mobileapps span,
+        .roadtax .fa-road {
+            font-size: 40px;
+            color: #e2a53a;
+        }
+
+        .Mobileapps span,
+        .roadtax .fa-road {
+            font-size: 40px;
+            color: #e2a53a;
+        }
+
+        .dasboardContainer .card-title {
+            text-align: center;
+            color: #261e6a ;
+            font-weight: bolder;
+            font-family: 'NunitoSans-Black', sans-serif;
+        }
+
+        .productgrid ul li {
+            font-size: 10px;
+            font-weight: bold;
+            padding: 3px;
+            border: none;
+            color: black;
+            font-family: 'NunitoSans-Black', sans-serif;
+           
+
+        }
+
+        .fa-check-double {
+            padding: 2px;
+            font-size: 12px;
+            color: #e2a53a;
+        }
+
+        .productgrid {
+            padding: 5px 15px 14px 15px;
+            background-color: white;
+            border-radius: 30px;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+            /* background-image:url("./assets/Images/car-2.webp") ; */
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+        }
+
+        .Productheading {
+            margin: 5px 0;
+            font-weight: bolder;
+            color: #261e6a ;
+
+        }
+        .getGouteContainer h6{
+            font-weight: bolder;
+            font-family: 'NunitoSans-Black', sans-serif;
+        }
+        .getproductbutton .btn{
+           background-color: skyblue;
+           border-radius: 20px;
+           box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+           border: none;
+           color: #261e6a ;
+           padding: 10px;
+           font-family: 'NunitoSans-Black', sans-serif;
+
+
+        }
+        .getGouteContainer ul li{
+            background-color:white;
+            /* opacity: 0.5; */
+            color: black !important;
+        }
+        /* Product Selection*/
+        
+        
+       /* body {
+            font-family: 'Nunito', sans-serif;
+        }*/
+
+        .PolicyPage .card {
+            padding: 12px 20px 14px 130px;
+            border: 0px !important
+        }
+
+        .PolicyPage .Card_Parent {
+            border-radius: 4px;
+            background: #fff;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, .08), 0 0 6px rgba(0, 0, 0, .05);
+            transition: .3s transform cubic-bezier(.155, 1.105, .295, 1.12), .3s box-shadow, .3s -webkit-transform cubic-bezier(.155, 1.105, .295, 1.12);
+        }
+
+        .PolicyPage .Card_Parent:hover {
+            /*transform: scale(1.02);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06);*/
+        }
+
+        .PolicyPage .card h3 {
+            font-weight: 700;
+            color: #261e6a;
+        }
+
+        .PolicyPage .card-1 {
+            background-image: url("assets/Images/email.png");
+            background-repeat: no-repeat;
+            background-position: left;
+            background-size: 170px;
+        }
+
+        .PolicyPage .card-2 {
+            background-image: url("assets/Images/target.png");
+            background-repeat: no-repeat;
+            background-position: left;
+            background-size: 170px;
+        }
+
+        .PolicyPage .card-3 {
+            background-image: url("assets/Images/settings.png");
+            background-repeat: no-repeat;
+            background-position: left;
+            background-size: 170px;
+        }
+
+        .PolicyPage .card-4 {
+            background-image: url("assets/Images/credit-card2.png");
+            background-repeat: no-repeat;
+            background-position: left;
+            background-size: 170px;
+        }
+
+        .PolicyPage .card-5 {
+            background-image: url("assets/Images/delivery.png");
+            background-repeat: no-repeat;
+            background-position: left;
+            background-size: 170px;
+        }
+
+        .PolicyPage .input-group-text {
+            background-color: white;
+            color: #e2a53a;
+        }
+
+        .PolicyPage .form-control,
+        .input-group-text {
+            border-radius: 0px;
+            height: 40px;
+            font-size: 15px;
+            /*font-weight: bolder;*/
+
+        }
+
+        .PolicyPage .form-control:focus {
+            outline: none !important;
+            border: 1px solid #dee2e6;
+            box-shadow: 0 0 10px white;
+        }
+
+        .PolicyPage .RadioButtonHeading,
+        .PolicyPage .RadioButtonValues {
+            font-size: 12px;
+        }
+
+        .PolicyPage .heightLow {
+            height: 20px !important;
+        }
+
+        .PolicyPage .QuotationDetails li {
+            padding: 3px;
+            font-size: 15px;
+            border: none;
+            background-color: white;
+
+        }
+
+        .PolicyPage .QuotationDetails .LabelHeading {
+            font-weight: bolder;
+        }
+
+        .PolicyPage .QuotationDetails .labelValues {
+            text-align: center;
+            font-weight:normal !important;
+        }
+
+        .PolicyPage .VechicleQuotationDetails .nav-pills .nav-link.active,
+        .PolicyPage .VechicleQuotationDetails .nav-pills .show>.nav-link {
+            color: #fff;
+            background-color: #261e6a;
+            border-radius: 0px;
+            text-align: center;
+            display: block;
+        }
+
+        .PolicyPage .VechicleQuotationDetails .nav-pills .nav-link {
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+            border-radius: 0px;
+
+        }
+
+        .PolicyPage .document_button .btn {
+            border-radius: 0px;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+
+        }
+
+        .PolicyPage .ModeOfPayment label{
+            font-size: 15px;
+
+        }
+        .PolicyPage .ModeOfPayment .LabelHeading {
+            font-weight: bolder;
+        }
+
+        .PolicyPage .ModeOfPayment .LabelHeading {
+            font-weight: bolder;
+        }
+
+        .PolicyPage .customerType ul li {
+            /* font-size: 12px; */
+            border: 1px solid #dee2e6 !important;
+            margin-left: 10px;
+        }
+
+        .PolicyPage .customerType ul li:first-child {
+            border: 0px !important;
+            font-weight: bolder;
+            text-align: left;
+        }
+
+        .PolicyPage hr {
+            margin: 5px 0px;
+            font-weight: bolder;
+            color: white !important;
+        }
+        .PolicyPage .GeneratePolicy p{
+            font-size: 13px;
+        }
+        .PolicyPage .PolicyInformation label{
+            font-size: 13px;
+        }
+        .PolicyPage .PolicyInformation .LabelHeading{
+            font-weight: bolder;
+        }
+
+
+        @media only screen and (max-width: 994px) {
+            .PolicyPage .card-1 {
+                background-image: url("assets/Images/email.png");
+                background-repeat: no-repeat;
+                background-position: top;
+                background-size: 130px;
+
+            }
+            .PolicyPage .card-3 {
+                background-image: url("assets/Images/settings.png");
+                background-repeat: no-repeat;
+                background-position: top;
+                background-size: 130px;
+
+            }
+            .PolicyPage .card-4 {
+                background-image: url("assets/Images/credit-card2.png");
+                background-repeat: no-repeat;
+                background-position: top;
+                background-size: 130px;
+
+            }
+
+            .PolicyPage .card-5 {
+                background-image: url("assets/Images/delivery.png");
+                background-repeat: no-repeat;
+                background-position: top;
+                background-size: 130px;
+
+            }
+
+            .PolicyPage .card {
+                padding: 20px 20px 14px 12px;
+                border: 0px !important
+            }
+
+
+        }
+}
+ #tadaTableNew {
+  border-collapse: collapse;
+  border-radius: 20px !important;
+  overflow: hidden;
+  font-family: 'NunitoSans-Black', sans-serif;
+  box-shadow: 0 1px 1px rgb(0 0 0 / 25%), 0 2px 2px rgb(0 0 0 / 20%), 0 4px 4px rgb(0 0 0 / 15%), 0 8px 8px rgb(0 0 0 / 10%), 0 16px 16px rgb(0 0 0 / 5%);
+  font-size: 15px;
+}
+.datepicker-days .prev, .next, .datepicker-switch, .dow{
+  background-color: white !important;
+  border-radius:0px !important;
+  color:black !important;
+  box-shadow:none;
+}
+.adminMenuBtn {
+	width: 100%;
+	margin: 0 auto;
+	margin-bottom: 5px;
+}
+.textV {
+	float:left;
+	width: 50%;
+	font-size:14px;
+	padding: 5px 5px;
+	border: 1px solid #f0f0f0;
+}
+.tboxV {
+	float:left;
+	width: 50%;
+	font-weight: bold;
+	font-size:14px;
+	padding: 5px 5px;
+	border: 1px solid #f0f0f0;
+}

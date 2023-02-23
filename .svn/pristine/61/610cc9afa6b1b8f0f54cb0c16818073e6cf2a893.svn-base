@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="HomeSchedule_subreport2" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="37f9dcba-703b-447e-85db-e03a85a7e5be">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="Quoteno" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select  row_number() over(partition by odd.COVERAGES_ID Order by sno Asc)||'.'||CONDITION_DESC CONDITION_DESC,odd.COVERAGES_ID,COVERAGES_NAME
+ from motor_condition_master  mcm ,ofs_data_details odd,ofs_master om
+where quote_no=$P{Quoteno} and to_number(mcm.POLICY_TYPE_ID)=odd.COVERAGES_ID
+and odd.COVERAGES_ID=om.COVERAGES_ID
+order by sno,CONDITION_ID]]>
+	</queryString>
+	<field name="CONDITION_DESC" class="java.lang.String"/>
+	<field name="COVERAGES_ID" class="java.math.BigDecimal"/>
+	<field name="COVERAGES_NAME" class="java.lang.String"/>
+	<group name="coverageconditions">
+		<groupExpression><![CDATA[$F{COVERAGES_ID}]]></groupExpression>
+		<groupHeader>
+			<band height="20">
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement uuid="8a332a58-48d3-42e3-8bc7-a0b6e20780b5" stretchType="RelativeToBandHeight" x="0" y="0" width="555" height="20"/>
+					<box leftPadding="10"/>
+					<textElement>
+						<font fontName="Arial" size="10" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[($F{COVERAGES_NAME}==null?"":$F{COVERAGES_NAME})]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Prevent">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="0cdcc551-7bc0-405b-91a3-53124ee69e7a" stretchType="RelativeToBandHeight" x="2" y="0" width="553" height="15"/>
+				<box leftPadding="20"/>
+				<textElement>
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CONDITION_DESC}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,1123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="TravelSchedule" language="groovy" pageWidth="595" pageHeight="842" columnWidth="523" leftMargin="36" rightMargin="36" topMargin="20" bottomMargin="20" uuid="ea6fa324-8e3d-4a5e-8d85-9f8adeb57208">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="96"/>
+	<style name="common" hAlign="Left" vAlign="Middle" fontName="Arial" fontSize="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+	<style name="common1" hAlign="Left" vAlign="Middle" isBlankWhenNull="false" fontName="Arial" fontSize="9" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="true">
+		<paragraph lineSpacing="Single"/>
+	</style>
+	<style name="table">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5"/>
+			<leftPen lineWidth="0.5"/>
+			<bottomPen lineWidth="0.5"/>
+			<rightPen lineWidth="0.5"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Transparent" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Transparent" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Transparent" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5"/>
+			<leftPen lineWidth="0.5"/>
+			<bottomPen lineWidth="0.5"/>
+			<rightPen lineWidth="0.5"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Transparent" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Transparent" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Transparent" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="Section" uuid="679bc83d-2b0f-4985-b44b-d485f0ab9b6e">
+		<queryString language="SQL">
+			<![CDATA[select SECTION_ID,CLAUSES_DESCRIPTION,CURRENCY_NAME,VALUE,status,CLAUSES_DESCRIPTION_ARAB,EXCESS from
+TRAVEL_CLAUSES_MASTER where status in('Y') and product_id=33 and cover_id = 1 order by display_order]]>
+		</queryString>
+		<field name="SECTION_ID" class="java.lang.String"/>
+		<field name="CLAUSES_DESCRIPTION" class="java.lang.String"/>
+		<field name="CURRENCY_NAME" class="java.lang.String"/>
+		<field name="VALUE" class="java.lang.String"/>
+		<field name="status" class="java.lang.String"/>
+		<field name="CLAUSES_DESCRIPTION_ARAB" class="java.lang.String"/>
+		<field name="EXCESS" class="java.math.BigDecimal"/>
+	</subDataset>
+	<subDataset name="InsuredDetail" uuid="035da5c8-741b-438f-a55b-1c19d4675be0">
+		<queryString>
+			<![CDATA[SELECT   TD.PASSENGER_NAME,
+           CONVERT (varchar, TD.DOB, 103)DOB,
+           CD.DETAIL_NAME,
+           TD.GENDER,
+           TD.NATIONALITY,
+           td.age,
+           isnull (td.PREMIUM, 0)PREMIUM
+    FROM   TRAVEL_DETAIL TD, CONSTANT_DETAIL CD
+   WHERE       TD.QUOTE_NO = '100687'
+           AND CD.CATEGORY_DETAIL_ID = TD.RELATION
+           AND CD.CATEGORY_ID = '53'
+           AND CD.BRANCH_CODE = '01'
+           AND TD.AMEND_ID = (SELECT   MAX (AMEND_ID)
+                                FROM   TRAVEL_DETAIL
+                               WHERE   QUOTE_NO = TD.QUOTE_NO AND STATUS = 'Y')
+ORDER BY   TD.SERIAL_NO]]>
+		</queryString>
+		<field name="PASSENGER_NAME" class="java.lang.String"/>
+		<field name="DOB" class="java.lang.String"/>
+		<field name="DETAIL_NAME" class="java.lang.String"/>
+		<field name="GENDER" class="java.lang.String"/>
+		<field name="NATIONALITY" class="java.lang.String"/>
+		<field name="age" class="java.lang.Integer"/>
+		<field name="PREMIUM" class="java.math.BigDecimal"/>
+	</subDataset>
+	<parameter name="quoteNo" class="java.lang.String"/>
+	<parameter name="branchCode" class="java.lang.String"/>
+	<parameter name="imagePath" class="java.lang.String"/>
+	<parameter name="status" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select pos.POLICY_NO, convert(varchar,pos.inception_date,103)inception_date,per.email,per.ADDRESS1,per.
+      ADDRESS2,per.POBOX,per.EMIRATE,per.TELEPHONE,per.MOBILE,per.FAX,per.
+      COMPANY_NAME,per.DOB,isnull(per.FIRST_NAME,per.COMPANY_NAME)FIRST_NAME,per. LAST_NAME,per.NATIONALITY,per.TITLE,per.login_id,convert(varchar,th.EFFECTIVE_DATE,103)EFFECTIVE_DATE,
+      convert(varchar,th.INSURANCE_END_DATE,103)INSURANCE_END_DATE,pos.PREMIUM,pos.
+      EXCESS_PREMIUM,pos.OVERALL_PREMIUM,pos.EXCESS_SIGN,th.scheme_cover,per.CUSTOMER_SOURCE,per.OCCUPATION,
+      CONVERT (VARCHAR, isnull (pos.DEBIT_NOTE_DATE, pos.EFFECTIVE_DATE), 103)
+         + ' '
+         + CONVERT (VARCHAR (8),
+                    isnull (pos.DEBIT_NOTE_DATE, pos.EFFECTIVE_DATE),
+                    108) seal_date,
+         isnull (pos.POLICY_FEE, '0')POLICY_FEE,convert(VARCHAR,pos.INCEPTION_DATE, 103) startDate,th.QUOTE_NO
+      from HOME_POSITION_MASTER pos,personal_info per,TRAVEL_HEADER th,
+      TRAVEL_DETAIL td
+      where pos.QUOTE_NO = $P{quoteNo}
+      and per.customer_id=pos.customer_id
+      and th.CUSTOMER_ID = pos.CUSTOMER_ID
+      and  th.STATUS = 'Y'
+      and th.QUOTE_NO=cast(pos.QUOTE_NO as varchar)
+      and td.QUOTE_NO=cast(pos.QUOTE_NO as varchar)]]>
+	</queryString>
+	<field name="POLICY_NO" class="java.lang.String"/>
+	<field name="inception_date" class="java.lang.String"/>
+	<field name="email" class="java.lang.String"/>
+	<field name="ADDRESS1" class="java.lang.String"/>
+	<field name="ADDRESS2" class="java.lang.String"/>
+	<field name="POBOX" class="java.lang.String"/>
+	<field name="EMIRATE" class="java.lang.String"/>
+	<field name="TELEPHONE" class="java.lang.Long"/>
+	<field name="MOBILE" class="java.lang.Long"/>
+	<field name="FAX" class="java.lang.String"/>
+	<field name="COMPANY_NAME" class="java.lang.String"/>
+	<field name="DOB" class="java.lang.String"/>
+	<field name="FIRST_NAME" class="java.lang.String"/>
+	<field name="LAST_NAME" class="java.lang.String"/>
+	<field name="NATIONALITY" class="java.lang.String"/>
+	<field name="TITLE" class="java.lang.String"/>
+	<field name="login_id" class="java.lang.String"/>
+	<field name="EFFECTIVE_DATE" class="java.lang.String"/>
+	<field name="INSURANCE_END_DATE" class="java.lang.String"/>
+	<field name="PREMIUM" class="java.math.BigDecimal"/>
+	<field name="EXCESS_PREMIUM" class="java.math.BigDecimal"/>
+	<field name="OVERALL_PREMIUM" class="java.math.BigDecimal"/>
+	<field name="EXCESS_SIGN" class="java.lang.String"/>
+	<field name="scheme_cover" class="java.lang.String"/>
+	<field name="CUSTOMER_SOURCE" class="java.lang.String"/>
+	<field name="OCCUPATION" class="java.lang.String"/>
+	<field name="seal_date" class="java.lang.String"/>
+	<field name="POLICY_FEE" class="java.math.BigDecimal"/>
+	<field name="startDate" class="java.lang.String"/>
+	<field name="QUOTE_NO" class="java.lang.String"/>
+	<background>
+		<band height="770" splitType="Stretch">
+			<textField>
+				<reportElement uuid="43733834-80fe-4e12-b61e-1e01dc62b1e7" mode="Opaque" x="16" y="322" width="489" height="96" forecolor="#FFEDED"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None">
+					<font size="60"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{status}]]></textFieldExpression>
+			</textField>
+		</band>
+	</background>
+	<title>
+		<band height="72" splitType="Stretch">
+			<image scaleImage="FillFrame">
+				<reportElement uuid="1d09c7bd-6a7d-4d4d-8d7e-29aed5d603bf" x="0" y="0" width="523" height="67"/>
+				<imageExpression><![CDATA[$P{imagePath}+"\\"+"logo.gif"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="15" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="192f37ca-0a54-4c99-9da9-a1e16b9a3b70" style="common1" stretchType="RelativeToBandHeight" x="0" y="0" width="523" height="15"/>
+				<textElement textAlignment="Center">
+					<font pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Travel Insurance Policy Schedule /      جدول وثيقة تأمين السفر الدولي"]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="a7bda596-7db6-4d45-9c6e-6ea2dc7f8643" style="common1" stretchType="RelativeToBandHeight" x="0" y="0" width="135" height="15"/>
+				<box leftPadding="2">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Insured /       المؤمن له"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="b21cea7d-1446-487e-824e-ad066106405e" style="common" stretchType="RelativeToBandHeight" x="135" y="0" width="388" height="15"/>
+				<box leftPadding="2">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{FIRST_NAME}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="15">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="1a3ca4dd-034e-4293-8e8b-d7c8d28ce464" style="common1" stretchType="RelativeToBandHeight" x="261" y="0" width="135" height="15"/>
+				<box leftPadding="2">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Issue Date /       تاريخ الإصدار"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="e0a23f93-b265-4d0f-96bb-c0d91d10d01e" style="common1" stretchType="RelativeToBandHeight" x="0" y="0" width="135" height="15"/>
+				<box leftPadding="2">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{POLICY_NO}==null?"Quote Number /       اقتباس عدد":"Policy Number /       عدد سياسة")]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="d93ba866-218b-4713-9bb6-b199051b03bf" style="common" stretchType="RelativeToBandHeight" x="396" y="0" width="127" height="15"/>
+				<box leftPadding="2">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{EFFECTIVE_DATE}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="0044b458-2f0a-4a1d-8e3b-a70fcb244a1d" style="common" stretchType="RelativeToBandHeight" x="135" y="0" width="126" height="15"/>
+				<box leftPadding="2">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{POLICY_NO}==null?($F{QUOTE_NO}==null?"":($F{QUOTE_NO})):$F{POLICY_NO})]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="15">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="b42fcf99-eea3-42b0-a54c-ef3836c881f4" style="common1" stretchType="RelativeToBandHeight" x="261" y="0" width="135" height="15"/>
+				<box leftPadding="2">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA["ID/C.R. No /       رقم الهوية أوالسجل التجاري"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="2e74b665-f4b5-4af9-8323-cbadfb67343d" style="common1" stretchType="RelativeToBandHeight" x="0" y="0" width="135" height="15"/>
+				<box leftPadding="2">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Phone Number /       رقم العاتف"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="af1b84d1-a51b-414f-9473-60f739ece854" style="common" stretchType="RelativeToBandHeight" x="396" y="0" width="127" height="15"/>
+				<box leftPadding="2">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CUSTOMER_SOURCE}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="6b89f49a-aef7-4d6d-9fbc-8d9164535326" style="common" stretchType="RelativeToBandHeight" x="135" y="0" width="126" height="15"/>
+				<box leftPadding="2">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TELEPHONE}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="15">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="6fb98547-524a-4e2f-89c0-15d51d6f4240" style="common1" stretchType="RelativeToBandHeight" x="261" y="0" width="135" height="15"/>
+				<box leftPadding="2">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Fax No /       رقم الفاكس"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="1816462e-0d17-43f2-a07c-c2fa29e76856" style="common1" stretchType="RelativeToBandHeight" x="0" y="0" width="135" height="15"/>
+				<box leftPadding="2">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Mobile Number /       رقم الجوال"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="6b1bcb96-dd4c-43dd-9839-0f054be975c3" style="common" stretchType="RelativeToBandHeight" x="396" y="0" width="127" height="15"/>
+				<box leftPadding="2">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{FAX}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="a1f4959b-15a3-498b-a406-cad207a7201b" style="common" stretchType="RelativeToBandHeight" x="135" y="0" width="126" height="15"/>
+				<box leftPadding="2">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{MOBILE}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="15">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="93943faf-dece-4b96-bfc7-8da8b30404c1" style="common" stretchType="RelativeToBandHeight" x="135" y="0" width="126" height="15"/>
+				<box leftPadding="2">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{OCCUPATION}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="d7159d5a-93f1-4635-9ed9-89b9400f2610" style="common1" stretchType="RelativeToBandHeight" x="261" y="0" width="135" height="15"/>
+				<box leftPadding="2">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA["E-mail /       البريد الإليكنروني"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="9bbe92b4-f0a6-4a48-a037-83303abb4574" style="common" stretchType="RelativeToBandHeight" x="396" y="0" width="127" height="15"/>
+				<box leftPadding="2">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{email}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="12773ec5-8239-4670-9c5e-e914e2d0b324" style="common1" stretchType="RelativeToBandHeight" x="0" y="0" width="135" height="15"/>
+				<box leftPadding="2">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Type of business /       نوع العمل"]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="15">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="b02fd810-e827-4af3-b6b9-d135bf46c117" style="common1" stretchType="RelativeToBandHeight" x="261" y="0" width="73" height="15"/>
+				<box leftPadding="2">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA["To /       الى"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="a6bffef2-043c-4841-be18-57e72ce2e131" style="common1" stretchType="RelativeToBandHeight" x="0" y="0" width="135" height="15"/>
+				<box leftPadding="2">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Policy Period /       فترة الوثيقة"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="9666a8c8-68bf-4e40-bfdf-bb0713084f88" style="common" stretchType="RelativeToBandHeight" x="396" y="0" width="127" height="15"/>
+				<box leftPadding="15">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Both Dates Inclusive /         شامل كلا التارخين"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="cf287479-1239-43dc-bace-aa0ea5b60780" style="common1" stretchType="RelativeToBandHeight" x="135" y="0" width="64" height="15"/>
+				<box leftPadding="2">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA["From /     من"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="39f643bc-a907-436d-aeb2-7768558155b4" style="common" stretchType="RelativeToBandHeight" x="199" y="0" width="62" height="15"/>
+				<box leftPadding="2">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{startDate}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="030fc8a1-bc03-4614-bacb-6fd82d040735" style="common" stretchType="RelativeToBandHeight" x="334" y="0" width="62" height="15"/>
+				<box leftPadding="2">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{INSURANCE_END_DATE}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="15">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="5eddb7a9-887a-4fa9-bd98-700a91fcce15" style="common" stretchType="RelativeToBandHeight" x="135" y="0" width="388" height="15"/>
+				<box leftPadding="2">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{scheme_cover}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="0193c45f-8f6a-45e2-ab68-37ff9240f3d3" style="common1" stretchType="RelativeToBandHeight" x="0" y="0" width="135" height="15"/>
+				<box leftPadding="2">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Type of Plan /      نوع التغطية"]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="15">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="e03e58ed-616f-4f69-b13b-d1ca86399364" style="common" stretchType="RelativeToBandHeight" x="135" y="0" width="388" height="15"/>
+				<box leftPadding="2">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="a8884bac-71ed-4fd9-a472-767ec776872e" style="common1" stretchType="RelativeToBandHeight" x="0" y="0" width="135" height="15"/>
+				<box leftPadding="2">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Geographical Limit /      الحدود الجغرافية"]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="15">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="ab8c55e6-eb8f-46ba-abea-c4af94d38cff" style="common" stretchType="RelativeToBandHeight" x="135" y="0" width="388" height="15"/>
+				<box leftPadding="2">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{scheme_cover}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="8d5c3b3c-6765-431a-b5d6-a134cb149113" style="common1" stretchType="RelativeToBandHeight" x="0" y="0" width="135" height="15"/>
+				<box leftPadding="2">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Type of Policy /       نوع الوثيقة"]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="33">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="0d88ebb2-a94e-4d69-bf0c-064bbb0d8503" style="common1" stretchType="RelativeToBandHeight" x="0" y="18" width="523" height="15"/>
+				<box leftPadding="2">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Insured Person (s) /       المؤمن له/لهم"]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="15">
+			<componentElement>
+				<reportElement uuid="4c244616-93bb-4e1d-ba94-ad425d861233" key="table 1" style="table 1" mode="Transparent" x="0" y="0" width="523" height="15"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="InsuredDetail" uuid="fc6b5310-2d0a-43b3-8bc1-c8ebaa979120">
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="143" uuid="8de034cf-cff1-4b04-b71b-5b6479d23ed5">
+						<jr:tableHeader style="table 1_TH" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="25b822dd-1929-4c66-9c8e-72a3737c5b15" style="common1" stretchType="RelativeToBandHeight" x="0" y="0" width="143" height="20"/>
+								<box leftPadding="2">
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement>
+									<font pdfEncoding="Identity-H"/>
+								</textElement>
+								<textFieldExpression><![CDATA["Name / الإس"]]></textFieldExpression>
+							</textField>
+						</jr:tableHeader>
+						<jr:detailCell style="table 1_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="3545f2d9-fbe2-4307-855c-6203056f2ffe" style="common" x="0" y="0" width="143" height="20"/>
+								<box leftPadding="2"/>
+								<textElement/>
+								<textFieldExpression><![CDATA[$F{PASSENGER_NAME}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="95" uuid="f2fe5453-82e5-4da1-8885-dee4aaf10144">
+						<jr:tableHeader style="table 1_TH" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="c2570e8e-5fa4-4b7d-96e0-0fd06ae8bb7b" style="common1" stretchType="RelativeToBandHeight" x="0" y="0" width="95" height="20"/>
+								<box leftPadding="2">
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement>
+									<font pdfEncoding="Identity-H"/>
+								</textElement>
+								<textFieldExpression><![CDATA["Nationality /       الجنسية"]]></textFieldExpression>
+							</textField>
+						</jr:tableHeader>
+						<jr:detailCell style="table 1_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="d0618243-a4a8-47a2-a311-51886a36b561" style="common" x="0" y="0" width="95" height="20"/>
+								<box leftPadding="2"/>
+								<textElement/>
+								<textFieldExpression><![CDATA[$F{NATIONALITY}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="103" uuid="600ed835-8fd7-4938-b1b3-d9d655d6edac">
+						<jr:tableHeader style="table 1_TH" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="24991946-2ab0-4854-b46e-0896eeb77e62" style="common1" stretchType="RelativeToBandHeight" x="0" y="0" width="103" height="20"/>
+								<box leftPadding="2">
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement>
+									<font pdfEncoding="Identity-H"/>
+								</textElement>
+								<textFieldExpression><![CDATA["Relation /       صلة القرابة"]]></textFieldExpression>
+							</textField>
+						</jr:tableHeader>
+						<jr:detailCell style="table 1_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="74000ff4-c123-4d41-b861-ec13b39c200f" style="common" x="0" y="0" width="103" height="20"/>
+								<box leftPadding="2"/>
+								<textElement/>
+								<textFieldExpression><![CDATA[$F{DETAIL_NAME}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="92" uuid="a26ed507-c17f-4183-b84d-0780ceebffb4">
+						<jr:tableHeader style="table 1_TH" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="07ff7cdd-4c7f-4a0f-a80d-48ac6b47edfd" style="common1" stretchType="RelativeToBandHeight" x="0" y="0" width="92" height="20"/>
+								<box leftPadding="2">
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement>
+									<font pdfEncoding="Identity-H"/>
+								</textElement>
+								<textFieldExpression><![CDATA["Gender /       الجنس"]]></textFieldExpression>
+							</textField>
+						</jr:tableHeader>
+						<jr:detailCell style="table 1_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="f3247310-6cbd-4f2d-b36c-3fd139dceea0" style="common" x="0" y="0" width="92" height="20"/>
+								<box leftPadding="2"/>
+								<textElement/>
+								<textFieldExpression><![CDATA[$F{GENDER}.equals("M")?"Male":"Female"]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="f80969ab-82d3-426b-8fdf-0afebca08799">
+						<jr:tableHeader style="table 1_TH" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="5482e04f-de2a-47fd-b3a3-3365f825501f" style="common1" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20"/>
+								<box leftPadding="2">
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement>
+									<font pdfEncoding="Identity-H"/>
+								</textElement>
+								<textFieldExpression><![CDATA["DOB/Age /      تاريخ الميلاد/ العمر"]]></textFieldExpression>
+							</textField>
+						</jr:tableHeader>
+						<jr:detailCell style="table 1_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="4980f5b3-3521-469c-bca6-e6c2a812c869" style="common" x="0" y="0" width="90" height="20"/>
+								<box leftPadding="2"/>
+								<textElement/>
+								<textFieldExpression><![CDATA[($F{DOB}==null?"":($F{DOB})+"("+($F{age}==null?"":($F{age}))+")")]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+		<band/>
+		<band height="31">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="97c92c85-9dba-49d7-8a06-b1f1fbea3aa3" style="common1" stretchType="RelativeToBandHeight" x="0" y="16" width="523" height="15"/>
+				<box leftPadding="2">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA["SUMMARY OF POLICY BENEFITS"]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="24">
+			<componentElement>
+				<reportElement uuid="82682db9-b8bf-46c1-b796-417f8244b886" key="table" style="table" mode="Transparent" x="0" y="0" width="523" height="20"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="Section" uuid="af413157-d1aa-4cfc-951f-ededdd799487">
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="72" uuid="b52cc9b3-a630-4b10-8bfc-250077cc89dc">
+						<jr:tableHeader style="table_TH" height="19" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="dbd8f7ec-3ec0-4a0d-8769-5820fb596e9d" style="common1" stretchType="RelativeToBandHeight" x="0" y="0" width="72" height="19"/>
+								<box leftPadding="2">
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement>
+									<font pdfEncoding="Identity-H"/>
+								</textElement>
+								<textFieldExpression><![CDATA["Section no./       رقم القسم"]]></textFieldExpression>
+							</textField>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="d0395c9c-678c-4ca3-858b-7f3ad76e0579" style="common" x="0" y="0" width="72" height="20"/>
+								<box leftPadding="2"/>
+								<textElement/>
+								<textFieldExpression><![CDATA[$F{SECTION_ID}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="190" uuid="eb9b49d9-7d67-4ebc-8826-e2a0d9a007ba">
+						<jr:tableHeader style="table_TH" height="19" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="3d475b04-ba82-4274-bf85-df6402a32c22" style="common1" stretchType="RelativeToBandHeight" x="0" y="0" width="190" height="19"/>
+								<box leftPadding="2">
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement>
+									<font pdfEncoding="Identity-H"/>
+								</textElement>
+								<textFieldExpression><![CDATA["Coverage Description/وصف التغطية"]]></textFieldExpression>
+							</textField>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="374e4272-3350-4920-abf5-50edad4f15fc" style="common" x="0" y="0" width="190" height="20"/>
+								<box leftPadding="2"/>
+								<textElement>
+									<font pdfEncoding="Identity-H"/>
+								</textElement>
+								<textFieldExpression><![CDATA[($F{CLAUSES_DESCRIPTION}==null?"":($F{CLAUSES_DESCRIPTION}))+""+($F{CLAUSES_DESCRIPTION_ARAB}==null?"":("\n"+$F{CLAUSES_DESCRIPTION_ARAB}))]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="135" uuid="9e2d3d27-cfcb-46be-99da-158e5c001bfd">
+						<jr:tableHeader style="table_TH" height="19" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="1e782deb-a25f-4f53-94d2-62194c82f084" style="common1" stretchType="RelativeToBandHeight" x="0" y="0" width="135" height="19"/>
+								<box leftPadding="2">
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement>
+									<font pdfEncoding="Identity-H"/>
+								</textElement>
+								<textFieldExpression><![CDATA["Limit of Liability(SAR)/حد التغطية بالريال السعودي"]]></textFieldExpression>
+							</textField>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="daea8047-d014-4053-932d-de9524b24ef5" style="common" x="0" y="0" width="135" height="20"/>
+								<box leftPadding="2"/>
+								<textElement/>
+								<textFieldExpression><![CDATA[$F{CURRENCY_NAME}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="126" uuid="b1ab5153-c937-4e63-b654-f8a101430534">
+						<jr:tableHeader style="table_TH" height="19" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="d0469823-2128-4d93-9719-288627d61685" style="common1" stretchType="RelativeToBandHeight" x="0" y="0" width="126" height="19"/>
+								<box leftPadding="2">
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement>
+									<font pdfEncoding="Identity-H"/>
+								</textElement>
+								<textFieldExpression><![CDATA["Deductible (SAR)/التحمل الريال لسعودي"]]></textFieldExpression>
+							</textField>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="7ade1c1c-4551-4795-942f-21e297333c5c" style="common" x="0" y="0" width="126" height="20"/>
+								<box leftPadding="2"/>
+								<textElement/>
+								<textFieldExpression><![CDATA[$F{VALUE}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+		<band height="50">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="eb834d27-1f3f-4fee-9e86-72b0f9021c64" style="common" stretchType="RelativeToBandHeight" x="0" y="15" width="523" height="15"/>
+				<box leftPadding="2">
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Left">
+					<font pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA["The above limits are on per event &/or aggregate basis /الحالات المذكورة في الأعلى تنطبق على كل حالة واحدة و /أو في المجموع"]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="15">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="95d3d745-ad3b-4635-a2c7-b7e5af06c6a0" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="108" height="15"/>
+				<box leftPadding="2">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Premium(contribution)"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="53f0008b-4b77-44dc-bf9b-f5a4b54dcf1c" style="common" stretchType="RelativeToBandHeight" x="108" y="0" width="72" height="15"/>
+				<box leftPadding="2" rightPadding="2">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PREMIUM}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="f395c7f0-ad49-4bb9-9a2e-fa4f4acdd3e3" style="common" stretchType="RelativeToBandHeight" x="180" y="0" width="90" height="15"/>
+				<box leftPadding="2">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Left">
+					<font pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Admin fees (SAR)"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="eb1dc556-0c48-4104-907e-6e35caccf264" style="common" stretchType="RelativeToBandHeight" x="270" y="0" width="90" height="15"/>
+				<box leftPadding="2" rightPadding="2">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{POLICY_FEE}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="53ea886c-45fa-424c-966f-4e8211f6a162" style="common" stretchType="RelativeToBandHeight" x="360" y="0" width="90" height="15"/>
+				<box leftPadding="2">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Left">
+					<font pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Total (SAR) /"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="1658570a-5e29-4b66-b538-d039a2876bf9" style="common" stretchType="RelativeToBandHeight" x="450" y="0" width="73" height="15"/>
+				<box leftPadding="2" rightPadding="2">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{OVERALL_PREMIUM}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="50">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="3e160c70-6f54-4036-a441-9e251557a321" style="common" stretchType="RelativeToBandHeight" x="0" y="35" width="523" height="15"/>
+				<box leftPadding="2">
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Left">
+					<font pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Clauses/ Endorsements/ Special Conditions/ Warranties ( as per attached)"]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="50">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="f5dd7534-39c9-421b-907b-c53fe410c9e2" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="180" height="15"/>
+				<box leftPadding="2">
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Left">
+					<font pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Date:"+($F{seal_date}==null?"":($F{seal_date}))]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="08ff7cf4-fee8-4b1b-8171-3e3aadecd858" style="common" stretchType="RelativeToBandHeight" x="0" y="15" width="49" height="15"/>
+				<box leftPadding="2">
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Left">
+					<font pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Place:"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="411174be-dd71-42d8-a513-7bcc49ca45b1" style="common" stretchType="RelativeToBandHeight" x="347" y="0" width="176" height="15"/>
+				<box leftPadding="2">
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Left">
+					<font pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA["For the Company"]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="50">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="9894903b-de35-4388-9ec7-06d43a0cf630" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="49" height="15"/>
+				<box leftPadding="2">
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Left">
+					<font pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA["User:"]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="50">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="5d493634-4070-4d68-9fbc-293b91699376" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="523" height="15"/>
+				<box leftPadding="2">
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Left">
+					<font pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA["This insurance is issued by Madison General Insurance and underwritten by Madison General Insurance Company. All claims under the policy should be directed to and will be handled by Madison General Insurance Company."]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="41" splitType="Stretch">
+			<image scaleImage="FillFrame">
+				<reportElement uuid="796c8bbf-d65e-42d8-a4a5-33f0886e4a8f" x="0" y="0" width="523" height="41"/>
+				<imageExpression><![CDATA[$P{imagePath}+"\\"+"FooterImage_01.gif"]]></imageExpression>
+			</image>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

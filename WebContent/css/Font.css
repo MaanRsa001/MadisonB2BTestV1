@@ -1,0 +1,171 @@
+@font-face {
+  font-family: Grenze_Gotisch;
+  src: url("../fonts/Grenze_Gotisch/GrenzeGotisch-VariableFont_wght.ttf");
+}
+
+@font-face {
+  font-family: Oswald;
+  src: url("../fonts/Oswald/Oswald-VariableFont_wght.ttf");
+}
+
+@font-face {
+  font-family: Sansita_Swashed;
+  src: url("../fonts/Sansita_Swashed/SansitaSwashed-VariableFont_wght.ttf");
+}
+@font-face {
+  font-family: Akronim;
+  src: url("../fonts/Akronim/Akronim-Regular.ttf");
+}
+@font-face {
+  font-family: Bungee_Inline;
+  src: url("../fonts/Bungee_Inline/BungeeInline-Regular.ttf");
+}
+@font-face {
+  font-family: Bungee_Shade;
+  src: url("../fonts/Bungee_Shade/BungeeShade-Regular.ttf");
+}
+@font-face {
+  font-family: Ewert;
+  src: url("../fonts/Ewert/Ewert-Regular.ttf");
+}
+@font-face {
+  font-family: Faster_One;
+  src: url("../fonts/Faster_One/FasterOne-Regular.ttf");
+}
+@font-face {
+  font-family: Jacques_Francois_Shadow;
+  src: url("../fonts/Jacques_Francois_Shadow/JacquesFrancoisShadow-Regular.ttf");
+}
+@font-face {
+  font-family: Kenia;
+  src: url("../fonts/Kenia/Kenia-Regular.ttf");
+}
+@font-face {
+  font-family: Lobster;
+  src: url("../fonts/Lobster/Lobster-Regular.ttf");
+}
+@font-face {
+  font-family: Lovers_Quarrel;
+  src: url("../fonts/Lovers_Quarrel/LoversQuarrel-Regular.ttf");
+}
+@font-face {
+  font-family: Monofett;
+  src: url("../fonts/Monofett/Monofett-Regular.ttf");
+}
+@font-face {
+  font-family: Montez;
+  src: url("../fonts/Montez/Montez-Regular.ttf");
+}
+@font-face {
+  font-family: Mystery_Quest;
+  src: url("../fonts/Mystery_Quest/MysteryQuest-Regular.ttf");
+}
+@font-face {
+  font-family: Nosifer;
+  src: url("../fonts/Nosifer/Nosifer-Regular.ttf");
+}
+@font-face {
+  font-family: Pacifico;
+  src: url("../fonts/Pacifico/Pacifico-Regular.ttf");
+}
+@font-face {
+  font-family: Quintessential;
+  src: url("../fonts/Quintessential/Quintessential-Regular.ttf");
+}
+@font-face {
+  font-family: Rochester;
+  src: url("../fonts/Rochester/Rochester-Regular.ttf");
+}
+@font-face {
+  font-family: Rye;
+  src: url("../fonts/Rye/Rye-Regular.ttf");
+}
+@font-face {
+  font-family: Squada_One;
+  src: url("../fonts/Squada_One/SquadaOne-Regular.ttf");
+}
+@font-face {
+  font-family: UnifrakturMaguntia;
+  src: url("../fonts/UnifrakturMaguntia/UnifrakturMaguntia-Regular.ttf");
+}
+@font-face {
+  font-family: Abel;
+  src: url("../fonts/Abel/Abel-Regular.ttf");
+}
+
+@font-face {
+  font-family: Changa;
+  src: url("../fonts/Changa/Changa-VariableFont_wght.ttf");
+}
+
+@font-face {
+  font-family: Kreon;
+  src: url("../fonts/Kreon/Kreon-VariableFont_wght.ttf");
+}
+
+@font-face {
+  font-family: Merriweather_Sans;
+  src: url("../fonts/Merriweather_Sans/MerriweatherSans-Italic-VariableFont_wght.ttf");
+}
+
+@font-face {
+  font-family: Roboto_Slab;
+  src: url("../fonts/Roboto_Slab/RobotoSlab-VariableFont_wght.ttf");
+}
+
+@font-face {
+  font-family: Archivo_Narrow_bold;
+  src: url("../fonts/Archivo_Narrow/ArchivoNarrow-Bold.ttf");
+
+}
+@font-face {
+  font-family: Archivo_Narrow_bold_italic;
+  src: url("../fonts/Archivo_Narrow/ArchivoNarrow-BoldItalic.ttf");
+}
+@font-face {
+  font-family: Assistant;
+  src: url("../fonts/Assistant/Assistant-VariableFont_wght.ttf");
+}
+@font-face {
+  font-family: Cinzel;
+  src: url("../fonts/Cinzel/Cinzel-VariableFont_wght.ttf");
+}
+@font-face {
+  font-family: Roboto;
+  src: url("../fonts/Roboto/Roboto-Black.ttf");
+}
+
+@font-face {
+  font-family: Lato;
+  src: url("../fonts/Lato/Lato-Black.ttf");
+}
+
+@font-face {
+  font-family: Lato_Regular;
+  src: url("../fonts/Lato/Lato-Regular.ttf");
+}
+
+@font-face {
+  font-family: Lato-Thin;
+  src: url("../fonts/Lato/Lato-Thin.ttf");
+}
+
+@font-face {
+  font-family: NunitoSans-Black;
+  src: url("../fonts/Nunito_Sans/NunitoSans-Regular.ttf");
+}
+
+@font-face {
+  font-family: NunitoSans-SemiBold;
+  src: url("../fonts/Nunito_Sans/NunitoSans-SemiBold.ttf");
+}
+
+@font-face {
+  font-family: NunitoSans-Bold;
+  src: url("../fonts/Nunito_Sans/NunitoSans-ExtraBold.ttf");
+}
+@font-face {
+  font-family: NunitoSans-Black1;
+  src: url("../fonts/Nunito_Sans/NunitoSans-Black.ttf");
+}
+

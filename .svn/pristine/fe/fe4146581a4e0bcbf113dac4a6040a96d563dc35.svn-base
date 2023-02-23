@@ -1,0 +1,1490 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+"-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+"http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+	<definition name="baseLayout" template="/layouts/baseLayout.jsp">
+		<put-attribute name="title" value="::: Madison General :::" />
+		<put-attribute name="header" value="/templates/header.jsp" />
+		<put-attribute name="menu" value="/templates/menu.jsp" />
+		<put-attribute name="body" value="/templates/body.jsp" />
+		<put-attribute name="footer" value="/templates/footer.jsp" />
+	</definition>
+	<definition name="baseLayout1" template="/layouts/baseLayout1.jsp">
+		<put-attribute name="title" value="::: Madison General :::" />
+		<put-attribute name="header" value="/templates/header.jsp" />		
+		<put-attribute name="body" value="/templates/body.jsp" />
+		<put-attribute name="footer" value="/templates/footer.jsp" />
+	</definition>
+	<definition name="error1" extends="baseLayout"  >
+		<put-attribute name="title" value="::: Madison General - Error :::" />
+		<put-attribute name="menu" value="" />
+		<put-attribute name="body" value="/pages/error.jsp" />
+	</definition>
+	<definition name="home"  template="/pages/login.jsp">
+		<put-attribute name="title" value="Home Page" />
+	</definition>
+	<definition name="download"  template="/pages/download.jsp">
+		<put-attribute name="title" value="Download Page" />
+	</definition>
+	<definition name="login" template="/pages/login.jsp">
+		<put-attribute name="title" value="Login Page" />
+	</definition>
+	<definition name="SessionExpired" template="/login/error_messg.jsp">
+		<put-attribute name="title" value="Session Expired" />
+	</definition>
+	 
+	 <definition name="viewajax" template="/pages/admin/portfolio/viewAjax.jsp">
+	 	<put-attribute name="title" value="::: Madison General - Portfolio :::"/>
+	 </definition>
+	<definition name="FileUpload" extends="baseLayout"  >
+		<put-attribute name="title" value="::: Madison General - File Upload :::" />
+		<put-attribute name="body" value="/pages/upload.jsp" />
+	</definition>
+		
+		
+	<definition name="ajaxDropdown" template="/pages/common/ajaxDropdown.jsp">
+		<put-attribute name="title" value="::: Madison General - Ajax Dropdown :::" />
+	</definition>
+	<definition name="commoditySelection" template="/pages/commoditySelection.jsp">
+		<put-attribute name="title" value="::: Madison General - Commodity Selection :::"/>
+	</definition>
+	<definition name="vesselSelection" template="/pages/vesselSelection.jsp">
+		<put-attribute name="title" value="::: Madison General - Vessel Selection :::"/>
+	</definition>
+	<definition name="coreCustomer" template="/CustomerInfo/CoreCustomerSearch.jsp">
+		<put-attribute name="title" value="::: Madison General - Options Selection :::"/>
+	</definition>	
+	<definition name="customerSelection" template="/pages/customerSelection.jsp">
+		<put-attribute name="title" value="::: Madison General - Customer Selection :::"/>
+	</definition>
+	<definition name="lcSelection" template="/pages/lcSelection.jsp">
+		<put-attribute name="title" value="::: Madison General - LC Selection :::"/>
+	</definition>
+	
+	<definition name="clauses" template="/pages/clauses.jsp">
+		<put-attribute name="title" value="::: Madison General - Clauses Information :::"/>
+	</definition>
+	<definition name="OpenFileUpload" extends="baseLayout"  >
+		<put-attribute name="title" value="::: Madison General - Open Cover Upload :::" />
+		<put-attribute name="body" value="/pages/openCoverUpload.jsp" />
+	</definition>
+	<definition name="citySelection" template="/pages/citySelection.jsp">
+		<put-attribute name="title" value="::: Madison General - City Selection :::"/>
+	</definition>
+	<definition name="vesselList" template="/pages/vesselList.jsp">
+		<put-attribute name="title" value="::: Madison General - Vessel List :::"/>
+	</definition>	
+	<definition name="referralStatusInfo" extends="baseLayout"  >
+		<put-attribute name="title" value="::: Madison General - Referral Status Info :::" />
+		<put-attribute name="body" value="/pages/referralStatusInfo.jsp" />
+	</definition>
+	<definition name="customerSearchList" template="/pages/customerSearchList.jsp">
+		<put-attribute name="title" value="::: Madison General - Customer List :::"/>
+	</definition>	
+	<definition name="lcSearchList" template="/pages/lcSearchList.jsp">
+		<put-attribute name="title" value="::: Madison General - LC List :::"/>
+	</definition>	
+	<definition name="declaration" extends="baseLayout"  >
+		<put-attribute name="title" value="::: Madison General - Declaration :::" />
+		<put-attribute name="body" value="/pages/declaration.jsp" />
+	</definition>	
+	<definition name="declarationPolicy" extends="baseLayout"  >
+		<put-attribute name="title" value="::: Madison General - Declaration :::" />
+		<put-attribute name="body" value="/pages/declarationPolicy.jsp" />
+	</definition>
+	
+	<definition name="addConditions" template="/pages/addConditions.jsp">
+		<put-attribute name="title" value="::: Madison General - Add Clauses :::"/>
+	</definition>
+	
+	<definition name="searchResult" template="/pages/searchResult.jsp">
+		<put-attribute name="title" value="::: Madison General - Search Result :::"/>
+	</definition>
+	<definition name="viewQuote" extends="baseLayout"  >
+		<put-attribute name="title" value="::: Madison General - Quote Info :::" />
+		<put-attribute name="body" value="/pages/quoteInfo.jsp" />
+	</definition>
+	<definition name="customerDetails" extends="baseLayout"  > 
+		<put-attribute name="title" value="::: Madison General - Customer Details :::" />
+		<put-attribute name="body" value="/pages/customer/customerDetails.jsp" />
+	</definition>
+	<definition name="baseLayoutAdmin" template="/layouts/baseLayout.jsp">
+		<put-attribute name="title" value="::: Madison General :::" />
+		<put-attribute name="header" value="/templates/header.jsp" />
+		<put-attribute name="menu" value="/templates/adminMenu.jsp" />
+		<put-attribute name="body" value="/templates/body.jsp" />
+		<put-attribute name="footer" value="/templates/footer.jsp" />
+	</definition>
+	
+	
+	<definition name="corecust" template="/pages/admin/brokerMgt/CoreCustomerSearch.jsp">
+		<put-attribute name="title" value="::: Madison General - Customer Selection :::" />
+	</definition>
+	<definition name="brokerCommission" extends="baseLayoutAdmin"  >
+		<put-attribute name="title" value="::: Madison General - Broker Commission :::" />
+		<put-attribute name="body" value="/pages/admin/brokerMgt/commissionforBroker.jsp" />
+	</definition>
+	
+	<definition name="brokerStatus" extends="baseLayoutAdmin"  >
+		<put-attribute name="title" value="::: Madison General - Broker Status :::" />
+		<put-attribute name="body" value="/pages/admin/brokerMgt/AdminBrokerStatus.jsp" />
+	</definition>
+	<definition name="adminajax" template="/pages/admin/adminAjax.jsp">
+		<put-attribute name="title" value="::: Madison General - Ajax Broker List :::" />
+	</definition>
+	
+	
+	<definition name="customerListAjax" template="/pages/admin/customerMgt/adminCustomerList.jsp">
+		<put-attribute name="title" value="::: Madison General - Customer List :::"/>
+	</definition>
+	
+	<definition name="lcdetail" template="/pages/admin/openCover/lcDetailList.jsp">
+		<put-attribute name="title" value="::: Madison General - LC Detail List :::" />
+	</definition>
+	<definition name="policyajax" template="/pages/admin/report/policyReport.jsp">
+		<put-attribute name="title" value="::: Madison General - Reports :::" />
+	</definition>
+			
+	<definition name="exchange1" extends="baseLayoutAdmin"  >
+		<put-attribute name="title" value="::: Madison General - Reports :::" />
+		<put-attribute name="body" value="/pages/admin/report/exchangeReport.jsp" />
+	</definition>
+	<definition name="smartlist" extends="baseLayoutAdmin"  >
+		<put-attribute name="title" value="::: Madison General - Smart Report :::" />
+		<put-attribute name="body" value="/pages/admin/report/smartlist.jsp" />
+	</definition>
+	
+	<definition name="showPayPro" extends="commonLayoutV1"  >
+		<put-attribute name="title" value="::: Madison General - Smart Report :::" />
+		<put-attribute name="body" value="/pages/admin/report/commonPayProReport.jsp" />
+	</definition>
+	
+	<definition name="showPayProAdmin" extends="commonAdminLayoutV1"  >
+		<put-attribute name="title" value="::: Madison General - Smart Report :::" />
+		<put-attribute name="body" value="/pages/admin/report/commonPayProReport.jsp" />
+	</definition>
+	
+	<definition name="showPolicy" extends="commonLayoutV1"  >
+		<put-attribute name="title" value="::: Madison General - Smart Report :::" />
+		<put-attribute name="body" value="/pages/admin/report/commonPolicyReport.jsp" />
+	</definition>
+	
+	<definition name="showPolicyAdmin" extends="commonAdminLayoutV1"  >
+		<put-attribute name="title" value="::: Madison General - Smart Report :::" />
+		<put-attribute name="body" value="/pages/admin/report/commonPolicyReport.jsp" />
+	</definition>
+	
+	<definition name="showPremium" extends="commonLayoutV1"  >
+		<put-attribute name="title" value="::: Madison General - Smart Report :::" />
+		<put-attribute name="body" value="/pages/admin/report/commonPremiumReport.jsp" />
+	</definition>
+	
+	<definition name="showPremiumAdmin" extends="commonAdminLayoutV1"  >
+		<put-attribute name="title" value="::: Madison General - Smart Report :::" />
+		<put-attribute name="body" value="/pages/admin/report/commonPremiumReport.jsp" />
+	</definition>
+	
+	<definition name="showClaim" extends="commonLayoutV1"  >
+		<put-attribute name="title" value="::: Madison General - Smart Report :::" />
+		<put-attribute name="body" value="/pages/admin/report/commonClaimReport.jsp" />
+	</definition>
+	
+	<definition name="showClaimAdmin" extends="commonAdminLayoutV1" >
+		<put-attribute name="title" value="::: Madison General - Smart Report :::" />
+		<put-attribute name="body" value="/pages/admin/report/commonClaimReport.jsp" />
+	</definition>
+	
+	<definition name="showIns" extends="commonLayoutV1" >
+		<put-attribute name="title" value="::: Madison General - Smart Report :::" />
+		<put-attribute name="body" value="/pages/admin/report/commonInsReport.jsp" />
+	</definition>
+	
+	<definition name="showInsAdmin" extends="commonAdminLayoutV1"  >
+		<put-attribute name="title" value="::: Madison General - Smart Report :::" />
+		<put-attribute name="body" value="/pages/admin/report/commonInsReport.jsp" />
+	</definition>
+	
+	<definition name="showER" extends="commonLayoutV1"  >
+		<put-attribute name="title" value="::: Madison General - Smart Report :::" />
+		<put-attribute name="body" value="/pages/admin/report/commonERReport.jsp" />
+	</definition>
+	
+	<definition name="showERAdmin" extends="commonAdminLayoutV1"  >
+		<put-attribute name="title" value="::: Madison General - Smart Report :::" />
+		<put-attribute name="body" value="/pages/admin/report/commonERReport.jsp" />
+	</definition>
+	
+	<definition name="newlc" extends="baseLayoutAdmin"  >
+		<put-attribute name="title" value="::: Madison General - LC Creation :::" />
+		<put-attribute name="body" value="/pages/admin/lcMaster/newLC.jsp" />
+	</definition>
+	<definition name="check" extends="baseLayoutAdmin">
+	    <put-attribute name="title" value="::: Madison General - Protfolio :::"/>
+	    <put-attribute name="body" value="/pages/admin/portfolio/CheckPortfolio.jsp"/>
+	</definition>
+	<definition name="byDate" extends="baseLayoutAdmin">
+	    <put-attribute name="title" value="::: Madison General - Protfolio :::"/>
+	    <put-attribute name="body" value="/pages/admin/portfolio/Portfolio_ByDate.jsp"/>
+	</definition>
+	<definition name="information" template="/pages/admin/portfolio/information.jsp">
+	    <put-attribute name="title" value="::: Madison General - Protfolio :::"/>   
+	</definition>
+	
+	<definition name="PendingReUpload" extends="baseLayout"  >
+		<put-attribute name="title" value="::: Madison General - Pending ReUpload :::" />
+		<put-attribute name="body" value="/pages/pendingReUpload.jsp" />
+	</definition>
+	<definition name="commodityList" template="/pages/commodityList.jsp">
+		<put-attribute name="title" value="::: Madison General - Commodity List :::"/>
+	</definition>
+	<definition name="otherInfo" template="/pages/otherInfo.jsp">
+		<put-attribute name="title" value="::: Madison General - Others Info :::"/>
+	</definition>
+	
+	<definition name="depositList" extends="baseLayoutAdmin">
+	    <put-attribute name="title" value="::: Madison General - Deposit Master :::"/>
+	    <put-attribute name="body" value="/pages/admin/deposit/depositMaster.jsp"/>
+	</definition>
+	<definition name="customerOption" template="/pages/admin/deposit/customerSelection.jsp">
+		<put-attribute name="title" value="::: Madison General - Customer Selection :::" />
+	</definition>
+	<definition name="openCoverSelect" template="/pages/admin/deposit/openCoverSelection.jsp">
+		<put-attribute name="title" value="::: Madison General - OpenCover Selection :::" />
+	</definition>
+	
+	<definition name="depositDetail" extends="baseLayoutAdmin">
+	 	<put-attribute name="title" value="::: Madison General - Deposit Master :::"/>
+	    <put-attribute name="body" value="/pages/admin/deposit/chequeDetails.jsp"/>
+	</definition>
+	
+	
+	<definition name="premiumsummery" extends="baseLayout">
+		<put-attribute name="title" value="::: Madison General - Premium Summery :::"/>
+		<put-attribute name="body" value="/pages/home/premiumSummary.jsp"/>
+	</definition>
+	<!-- <definition name="underwriterList" extends="baseLayoutAdmin"  >
+		<put-attribute name="title" value="::: Madison General - Underwriter List :::" />
+		<put-attribute name="body" value="/pages/admin/underwriterMgt/adminUnderwriterList.jsp"/>
+	</definition> -->
+	<!-- <definition name="viewUnderwriter" extends="baseLayoutAdmin"  >
+		<put-attribute name="title" value="::: Madison General - View User Info :::" />
+		<put-attribute name="body" value="/pages/admin/underwriterMgt/viewadminUnderwriterInfo.jsp"/>
+	</definition> -->
+	
+		
+	<definition name="motorGrid" extends="baseLayoutAdmin">
+	    <put-attribute name="title" value="::: Madison General - Common Master :::"/>
+	    <put-attribute name="body" value="/pages/admin/motor/motorGrid.jsp"/>
+	</definition>
+	<definition name="editareacov" extends="baseLayoutAdmin"  >
+		<put-attribute name="title" value="::: Madison General - Area Coverage :::" />
+		<put-attribute name="body" value="/pages/admin/motor/AreaMaster.jsp"/>
+	</definition>
+	
+	<definition name="enterTrn" extends="baseLayoutAdmin">
+		<put-attribute name="title" value="::: Madison General - Close TRN Transaction :::" />
+		<put-attribute name="body" value="/pages/admin/closeTrn/Close_Date.jsp" />
+	</definition>
+	
+	<definition name="branch1" extends="baseLayoutAdmin">
+		<put-attribute name="title" value="::: Madison General - Branch Master :::" />
+		<put-attribute name="body" value="/pages/admin/branchMgt/branch.jsp" />
+	</definition>
+	<definition name="branchAjax" template="/pages/admin/branchMgt/branchAjax.jsp">
+		<put-attribute name="title" value="::: Madison General - Branch Master :::" />
+	</definition>	
+	<definition name="viewdocuments" extends="baseLayoutAdmin">
+	    <put-attribute name="title" value="::: Madison General - Protfolio :::"/>
+	    <put-attribute name="body" value="/pages/admin/portfolio/viewdocuments.jsp"/>
+	</definition>
+		<definition name="claimBaseLayout" template="/layouts/claimBaseLayout.jsp">
+		<put-attribute name="title" value="::: Madison General - E-Way :::" />
+		<put-attribute name="header" value="/templates/claimHeader.jsp" />		
+		<put-attribute name="body" value="/templates/body.jsp" />
+		<put-attribute name="footer" value="/templates/footer.jsp" />
+	</definition>
+	<definition name="viewClaimDetails" extends="claimBaseLayout">
+		<put-attribute name="title" value="::: Madison General - Claim Details :::"></put-attribute>
+		<put-attribute name="body" value="/pages/claim/viewClaimReport.jsp"></put-attribute>		
+	</definition>
+	<definition name="claimSearch" template="/pages/claim/claimReport.jsp"  >
+		<put-attribute name="title" value="::: Madison General - Claim Search :::" />
+	</definition>
+	<definition name="documentUpload" template="/pages/admin/openCover/documentUpload.jsp">
+		<put-attribute name="tiles" value="::: Madison General - Documents :::"/>
+	</definition>
+	
+		
+	<!-- New Screens -->
+	
+	<definition name="commonLayout" template="/layouts/commonLayout.jsp">
+		<put-attribute name="title" value="::: Madison General - E-Way :::" />
+		<put-attribute name="header" value="/templates/header.jsp" />
+		<put-attribute name="menu" value="/templates/menu.jsp" />
+		<put-attribute name="body" value="/templates/body.jsp" />
+		<put-attribute name="footer" value="/templates/footer.jsp" />
+	</definition>
+	
+	<definition name="commonLayoutV1" template="/layouts/commonLayoutV1.jsp">
+		<put-attribute name="title" value="::: Madison General - E-Way :::" />
+		<put-attribute name="header" value="/templates/headerV1.jsp" />
+		<put-attribute name="menu" value="/templates/menuV1.jsp" />
+		<put-attribute name="body" value="/templates/body.jsp" />
+		<put-attribute name="footer" value="/templates/footerNew.jsp" />
+	</definition>
+	
+
+			
+	<definition name="homeLayout" template="/layouts/homeLayout.jsp">
+		<put-attribute name="title" value="::: Madison General - E-Way :::" />
+		<put-attribute name="header" value="/templates/header.jsp" />
+		<put-attribute name="body" value="/templates/body.jsp" />
+		<put-attribute name="footer" value="/templates/footer.jsp" />
+	</definition>
+	
+	<definition name="homeLayoutV1" template="/layouts/homeLayoutV1.jsp">
+		<put-attribute name="title" value="::: Madison General - E-Way :::" />
+		<put-attribute name="header" value="/templates/headerV1.jsp" />
+		<put-attribute name="body" value="/templates/body.jsp" />
+		<put-attribute name="footer" value="/templates/footerNew.jsp" />
+	</definition>
+	
+	<definition name="popupLayout" template="/layouts/commonLayout.jsp">
+		<put-attribute name="title" value="::: Madison General - E-Way :::" />
+		<put-attribute name="header" value="" />
+		<put-attribute name="menu" value="" />
+		<put-attribute name="footer" value="" />
+		<put-attribute name="body" value="/templates/body.jsp" />
+	</definition>
+	
+	<!-- <definition name="productSelection" extends="homeLayout"  >
+		<put-attribute name="title" value="::: Madison General - Product Selection :::" />
+		<put-attribute name="body" value="/login/ProductSelection.jsp" />
+	</definition> -->
+	<definition name="productSelection" extends="homeLayout"  >
+		<put-attribute name="title" value="::: Madison General - Product Selection :::" />
+		<put-attribute name="body" value="/pages/productSelection.jsp" />
+	</definition>
+	<definition name="productSelectionNew" extends="homeLayoutV1"  >
+		<put-attribute name="title" value="::: Madison General - Product Selection :::" />
+		<put-attribute name="body" value="/pages/productSelectionNew.jsp" />
+	</definition>
+	
+	<definition name="report" extends="commonLayoutV1" >
+		<put-attribute name="title" value="::: Madison General - Report :::" />
+		<put-attribute name="body" value="/pages/reportV1.jsp" />
+	</definition>
+	
+	<definition name="quotation" extends="commonLayout"  > 
+		<put-attribute name="title" value="::: Madison General - Report :::" />
+		<put-attribute name="body" value="/pages/quotation.jsp" />
+	</definition>
+	
+	<definition name="premiumInfo" extends="commonLayout"  >
+		<put-attribute name="title" value="::: Madison General - Report :::" />
+		<put-attribute name="body" value="/pages/premiumInfo.jsp" />
+	</definition> 
+	
+	<definition name="policyInfo" extends="commonLayoutV1">
+		<put-attribute name="title" value="::: Madison General - Policy Information :::"/>
+		<put-attribute name="body" value="/pages/policyInfoNew.jsp" />
+	</definition>
+	
+	<definition name="copyQuote" extends="commonLayoutV1"  >
+		<put-attribute name="title" value="::: Madison General - Copy Quote :::" />
+		<put-attribute name="body" value="/pages/copyQuote.jsp" />
+	</definition>
+	
+	<definition name="search" extends="commonLayoutV1"  >
+		<put-attribute name="title" value="::: Madison General - Search :::" />
+		<put-attribute name="body" value="/pages/search.jsp" />
+	</definition>
+	
+	<definition name="policyPrint" extends="commonLayout"  >
+		<put-attribute name="title" value="::: Madison General - Declaration :::" />
+		<put-attribute name="body" value="/pages/policyPrint.jsp" />
+	</definition>
+	
+	<definition name="lcUpload" extends="commonLayout"  >
+		<put-attribute name="title" value="::: Madison General - lcUpload :::" />
+		<put-attribute name="body" value="/pages/lcFileUpload.jsp" />
+	</definition>
+	
+	<definition name="links" extends="commonLayout"  >
+		<put-attribute name="title" value="::: Madison General - Copy Quote :::" />
+		<put-attribute name="body" value="/pages/links.jsp" />
+	</definition>
+	
+	<definition name="linksNew" extends="commonLayoutV1"  >
+		<put-attribute name="title" value="::: Madison General - Copy Quote :::" />
+		<put-attribute name="body" value="/pages/linksNew.jsp" />
+	</definition>
+		
+	<definition name="claimIntimation" extends="commonLayout"  >
+		<put-attribute name="title" value="::: Madison General - Claim Intimation :::" />
+		<put-attribute name="body" value="/pages/motor/claimIntimation.jsp" />
+	</definition>
+	<definition name="claimStatus" extends="commonLayoutV1"  >
+		<put-attribute name="title" value="::: Madison General - Claim Intimation Status:::" />
+		<put-attribute name="body" value="/pages/motor/claimStatus.jsp" />
+	</definition>
+	
+	<definition name="claimIntimationAdmin" extends="commonAdminLayoutV1"  >
+		<put-attribute name="title" value="::: Madison General - Claim Intimation :::" />
+		<put-attribute name="body" value="/pages/motor/claimIntimation.jsp" />
+	</definition>
+	
+		
+	<definition name="motorEndorsement" extends="commonLayout"  >
+		<put-attribute name="title" value="::: Madison General - Endorsement Request :::" />
+		<put-attribute name="body" value="/pages/motor/motorEndorsement.jsp" />
+	</definition>
+	
+	<definition name="claimIntimationView" extends="commonLayout"  >
+		<put-attribute name="title" value="::: Madison General - Claim Intimation :::" />
+		<put-attribute name="body" value="/pages/motor/claimIntimationView.jsp" />
+	</definition>
+	<definition name="claimIntimationAdminView" extends="commonAdminLayoutV1"  >
+		<put-attribute name="title" value="::: Madison General - Claim Intimation :::" />
+		<put-attribute name="body" value="/pages/motor/claimIntimationView.jsp" />
+	</definition>
+	
+	<definition name="paymentmaster" extends="commonAdminLayoutV1"  >
+		<put-attribute name="title" value="::: Madison General - Payment Master :::" />
+		<put-attribute name="body" value="/pages/admin/motorNew/paymentMaster.jsp" />
+	</definition>
+	
+	<!-- Admin Pages -->
+	
+	<definition name="commonAdminLayout" template="/layouts/commonLayout.jsp">
+		<put-attribute name="title" value="::: Madison General - E-Way :::" />
+		<put-attribute name="header" value="/templates/header.jsp" />
+		<put-attribute name="menu" value="/templates/adminMenu.jsp" />
+		<put-attribute name="body" value="/templates/body.jsp" />
+		<put-attribute name="footer" value="/templates/footer.jsp" />
+	</definition>
+	
+	<definition name="commonAdminLayoutV1" template="/layouts/commonLayoutV1.jsp">
+		<put-attribute name="title" value="::: Madison General - E-Way :::" />
+		<put-attribute name="header" value="/templates/headerV1.jsp" />
+		<put-attribute name="menu" value="/templates/adminMenuV1.jsp" />
+		<put-attribute name="body" value="/templates/body.jsp" />
+		<put-attribute name="footer" value="" />
+	</definition>
+	
+	<definition name="adminHome" extends="commonAdminLayoutV1"  >
+		<put-attribute name="title" value="::: Madison General - Admin Home :::" />
+		<put-attribute name="body" value="/admin/admin_welcome.jsp" />
+	</definition>
+	
+	<definition name="adminClaimIndimation" extends="commonAdminLayout"  >
+		<put-attribute name="title" value="::: Madison General - Admin Claim Intimation :::" />
+		<put-attribute name="body" value="/pages/claim/adminClaim.jsp" />
+	</definition>
+	
+	<definition name="viewDetail" extends="commonAdminLayout">
+		<put-attribute name="title" value="::: Madison General - Admin Claim Intimation :::" />
+		<put-attribute name="body" value="/pages/claim/viewClaimReport.jsp"></put-attribute>		
+	</definition>
+	
+	<definition name="underwriterList" extends="commonAdminLayoutV1"  >
+		<put-attribute name="title" value="::: Madison General - Underwriter List :::" />
+		<put-attribute name="body" value="/pages/admin/underwriterMgt/adminUnderwriterList.jsp"/>
+	</definition>
+	
+	<definition name="viewUnderwriter" extends="commonAdminLayoutV1"  >
+		<put-attribute name="title" value="::: Madison General - View User Info :::" />
+		<put-attribute name="body" value="/pages/admin/underwriterMgt/viewadminUnderwriterInfo.jsp"/>
+	</definition>
+	
+	<definition name="changePass" extends="commonAdminLayoutV1"  >
+		<put-attribute name="title" value="::: Madison General - Underwriter List :::" />
+		<put-attribute name="body" value="/pages/admin/underwriterMgt/uwChangePassword.jsp"/>
+	</definition>
+	
+	<definition name="changePassAdmin" extends="commonAdminLayoutV1"  >
+		<put-attribute name="title" value="::: Madison General - Underwriter List :::" />
+		<put-attribute name="body" value="/pages/admin/adminMgt/adminChangePassword.jsp"/>
+	</definition>
+	
+	<definition name="includeIssuer" extends="commonAdminLayoutV1"  >
+		<put-attribute name="title" value="::: Madison General - View User Info :::" />
+		<put-attribute name="body" value="/pages/admin/underwriterMgt/includeIssuer.jsp"/>
+	</definition>
+	
+	<definition name="excludeIssuer" extends="commonAdminLayoutV1"  >
+		<put-attribute name="title" value="::: Madison General - View User Info :::" />
+		<put-attribute name="body" value="/pages/admin/underwriterMgt/excludeIssuer.jsp"/>
+	</definition>
+	
+	<definition name="editUnderwriter" extends="commonAdminLayoutV1"  >
+		<put-attribute name="title" value="::: Madison General - Edit Issuer Info :::" />
+		<put-attribute name="body" value="/pages/admin/underwriterMgt/editadminUnderwriterInfo.jsp" />
+	</definition>
+	
+	<definition name="userList" extends="commonAdminLayoutV1"  >
+		<put-attribute name="title" value="::: Madison General - User List :::" />
+		<put-attribute name="body" value="/pages/admin/userMgt/adminUserList.jsp"/>
+	</definition>
+	
+	<definition name="editUser" extends="commonAdminLayoutV1"  >
+		<put-attribute name="title" value="::: Madison General - Edit Broker Info :::" />
+		<put-attribute name="body" value="/pages/admin/userMgt/editadminUserInfo.jsp" />
+	</definition>
+	
+	<definition name="viewUser" extends="commonAdminLayoutV1"  >
+		<put-attribute name="title" value="::: Madison General - View User Info :::" />
+		<put-attribute name="body" value="/pages/admin/userMgt/viewadminUserInfo.jsp"/>
+	</definition>
+	
+	<definition name="adminMgt" extends="commonAdminLayoutV1"  >
+		<put-attribute name="title" value="::: Madison General - Admin Management :::" />
+		<put-attribute name="body" value="/pages/admin/adminMgt/adminMgtMaster.jsp" />
+	</definition>
+	
+	<definition name="branchSelect" template="/pages/admin/adminMgt/branchSelection.jsp">
+		<put-attribute name="title" value="" />
+	</definition>
+	
+	<definition name="menuSelect" template="/pages/admin/adminMgt/menuSelection.jsp">
+		<put-attribute name="title" value="::: Madison General - Menu Selection :::" />
+	</definition>
+	
+	<definition name="brokerSelect" template="/pages/admin/adminMgt/brokerSelection.jsp">
+		<put-attribute name="title" value="::: Madison General - Broker Selection :::" />
+	</definition>
+	
+	<definition name="customerList" extends="commonAdminLayoutV1"  >
+		<put-attribute name="title" value="::: Madison General - Customer List :::" />
+		<put-attribute name="body" value="/pages/admin/customerMgt/adminCustomerList.jsp"/>
+	</definition>
+	
+	<definition name="viewCustomer" extends="commonAdminLayoutV1"  >
+		<put-attribute name="title" value="::: Madison General - View User Info :::" />
+		<put-attribute name="body" value="/pages/admin/customerMgt/viewadminCustomerInfo.jsp"/>
+	</definition>
+	
+	<definition name="brokerList" extends="commonAdminLayoutV1"  >
+		<put-attribute name="title" value="::: Madison General - Broker List :::" />
+		<put-attribute name="body" value="/pages/admin/brokerMgt/AdminBrokerList.jsp" />
+	</definition>
+	
+	<definition name="viewBroker" extends="commonAdminLayoutV1"  >
+		<put-attribute name="title" value="::: Madison General - View Broker Info :::" />
+		<put-attribute name="body" value="/pages/admin/brokerMgt/viewadminBrokerInfo.jsp" />
+	</definition>
+	
+	<definition name="opencoverList" extends="commonAdminLayout"  >
+		<put-attribute name="title" value="::: Madison General - Open Cover :::" />
+		<put-attribute name="body" value="/pages/admin/openCover/openCoverList.jsp" />
+	</definition>
+	
+	<definition name="brokeroc" extends="commonAdminLayoutV1" >
+		<put-attribute name="title" value="::: Madison General - Open Cover :::" />
+		<put-attribute name="body" value="/pages/admin/openCover/brokerocList.jsp" />
+	</definition>
+	
+	<definition name="pwdChange" extends="commonAdminLayout"  >
+		<put-attribute name="title" value="::: Madison General - Broker Management :::" />
+		<put-attribute name="body" value="/pages/admin/brokerMgt/changePWD.jsp" />
+	</definition>
+	
+	<definition name="assignNewPwd" extends="commonAdminLayoutV1"  >
+		<put-attribute name="title" value="::: Madison General - Broker New Password :::" />
+		<put-attribute name="body" value="/pages/admin/brokerMgt/assignnewPWD.jsp" />
+	</definition>
+	
+	<definition name="editBroker" extends="commonAdminLayoutV1"  >
+		<put-attribute name="title" value="::: Madison General - Edit Broker Info :::" />
+		<put-attribute name="body" value="/pages/admin/brokerMgt/editadminBrokerInfo.jsp" />
+	</definition>
+	
+	<definition name="openCover" template="/pages/admin/openCoverCommon.jsp"  >
+		<put-attribute name="title" value="::: Madison General - Open Cover Selection :::" />
+	</definition>
+	
+	<definition name="portfolio" extends="commonAdminLayoutV1">
+	    <put-attribute name="title" value="::: Madison General - Protfolio :::"/>
+	    <put-attribute name="body" value="/pages/admin/portfolio/AdminPortfolio.jsp"/>
+	</definition>
+	
+	<definition name="portfolioajax" template="/pages/admin/portfolio/portfolioAjax.jsp">
+		<put-attribute name="title" value="::: Madison General - Protfolio :::"/>
+	</definition>
+	
+	<definition name="issuerreferalList" extends="commonLayoutV1">
+		<put-attribute name="title" value="::: Madison General - Referal List :::" />
+		<put-attribute name="body" value="/pages/admin/referal/referalList.jsp" />
+	</definition>
+	<definition name="referalList" extends="commonAdminLayoutV1">
+		<put-attribute name="title" value="::: Madison General - Referal List :::" />
+		<put-attribute name="body" value="/pages/admin/referal/referalList.jsp" />
+	</definition>
+	
+	<definition name="branch" extends="commonAdminLayout"  >
+		<put-attribute name="title" value="::: Madison General - Reports :::" />
+		<put-attribute name="body" value="/pages/admin/report/branchReport.jsp" />
+	</definition>
+	
+	<definition name="lcsmart" extends="commonAdminLayout"  >
+		<put-attribute name="title" value="::: Madison General - Reports :::" />
+		<put-attribute name="body" value="/pages/admin/report/lcSmartReport.jsp" />
+	</definition>
+	
+	<definition name="smartreport" extends="commonAdminLayout"  >
+		<put-attribute name="title" value="::: Madison General - Smart Report :::" />
+		<put-attribute name="body" value="/pages/admin/report/smartReport.jsp" />
+	</definition>
+	
+	<definition name="openCoverReport" extends="commonAdminLayout"  >
+		<put-attribute name="title" value="::: Madison General - openCover Report :::" />
+		<put-attribute name="body" value="/pages/admin/report/openCoverReport.jsp"/>
+	</definition>
+	
+	<definition name="policyreport" extends="commonAdminLayout">
+		<put-attribute name="title" value="::: Madison General - Reports :::" />
+		<put-attribute name="body" value="/pages/admin/report/policyReport.jsp" />
+	</definition>	
+	<definition name="commodityselect" template="/pages/admin/report/commodityselection.jsp">
+		<put-attribute name="title" value="::: Madison General - Commodity Selection :::" />
+	</definition>
+	<definition name="acoreCustomer" extends="commonAdminLayout">
+		<put-attribute name="title" value="::: Madison General - Core Customer List :::" />
+		<put-attribute name="body" value="/pages/admin/customerMgt/coreCustomer.jsp"></put-attribute>		
+	</definition>
+	
+	<definition name="editCoreCustomer" extends="commonAdminLayout">
+		<put-attribute name="title" value="::: Madison General - Core Customer :::" />
+		<put-attribute name="body" value="/pages/admin/customerMgt/editCoreCustomer.jsp"></put-attribute>		
+	</definition>
+	
+	<definition name="lclist" extends="commonAdminLayout"  >
+		<put-attribute name="title" value="::: Madison General - LC Master Creation :::" />
+		<put-attribute name="body" value="/pages/admin/lcMaster/lcMasterList.jsp" />
+	</definition>
+	
+	<definition name="lcdetails" extends="commonAdminLayout"  >
+		<put-attribute name="title" value="::: Madison General - LC Details :::" />
+		<put-attribute name="body" value="/pages/admin/lcMaster/lcDetail.jsp" />
+	</definition>
+	<!--Motor Admin New Configuration Start-->	
+		<definition name="motorAdminAjax" template="/pages/admin/motorNew/motorAdminAjax.jsp">
+			<put-attribute name="title" value="::: Madison General - Motor Master :::"/>
+		</definition>		  
+		<definition name="comprehensive" extends="commonAdminLayoutV1">
+			<put-attribute name="title" value="::: Madison General - Comprehensive Rate Configuration :::"/>
+			<put-attribute name="body" value="/pages/admin/motorNew/comprehensiveRateConfig.jsp"/>
+		</definition> 
+		<definition name="editSubPolicy" extends="commonAdminLayoutV1">
+			<put-attribute name="title" value="::: Madison General - Comprehensive Rate Configuration :::"/>
+			<put-attribute name="body" value="/pages/admin/motorNew/editSubPolicyType.jsp"/>
+		</definition> 
+		<definition name="editCompreRate" extends="commonAdminLayoutV1">
+			<put-attribute name="title" value="::: Madison General - Comprehensive Rate Configuration :::"/>
+			<put-attribute name="body" value="/pages/admin/motorNew/editComprehensiveRate.jsp"/>
+		</definition>
+		<definition name="makeMaster" extends="commonAdminLayoutV1">
+			<put-attribute name="title" value="::: Madison General - Make Configuration :::"/>
+			<put-attribute name="body" value="/pages/admin/motorNew/makeConfig.jsp"/>
+		</definition>
+		<definition name="modelMaster" extends="commonAdminLayoutV1">
+			<put-attribute name="title" value="::: Madison General - Model Rate Configuration :::"/>
+			<put-attribute name="body" value="/pages/admin/motorNew/modelConfig.jsp"/>
+		</definition>
+		<definition name="modelDetail" extends="commonAdminLayoutV1">
+			<put-attribute name="title" value="::: Madison General - Model Rate Configuration :::"/>
+			<put-attribute name="body" value="/pages/admin/motorNew/modelDetailConfig.jsp"/>
+		</definition>
+		
+		<definition name="document" extends="commonAdminLayoutV1">
+		    <put-attribute name="title" value="::: Madison General - Document Master :::"/>
+		    <put-attribute name="body" value="/pages/admin/motorNew/documentMaster.jsp"/>
+		</definition>
+		<definition name="vehicleTypeMaster" extends="commonAdminLayoutV1">
+		    <put-attribute name="title" value="::: Madison General - Vehicle Type Master :::"/>
+		    <put-attribute name="body" value="/pages/admin/motorNew/vehicleTypeMaster.jsp"/>
+		</definition>
+		<definition name="opCoverMaster" extends="commonAdminLayoutV1">
+		    <put-attribute name="title" value="::: Madison General - OPCover Master :::"/>
+		    <put-attribute name="body" value="/pages/admin/motorNew/opCoverMaster.jsp"/>
+		</definition>
+		<definition name="deductibleMaster" extends="commonAdminLayoutV1">
+		    <put-attribute name="title" value="::: Madison General - Deductible Master :::"/>
+		    <put-attribute name="body" value="/pages/admin/motorNew/deductibleMaster.jsp"/>
+		</definition>
+		<definition name="bodyTypeMaster" extends="commonAdminLayoutV1">
+		    <put-attribute name="title" value="::: Madison General - Body Type Master :::"/>
+		    <put-attribute name="body" value="/pages/admin/motorNew/bodyTypeMaster.jsp"/>
+		</definition>
+		<definition name="opCoverDetail" extends="commonAdminLayoutV1">
+		    <put-attribute name="title" value="::: Madison General - OPCover Detail Master :::"/>
+		    <put-attribute name="body" value="/pages/admin/motorNew/opCoverDetail.jsp"/>
+		</definition>		
+		<definition name="thirdParty" extends="commonAdminLayoutV1">
+		    <put-attribute name="title" value="::: Madison General - Third Party Master :::"/>
+		    <put-attribute name="body" value="/pages/admin/motorNew/thirdPartyRateConfig.jsp"/>
+		</definition>
+		<definition name="editThirdParty" extends="commonAdminLayoutV1">
+		    <put-attribute name="title" value="::: Madison General - Third Party Master :::"/>
+		    <put-attribute name="body" value="/pages/admin/motorNew/editThirdParty.jsp"/>
+		</definition>
+		<definition name="areaCoverageMaster" extends="commonAdminLayoutV1">
+		    <put-attribute name="title" value="::: Madison General - Document Master :::"/>
+		    <put-attribute name="body" value="/pages/admin/motorNew/areaCoverageMaster.jsp"/>
+		</definition>
+		<definition name="bankFinanceMaster" extends="commonAdminLayoutV1">
+		    <put-attribute name="title" value="::: Madison General - Bank Finance Master :::"/>
+		    <put-attribute name="body" value="/pages/admin/motorNew/bankFinanceMaster.jsp"/>
+		</definition>
+		<definition name="bankMaster" extends="commonAdminLayoutV1">
+		    <put-attribute name="title" value="::: Madison General - Bank Master :::"/>
+		    <put-attribute name="body" value="/pages/admin/motorNew/bankMaster.jsp"/>
+		</definition>
+		<definition name="policyTypeMaster" extends="commonAdminLayoutV1">
+		    <put-attribute name="title" value="::: Madison General - Policy Type Master :::"/>
+		    <put-attribute name="body" value="/pages/admin/motorNew/policyTypeMaster.jsp"/>
+		</definition>
+		<definition name="colorMaster" extends="commonAdminLayout">
+		    <put-attribute name="title" value="::: Madison General - Color Master :::"/>
+		    <put-attribute name="body" value="/pages/admin/motorNew/colorMaster.jsp"/>
+		</definition>
+		<definition name="groupMaster" extends="commonAdminLayoutV1">
+		    <put-attribute name="title" value="::: Madison General - Group Master :::"/>
+		    <put-attribute name="body" value="/pages/admin/motorNew/groupMaster.jsp"/>
+		</definition>
+		<definition name="cyclinderMaster" extends="commonAdminLayout">
+		    <put-attribute name="title" value="::: Madison General - Cylinder Master :::"/>
+		    <put-attribute name="body" value="/pages/admin/motorNew/cyclinderMaster.jsp"/>
+		</definition>
+		<definition name="ncbMaster" extends="commonAdminLayoutV1">
+		    <put-attribute name="title" value="::: Madison General - NCB Master :::"/>
+		    <put-attribute name="body" value="/pages/admin/motorNew/ncbMaster.jsp"/>
+		</definition>
+		<definition name="mfgCountryMaster" extends="commonAdminLayoutV1">
+		    <put-attribute name="title" value="::: Madison General - OPCover Master :::"/>
+		    <put-attribute name="body" value="/pages/admin/motorNew/mfgCountryMaster.jsp"/>
+		</definition>	
+		
+		<definition name="motorReport" extends="commonAdminLayoutV1">
+		    <put-attribute name="title" value="::: Madison General - Motor Report :::"/>
+		    <put-attribute name="body" value="/pages/admin/report/motorReport.jsp"/>
+		</definition>
+		<definition name="roadAssistReportAdmin" extends="commonAdminLayoutV1">
+		    <put-attribute name="title" value="::: Madison General - Road Assistance Report :::"/>
+		    <put-attribute name="body" value="/pages/admin/report/roadAssistantReport.jsp"/>
+		</definition>
+		
+		<definition name="endorsementDetails" extends="commonAdminLayoutV1">
+		    <put-attribute name="title" value="::: Madison General - Endorsement Report :::"/>
+		    <put-attribute name="body" value="/pages/admin/report/endorsementReport.jsp"/>
+		</definition>
+		
+		<definition name="claimIntimationReport" extends="commonAdminLayoutV1">
+		    <put-attribute name="title" value="::: Madison General - Claim Intimation Detail :::"/>
+		    <put-attribute name="body" value="/pages/admin/report/claimIntimationReport.jsp"/>
+		</definition>
+		
+		<definition name="claimIntimationReportView" extends="commonAdminLayoutV1">
+		    <put-attribute name="title" value="::: Madison General - Claim Intimation Detail :::"/>
+		    <put-attribute name="body" value="/pages/admin/report/claimIntimationReportView.jsp"/>
+		</definition>
+		
+		<definition name="motorPayment" extends="commonAdminLayoutV1">
+		    <put-attribute name="title" value="::: Madison General - Motor Payment Detail :::"/>
+		    <put-attribute name="body" value="/pages/admin/report/quotationStatus.jsp"/>
+		</definition>
+		<definition name="motorPaymentUser" extends="commonLayout">
+		    <put-attribute name="title" value="::: Madison General - Motor Payment Detail :::"/>
+		    <put-attribute name="body" value="/pages/admin/report/quotationStatus.jsp"/>
+		</definition>
+		<definition name="installment" extends="commonAdminLayoutV1">
+		    <put-attribute name="title" value="::: Madison General - Motor Payment Detail :::"/>
+		    <put-attribute name="body" value="/pages/admin/report/installmentUpdate.jsp"/>
+		</definition>
+		<definition name="installmentUser" extends="commonLayout">
+		    <put-attribute name="title" value="::: Madison General - Motor Payment Detail :::"/>
+		    <put-attribute name="body" value="/pages/admin/report/installmentUpdate.jsp"/>
+		</definition>
+		
+		<definition name="paymentdue" extends="commonAdminLayoutV1">
+		    <put-attribute name="title" value="::: Madison General - Motor Payment Detail :::"/>
+		    <put-attribute name="body" value="/pages/admin/report/paymentDueReport.jsp"/>
+		</definition>
+		
+		<definition name="emipayment" extends="commonAdminLayoutV1">
+		    <put-attribute name="title" value="::: Madison General - Motor EMI Payment Detail :::"/>
+		    <put-attribute name="body" value="/pages/admin/report/emiPaymentReport.jsp"/>
+		</definition>
+		<definition name="emipaymentOP" extends="commonLayout">
+		    <put-attribute name="title" value="::: Madison General - Motor EMI Payment Detail :::"/>
+		    <put-attribute name="body" value="/pages/admin/report/emiPaymentReport.jsp"/>
+		</definition>
+		
+		<definition name="quarterMaster" extends="commonAdminLayoutV1">
+		    <put-attribute name="title" value="::: Madison General - Quarter Master :::"/>
+		    <put-attribute name="body" value="/pages/admin/motorNew/quarterConfig.jsp"/>
+		</definition>
+		<definition name="subPolicy" extends="commonAdminLayoutV1">
+		    <put-attribute name="title" value="::: Madison General - Sub Policy Type Maste :::r"/>
+		    <put-attribute name="body" value="/pages/admin/motorNew/subPolicyConfig.jsp"/>
+		</definition>
+		
+		<definition name="constantMaster" extends="commonAdminLayoutV1">
+		    <put-attribute name="title" value="::: Madison General - Constant Master :::"/>
+		    <put-attribute name="body" value="/pages/admin/motorNew/constantDetailConfig.jsp"/>
+		</definition>
+		
+		<definition name="mupoladimg" extends="commonAdminLayoutV1">
+		    <put-attribute name="title" value="::: Madison General - Mobile Upload Images :::"/>
+		    <put-attribute name="body" value="/pages/admin/motorNew/mUploadImg.jsp"/>
+		</definition>
+		<definition name="mupoladimgOP" extends="commonLayout">
+		    <put-attribute name="title" value="::: Madison General - Mobile Upload Images :::"/>
+		    <put-attribute name="body" value="/pages/admin/motorNew/mUploadImg.jsp"/>
+		</definition>
+		<definition name="moNotifyMaster" extends="commonAdminLayoutV1">
+		    <put-attribute name="title" value="::: Madison General - Mobile Upload Images :::"/>
+		    <put-attribute name="body" value="/pages/admin/motorNew/moNotifyMaster.jsp"/>
+		</definition>
+		<definition name="paymentBankMaster" extends="commonAdminLayoutV1">
+		    <put-attribute name="title" value="::: Madison General - Mobile Upload Images :::"/>
+		    <put-attribute name="body" value="/pages/admin/motorNew/paymentBankMaster.jsp"/>
+		</definition>
+		
+		<definition name="conditionsList" extends="commonAdminLayoutV1">
+		    <put-attribute name="title" value="::: Madison General - Conditions Master :::"/>
+		    <put-attribute name="body" value="/pages/admin/motorNew/conditionsList.jsp"/>
+		</definition>
+		
+		<definition name="conditionsEdit" extends="commonAdminLayoutV1">
+		    <put-attribute name="title" value="::: Madison General - Conditions Master :::"/>
+		    <put-attribute name="body" value="/pages/admin/motorNew/conditionsEdit.jsp"/>
+		</definition>
+		
+	<!-- Motor Admin New Configuration End-->	
+	<!-- Travel Admin New Start -->
+		<definition name="travel" extends="commonAdminLayout"  > 
+			<put-attribute name="title" value="::: Madison General - Travel :::" />
+			<put-attribute name="body" value="/pages/travel/travel.jsp" />
+		</definition>
+		<definition name="adminajax" template="/pages/admin/adminAjax.jsp">
+			<put-attribute name="title" value="Ajax Broker List" />
+		</definition>
+		<definition name="scheme" extends="commonAdminLayout"  >
+			<put-attribute name="title" value="::: Madison General - Scheme Master :::" />
+			<put-attribute name="body" value="/pages/admin/travel/travelScheme.jsp" />
+		</definition>
+		<definition name="schemehistory" template="/pages/admin/travel/travelScheme.jsp">
+			<put-attribute name="title" value="::: Madison General - Scheme history :::"/>
+		</definition>
+			<definition name="option" extends="commonAdminLayout"  >
+			<put-attribute name="title" value="::: Madison General - Travel Options :::" />
+			<put-attribute name="body" value="/pages/admin/travel/travelOption.jsp" />
+		</definition> 
+		<definition name="optionhistory" template="/pages/admin/travel/travelOption.jsp">
+			<put-attribute name="title" value="::: Madison General - Option History :::"/>
+		</definition> 
+		<definition name="linkoption" extends="commonAdminLayout"  >
+			<put-attribute name="title" value="::: Madison General - Link Option :::" />
+			<put-attribute name="body" value="/pages/admin/travel/travelLinkOption.jsp" />
+		</definition> 
+		<definition name="linkcoverage" extends="commonAdminLayout"  >
+			<put-attribute name="title" value="::: Madison General - Link Coverage :::" />
+			<put-attribute name="body" value="/pages/admin/travel/travelLinkCoverage.jsp" />
+		</definition>
+		<definition name="coverage" extends="commonAdminLayout"  >
+			<put-attribute name="title" value="::: Madison General - Coverage Admin :::"  />
+			<put-attribute name="body" value="/pages/admin/travel/travelMasterCoverage.jsp" />
+		</definition>
+			<definition name="coveragehistory" template="/pages/admin/travel/travelMasterCoverage.jsp">
+			<put-attribute name="title" value="::: Madison General - coveragehistory :::"/>
+		</definition> 
+		<definition name="discountrate" extends="commonAdminLayout"  >
+			<put-attribute name="title" value="::: Madison General - Discount Rate :::" />
+			<put-attribute name="body" value="/pages/admin/travel/travelDiscountRate.jsp" />
+		</definition>
+		<definition name="discountratehistory" template="/pages/admin/travel/travelDiscountRate.jsp">
+			<put-attribute name="title" value="::: Madison General - Discount Rate History :::"/>
+		</definition> 
+		<definition name="relationdiscount" extends="commonAdminLayout"  >
+			<put-attribute name="title" value="::: Madison General - Relation Discount :::" />
+			<put-attribute name="body" value="/pages/admin/travel/travelRelationDiscount.jsp" />
+		</definition>
+		<definition name="relationdiscounthistory" template="/pages/admin/travel/travelRelationDiscount.jsp">
+			<put-attribute name="title" value="::: Madison General - Relation Discount History :::"/>
+		</definition>	
+		<definition name="premiumrate" extends="commonAdminLayout"  >
+			<put-attribute name="title" value="::: Madison General - Premium Rate :::" />
+			<put-attribute name="body" value="/pages/admin/travel/travelPremiumRate.jsp" />
+		</definition>
+		<definition name="premiumratehistory" template="/pages/admin/travel/travelPremiumRate.jsp">
+			<put-attribute name="title" value="::: Madison General - Premium Rate History :::"/>
+		</definition>
+		<definition name="travelReport" extends="commonAdminLayout">
+		    <put-attribute name="title" value="::: Madison General - Travel Report :::"/>
+		    <put-attribute name="body" value="/pages/admin/report/travelReport.jsp"/>
+		</definition>
+	<!-- Travel Admin End-->
+	
+	<!-- Rating Engine Old -->
+	
+	<definition name="baseLayoutAdminOld" template="/layouts/baseLayoutOld.jsp">
+		<put-attribute name="title" value="::: Madison General - E-Way :::" />
+		<put-attribute name="header" value="/templates/headerOld.jsp" />
+		<put-attribute name="menu" value="/templates/adminMenuOld.jsp" />
+		<put-attribute name="body" value="/templates/body.jsp" />
+		<put-attribute name="footer" value="/templates/footer.jsp" />
+	</definition>
+	
+	<definition name="common" extends="baseLayoutAdminOld">
+	    <put-attribute name="title" value="::: Madison General - Common Master :::"/>
+	    <put-attribute name="body" value="/pages/admin/ratingEngine/commonMaster.jsp"/>
+	</definition>
+	
+	<definition name="baserate" extends="baseLayoutAdminOld">
+	    <put-attribute name="title" value="::: Madison General - Base Rate :::"/>
+	    <put-attribute name="body" value="/pages/admin/ratingEngine/baserate.jsp"/>
+	</definition>
+	<definition name="editTransport" extends="baseLayoutAdminOld">
+	    <put-attribute name="title" value="::: Madison General - Edit Transport :::"/>
+	    <put-attribute name="body" value="/pages/admin/ratingEngine/editTransport.jsp"/>
+	</definition>
+	<definition name="addError" extends="baseLayoutAdminOld">
+	    <put-attribute name="title" value="::: Madison General - Add Error :::"/>
+	    <put-attribute name="body" value="/pages/admin/ratingEngine/addError.jsp"/>
+	</definition>
+	<definition name="editConveyance" extends="baseLayoutAdminOld">
+	    <put-attribute name="title" value="::: Madison General - Edit Conveyance :::"/>
+	    <put-attribute name="body" value="/pages/admin/ratingEngine/editConveyance.jsp"/>
+	</definition>
+	<definition name="editExtraCover" extends="baseLayoutAdminOld">
+	    <put-attribute name="title" value="::: Madison General - Edit Extra Cover :::"/>
+	    <put-attribute name="body" value="/pages/admin/ratingEngine/editExtraCover.jsp"/>
+	</definition>
+	<definition name="editCity" extends="baseLayoutAdminOld">
+	    <put-attribute name="title" value="::: Madison General - Edit City :::"/>
+	    <put-attribute name="body" value="/pages/admin/ratingEngine/editCity.jsp"/>
+	</definition>
+	<definition name="editCountry" extends="baseLayoutAdminOld">
+	    <put-attribute name="title" value="::: Madison General - Edit Country :::"/>
+	    <put-attribute name="body" value="/pages/admin/ratingEngine/editCountry.jsp"/>
+	</definition>
+	<definition name="editBank" extends="baseLayoutAdminOld">
+	    <put-attribute name="title" value="::: Madison General - Edit Bank :::"/>
+	    <put-attribute name="body" value="/pages/admin/ratingEngine/editBank.jsp"/>
+	</definition>
+	<definition name="editMaterial" extends="baseLayoutAdminOld">
+	    <put-attribute name="title" value="::: Madison General - Edit Material :::"/>
+	    <put-attribute name="body" value="/pages/admin/ratingEngine/editMaterial.jsp"/>
+	</definition>
+	<definition name="editWar" extends="baseLayoutAdminOld">
+	    <put-attribute name="title" value="::: Madison General - Edit War Rate :::"/>
+	    <put-attribute name="body" value="/pages/admin/ratingEngine/editWarRate.jsp"/>
+	</definition>
+	<definition name="editSale" extends="baseLayoutAdminOld"  >
+		<put-attribute name="title" value="::: Madison General - Sale Term Master :::" />
+		<put-attribute name="body" value="/pages/admin/ratingEngine/editSaleTerm.jsp" />
+	</definition>
+	<definition name="editTole" extends="baseLayoutAdminOld">
+	    <put-attribute name="title" value="::: Madison General - Edit Tolerance Master :::"/>
+	    <put-attribute name="body" value="/pages/admin/ratingEngine/editTolerance.jsp"/>
+	</definition>
+	<definition name="editComEx" extends="baseLayoutAdminOld">
+	    <put-attribute name="title" value="::: Madison General - Edit Commodity Excess :::"/>
+	    <put-attribute name="body" value="/pages/admin/ratingEngine/editComEx.jsp"/>
+	</definition>
+	<definition name="editVessel" extends="baseLayoutAdminOld">
+	    <put-attribute name="title" value="::: Madison General - Vessel Master :::"/>
+	    <put-attribute name="body" value="/pages/admin/ratingEngine/editVessel.jsp"/>
+	</definition>
+	<definition name="editWarranty" extends="baseLayoutAdminOld">
+	    <put-attribute name="title" value="::: Madison General - Warranty Master :::"/>
+	    <put-attribute name="body" value="/pages/admin/ratingEngine/editWarranty.jsp"/>
+	</definition>
+	<definition name="editConstant" extends="baseLayoutAdminOld">
+	    <put-attribute name="title" value="::: Madison General - Constant Detail :::"/>
+	    <put-attribute name="body" value="/pages/admin/ratingEngine/editConstant.jsp"/>
+	</definition>
+	<definition name="editCountryDet" extends="baseLayoutAdminOld">
+	    <put-attribute name="title" value="::: Madison General - Country Detail :::"/>
+	    <put-attribute name="body" value="/pages/admin/ratingEngine/editCountryDet.jsp"/>
+	</definition>
+	<definition name="editAgent" extends="baseLayoutAdminOld">
+	    <put-attribute name="title" value="::: Madison General - Setting Agent :::"/>
+	    <put-attribute name="body" value="/pages/admin/ratingEngine/editAgent.jsp"/>
+	</definition>
+   	<definition name="calculate" extends="baseLayoutAdminOld">
+	    <put-attribute name="title" value="::: Madison General - Base Rate :::"/>
+	    <put-attribute name="body" value="/pages/admin/ratingEngine/calculation.jsp"/>
+	</definition>
+	<definition name="editCommodity" extends="baseLayoutAdminOld">
+	    <put-attribute name="title" value="::: Madison General - Commodity Master :::"/>
+	    <put-attribute name="body" value="/pages/admin/ratingEngine/editCommodity.jsp"/>
+	</definition>
+	<definition name="editPromotional" extends="baseLayoutAdminOld">
+	    <put-attribute name="title" value="::: Madison General - Commodity Master :::"/>
+	    <put-attribute name="body" value="/pages/admin/ratingEngine/editPromotional.jsp"/>
+	</definition>
+	<definition name="editCurrency" extends="baseLayoutAdminOld">
+	    <put-attribute name="title" value="::: Madison General - Currency Master :::"/>
+	    <put-attribute name="body" value="/pages/admin/ratingEngine/editCurrency.jsp"/>
+	</definition>
+	<definition name="editExchange" extends="baseLayoutAdminOld">
+	    <put-attribute name="title" value="::: Madison General - Exchange Master :::"/>
+	    <put-attribute name="body" value="/pages/admin/ratingEngine/editExchange.jsp"/>
+	</definition>
+	<definition name="editCover" extends="baseLayoutAdminOld">
+	    <put-attribute name="title" value="::: Madison General - Cover Master :::"/>
+	    <put-attribute name="body" value="/pages/admin/ratingEngine/editCover.jsp"/>
+	</definition>
+	<definition name="editExclusion" extends="baseLayoutAdminOld">
+	    <put-attribute name="title" value="::: Madison General - Exclusion :::"/>
+	    <put-attribute name="body" value="/pages/admin/ratingEngine/editExclusion.jsp"/>
+	</definition>
+	
+	<definition name="editError" extends="baseLayoutAdminOld">
+	    <put-attribute name="title" value="::: Madison General - Edit Error :::"/>
+	    <put-attribute name="body" value="/pages/admin/ratingEngine/editError.jsp"/>
+	</definition>
+	<definition name="editClauseID" extends="baseLayoutAdminOld">
+	    <put-attribute name="title" value="::: Madison General - Edit Clause ID :::"/>
+	    <put-attribute name="body" value="/pages/admin/ratingEngine/editClauseID.jsp"/>
+	</definition>
+	<definition name="baserate1" extends="baseLayoutAdminOld">
+	    <put-attribute name="title" value="::: Madison General - Base Rate :::"/>
+	    <put-attribute name="body" value="/pages/admin/ratingEngine/baserate.jsp"/>
+	</definition>
+	<definition name="wsrccCover" extends="baseLayoutAdminOld">
+		<put-attribute name="title" value="::: Madison General - WSRCC Cover :::"/>
+		<put-attribute name="body" value="/pages/admin/ratingEngine/editWsrcc.jsp"/>
+	</definition>
+	<definition name="editCategory" extends="baseLayoutAdminOld">
+	    <put-attribute name="title" value="::: Madison General - Edit Category :::"/>
+	    <put-attribute name="body" value="/pages/admin/ratingEngine/editCargoCategory.jsp"/>
+	</definition>
+	<definition name="editCoverComm" extends="baseLayoutAdminOld">
+	    <put-attribute name="title" value="::: Madison General - Edit Cover :::"/>
+	    <put-attribute name="body" value="/pages/admin/ratingEngine/editCoverCommodity.jsp"/>
+	</definition>
+	<definition name="editConstantMaster" extends="baseLayoutAdminOld">
+	    <put-attribute name="title" value="::: Madison General - Constant Master :::"/>
+	    <put-attribute name="body" value="/pages/admin/ratingEngine/editConstantMaster.jsp"/>
+	</definition>
+	<definition name="ratingFileUpload" extends="baseLayoutAdminOld">
+	    <put-attribute name="body" value="/pages/admin/ratingEngine/ratingFileUpload.jsp"/>
+	</definition>
+	<definition name="transDetail" extends="baseLayoutAdminOld">
+		<put-attribute name="body" value="/pages/admin/ratingEngine/transDetails.jsp" />
+	</definition>
+	<definition name="editExecutive" extends="baseLayoutAdminOld">
+	    <put-attribute name="title" value="::: Madison General - Executive Master :::"/>
+	    <put-attribute name="body" value="/pages/admin/ratingEngine/editExecutiveMaster.jsp"/>
+	</definition>
+	
+	<!-- Motor Start -->
+	
+	<definition name="motor" extends="commonLayoutV1"  > 
+		<put-attribute name="title" value="::: Madison General - Motor :::" />
+		<put-attribute name="body" value="/pages/motor/motorB2B.jsp" />
+	</definition>
+	
+	<definition name="motorV1" extends="commonLayoutV1"> 
+		<put-attribute name="title" value="::: Madison General - Motor :::" />
+		<put-attribute name="body" value="/pages/motor/motorB2BV1.jsp" />
+	</definition>
+	<definition name="inputNew" extends="commonLayoutV1"> 
+		<put-attribute name="title" value="::: Madison General - Motor :::" />
+		<put-attribute name="body" value="/pages/motor/motorPremium.jsp" />
+	</definition>
+	<definition name="makePayment" extends="commonLayoutV1"> 
+		<put-attribute name="title" value="::: Madison General - Motor :::" />
+		<put-attribute name="body" value="/pages/payment/paymentInfoNew.jsp" />
+	</definition>
+	<definition name="motorHelpInfo" template="/pages/motor/motorHelpInfo.jsp"/>
+	<definition name="viewClaim" extends="commonLayout">
+		<put-attribute name="title" value="::: Madison General - Claim Information :::"/>
+		<put-attribute name="body" value="/pages/motor/viewClaim.jsp" />
+	</definition>
+	<definition name="motorDocumentUpload" template="/pages/documentUpload.jsp" />
+	<definition name="electricalPopUp" template="/pages/motor/electricalDetails.jsp" />
+	<definition name="NonelectricalPopUp" template="/pages/motor/NonelectricalDetails.jsp" />
+	
+	<definition name="roadassistant" extends="commonLayout"  >
+		<put-attribute name="title" value="::: Madison General - Road Assistant Request :::" />
+		<put-attribute name="body" value="/pages/motor/roadAssistant.jsp" />
+	</definition>
+	<definition name="roadassistantstatus" extends="commonLayout"  >
+		<put-attribute name="title" value="::: Madison General - Road Assistant Request :::" />
+		<put-attribute name="body" value="/pages/motor/roadAssistantStatus.jsp" />
+	</definition>
+	<definition name="otpGen" extends="commonLayout"  > 
+		<put-attribute name="title" value="::: Madison General - Motor :::" />
+		<put-attribute name="body" value="/pages/motor/editMotorUser.jsp" />
+	</definition>
+	<!-- Motor End -->
+	
+	<!-- Payment Start -->
+	
+	<definition name="onlinePaymentReq" template="/pages/payment/onlinePaymentReq.jsp">
+		<put-attribute name="title" value="::: Madison General - Payment :::"/>
+	</definition>
+	<definition name="mobilePaymentRes" template="/pages/payment/mobilePaymentRes.jsp">
+		<put-attribute name="title" value="::: Madison General - Payment :::"/>
+	</definition>
+	
+	<definition name="cardPayment" extends="commonAdminLayout">
+		    <put-attribute name="title" value="::: Madison General - Credit/Debit Card Payment Update :::"/>
+		    <put-attribute name="body" value="/pages/payment/cardPaymentUpdate.jsp"/>
+		</definition>
+	<!-- Payment End -->
+	
+	<!-- Motor User Registration Start -->
+	
+	<definition name="editMotorUser" extends="commonLayout"  > 
+		<put-attribute name="title" value="::: Madison General - Motor User :::" />
+		<put-attribute name="body" value="/pages/motor/editMotorUser.jsp" />
+	</definition>
+	<definition name="editUserProfile" extends="commonLayout"  > 
+		<put-attribute name="title" value="::: Madison General - Motor :::" />
+		<put-attribute name="body" value="/pages/motor/editUserProfile.jsp" />
+	</definition>
+	<definition name="addMotorUser" template="/pages/motor/addMotorUser.jsp"  > 
+		<put-attribute name="title" value="::: Madison General - Motor User :::" />
+	</definition>
+	
+	<!-- Motor User Registration End -->
+	<!-- Home Insurance | Start -->
+	<!-- <definition name="homeInsurance" extends="commonLayout">
+		<put-attribute name="body" value="/pages/home/home.jsp" />
+	</definition> -->
+	<definition name="homeInsurance" extends="commonLayoutV1">
+		<put-attribute name="body" value="/pages/home/homeNew.jsp" />
+	</definition>
+	<definition name="extraInformationHome" extends="commonLayoutV1">
+		<put-attribute name="body" value="/pages/home/extraInformation.jsp" />
+	</definition>
+	<definition name="msgPageHome" extends="commonLayoutV1">
+		<put-attribute name="body" value="/pages/home/msgPageHome.jsp" />
+	</definition>
+	<definition name="paymentPageHome" extends="commonLayoutV1">
+		<put-attribute name="body" value="/pages/home/paymentPageHome.jsp" />
+	</definition>
+	<definition name="packageSelection" extends="commonLayout">
+		<put-attribute name="body" value="/pages/home/packageSelection.jsp" />
+	</definition>
+	<definition name="premiumsummery" extends="commonLayout">
+		<put-attribute name="body" value="/pages/home/premiumSummary.jsp"/>
+	</definition>
+	<definition name="homePremiuminfo" extends="commonLayoutV1">
+		<put-attribute name="body" value="/pages/home/homePremiuminfo.jsp"/>
+	</definition>
+	<definition name="coverageUpload" extends="commonLayout">
+		<put-attribute name="body" value="/pages/home/coverageUpload.jsp"/>
+	</definition>
+	<definition name="sublist" template="/pages/home/premiumSubList.jsp">
+		<put-attribute name="title" value="::: Madison General - SubList :::"/>
+	</definition>
+	<definition name="resultpage" template="/pages/home/resultPage.jsp">
+		<put-attribute name="title" value="::: Madison General - Add Row :::"/>
+	</definition>
+	<definition name="uwmenu" template="/pages/home/uwMenu.jsp">
+		<put-attribute name="title" value="::: Madison General - UnderWriter Menu :::"/>
+	</definition>
+	<definition name="homepolicy" extends="commonLayout">
+		<put-attribute name="body" value="/pages/home/homepolicy.jsp"/>
+	</definition>
+	<definition name="helpinfo" template="/pages/home/homeHelpInfo.jsp">
+		<put-attribute name="title" value="::: Madison General - Helpinfo :::"/>
+	</definition>
+	<definition name="helpdetail" template="\pages\admin\smsEmail\HelpDetailEmail.jsp">
+		<put-attribute name="title" value="::: Madison General - Helpinfo :::"/>
+	</definition>
+	<definition name="farmerMotor" extends="commonLayout">
+		<put-attribute name="body" value="/pages/home/farmerMotor.jsp" />
+	</definition>
+	<definition name="tractorPremiuminfo" extends="commonLayout">
+		<put-attribute name="body" value="/pages/home/tractorPremiuminfo.jsp"/>
+	</definition>
+	<definition name="farmerPACover" extends="commonLayout">
+		<put-attribute name="body" value="/pages/home/farmerPACover.jsp"/>
+	</definition>
+	<definition name="farmPAPremiuminfo" extends="commonLayout">
+		<put-attribute name="body" value="/pages/home/farmPAPremiuminfo.jsp"/>
+	</definition>
+	<definition name="coverPremiumInfo" template="/pages/home/premiumInfo.jsp">
+		<put-attribute name="title" value="::: Madison General - Helpinfo :::"/>
+	</definition>
+	<definition name="payGateWayRequest" template="/pages/payment/PayGateWayRequest.jsp">
+		<put-attribute name="title" value="::: Madison General - Payment :::"/>
+	</definition>
+	<!-- Home Insurance | End -->
+	<!-- Travel Insurance Start -->
+	<definition name="travel" extends="commonLayout"  > 
+		<put-attribute name="title" value="::: Madison General - Travel :::" />
+		<put-attribute name="body" value="/pages/travel/travel.jsp" />
+	</definition>
+	<definition name="showQuote" extends="commonLayout"  > 
+		<put-attribute name="title" value="::: Madison General - Travel :::" />
+		<put-attribute name="body" value="/pages/travel/ShowQuoteTravel.jsp" />
+	</definition>
+	<definition name="ajaxDropdown" template="/pages/common/ajaxDropdown.jsp">
+		<put-attribute name="title" value="Ajax Dropdown" />
+	</definition>
+	<definition name="coverSelection" template="/pages/travel/getCover.jsp">
+		<put-attribute name="title" value="::: Madison General - Cover Selection :::"/>
+	</definition>
+	<definition name="cancelReissue" template="/pages/travel/cancelReissue.jsp">
+		<put-attribute name="title" value="::: Madison General - Cancel Reissue :::"/>
+	</definition>
+	<definition name="viewCustomerTravel" extends="commonLayout"  > 
+		<put-attribute name="title" value="::: Madison General - View Customer :::" />
+		<put-attribute name="body" value="/pages/travel/viewCustomer.jsp" />
+	</definition>	
+	<!-- Travel Insurance End -->
+	<!-- Policy Upload Start -->
+	<definition name="UWPaymentProcess" extends="commonLayoutV1"  > 
+		<put-attribute name="title" value="::: Madison General - Under Writer :::" />
+		<put-attribute name="body" value="/pages/admin/paymentProcess/paymentProcess.jsp" />
+	</definition>
+	<definition name="roadAssistReportOP" extends="commonLayout"  > 
+		<put-attribute name="title" value="::: Madison General - Road Assistance Request Report :::" />
+		<put-attribute name="body" value="/pages/admin/report/roadAssistantReport.jsp" />
+	</definition>
+	<definition name="creditControl" extends="commonAdminLayout"  > 
+		<put-attribute name="title" value="::: Madison General - Credit Control :::" />
+		<put-attribute name="body" value="/pages/admin/paymentProcess/paymentProcess.jsp" />
+	</definition>
+	
+	<!-- Policy Upload End -->
+	<definition name="smsEmailMaster" extends="commonAdminLayoutV1"  > 
+		<put-attribute name="title" value="::: Madison General - Mail / SMS Master Configuration:::" />
+		<put-attribute name="body" value="/pages/admin/smsEmail/SmsEmailMaster.jsp" />
+	</definition>
+	<definition name="emailAttachment" template="/pages\admin\smsEmail\emailAttachment.jsp" />
+	<definition name="FAQ" template="/pages/FAQ.jsp">
+		<put-attribute name="title" value="FAQ" />
+	</definition>
+	<definition name="LearnMore" template="/pages/LearnMore.jsp">
+		<put-attribute name="title" value="LearnMore" />
+	</definition>
+
+	<definition name="claimList" extends="commonLayout">
+		<put-attribute name="title" value="::: CLAIM INTIMATION :::" />
+		<put-attribute name="body" value="/pages/claimIntimation/claimIntimation.jsp"/>
+	</definition>
+	
+	<definition name="claimListB2B" extends="commonLayoutV1">
+		<put-attribute name="title" value="::: CLAIM INTIMATION :::" />
+		<put-attribute name="body" value="/pages/claimIntimation/claimIntimationB2B.jsp"/>
+	</definition>
+	
+	<definition name="searchlist" extends="commonLayout">
+		<put-attribute name="title" value="::: CLAIM INTIMATION :::" />
+		<put-attribute name="body" value="/pages/claimIntimation/searchClaimDetails.jsp"/>
+	</definition>
+	
+	<definition name="adminClaimList" extends="commonAdminLayoutV1">
+		<put-attribute name="title" value="::: CLAIM INTIMATION :::" />
+		<put-attribute name="body" value="/pages/claimIntimation/adminClaimIntimationList.jsp"/>
+	</definition>
+	
+	<definition name="updateClaim" extends="commonAdminLayoutV1">
+		<put-attribute name="title" value="::: CLAIM INTIMATION :::" />
+		<put-attribute name="body" value="/pages/claimIntimation/updateClaimIntimation.jsp"/>
+	</definition>
+	
+	<definition name="claimUpload" extends="commonLayout">
+		<put-attribute name="title" value="::: Madison General - File Upload :::" />
+		<put-attribute name="body" value="/pages/claimIntimation/claimUpload.jsp" />
+	</definition>
+	
+	<definition name="claimUploadB2B" extends="commonLayoutV1">
+		<put-attribute name="title" value="::: Madison General - File Upload :::" />
+		<put-attribute name="body" value="/pages/claimIntimation/claimUploadB2B.jsp" />
+	</definition>
+	
+	<definition name="docDownload" template="/pages/claimIntimation/claimUpload.jsp">
+		<put-attribute name="tiles" value="::: Madison General - Documents :::"/>
+	</definition>
+	<definition name="quickPage" extends="commonLayoutV1">
+		<put-attribute name="title" value="::: QUICK RENEWAL  :::" />
+		<put-attribute name="body" value="/pages/quickRenewal/quickRenewal.jsp"/>
+	</definition>
+	
+	<definition name="otppage" extends="commonLayoutV1">
+		<put-attribute name="title" value="::: QUICK RENEWAL - Verify OTP :::" />
+		<put-attribute name="body" value="/pages/quickRenewal/renewalOtp.jsp"/>
+	</definition>
+	
+	<definition name="vehicleRenewalInfo" extends="commonLayoutV1">
+		<put-attribute name="title" value="::: QUICK RENEWAL - Vehicle List  :::" />
+		<put-attribute name="body" value="/pages/quickRenewal/renewalDetails.jsp"/>
+	</definition>
+	
+	<definition name="cashResponse" extends="commonLayoutV1">
+		<put-attribute name="title" value="::: QUICK RENEWAL - Vehicle List  :::" />
+		<put-attribute name="body" value="/pages/quickRenewal/responseRenewal.jsp"/>
+	</definition>
+	
+	<definition name="paymentRenewal" extends="commonLayoutV1">
+		<put-attribute name="title" value="::: QUICK RENEWAL - Payment  :::" />
+		<put-attribute name="body" value="/pages/quickRenewal/paymentRenewal.jsp"/>
+	</definition>
+
+	<definition name="adminRenewal" extends="commonAdminLayout">
+		<put-attribute name="title" value="::: QUICK RENEWAL  :::" />
+		<put-attribute name="body" value="/pages/quickRenewal/adminRenewalList.jsp"/>
+	</definition>
+	
+	<definition name="cashPending" extends="commonAdminLayout">
+		<put-attribute name="title" value="::: QUICK RENEWAL  :::" />
+		<put-attribute name="body" value="/pages/quickRenewal/adminCashRenewalList.jsp"/>
+	</definition>
+	
+	<definition name="getList" extends="commonAdminLayout">
+		<put-attribute name="title" value="::: QUICK RENEWAL  :::" />
+		<put-attribute name="body" value="/pages/quickRenewal/updateCashRenewal.jsp"/>
+	</definition>
+	
+	<definition name="policyConvertion" extends="commonAdminLayoutV1"  > 
+		<put-attribute name="title" value="::: Madison General - Convert To Policy :::" />
+		<put-attribute name="body" value="/pages/admin/paymentProcess/policyConvertion.jsp" />
+	</definition>
+	
+	<definition name="searchClaim" extends="homeLayoutV1">
+		<put-attribute name="title" value="::: CLAIM STATUS :::" />
+		<put-attribute name="body" value="/pages/claimIntimation/claimStatusDetails.jsp"/>
+	</definition>
+	
+	<definition name="schemeSelection" extends="commonLayoutV1">
+		<put-attribute name="body" value="/pages/home/schemeSelection.jsp" />
+	</definition>
+	
+	<!--<definition name="viewQuoteDtl" extends="popupLayout">
+		<put-attribute name="title" value="::: Madison General - Motor :::" />
+		<put-attribute name="body" value="/pages/motor/QuoteView.jsp"/>
+	</definition>-->
+	
+	<definition name="viewQuoteDtl" extends="popupLayout">
+		<put-attribute name="title" value="::: Madison General - Motor :::" />
+		<put-attribute name="body" value="/pages/motor/QuoteViewNew.jsp"/>
+	</definition>
+	
+	<definition name="motorQuote" extends="commonLayout"  > 
+		<put-attribute name="title" value="::: Madison General - Motor :::" />
+		<put-attribute name="body" value="/pages/motor/motorQuoteB2B.jsp" />
+	</definition>
+	<definition name="custQuote" extends="commonLayoutV1"  > 
+		<put-attribute name="title" value="::: Madison General - Motor :::" />
+		<put-attribute name="body" value="/pages/motor/custList.jsp" />
+	</definition>
+	<definition name="custQuote" extends="commonLayoutV1"  > 
+		<put-attribute name="title" value="::: Madison General - Motor :::" />
+		<put-attribute name="body" value="/pages/motor/custList.jsp" />
+	</definition>
+	<definition name="custSearch" template="/CustomerInfo/customerSearch.jsp">
+		<put-attribute name="title" value="::: Madison General - Options Selection :::"/>
+	</definition>
+	
+	<definition name="homeLocSelection" extends="commonLayoutV1">
+		<put-attribute name="body" value="/pages/home/homeLocationSelection.jsp" />
+	</definition>
+	
+	<definition name="rateConfig" extends="commonAdminLayoutV1">
+	    <put-attribute name="title" value="::: Madison General - Motor Rate Config Mastre :::"/>
+	    <put-attribute name="body" value="/pages/admin/motorNew/motorRateConfigMaster.jsp"/>
+	</definition>
+	
+	<definition name="ofsCoverageMaster" extends="commonAdminLayout">
+		<put-attribute name="title" value="::: Madison General - Coverage Master :::"/>
+		<put-attribute name="body" value="/OfficeConfig/OfficeConfigNew/CoverageMaster.jsp"/>
+	</definition> 
+	
+	<definition name="ofsSchemeMaster" extends="commonAdminLayout">
+		<put-attribute name="title" value="::: Madison General - Scheme Master :::"/>
+		<put-attribute name="body" value="/OfficeConfig/OfficeConfigNew/SchemeMaster.jsp"/>
+	</definition> 
+	
+	<definition name="ofsContentMaster" extends="commonAdminLayout">
+		<put-attribute name="title" value="::: Madison General - Content Master :::"/>
+		<put-attribute name="body" value="/OfficeConfig/OfficeConfigNew/ContentMaster.jsp"/>
+	</definition>
+	
+	<definition name="ofsCoverageDtl" extends="commonAdminLayout">
+		<put-attribute name="title" value="::: Madison General - Coverage Details :::"/>
+		<put-attribute name="body" value="/OfficeConfig/OfficeConfigNew/CoverageDetails.jsp"/>
+	</definition>
+	
+	<definition name="ofsConfigDtl" extends="commonAdminLayout">
+		<put-attribute name="title" value="::: Madison General - Configuration Details :::"/>
+		<put-attribute name="body" value="/OfficeConfig/OfficeConfigNew/configDetails.jsp"/>
+	</definition>
+	
+	<definition name="ofsSubCoverageDtl" extends="commonAdminLayout">
+		<put-attribute name="title" value="::: Madison General - Sub Coverage Master :::"/>
+		<put-attribute name="body" value="/OfficeConfig/OfficeConfigNew/SubCoverageDetail.jsp"/>
+	</definition>
+	
+	<definition name="ofsSubConfigDtl" extends="commonAdminLayout">
+		<put-attribute name="title" value="::: Madison General - Sub Coverage Details :::"/>
+		<put-attribute name="body" value="/OfficeConfig/OfficeConfigNew/SubConfigDetails.jsp"/>
+	</definition>
+	
+	<definition name="ofsFieldDtl" extends="commonAdminLayout">
+		<put-attribute name="title" value="::: Madison General - Field Details :::"/>
+		<put-attribute name="body" value="/OfficeConfig/OfficeConfigNew/FieldDetails.jsp"/>
+	</definition>
+	
+	<definition name="linkedBrokerDtl" extends="commonAdminLayout">
+		<put-attribute name="title" value="::: Madison General - Broker Details :::"/>
+		<put-attribute name="body" value="/OfficeConfig/OfficeConfigNew/BrokerDetails.jsp"/>
+	</definition>
+	
+	<definition name="gridDetail" extends="commonAdminLayout">
+		<put-attribute name="title" value="::: Madison General - Grid Details :::"/>
+		<put-attribute name="body" value="/OfficeConfig/OfficeConfigNew/GridDetails.jsp"/>
+	</definition>
+	
+	<definition name="adminView" extends="commonAdminLayoutV1">
+		<put-attribute name="title" value="::: Madison General - Motor :::" />
+		<put-attribute name="body" value="/pages/motor/motorB2B.jsp" />
+	</definition>
+	<definition name="referalView" extends="commonLayoutV1">
+		<put-attribute name="title" value="::: Madison General - Motor :::" />
+		<put-attribute name="body" value="/pages/motor/motorB2B.jsp" />
+	</definition>
+	
+	<definition name="subBranchList" template="/pages/admin/brokerMgt/subBranchSelection.jsp">
+		<put-attribute name="title" value="" />
+	</definition>
+	<definition name="subBranchUser" template="/pages/admin/userMgt/subBranchSelection.jsp">
+		<put-attribute name="title" value="" />
+	</definition>
+	
+	<definition name="brokerBranch" extends="commonAdminLayoutV1">
+	    <put-attribute name="title" value="::: Madison General - Broker Branch Master :::"/>
+	    <put-attribute name="body" value="/pages/admin/motorNew/brokerBranchMaster.jsp"/>
+	</definition>
+	
+	<definition name="executive" extends="commonAdminLayoutV1">
+	    <put-attribute name="title" value="::: Madison General - Executive BDM Master :::"/>
+	    <put-attribute name="body" value="/pages/admin/motorNew/executiveBDMMaster.jsp"/>
+	</definition>
+	
+	<definition name="branchMaster" extends="commonAdminLayoutV1">
+	    <put-attribute name="title" value="::: Madison General - Branch Master :::"/>
+	    <put-attribute name="body" value="/pages/admin/motorNew/branchMaster.jsp"/>
+	</definition>
+	
+	<definition name="exchangeMaster" extends="commonAdminLayoutV1">
+	    <put-attribute name="title" value="::: Madison General - Exchange Master :::"/>
+	    <put-attribute name="body" value="/pages/admin/motorNew/exchangeMaster.jsp"/>
+	</definition>
+	
+	<definition name="b2csearch" extends="commonLayoutV1"  >
+		<put-attribute name="title" value="::: Madison General - Search :::" />
+		<put-attribute name="body" value="/pages/B2CSearch.jsp" />
+	</definition>
+		
+</tiles-definitions>

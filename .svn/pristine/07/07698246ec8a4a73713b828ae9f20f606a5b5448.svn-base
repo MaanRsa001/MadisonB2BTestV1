@@ -1,0 +1,552 @@
+package com.maan.payment;
+
+import java.io.UnsupportedEncodingException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.TimeZone;
+
+import javax.crypto.Mac;
+import javax.crypto.spec.SecretKeySpec;
+import javax.servlet.http.HttpServletRequest;
+import javax.xml.bind.DatatypeConverter;
+
+import org.apache.commons.lang3.StringUtils;
+import org.apache.struts2.ServletActionContext;
+import org.apache.struts2.json.annotations.JSON;
+
+import com.maan.adminnew.paymentProcess.PaymentProcessService;
+import com.maan.common.DBConstants;
+import com.maan.common.LogManager;
+import com.maan.common.dao.CommonDAO;
+import com.maan.common.sms.SmsEmailUtil;
+import com.maan.common.util.Encrypter;
+import com.maan.payment.airtel.AirtelService;
+import com.maan.payment.airtel.model.ReqToPayIpModelAirtel;
+import com.maan.payment.airtel.model.Subscriber;
+import com.maan.payment.airtel.model.Transaction;
+import com.maan.payment.mtn.MtnService;
+import com.opensymphony.xwork2.ActionContext;
+import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.ModelDriven;
+
+public class PaymentAction extends ActionSupport implements ModelDriven<PaymentBean> {
+	private static final long serialVersionUID = 1L;
+	
+	private static final String HMAC_SHA256 = "HmacSHA256";
+    
+    HttpServletRequest request = ServletActionContext.getRequest();
+	Map<String, Object> session=ActionContext.getContext().getSession();
+	
+	private PaymentBean bean = new PaymentBean();
+	private PaymentService service = new PaymentService();
+
+	public String onlinepaymentReq() {
+		LogManager.info("onlinepaymentReq - Enter");
+		try {
+			Encrypter encrypter = new Encrypter();
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
+	        sdf.setTimeZone(TimeZone.getTimeZone("UTC"));
+	        
+			/*if(StringUtils.isBlank(bean.getMerchant_reference())) {
+				bean.setMerchant_reference(session.get("merchant_reference").toString());
+				//session.remove("merchant_reference");
+			}*/
+			Map<String,Object> paymentDetailsMap = service.getPaymentDetails(bean.getMerchant_reference());
+			bean.setInstallmentYN(paymentDetailsMap.get("INSTALLMENT_YN")==null?"":paymentDetailsMap.get("INSTALLMENT_YN").toString());
+			if("Y".equals(bean.getInstallmentYN())) {
+				bean.setTransaction_type("sale,create_payment_token");
+			} else {
+				bean.setTransaction_type("sale");
+			}
+			bean.setRecurring_automatic_renew("false");
+			bean.setAmount(paymentDetailsMap.get("PREMIUM")==null?"":paymentDetailsMap.get("PREMIUM").toString());
+			//bean.setAmount("1");
+			bean.setReference_number(bean.getMerchant_reference());
+			bean.setSigned_field_names("access_key,profile_id,transaction_uuid,signed_field_names,unsigned_field_names,signed_date_time,locale,transaction_type,reference_number,amount,currency,recurring_amount,recurring_automatic_renew,recurring_frequency,recurring_start_date,recurring_number_of_installments");
+			bean.setSigned_date_time(sdf.format(new Date()));
+			bean.setLocale("en");
+			bean.setTransaction_uuid(bean.getMerchant_reference());
+			bean.setUnsigned_field_names("bill_to_forename,bill_to_surname,bill_to_address_line1,bill_to_address_city,bill_to_address_country,bill_to_address_postal_code,bill_to_email");
+			bean.setCurrency(paymentDetailsMap.get("CURRENCY_TYPE")==null?"":paymentDetailsMap.get("CURRENCY_TYPE").toString());
+			
+			bean.setRecurring_amount(paymentDetailsMap.get("INSTALLMENT_AMOUNT")==null?"":paymentDetailsMap.get("INSTALLMENT_AMOUNT").toString());
+			bean.setRecurring_frequency(paymentDetailsMap.get("INSTALLMENT_FREQUENCY")==null?"":paymentDetailsMap.get("INSTALLMENT_FREQUENCY").toString());
+			bean.setRecurring_start_date(paymentDetailsMap.get("INSTALLMENT_START_DATE")==null?"":paymentDetailsMap.get("INSTALLMENT_START_DATE").toString());
+			bean.setRecurring_number_of_installments(paymentDetailsMap.get("NO_OF_INSTALLMENT")==null?"":paymentDetailsMap.get("NO_OF_INSTALLMENT").toString());
+			
+			bean.setBill_to_forename(paymentDetailsMap.get("BILL_TO_FORENAME")==null?"":paymentDetailsMap.get("BILL_TO_FORENAME").toString());
+			bean.setBill_to_surname(paymentDetailsMap.get("BILL_TO_SURNAME")==null?"":paymentDetailsMap.get("BILL_TO_SURNAME").toString());
+			bean.setBill_to_address_line1(paymentDetailsMap.get("BILL_TO_ADDRESS_LINE1")==null?"":paymentDetailsMap.get("BILL_TO_ADDRESS_LINE1").toString());
+			bean.setBill_to_address_city(paymentDetailsMap.get("BILL_TO_ADDRESS_CITY")==null?"":paymentDetailsMap.get("BILL_TO_ADDRESS_CITY").toString());
+			bean.setBill_to_address_country(paymentDetailsMap.get("BILL_TO_ADDRESS_COUNTRY")==null?"":paymentDetailsMap.get("BILL_TO_ADDRESS_COUNTRY").toString());
+			bean.setBill_to_address_postal_code(paymentDetailsMap.get("BILL_TO_ADDRESS_POSTAL_CODE")==null?"":paymentDetailsMap.get("BILL_TO_ADDRESS_POSTAL_CODE").toString());
+			bean.setBill_to_email(paymentDetailsMap.get("BILL_TO_EMAIL")==null?"":paymentDetailsMap.get("BILL_TO_EMAIL").toString());
+			
+			
+			Map<String,Object> profileDetails = service.paymentProfileDetails(bean.getCurrency());
+			bean.setProfile_id(encrypter.decrypt(profileDetails.get("PROFILE_ID")==null?"":profileDetails.get("PROFILE_ID").toString()));
+			bean.setAccess_key(encrypter.decrypt(profileDetails.get("ACCESS_KEY")==null?"":profileDetails.get("ACCESS_KEY").toString()));
+			bean.setSecret_key(encrypter.decrypt(profileDetails.get("SECRET_KEY")==null?"":profileDetails.get("SECRET_KEY").toString()));
+			
+			generateSignature();
+		} catch(Exception exception) {
+			LogManager.debug(exception);
+		}
+		LogManager.info("onlinepaymentReq - Enter");
+		return INPUT;
+	}
+	
+	public String onlinepaymentRes() {
+		String forward = "";
+		try {	
+			LogManager.info("onlinePaymentRes");
+			LogManager.info("Request Paramerters - Start");
+			java.util.Enumeration en = request.getParameterNames();
+			while(en.hasMoreElements()) {
+				Object objOri=en.nextElement();
+				String param=(String)objOri;
+				String value=request.getParameter(param);
+				LogManager.info(param + "->" + value);
+			}
+			LogManager.info("Request Paramerters - End");
+			LogManager.info("Request Attributes - Start");
+			java.util.Enumeration en1 = request.getAttributeNames();
+			while(en1.hasMoreElements()) {
+				Object objOri=en1.nextElement();
+				String param=(String)objOri;
+				String value=request.getAttribute(param)==null?"":request.getAttribute(param).toString();
+				LogManager.info(param + "-->" + value);
+			}
+			LogManager.info("Request Attributes - End");
+			   bean.setReq_transaction_type(request.getParameter("req_transaction_type"));
+			   bean.setReq_payment_method(request.getParameter("req_payment_method"));
+			   bean.setReq_reference_number(request.getParameter("req_reference_number"));
+			   bean.setReq_amount(request.getParameter("req_amount"));
+			   bean.setMessage(request.getParameter("message"));
+			   bean.setDecision(request.getParameter("decision"));
+			   bean.setSignature(request.getParameter("signature"));
+			   bean.setTransaction_uuid(request.getParameter("req_transaction_uuid"));
+			   bean.setAuth_amount(request.getParameter("req_amount"));
+			   bean.setTransaction_id(request.getParameter("req_transaction_uuid"));
+
+			   if("ACCEPT".equalsIgnoreCase(bean.getDecision())) {
+				   bean.setAuth_trans_ref_no(request.getParameter("auth_trans_ref_no"));
+				   bean.setReq_bill_to_address_city(request.getParameter("req_bill_to_address_city"));
+				   bean.setReq_card_expiry_date(request.getParameter("req_card_expiry_date"));
+				   bean.setReq_bill_to_address_postal_code(request.getParameter("Req_bill_to_address_postal_code"));
+				   bean.setReq_bill_to_surname(request.getParameter("req_bill_to_surname"));
+				  // bean.setReq_card_number(request.getParameter("req_card_number"));
+				  // bean.setReq_bill_to_company_name(request.getParameter("req_bill_to_company_name"));
+				   //bean.setReq_bill_to_address_country(request.getParameter("req_bill_to_address_country"));
+				  // bean.setReq_bill_to_phone(request.getParameter("req_bill_to_phone"));
+				   bean.setReason_code(request.getParameter("reason_code"));
+				   bean.setAuth_amount(request.getParameter("req_amount"));
+				   bean.setAuth_response(request.getParameter("auth_response"));
+				   bean.setBill_trans_ref_no(request.getParameter("bill_trans_ref_no"));
+				   bean.setReq_bill_to_forename(request.getParameter("req_bill_to_forename"));
+				   bean.setRequest_token(request.getParameter("request_token"));
+				   bean.setAuth_time(request.getParameter("auth_time"));
+				   bean.setReq_bill_to_email(request.getParameter("req_bill_to_email"));
+				   
+				   //bean.setReq_bill_to_address_state(request.getParameter("req_bill_to_address_state"));
+				  // bean.setReq_bill_to_address_line2(request.getParameter("req_bill_to_address_line2"));
+				  // bean.setReq_bill_to_address_line1(request.getParameter("req_bill_to_address_line1"));
+			   }
+			bean.setMerchant_reference(bean.getReq_reference_number());
+			Map<String,Object> paymentDetails = service.getPaymentDetails(bean.getMerchant_reference());
+			bean.setQuoteNo(paymentDetails.get("QUOTE_NO")==null?"":paymentDetails.get("QUOTE_NO").toString());
+			bean.setApplicationNo(paymentDetails.get("APPLICATION_NO")==null?"":paymentDetails.get("APPLICATION_NO").toString());
+			bean.setProductId(paymentDetails.get("PRODUCT_ID")==null?"":paymentDetails.get("PRODUCT_ID").toString());
+			bean.setBranchCode(paymentDetails.get("BRANCH_CODE")==null?"":paymentDetails.get("BRANCH_CODE").toString());
+			bean.setDeviceType(paymentDetails.get("DEVICE_TYPE")==null?"":paymentDetails.get("DEVICE_TYPE").toString());
+			bean.setPolicyNo(paymentDetails.get("POLICY_NO")==null?"":paymentDetails.get("POLICY_NO").toString());
+			bean.setMobileNo(paymentDetails.get("MOBILE_NO")==null?"":paymentDetails.get("MOBILE_NO").toString());
+			
+			/*session.put("quoteNo", bean.getQuoteNo());
+			session.put("applicationNo", bean.getApplicationNo());
+			session.put("merchant_reference", bean.getMerchant_reference());*/
+			service.updatePaymentResponse(bean);
+			
+			if("ACCEPT".equalsIgnoreCase(bean.getDecision()) && bean.getMerchant_reference().contains("R")){
+				LogManager.info(" Enter To Renewal Payment Res ");
+				CommonDAO commonDAO = new CommonDAO();
+				commonDAO.updateRenewalRiskDtl(bean.getQuoteNo(),bean.getMerchant_reference(),bean.getPolicyNo(),"");
+				new SmsEmailUtil(SmsEmailUtil.PAYMENT_SUCESS_CUST,bean.getQuoteNo()).send();
+				new SmsEmailUtil(SmsEmailUtil.PAYMENT_SUCESS_SURVEYOR,bean.getQuoteNo()).send();
+			}
+			
+			else if("ACCEPT".equalsIgnoreCase(bean.getDecision())) {
+				CommonDAO commonDAO = new CommonDAO();
+				commonDAO.homePolicyGeneration(bean.getQuoteNo(),bean.getProductId(),bean.getBranchCode());
+				if("Y".equalsIgnoreCase(commonDAO.getInstallmentStatus(bean.getQuoteNo()))){
+					commonDAO.updateInstallmentDetail(bean.getQuoteNo(),"IPS","Y");
+				}
+				if(DBConstants.DEVICETYPE_HYBRID.equals(bean.getDeviceType())) {
+					commonDAO.updateHomeQuoteStatus(bean.getApplicationNo(),bean.getMerchant_reference(),bean.getQuoteNo(),bean.getProductId(),bean.getBranchCode());
+				}
+				List<Map<String, Object>> res = commonDAO.getOnlineSurveyor();
+				if(res !=null && res.size()>0){
+					for(int i=0;i<res.size();i++){
+						String SPLoginId=res.get(i).get("LOGIN_ID")==null?"":res.get(i).get("LOGIN_ID").toString();
+						new PaymentProcessService().insPaymentProcessTrac(new CommonDAO().getHomePolicyNo(bean.getQuoteNo()),bean.getQuoteNo(),"ssPending","H","",SPLoginId,SPLoginId,bean.getProductId(),bean.getBranchCode());
+					}
+					
+				}
+				new SmsEmailUtil(SmsEmailUtil.PAYMENT_SUCESS_CUST,bean.getQuoteNo()).send();
+				new SmsEmailUtil(SmsEmailUtil.PAYMENT_SUCESS_SURVEYOR,bean.getQuoteNo()).send();
+			}
+			new SmsEmailUtil(SmsEmailUtil.ONLINE_PAYMENT_STATUS_UNDERWRITER,bean.getQuoteNo()).send();
+			//new SmsEmailUtil(SmsEmailUtil.ONLINE_PAYMENT_STATUS_UNDERWRITER,bean.getQuoteNo()).send();
+		} catch(Exception exception) {
+			LogManager.debug(exception);
+		} finally {
+			if(DBConstants.DEVICETYPE_HYBRID.equals(bean.getDeviceType())) {
+				forward = "mobilePaymentRes";
+			}else if("65".equals(bean.getProductId()) && bean.getMerchant_reference().contains("R")) {
+				forward = "updateRenewalInfoQuickRenewal";
+			}else if("65".equals(bean.getProductId())) {
+				forward = "updatePolicyInfoMotor";
+			} else if("30".equals(bean.getProductId())) {
+				forward = "updatePolicyInfoHome";
+			} else if("33".equals(bean.getProductId())) {
+				forward = "updatePolicyInfoTravel";
+			}
+		}
+		return forward;
+	}
+	
+	public String onlineRes(){
+		String forward = "";
+		try{
+			String status = "Failed";
+			MtnService ms = new MtnService("", "", bean.getMerchant_reference(), "");
+			Map<String, Object> mtnResult = ms.getPaymentResult();
+			if(mtnResult!= null && mtnResult.size()>0){
+				String transactionId = mtnResult.get("FINANCE_TRAN_ID")==null?"":mtnResult.get("FINANCE_TRAN_ID").toString();
+				String transactionStatus = mtnResult.get("STATUS")==null?"":mtnResult.get("STATUS").toString();
+				String reason = mtnResult.get("REASON")==null?"":mtnResult.get("REASON").toString();
+				String referenceNo = mtnResult.get("REFERENCE_NO")==null?"":mtnResult.get("REFERENCE_NO").toString();
+				String responseTime = mtnResult.get("RESPONSE_TIME")==null?"":mtnResult.get("RESPONSE_TIME").toString();
+				service.updateMtnPaymentResponse(transactionId, transactionStatus, reason, referenceNo,
+						responseTime, bean.getMerchant_reference());
+			}
+			
+			Map<String,Object> paymentDetails = service.getPaymentDetails(bean.getMerchant_reference());
+			if(paymentDetails!=null && paymentDetails.size()>0){
+				bean.setQuoteNo(paymentDetails.get("QUOTE_NO")==null?"":paymentDetails.get("QUOTE_NO").toString());
+				bean.setApplicationNo(paymentDetails.get("APPLICATION_NO")==null?"":paymentDetails.get("APPLICATION_NO").toString());
+				bean.setProductId(paymentDetails.get("PRODUCT_ID")==null?"":paymentDetails.get("PRODUCT_ID").toString());
+				bean.setBranchCode(paymentDetails.get("BRANCH_CODE")==null?"":paymentDetails.get("BRANCH_CODE").toString());
+				bean.setDeviceType(paymentDetails.get("DEVICE_TYPE")==null?"":paymentDetails.get("DEVICE_TYPE").toString());
+				bean.setPolicyNo(paymentDetails.get("POLICY_NO")==null?"":paymentDetails.get("POLICY_NO").toString());
+				bean.setMobileNo(paymentDetails.get("MOBILE_NO")==null?"":paymentDetails.get("MOBILE_NO").toString());
+				status = paymentDetails.get("RESPONSE_STATUS")==null?"":paymentDetails.get("RESPONSE_STATUS").toString();
+			}
+			if(("success".equalsIgnoreCase(status) || "successful".equalsIgnoreCase(status)) && bean.getMerchant_reference().contains("R")){
+				LogManager.info(" Enter To Renewal Payment Res ");
+				CommonDAO commonDAO = new CommonDAO();
+				commonDAO.updateRenewalRiskDtl(bean.getQuoteNo(),bean.getMerchant_reference(),bean.getPolicyNo(),"");
+				new SmsEmailUtil(SmsEmailUtil.PAYMENT_SUCESS_CUST,bean.getQuoteNo()).send();
+				new SmsEmailUtil(SmsEmailUtil.PAYMENT_SUCESS_SURVEYOR,bean.getQuoteNo()).send();
+			}else if("success".equalsIgnoreCase(status) || "successful".equalsIgnoreCase(status)){
+				CommonDAO commonDAO = new CommonDAO();
+				commonDAO.homePolicyGeneration(bean.getQuoteNo(),bean.getProductId(),bean.getBranchCode());
+				if("Y".equalsIgnoreCase(commonDAO.getInstallmentStatus(bean.getQuoteNo()))){
+					commonDAO.updateInstallmentDetail(bean.getQuoteNo(),"IPS","Y");
+				}
+				if(DBConstants.DEVICETYPE_HYBRID.equals(bean.getDeviceType())) {
+					commonDAO.updateHomeQuoteStatus(bean.getApplicationNo(),bean.getMerchant_reference(),bean.getQuoteNo(),bean.getProductId(),bean.getBranchCode());
+				}
+				List<Map<String, Object>> res = commonDAO.getOnlineSurveyor();
+				if(res !=null && res.size()>0){
+					for(int i=0;i<res.size();i++){
+						String SPLoginId=res.get(i).get("LOGIN_ID")==null?"":res.get(i).get("LOGIN_ID").toString();
+						new PaymentProcessService().insPaymentProcessTrac(new CommonDAO().getHomePolicyNo(bean.getQuoteNo()),bean.getQuoteNo(),"ssPending","H","",SPLoginId,SPLoginId,bean.getProductId(),bean.getBranchCode());
+					}
+				}
+				new SmsEmailUtil(SmsEmailUtil.PAYMENT_SUCESS_CUST,bean.getQuoteNo()).send();
+				new SmsEmailUtil(SmsEmailUtil.PAYMENT_SUCESS_SURVEYOR,bean.getQuoteNo()).send();
+			}
+			new SmsEmailUtil(SmsEmailUtil.ONLINE_PAYMENT_STATUS_UNDERWRITER,bean.getQuoteNo()).send();
+		}catch(Exception e){
+			LogManager.info("Exception @ PaymentAction.onlineRes(): "+e);
+			e.printStackTrace();
+		}finally {
+			if(DBConstants.DEVICETYPE_HYBRID.equals(bean.getDeviceType())) {
+				forward = "mobilePaymentRes";
+			}else if("65".equals(bean.getProductId()) && bean.getMerchant_reference().contains("R")) {
+				forward = "updateRenewalInfoQuickRenewal";
+			}else if("65".equals(bean.getProductId())) {
+				forward = "updatePolicyInfoMotor";
+			} else if("30".equals(bean.getProductId())) {
+				forward = "updatePolicyInfoHome";
+			} else if("33".equals(bean.getProductId())) {
+				forward = "updatePolicyInfoTravel";
+			}
+		}
+		return forward;
+	}
+	
+	public String airtelRes(){
+		String forward = "";
+		try{
+			String status = "Failed";
+			AirtelService ms = new AirtelService("", "", bean.getMerchant_reference(), "");
+			Map<String, Object> airtelResult = ms.getPaymentResult();
+			if(airtelResult!= null && airtelResult.size()>0){
+				String transactionId = airtelResult.get("TXNOP_AIRTELMONEYID")==null?"":airtelResult.get("TXNOP_AIRTELMONEYID").toString();
+				String transactionStatus = airtelResult.get("TXNOP_STATUS")==null?"":airtelResult.get("TXNOP_STATUS").toString();
+				String reason = airtelResult.get("TXNOP_MESSAGE")==null?"":airtelResult.get("TXNOP_MESSAGE").toString();
+				//String referenceNo = airtelResult.get("REFERENCE_NO")==null?"":airtelResult.get("REFERENCE_NO").toString();
+				String responseTime = airtelResult.get("RESPONSE_TIME")==null?"":airtelResult.get("RESPONSE_TIME").toString();
+				service.updateMtnPaymentResponse(transactionId, transactionStatus, reason, "",
+						responseTime, bean.getMerchant_reference());
+			}
+			
+			Map<String,Object> paymentDetails = service.getPaymentDetails(bean.getMerchant_reference());
+			if(paymentDetails!=null && paymentDetails.size()>0){
+				bean.setQuoteNo(paymentDetails.get("QUOTE_NO")==null?"":paymentDetails.get("QUOTE_NO").toString());
+				bean.setApplicationNo(paymentDetails.get("APPLICATION_NO")==null?"":paymentDetails.get("APPLICATION_NO").toString());
+				bean.setProductId(paymentDetails.get("PRODUCT_ID")==null?"":paymentDetails.get("PRODUCT_ID").toString());
+				bean.setBranchCode(paymentDetails.get("BRANCH_CODE")==null?"":paymentDetails.get("BRANCH_CODE").toString());
+				bean.setDeviceType(paymentDetails.get("DEVICE_TYPE")==null?"":paymentDetails.get("DEVICE_TYPE").toString());
+				bean.setPolicyNo(paymentDetails.get("POLICY_NO")==null?"":paymentDetails.get("POLICY_NO").toString());
+				bean.setMobileNo(paymentDetails.get("MOBILE_NO")==null?"":paymentDetails.get("MOBILE_NO").toString());
+				status = paymentDetails.get("RESPONSE_STATUS")==null?"":paymentDetails.get("RESPONSE_STATUS").toString();
+			}
+			if(("success".equalsIgnoreCase(status) || "successful".equalsIgnoreCase(status)|| "TS".equalsIgnoreCase(status)) && bean.getMerchant_reference().contains("R")){
+				LogManager.info(" Enter To Renewal Payment Res ");
+				CommonDAO commonDAO = new CommonDAO();
+				commonDAO.updateRenewalRiskDtl(bean.getQuoteNo(),bean.getMerchant_reference(),bean.getPolicyNo(),"");
+				new SmsEmailUtil(SmsEmailUtil.PAYMENT_SUCESS_CUST,bean.getQuoteNo()).send();
+				new SmsEmailUtil(SmsEmailUtil.PAYMENT_SUCESS_SURVEYOR,bean.getQuoteNo()).send();
+			}else if("success".equalsIgnoreCase(status) || "successful".equalsIgnoreCase(status) || "TS".equalsIgnoreCase(status)){
+				CommonDAO commonDAO = new CommonDAO();
+				commonDAO.homePolicyGeneration(bean.getQuoteNo(),bean.getProductId(),bean.getBranchCode());
+				if("Y".equalsIgnoreCase(commonDAO.getInstallmentStatus(bean.getQuoteNo()))){
+					commonDAO.updateInstallmentDetail(bean.getQuoteNo(),"IPS","Y");
+				}
+				if(DBConstants.DEVICETYPE_HYBRID.equals(bean.getDeviceType())) {
+					commonDAO.updateHomeQuoteStatus(bean.getApplicationNo(),bean.getMerchant_reference(),bean.getQuoteNo(),bean.getProductId(),bean.getBranchCode());
+				}
+				List<Map<String, Object>> res = commonDAO.getOnlineSurveyor();
+				if(res !=null && res.size()>0){
+					for(int i=0;i<res.size();i++){
+						String SPLoginId=res.get(i).get("LOGIN_ID")==null?"":res.get(i).get("LOGIN_ID").toString();
+						new PaymentProcessService().insPaymentProcessTrac(new CommonDAO().getHomePolicyNo(bean.getQuoteNo()),bean.getQuoteNo(),"ssPending","H","",SPLoginId,SPLoginId,bean.getProductId(),bean.getBranchCode());
+					}
+				}
+				new SmsEmailUtil(SmsEmailUtil.PAYMENT_SUCESS_CUST,bean.getQuoteNo()).send();
+				new SmsEmailUtil(SmsEmailUtil.PAYMENT_SUCESS_SURVEYOR,bean.getQuoteNo()).send();
+			}
+			new SmsEmailUtil(SmsEmailUtil.ONLINE_PAYMENT_STATUS_UNDERWRITER,bean.getQuoteNo()).send();
+		}catch(Exception e){
+			LogManager.info("Exception @ PaymentAction.onlineRes(): "+e);
+			e.printStackTrace();
+		}finally {
+			if(DBConstants.DEVICETYPE_HYBRID.equals(bean.getDeviceType())) {
+				forward = "mobilePaymentRes";
+			}else if("65".equals(bean.getProductId()) && bean.getMerchant_reference().contains("R")) {
+				forward = "updateRenewalInfoQuickRenewal";
+			}else if("65".equals(bean.getProductId())) {
+				forward = "updatePolicyInfoMotor";
+			} else if("30".equals(bean.getProductId())) {
+				forward = "updatePolicyInfoHome";
+			} else if("33".equals(bean.getProductId())) {
+				forward = "updatePolicyInfoTravel";
+			}
+		}
+		return forward;
+	}
+	
+	// MTN Payment
+		public String statusCheck(){
+			try{
+				if(StringUtils.isNotBlank(bean.getMerchant_reference())){
+					MtnService ms = new MtnService("","",bean.getMerchant_reference(),"");
+					Map<String, Object> mpd = ms.getPaymentDetails();
+					if(mpd!=null && mpd.size()>0){
+						String quoteNo = mpd.get("QUOTE_NO")==null?"":mpd.get("QUOTE_NO").toString();
+						String productId = mpd.get("PRODUCT_ID")==null?"":mpd.get("PRODUCT_ID").toString();
+						String merchantRefNo = mpd.get("MERCHANT_REFERENCE")==null?"":mpd.get("MERCHANT_REFERENCE").toString();
+						String referenceNo = mpd.get("REFERENCE_NO")==null?"":mpd.get("REFERENCE_NO").toString();
+						MtnService ms2 = new MtnService(quoteNo, referenceNo,
+								merchantRefNo, productId);
+						String payStatus = ms2.paymentStatus();
+						 if("pending".equalsIgnoreCase(payStatus)){
+							 bean.setPayStatus("pending");
+						 }else if("success".equalsIgnoreCase(payStatus)
+									|| "successful".equalsIgnoreCase(payStatus)){
+							 bean.setPayStatus("success");
+						 }else{
+							 throw new Exception("Un-Identified MTN Payment Status");
+						 }
+					}else{
+						throw new Exception("MTN Payment Detail is blank");
+					}
+				}else{
+					throw new Exception("MTN Merchant Reference No is blank");
+				}
+			}catch(Exception e){
+				bean.setPayStatus("error");
+				e.printStackTrace();
+			}
+			return "jsonAjax";
+		}
+
+		public String airtelMoneyStatus(){
+			try{
+				if(StringUtils.isNotBlank(bean.getMerchant_reference())){
+					AirtelService ms = new AirtelService("","",bean.getMerchant_reference(),"");
+					Map<String, Object> mpd = ms.getPaymentDetails();
+					if(mpd!=null && mpd.size()>0){
+						String quoteNo = mpd.get("QUOTE_NO")==null?"":mpd.get("QUOTE_NO").toString();
+						String productId = mpd.get("PRODUCT_ID")==null?"":mpd.get("PRODUCT_ID").toString();
+						String premium = mpd.get("PREMIUM")==null?"":mpd.get("PREMIUM").toString();
+						String merchantRefNo = mpd.get("MERCHANT_REFERENCE")==null?"":mpd.get("MERCHANT_REFERENCE").toString();
+						String currencyType = mpd.get("CURRENCY_TYPE")==null?"":mpd.get("CURRENCY_TYPE").toString();
+						String referenceNo = mpd.get("REFERENCE_NO")==null?"":mpd.get("REFERENCE_NO").toString();
+						String mobileNo = mpd.get("MTN_MOBILE_NO")==null?"":mpd.get("MTN_MOBILE_NO").toString();
+						AirtelService ms2 = new AirtelService(quoteNo, referenceNo,
+								merchantRefNo, productId);
+						ReqToPayIpModelAirtel rtp = new ReqToPayIpModelAirtel();
+						rtp.setReference("Madison Gen");
+						
+						Subscriber sub = new Subscriber();
+						sub.setCountry("ZM");
+						sub.setCurrency(currencyType);
+						sub.setMsisdn(Integer.parseInt(mobileNo));
+						
+						Transaction txn = new Transaction();
+						txn.setAmount("1");
+						txn.setCountry("ZM");
+						txn.setCurrency(currencyType);
+						txn.setId(merchantRefNo);
+						
+						rtp.setSubscriber(sub);
+						rtp.setTransaction(txn);
+						String payStatus = ms2.paymentStatus(rtp);
+						 if("pending".equalsIgnoreCase(payStatus)|| "TIP".equalsIgnoreCase(payStatus)){
+							 bean.setPayStatus("pending");
+						 }else if("success".equalsIgnoreCase(payStatus)
+									|| "successful".equalsIgnoreCase(payStatus)
+									|| "TS".equalsIgnoreCase(payStatus)){
+							 bean.setPayStatus("success");
+						 }else{
+							 throw new Exception("Un-Identified Airtel Payment Status");
+						 }
+					}else{
+						throw new Exception("Airtel Payment Detail is blank");
+					}
+				}else{
+					throw new Exception("Airtel Merchant Reference No is blank");
+				}
+			}catch(Exception e){
+				bean.setPayStatus("error");
+				e.printStackTrace();
+			}
+			return "jsonAjax";
+		}
+		
+	private void generateSignature() throws Exception {
+		HashMap<String,String> params = new HashMap<String,String>();
+		params.put("amount", bean.getAmount());
+		params.put("reference_number", bean.getReference_number());
+		params.put("signed_field_names", bean.getSigned_field_names());
+		params.put("profile_id", bean.getProfile_id());
+		params.put("signed_date_time", bean.getSigned_date_time());
+		params.put("transaction_type", bean.getTransaction_type());
+		params.put("locale", bean.getLocale());
+		params.put("transaction_uuid", bean.getTransaction_uuid());
+		params.put("access_key", bean.getAccess_key());
+		params.put("unsigned_field_names", bean.getUnsigned_field_names());
+		params.put("currency", bean.getCurrency());
+		
+		params.put("recurring_amount", bean.getRecurring_amount());
+		params.put("recurring_frequency", bean.getRecurring_frequency());
+		params.put("recurring_start_date", bean.getRecurring_start_date());
+		params.put("recurring_number_of_installments", bean.getRecurring_number_of_installments());
+		params.put("recurring_automatic_renew", bean.getRecurring_automatic_renew());
+		bean.setSignature(sign(params));
+		
+		LogManager.info("Payment Request args - Start");
+		LogManager.info("Request==> " + params.toString());
+		LogManager.info("signature=" + bean.getSignature());
+		LogManager.info("Payment Request args - End");
+	}
+	
+	public String installmentCalcAjax() {
+		request.setAttribute(DBConstants.FIELD, "installmentCalcAjax");
+		try {
+			service.installmentCalc(bean);
+		} catch(Exception exception) {
+			LogManager.debug(exception);
+		}
+		return DBConstants.DROPDOWN;
+	}
+	public String installmentCalcAjaxNew() {
+		request.setAttribute(DBConstants.FIELD, "installmentCalcAjaxNew");
+		try {
+			service.installmentCalc(bean);
+		} catch(Exception exception) {
+			LogManager.debug(exception);
+		}
+		return DBConstants.DROPDOWN;
+	}
+	
+	@JSON(serialize=false)
+	public List<Map<String,Object>> getInstallmentDetailsList() {
+		return service.getInstallmentDetailsList(bean.getQuoteNo());
+	}
+	@JSON(serialize=false)
+	public Map<String,Object> getPaymentDetails() {
+		return new com.maan.payment.PaymentService().getPaymentDetails(bean.getMerchant_reference());
+	}
+	public String tempdetails() {
+		return "mobilePaymentRes";
+	}
+	
+	public PaymentBean getModel() {
+		return bean;
+	}
+
+    private String sign(HashMap<String,String> params) throws InvalidKeyException, NoSuchAlgorithmException, UnsupportedEncodingException {
+        return sign(buildDataToSign(params), bean.getSecret_key());
+    }
+
+    private String sign(String data, String secretKey) throws InvalidKeyException, NoSuchAlgorithmException, UnsupportedEncodingException {
+        SecretKeySpec secretKeySpec = new SecretKeySpec(secretKey.getBytes(), HMAC_SHA256);
+        Mac mac = Mac.getInstance(HMAC_SHA256);
+        mac.init(secretKeySpec);
+        byte[] rawHmac = mac.doFinal(data.getBytes("UTF-8"));
+        return DatatypeConverter.printBase64Binary(rawHmac).replace("\n", "");
+    }
+
+    private String buildDataToSign(HashMap<String,String> params) {
+        String[] signedFieldNames = String.valueOf(params.get("signed_field_names")).split(",");
+        ArrayList<String> dataToSign = new ArrayList<String>();
+        for (String signedFieldName : signedFieldNames) {
+            dataToSign.add(signedFieldName + "=" + String.valueOf(params.get(signedFieldName)));
+        }
+        return commaSeparate(dataToSign);
+    }
+
+    private String commaSeparate(ArrayList<String> dataToSign) {
+        StringBuilder csv = new StringBuilder();
+        for (Iterator<String> it = dataToSign.iterator(); it.hasNext(); ) {
+            csv.append(it.next());
+            if (it.hasNext()) {
+                csv.append(",");
+            }
+        }
+        return csv.toString();
+    }
+
+}

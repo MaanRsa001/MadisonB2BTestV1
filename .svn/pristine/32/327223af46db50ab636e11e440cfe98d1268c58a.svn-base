@@ -1,0 +1,240 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<script language="JavaScript">
+				function stopRKey(evt) { 
+				  var evt = (evt) ? evt : ((event) ? event : null); 
+				  var node = (evt.target) ? evt.target : ((evt.srcElement) ? evt.srcElement : null); 
+				  if ((evt.keyCode == 13) && (node.type=="text"))  {return false;} 
+				} 
+				document.onkeypress = stopRKey; 
+		</script>
+		<style type="text/css">
+	
+	        #loading {
+			  width: 100%;
+			  height: 100%;
+			  top: 0px;
+			  left: 0px;
+			  position: fixed;
+			  display: block;
+			  opacity: 0.7;
+			  background-color: black;
+			  z-index: 99;
+			  opacity:0.5;
+			  text-align: center;
+			}
+			
+			#loading-image {
+			  position: absolute;
+			  top: 30%;
+			  left: 45%;
+			  z-index: 100;
+			  width: 100px;
+			  height: 100px;
+			}
+		</style>
+	</head>
+	<body>
+	<s:form id="motor" name="motor" method="post" theme="simple" action="getQuoteMotor.action">
+	<div id="loading" style="width:100%">
+	   <img id="loading-image" src="${pageContext.request.contextPath}/images/madisonSymbolLogo.png"/>
+	</div>
+	<s:set var="modeOfPaymentList" value="%{modeOfPaymentList}"/>
+	<s:set var="totPremium" value="totalPremium"/>
+	<s:hidden name="totalPremium" id="totalPremium"/>
+	<s:hidden name="sign" id="sign"/>
+	<s:hidden name="loadOrDiscPremium" id="loadOrDiscPremium"/>
+	<div class="container PolicyPage">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<span style="color:red;font-family:Lato-Regular;"><s:actionerror/></span>
+			</div>
+		</div>
+	
+	     <div class="Card_Parent PolicyInformation">
+	            <div class="card card-5">
+	                
+	                <div class="row">
+	                	<div class="col-md-12">
+	                		<h3>Policy Information</h3><hr>
+	                		<div class="row">
+			                    <div class="col-md-5 col-6">
+			                        <label class="LabelHeading"><s:text name="motor.quoteNo"  /></label>
+			                    </div>
+			                    <div class="col-md-5 col-6">
+			                        <label class="labelValues"><s:property value="quoteNo"/></label>
+			                    </div>
+			                </div>
+			                <div class="row">
+			                    <div class="col-md-5 col-6">
+			                        <label class="LabelHeading"><s:text name="motor.customerName"  /> </label>
+			                    </div>
+			                    <div class="col-md-5 col-6">
+			                        <label class="labelValues"><s:property value="title"/>.<s:property value="customerName"/>&nbsp;<s:property value="custLastName"/></label>
+			                    </div>
+			                </div>
+	                		<div class="row">
+			                    <div class="col-md-5 col-6">
+			                        <label class="LabelHeading"><s:text name="Policy Type"  /> </label>
+			                    </div>
+			                    <div class="col-md-5 col-6">
+			                        <label class="labelValues"><s:property value="policyTypeDesc"/></label>
+			                    </div>
+			                </div>
+	                	</div>
+	                </div>
+	                
+	                
+	                <div id="demo" class="collapse">
+		                <%-- <div class="row">
+		                    <div class="col-md-5 col-6">
+		                        <label class="LabelHeading"><s:text name="motor.quoteNo"  /></label>
+		                    </div>
+		                    <div class="col-md-5 col-6">
+		                        <label class="labelValues"><s:property value="quoteNo"/></label>
+		                    </div>
+		                </div> --%>
+		                <div class="row">
+		                    <div class="col-md-5 col-6">
+		                        <label class="LabelHeading"><s:text name="motor.quoteDate" /></label>
+		                    </div>
+		                    <div class="col-md-5 col-6">
+		                        <label class="labelValues"> <s:property value="quoteDate"/></label>
+		                    </div>
+		                </div>
+		                <div class="row">
+		                    <div class="col-md-5 col-6">
+		                        <label class="LabelHeading"><s:text name="motor.product" /></label>
+		                    </div>
+		                    <div class="col-md-5 col-6">
+		                        <label class="labelValues"><s:property value="product"/> </label>
+		                    </div>
+		                </div>
+		                <%-- <div class="row">
+		                    <div class="col-md-5 col-6">
+		                        <label class="LabelHeading"><s:text name="motor.customerName"  /> </label>
+		                    </div>
+		                    <div class="col-md-5 col-6">
+		                        <label class="labelValues"><s:property value="title"/>.<s:property value="customerName"/>&nbsp;<s:property value="custLastName"/></label>
+		                    </div>
+		                </div> --%>
+		                <div class="row">
+		                    <div class="col-md-5 col-6">
+		                        <label class="LabelHeading"><s:text name="motor.email" /></label>
+		                    </div>
+		                    <div class="col-md-5 col-6">
+		                        <label class="labelValues"><s:property value="email"/></label>
+		                    </div>
+		                </div>
+		                 <div class="row">
+		                    <div class="col-md-5 col-6">
+		                        <label class="LabelHeading"><s:text name="motor.policyStartDt" /></label>
+		                    </div>
+		                    <div class="col-md-5 col-6">
+		                        <label class="labelValues"><s:property value="policyStartDate"/></label>
+		                    </div>
+		                </div>
+		                 <div class="row">
+		                    <div class="col-md-5 col-6">
+		                        <label class="LabelHeading"><s:text name="motor.policyEndDt" /></label>
+		                    </div>
+		                    <div class="col-md-5 col-6">
+		                        <label class="labelValues"><s:property value="policyEndDatePeriod"/></label>
+		                    </div>
+		                </div>
+		                 <div class="row">
+		                    <div class="col-md-5 col-6">
+		                        <font color="red"><label class="LabelHeading">Currency</label></font>
+		                    </div>
+		                    <div class="col-md-5 col-6">
+		                        <label class="labelValues"><s:property value="currencyType"/></label>
+		                    </div>
+		                </div>
+	                </div>
+	                <div class="row">
+	                	<div class="col-md-12 text-right">
+	                		<a style="text-decoration:none" id="more" data-toggle="collapse" data-target="#demo" onclick="funCollapse('less')">View More <i class="fas fa-chevron-circle-down"></i></a>
+	                		<a style="text-decoration:none;display:none" id="less" data-toggle="collapse" data-target="#demo" onclick="funCollapse('more')">View Less <i class="fas fa-chevron-circle-up"></i></a>
+	                	</div> 
+	                </div>
+	            </div>
+	        </div><br>
+			<s:include value="/pages/payment/paymentDetails.jsp"></s:include>
+            </div><br>
+            <div class="row">
+				<div class="col-lg-2 col-md-2 offset-md-5 offset-lg-5 mb-3">
+					<s:if test='#session.user1 != "admin"'>
+						<s:if test='quoteStatus=="RA" || (endTypeId!=null && !"".equalsIgnoreCase(endTypeId)) || "2".equals(premiumType)'>
+							<input type="button" name="Submit1" class="btn btn-danger btn-block" value="Back"  onclick="update('showPolicyInfoNewMotor.action')" />
+							&nbsp;&nbsp;&nbsp;
+						</s:if>
+						<s:else>
+							<!--  <input type="button" name="Submit1" class="btn btn-sm btn-danger" value="Back" onclick="getBack('showSummarry');" />-->
+							<input type="button" name="Submit1" class="btn btn-danger btn-block" value="Back"  onclick="update('showPolicyInfoNewMotor.action')" />
+							&nbsp;&nbsp;&nbsp;
+						</s:else>
+						<%--<input type="button" name="Submit2" class="btn" value="Save" onclick="this.form.actionType.value='getSave';this.form.submit();" />
+						                  &nbsp;--%>
+					</s:if>
+					<s:else>
+						<%--
+						<s:submit type="button" name="close"  key="Back" cssClass="btn btn-sm btn-danger" onclick="getBack('editCovRate')"/>
+						--%>
+						<input type="button" name="Submit1" class="btn btn-danger btn-block" value="Back"  onclick="update('showPolicyInfoNewMotor.action')" />
+						&nbsp;&nbsp;&nbsp;
+					</s:else>
+						<!-- <input type="button" name="Submit3" class="btn btn-sm btn-success" value="Proceed" onclick="this.form.actionType.value='getQuote';disableForm(this.form,false,'');makePayment()"/> -->
+					
+	                <s:hidden name="currencyType"/>
+				</div>
+			</div>
+			<s:hidden name="display" />
+	<s:hidden name="actionType" />
+	<s:hidden name="fleetNo" />
+	<s:hidden name="applicationNo" id="applicationNo"/>
+	<s:hidden name="quoteNo" />
+	<s:hidden name="quoteStatus"/>
+	<%--<s:hidden name="referralMsg"/>--%>
+	<s:hidden name="endTypeId"/>
+	<s:hidden name="policyNo"/>
+	<s:hidden name="brokerCompany"/>
+	<s:hidden name="custName"/>
+	<s:hidden name="vehicleId"/>
+	<s:hidden name="isVehicleEdit"/>
+	<%--<s:hidden name="companyRegNo" id="companyRegNo"></s:hidden> --%>
+	<s:hidden name="customerId"  id="customerId"/>
+	<s:hidden name="isClaimDtl"  id="isClaimDtl"/>
+	<s:hidden name="reqFrom"  id="reqFrom"/>
+	<s:hidden name="installmentYN"  id="installmentYN"/>
+	<s:hidden name="insIntialAmount"  id="insIntialAmount"/>
+	<s:hidden name="generatePolicyYN"  id="generatePolicyYN"/>
+	<s:hidden name="policyTypeDesc"  id="policyTypeDesc"/>
+	</s:form>
+	</body>
+<script type="text/javascript">
+function funCollapse(type){
+	if(type=='more'){
+		$( '#less' ).attr('style','display:none;');
+		$( '#more' ).attr('style','display:block;');
+	}
+	else if (type=='less'){
+		$( '#more' ).attr('style','display:none;');
+		$( '#less' ).attr('style','display:block;');
+	}
+}
+function makePayment(modeOfPay){
+	document.getElementById('modeOfPayment').value=modeOfPay;
+	document.motor.action = "${pageContext.request.contextPath}/makePaymentMotor.action";
+	document.motor.submit();
+}
+
+function update(actionPath) { 
+	document.motor.action = actionPath;
+	document.motor.submit();
+	return false;
+}
+</script>
+</html>	

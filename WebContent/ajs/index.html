@@ -1,0 +1,120 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>QR Code Scanner</title>
+    <meta charset="UTF-8" />
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
+    
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+<link rel="stylesheet" href="styles.css" />
+<script src="https://rawgit.com/sitepoint-editors/jsqrcode/master/src/qr_packed.js"></script>
+<script type="text/javascript" src="grid.js"></script>
+<script type="text/javascript" src="version.js"></script>
+<script type="text/javascript" src="detector.js"></script>
+<script type="text/javascript" src="formatinf.js"></script>
+<script type="text/javascript" src="errorlevel.js"></script>
+<script type="text/javascript" src="bitmat.js"></script>
+<script type="text/javascript" src="datablock.js"></script>
+<script type="text/javascript" src="bmparser.js"></script>
+<script type="text/javascript" src="datamask.js"></script>
+<script type="text/javascript" src="rsdecoder.js"></script>
+<script type="text/javascript" src="gf256poly.js"></script>
+<script type="text/javascript" src="gf256.js"></script>
+<script type="text/javascript" src="decoder.js"></script>
+<script type="text/javascript" src="qrcode.js"></script>
+<script type="text/javascript" src="findpat.js"></script>
+<script type="text/javascript" src="alignpat.js"></script>
+<script type="text/javascript" src="databr.js"></script>
+
+
+</head>
+  
+  <body>
+   <div id="container">
+    <h1>QR Code Scanner</h1>
+
+    <a id="btn-scan-qr">
+        <img src="https://uploads.sitepoint.com/wp-content/uploads/2017/07/1499401426qr_icon.svg">
+    </a>
+
+    <canvas hidden="" id="qr-canvas"></canvas>
+
+    <div id="qr-result" hidden="">
+        <b>Data:</b> <span id="outputData"></span>
+        <button type="button" title="Customer Information" class="btn btn-lg btn-success" onclick="processQrInfo();">Proceed</button>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+const qrcode1 = window.qrcode;
+
+const video = document.createElement("video");
+const canvasElement = document.getElementById("qr-canvas");
+const canvas = canvasElement.getContext("2d");
+
+const qrResult = document.getElementById("qr-result");
+const outputData = document.getElementById("outputData");
+const btnScanQR = document.getElementById("btn-scan-qr");
+let scanning = false;
+
+
+qrcode.callback = (res) => {
+	  if (res) {
+	  alert(res):
+	    outputData.innerText = res;
+	    scanning = false;
+
+	    video.srcObject.getTracks().forEach(track => {
+	      track.stop();
+	    });
+
+	    qrResult.hidden = false;
+	    btnScanQR.hidden = false;
+	    canvasElement.hidden = true;
+	  }
+	};
+
+	btnScanQR.onclick = () =>{
+	  navigator.mediaDevices
+	    .getUserMedia({ video: { facingMode: "environment" } })
+	    .then(function(stream) {
+	      scanning = true;
+	      qrResult.hidden = true;
+	      btnScanQR.hidden = true;
+	      canvasElement.hidden = false;
+	      video.setAttribute("playsinline", true); // required to tell iOS safari we don't want fullscreen
+	      video.srcObject = stream;
+	      video.play();
+	      tick();
+	      scan();
+	    });
+	};
+
+	function tick() {
+		  canvasElement.height = video.videoHeight;
+		  canvasElement.width = video.videoWidth;
+		  canvas.drawImage(video, 0, 0, canvasElement.width, canvasElement.height);
+
+		  scanning && requestAnimationFrame(tick);
+		}
+	
+	function scan() {
+		  try {
+		    qrcode.decode();
+		  } catch (e) {
+		    setTimeout(scan, 300);
+		  }
+		}
+	function processQrInfo(){
+		alert('Hi..');
+	}		
+	
+</script>
+  </body>
+</html>

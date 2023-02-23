@@ -1,0 +1,37 @@
+label.master.sms.email 	= SMS / Email Template Master
+label.sms.content		= SMS Content\t
+label.email.content		= Mail Content\t
+label.master.status		= Status
+label.master.remarks	= Remarks
+label.sms.required		= SMS Required
+label.email.required	= Email Required
+label.master.edit		= Edit
+label.sms.subject		= SMS Subject
+label.sms.body			= SMS Body
+label.sms.regards		= SMS Regards
+label.email.subject		= Email Subject
+label.email.body		= Email Body
+label.email.regards		= Email Regards
+label.email.to			= Email To
+label.email.cc			= Email CC
+label.sms.to			= SMS To
+label.usertype			= User Type
+label.description 		= Description
+
+
+
+
+
+
+
+
+error.enter.status								= Please Enter Status
+error.choose.sms.required.or.email.required		= Please Choose SMS Required or Email Required
+error.enter.sms.subject							= Please Enter SMS Subject
+error.enter.sms.body							= Please Enter SMS Body
+error.enter.sms.regards							= Please Enter SMS Regards
+error.enter.email.subject						= Please Enter Email Subject
+error.enter.email.body							= Please Enter Email Body
+error.enter.email.regards						= Please Enter Email Regards
+error.choose.sms.required						= Please Choose SMS Required
+error.choose.email.required						= Please Choose Email Required

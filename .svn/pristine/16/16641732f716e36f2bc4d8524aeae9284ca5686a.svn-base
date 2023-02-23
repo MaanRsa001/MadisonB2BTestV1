@@ -1,0 +1,23 @@
+google.urlshorten.auth.url=https://www.googleapis.com/urlshortener/v1/url?key=AIzaSyCMWcR26VfmcCkQy9l7xw2fhFEO1c5Ey-g
+maan.pdfdownload.url=http://192.168.1.19:8081/MadisonB2BTest/Loginentry.do?e={0}
+google.urlshoren.request={"longUrl": "{0}"}
+bitly.accesskey=894d8f31e66e25c0269743e8d1c32ba98513285b
+
+
+
+
+##  REFERENCE : https://techjoomla.com/documentation-for-invitex/creating-google-shortener-api-key.html
+##
+##
+##Steps for creating API key for Google URL Shortening
+
+##- Go to the [url=https://console.developers.google.com/]Google Developers Console[/url].
+##- Select a project, or create a new one.
+##- In the sidebar on the left, expand APIs & auth. Next, click APIs. In the list of APIs, make sure the status is ON for the Google URL Shortener API.
+##- In the sidebar on the left, select Credentials.
+##- [b]Public API access[/b]:- To create an API key, click Create new Key and select "Server key".
+
+
+
+
+

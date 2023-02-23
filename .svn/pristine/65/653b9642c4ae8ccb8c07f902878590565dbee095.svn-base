@@ -1,0 +1,181 @@
+EXCEL_UPLOAD_PATH=/UploadedFiles/XLS/
+EXCEL_DOWNLOAD_PATH=/DownloadedFiles/
+CSV_UPLOAD_PATH=/UploadedFiles/CSV/
+CSV_CONVERTER_PATH=/converter/CSVConverter.exe
+ENDT_SCHEDULE_PATH=/OriginalPdf/
+SCHEDULE_FONT_PATH=/ScheduleFont/arial.ttf
+IMAGE_PATH=/images/
+LC_FILE_UPLOAD_PATH = C:/Madison General Insurance/LcUpload
+ONE_OFF=3
+OPEN_COVER=11
+9=ONE_OFF
+11=OPEN_COVER
+LAND_TRANSIT=3
+DEF_CURR_ID=1
+admin=admin
+BROKER_ONE=GHQ
+BROKER=Broker
+USER=User
+ISSUER=RSAIssuer
+home=Home
+#DOCUMENT_MAIL_STATUS = NO
+DOCUMENT_MAIL_STATUS = YES
+error.deposit.already.exist=This deposit combination already exist for CBC NO of {0}
+HOME_INS = 30
+
+MOTOR_TP_ID = 3
+B2C_LOGIN_ID = guestmotor
+B2C_AGENCY_CODE = 90011
+MOTOR_CURRENCY_LOCAL = ZMW
+MOTOR_CURRENCY_FOREIGN = USD
+MOTOR_DEFAULT_CITY = LUSAKA
+DEVICE_TYPE_ANDROID = ANDROID
+DEVICE_TYPE_HYBRID = HYBRID
+
+
+coverageid.invalid  = {0} é inválido na linha {1}
+coverageid.required = {0} é necessário em Fila {1}
+
+report.homeInsurance = Home Insurance
+
+label.product.homeInsurance = Home Insurance
+label.product.travel = Seguro viagem
+label.product.motor = Seguro Automóvel
+
+#customer.address1=Address1
+#customer.address2=Address2
+customer.address1=Endereço residencial
+customer.contact.info = Informações de contato
+customer.address2=Endereço de trabalho
+customer.broker           = Corretor
+customer.brokerInfo       = Information Broker
+customer.city             = Cidade
+customer.close            = Fechar
+customer.coreAppCode      = Código principal do aplicativo
+customer.customerInfo     = Informações Tomador
+customer.customerName     = nome do cliente
+customer.email            = Endereço de e-mail
+customer.executive        = BDM executivo
+customer.executiveDefault = 5
+customer.mobileNo         = Número de celular
+customer.msg.nothingFound = Nada foi encontrado para apresentar
+customer.poBox            = Caixa postal
+customer.searchBy         = Procurar por
+customer.searchValue      = Pesquisa Valor
+customer.submit           = Enviar
+customer.title            = Título
+customer.broker.name		  = Nome Broker
+customer.executive.bdm		  = BDM executivo
+label.value = Valor
+
+customer.firstName		  = Primeiro nome
+customer.lastName	      = Último nome
+customer.nrc			  = NRC ( Cartão de Registro Nacional No. )
+customer.passportNo		  = passaporte no.
+customer.mobileNo1		  = móvel Não
+customer.alterMobile	  = Alternativa para telemóvel Nenhum.
+customer.landLineNo		  = Fixo Sem
+customer.dob			  = Data de nascimento
+customer.companyRegNo	  = Número de registro da companhia
+customer.customerType	  = Tipo de Cliente
+customer.gender   		  = Gênero
+customer.occupation       = Ocupação
+			
+
+error.customer.city               = Por favor, selecione Cidade 
+error.customer.customerName       = Por favor, indique o nome do cliente
+error.customer.customerName.valid = Por favor, indique o nome do cliente válida
+error.customer.email              = Por favor, indique -mail
+error.customer.mobileNo           = Por favor, indique número móvel
+error.customer.mobileNo.valid     = Por favor, indique número de celular válido
+error.customer.poBox              = Por favor, indique PO Box
+error.customer.poBox.valid        = Por favor, indique POBox válida
+error.customer.title              = Por favor, selecione Título
+error.customer.valid.email        = Por favor, indique válida Email
+error.home.backDt.valid           = remonta máximo permitido {0} dias única
+error.customer.executive		  = Por favor seleccione executivo
+error.customer.broker			  = Por favor seleccione broker
+error.enter.lastname			  = Introduza o apelido
+error.customer.firstName		  = Por favor, indique Nome
+error.customer.firstName.valid	  = Por favor, indique válida Nome
+error.customer.lastName		  	  = Por favor, indique Sobrenome
+error.customer.nrc_PassportNo	  = Por favor, indique NRC ( Cartão de Registro Nacional No. ) / passaporte
+error.customer.dob				  = Por favor, indique Data de Nascimento
+error.customer.dob.valid		  = Por favor, indique válido Data de Nascimento
+error.customer.mobileNo1		  = Por favor, indique móvel Não.
+error.customer.mobileNo1.valid	  = Por favor, indique válida para telemóvel Nenhum.
+error.customer.alterMobile		  = Por favor, indique Alternativa móvel Não.
+error.customer.alterMobile.valid  = Por favor, indique válido Alternative móvel Não.
+error.customer.landLineNo		  = Por favor, indique Fixo Sem.
+error.customer.landLineNo.valid   = Por favor, indique válida Fixo Sem.
+error.customer.companyRegNo	  	  = Por favor, indique Empresa Número de Registro
+error.customer.companyRegNo.valid = Por favor, indique válido Número de Registro da Empresa
+error.customer.nrc.invalid		  = Por favor, indique NRC válida ( Cartão de Registro Nacional No. )
+error.customer.dob.invalid		  = Por favor, indique válido Data de nascimento DD / MM / AAAA
+#error.customer.address1.blank 	  = Please Enter Address1
+error.customer.address1.blank 	  = Por favor, insira o endereço de residência
+error.customer.broker.code		  = Por favor Escolha Broker Name \t
+error.customer.gender             = Por favor seleccione o género
+error.customer.occupation		  = Por favor, indique Ocupação \t
+
+label.email.quote					   = Citar -mail
+label.declaration			   		   = Declaração
+label.declarationStatement	   		   = Eu declaro que a afirmação acima é verdadeira para o melhor de meu conhecimento e crença, e que eu entendo que é feito para ser usado como prova em tribunal e está sujeita a penalidade por perjúrio. Também compreendo que a cobertura só será aplicada uma vez o meu veículo é inspecionado e verificado por Madison Diretor Geral e um certificado é entregue.
+label.declarationStatement1			   = <font color="red">Por favor, aceite a declaração de proceder para fazer o pagamento e compra a política</font>
+error.declaration					   = Por favor, selecione a declaração
+
+
+label.quoteInfo = Informações Citar
+label.premiumInfo = Informações prémio
+label.personalInfo = Informação pessoal
+label.policyInfo = Informação sobre a política
+
+## Bank Info
+bank.info.payment 						= Informação bancária
+## Payment Info
+payment.modeOfPayment 					= Modo de pagamento
+payment.paymentInfo 					= Detalhes do pagamento
+payment.cheque.chequeDetails			= Detalhes Cheque
+payment.total.premium					= Prêmio total a pagar
+payment.cheque.No						= Número Cheque
+payment.cheque.Date						= Cheque Date
+payment.cheque.Amount					= Cheque Montante
+payment.cheque.bankName					= Cheque Banco
+payment.cheque.bankBranch				= Agência bancária
+
+payment.cash.Details					= Detalhes de caixa
+payment.cash.depositBank 				= depósito Bancário
+payment.cash.premiumAmount				= prêmio Valor
+payment.cash.challanNumber				= Número de referência
+payment.cash.instrumentDate				= Data Deposit
+
+error.motor.modeOfPayment					= Por favor, escolha modo de pagamento
+error.payment.choose.bank 					= Por favor, Escolha Depósito Bancário
+error.payment.enter.cashamount				= Por favor, indique premium Montante
+error.payment.valid.cash.amount				= Por favor, indique Valid premium Montante
+error.payment.enter.deposit.date			= Por favor, Escolha Depósito Data
+error.payment.valid.deposit.date.format		= Por favor, indique Válido formato de Depósito Data (DD / MM / AAAA)
+error.payment.valid.deposit.date.today.date = Por favor, indique Valid Data Deposit
+error.payment.enter.cheque.no 				= Por favor, indique Chque Não
+error.payment.enter.cheque.date 			= Por favor, indique Cheque Data
+error.payment.valid.cheque.date.format		= Por favor, indique Valid Format Cheque Data (DD / MM / AAAA )
+error.payment.valid.cheque.date.today.date	= Por favor, indique Valid Cheque Data
+error.payment.cheque.amount					= Por favor, indique Cheque Montante
+error.payment.cheque.amount.invalid			= Por favor, indique Valid quantidade do cheque
+error.payment.choose.bank.name				= Por favor, Escolha Cheque Banco
+error.payment.micr.code						= Insira o código MICR
+error.payment.valid.micr.code				= Insira o código MICR Valid
+
+policyInfo.coverEndDate 					= Data tampa do End
+policyInfo.approvalPending					= Suas citações está pendente para a aprovação.
+
+error.captchacode.invalid					= Por favor insira o Código de Captcha correto mostrado na imagem
+error.validation							= Erro na validação
+
+label.accountName = Nome da conta
+label.bank = Banco
+label.accountNumber = Número da conta
+label.branch = Ramo
+label.currency = Moeda
+label.branchCode = Código da Agência
+label.swiftCode = Código Swift

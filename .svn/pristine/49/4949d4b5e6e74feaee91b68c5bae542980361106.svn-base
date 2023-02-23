@@ -1,0 +1,1025 @@
+package com.maan.customer.dao;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.commons.beanutils.BeanUtils;
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.jdbc.core.RowMapper;
+
+//import com.maan.Motor.controller.MotorBean;
+import com.maan.Motor.controller.MotorBean;
+import com.maan.common.dao.CommonDAO;
+import com.maan.common.util.ResourceBundleUtil;
+import com.maan.common.LogManager;
+import com.maan.common.MyJdbcTemplate;
+import com.maan.customer.CustBean;
+import com.maan.customer.CustomerBean;
+
+public class CustomerDAO extends MyJdbcTemplate{
+	@SuppressWarnings("unchecked")
+	public String getSearch(CustomerBean bean) {
+		
+		LogManager.info("getSearch - Enter ");
+		String result="";
+		try
+		{
+			List<CustomerBean> customerBean = new ArrayList<CustomerBean>();
+			if(!"getQuote".equalsIgnoreCase(bean.getDisplay())){
+				String sql="";
+				Object[] obj=new Object[0];
+				if(!"checkCivilId".equalsIgnoreCase(bean.getDisplay()))
+				{
+					sql=getQuery("GET_SEARCH1");
+					LogManager.info("Query=>"+sql);
+					obj=new Object[8];
+					obj[0]=bean.getLoginId();
+					obj[1]=StringUtils.isBlank(bean.getFullName())?"":"%"+bean.getFullName()+"%";
+					obj[2]=StringUtils.isBlank(bean.getFullName())?"":"%"+bean.getFullName()+"%";
+					obj[3]=StringUtils.isBlank(bean.getEmailId())?"":"%"+bean.getEmailId()+"%";
+					obj[4]=StringUtils.isBlank(bean.getMobileNo())?"":"%"+bean.getMobileNo()+"%";
+					obj[5]=StringUtils.isBlank(bean.getTelephoneNo())?"":"%"+bean.getTelephoneNo()+"%";
+					obj[6]=bean.getDob();
+					obj[7]=StringUtils.isBlank(bean.getCusCivilId())?"":"%"+bean.getCusCivilId()+"%";
+				}else
+				{
+					sql=getQuery("GET_SEARCH2");
+					LogManager.info("Query=>"+sql);
+					obj=new Object[3];
+					obj[0]=bean.getLoginId();
+					obj[1]=bean.getCusCivilId();
+					obj[2]=bean.getCustomerId();
+				}
+					LogManager.info("obj[] ==> "+StringUtils.join(obj, ","));
+					customerBean = this.mytemplate.query(sql, obj, new RowMapper() {
+		    			public Object mapRow(final ResultSet rs, final int idVal) throws SQLException {
+		    				final CustomerBean cBean = new CustomerBean();
+		    				cBean.setCustomerIdYN("N");
+		    				cBean.setCustomerId(rs.getString("CUSTOMER_ID"));
+		    				cBean.setTitle(rs.getString("TITLE"));
+		    				cBean.setFullName(rs.getString("FIRST_NAME")!=null?rs.getString("FIRST_NAME"):rs.getString("COMPANY_NAME"));
+		    				cBean.setGender(rs.getString("GENDER"));
+		    				cBean.setNationality(rs.getString("NATIONALITY"));
+		    				cBean.setDob(dateFormat(rs.getString("DOB")));
+		    				cBean.setTelephoneNo(rs.getString("TELEPHONE"));
+		    				cBean.setMobileNo(rs.getString("MOBILE"));
+		    				cBean.setFax(rs.getString("FAX"));
+		    				cBean.setEmailId(rs.getString("EMAIL"));
+		    				cBean.setPoBox(rs.getString("POBOX"));
+		    				cBean.setAddress(rs.getString("ADDRESS1"));
+		    				cBean.setOccupation(rs.getString("OCCUPATION"));
+		    				cBean.setCity(rs.getString("EMIRATE"));
+		    				cBean.setAddress(rs.getString("COUNTRY"));
+		    				cBean.setCusCivilId(rs.getString("CUSTOMER_SOURCE"));
+		    				return cBean;
+		    			}});
+					if(customerBean.size()>0)
+					{
+						if(!"checkCivilId".equalsIgnoreCase(bean.getDisplay()))
+						{
+							if(customerBean.size()==1)
+							{
+								String appNo=bean.getApplicationNo();
+								String quoteStatus=bean.getQuoteStatus();
+								BeanUtils.copyProperties(bean, (CustomerBean)customerBean.get(0));
+								bean.setApplicationNo(appNo);
+								bean.setQuoteStatus(quoteStatus);
+							}else
+							{
+								bean.setSearchList(customerBean);
+								bean.setCustomerIdYN("Y");
+							}
+							result="SUCCESS";
+						}else
+						{
+							bean.setSearchList(customerBean);
+							bean.setCustomerIdYN("Y");
+							bean.setCustomerId("");
+							result="EXISTS";
+						}
+					}
+		}else
+		{
+			String sql=getQuery("GET_SEARCH3");
+			LogManager.info("Query=>"+sql);
+			Object[] obj=new Object[1];
+			obj[0]=bean.getCustomerId();
+			LogManager.info("obj[] ==> "+StringUtils.join(obj, ","));
+			customerBean=this.mytemplate.query(sql, obj, new RowMapper() {
+    			public Object mapRow(final ResultSet rs, final int idVal) throws SQLException {
+    				final CustomerBean cBean = new CustomerBean();
+    				cBean.setCustomerIdYN("N");
+    				cBean.setCustomerId(rs.getString("CUSTOMER_ID"));
+    				cBean.setTitle(rs.getString("TITLE"));
+    				cBean.setFullName(rs.getString("FIRST_NAME")!=null?rs.getString("FIRST_NAME"):rs.getString("COMPANY_NAME"));
+    				cBean.setGender(rs.getString("GENDER"));
+    				cBean.setNationality(rs.getString("NATIONALITY"));
+    				cBean.setDob(dateFormat(rs.getString("DOB")));
+    				cBean.setTelephoneNo(rs.getString("TELEPHONE"));
+    				cBean.setMobileNo(rs.getString("MOBILE"));
+    				cBean.setFax(rs.getString("FAX"));
+    				cBean.setEmailId(rs.getString("EMAIL"));
+    				cBean.setPoBox(rs.getString("POBOX"));
+    				cBean.setAddress(rs.getString("ADDRESS1"));
+    				cBean.setOccupation(rs.getString("OCCUPATION"));
+    				cBean.setCity(rs.getString("EMIRATE"));
+    				cBean.setAddress(rs.getString("COUNTRY"));
+    				cBean.setCusCivilId(rs.getString("CUSTOMER_SOURCE"));
+    				return cBean;
+    			}});
+			if(customerBean.size()>0)
+			{
+				String appNo=bean.getApplicationNo();
+				String quoteNo=bean.getQuoteNo();
+				String quoteStatus=bean.getQuoteStatus();
+				BeanUtils.copyProperties(bean, (CustomerBean)customerBean.get(0));
+				bean.setApplicationNo(appNo);
+				bean.setQuoteNo(quoteNo);
+				bean.setQuoteStatus(quoteStatus);
+				result="SUCCESS";
+			}
+		}
+		}catch(Exception e)
+		{
+			LogManager.debug(e);
+		}
+		LogManager.popRemove();
+		LogManager.info("getSearch - Exit");
+		return result;	
+	}
+
+	public String getUpdate(CustomerBean cusBean) {
+
+		
+		LogManager.info("getUpdate - Enter ");
+		String result="";
+		try
+		{
+			if(StringUtils.isBlank(cusBean.getCustomerId()))
+			{
+				cusBean.setCustomerId(new CommonDAO().getSequenceNo("CUSTOMER_ID", cusBean.getProductId(), cusBean.getBranchCode(),"",""));
+				String sql=getQuery("INS_CUS_DTL");
+				LogManager.info("Query=>"+sql);
+				String orgName="";
+				if ("M/S".equalsIgnoreCase(cusBean.getTitle())) {
+					orgName = cusBean.getFullName();
+					cusBean.setFullName("");
+				}
+				Object[] obj=new Object[20];
+				obj[0]=cusBean.getCustomerId();
+				obj[1]=cusBean.getTitle();
+				obj[2]=cusBean.getFullName();
+				obj[3]="";
+				obj[4]=cusBean.getNationality();
+				obj[5]=StringUtils.isBlank(cusBean.getDob())?"":cusBean.getDob();
+				obj[6]=cusBean.getGender();
+				obj[7]=cusBean.getTelephoneNo();
+				obj[8]=cusBean.getMobileNo();
+				obj[9]=StringUtils.isBlank(cusBean.getFax())?"":cusBean.getFax();
+				obj[10]=cusBean.getEmailId();
+				obj[11]=cusBean.getAddress();
+				obj[12]=cusBean.getOccupation();
+				obj[13]=cusBean.getPoBox();
+				obj[14]=cusBean.getCountry();
+				obj[15]=cusBean.getCity();
+				obj[16]=cusBean.getLoginId();
+				obj[17]=orgName;
+				obj[18]="";
+				obj[19]=cusBean.getCusCivilId();
+				/*obj[20]=cusBean.getLoginId();
+				obj[21]=cusBean.getLoginId();*/
+				LogManager.info("obj[] ==> "+StringUtils.join(obj, ","));
+				int res=this.mytemplate.update(sql,obj);
+				LogManager.info("Result=>"+res);
+				if(res>0)
+					result="SUCCESS";
+			}else
+			{
+				String sql=getQuery("UPD_CUS_DTL");
+				LogManager.info("Query=>"+sql);
+				String orgName="";
+				if ("M/S".equalsIgnoreCase(cusBean.getTitle())) {
+					orgName = cusBean.getFullName();
+					cusBean.setFullName("");
+				}
+				Object[] obj=new Object[20];
+				obj[0]=cusBean.getTitle();
+				obj[1]=cusBean.getFullName();
+				obj[2]="";
+				obj[3]=cusBean.getNationality();
+				obj[4]=StringUtils.isBlank(cusBean.getDob())?"":cusBean.getDob();
+				obj[5]=cusBean.getGender();
+				obj[6]=cusBean.getTelephoneNo();
+				obj[7]=cusBean.getMobileNo();
+				obj[8]=StringUtils.isBlank(cusBean.getFax())?"":cusBean.getFax();
+				obj[9]=cusBean.getEmailId();
+				obj[10]=cusBean.getAddress();
+				obj[11]=cusBean.getOccupation();
+				obj[12]=cusBean.getPoBox();
+				obj[13]=cusBean.getCountry();
+				obj[14]=cusBean.getCity();
+				obj[15]=orgName;
+				obj[16]="";
+				obj[17]=cusBean.getCusCivilId();
+				/*obj[18]=cusBean.getLoginId();
+				obj[19]=cusBean.getLoginId();*/
+				obj[18]=cusBean.getCustomerId();
+				obj[19]=(String)this.mytemplate.queryForObject(getQuery("GET_CUS_DTL_MAX_AMEND_ID"),new Object[]{cusBean.getCustomerId()},String.class);
+				LogManager.info("obj[] ==> "+StringUtils.join(obj, ","));
+				int res=this.mytemplate.update(sql,obj);
+				LogManager.info("Result=>"+res);
+				if(res>0)
+					result="SUCCESS";
+			}
+		}catch(Exception e)
+		{
+			LogManager.debug(e);
+		}
+		LogManager.popRemove();
+		LogManager.info("getUpdate - Exit");
+		return result;	
+	}
+	/*public String getUpdateCustomerDtl(String customerId,String loginId,String branchCode,String productId,String title,String customerName,String mobileNo,String email,String address1,String address2,String poBox,String city,String custAppCode,String clientCustomerId,String custArNo, String issuer, String brokerCode, String executiveId) {
+		LogManager.info("getUpdateCustomerDtl - Enter ");
+		String result="";
+		try {
+			String sql = "";
+			Object[] obj = null;
+			if(StringUtils.isBlank(customerId)) {
+				customerId = new CommonDAO().getSequenceNo("CUSTOMER_ID", productId, branchCode,"","");
+				sql=getQuery("INS_HOME_CUS_DTL");
+				LogManager.info("Query=>"+sql);
+				String orgName="";
+				if ("M/S".equalsIgnoreCase(title)) {
+					orgName = customerName;
+					customerName="";
+				}
+				obj=new Object[18];
+				obj[0]=customerId;
+				obj[1]=title;
+				obj[2]=customerName;
+				obj[3]="";
+				obj[4]=mobileNo;
+				obj[5]=email;
+				obj[6]=address1;
+				obj[7]=address2;
+				obj[8]=poBox;
+				obj[9]=city;
+				obj[10]=loginId;
+				obj[11]=orgName;
+				obj[12]=loginId;
+				obj[13]=loginId;
+				obj[14]=custAppCode;
+				obj[15]=clientCustomerId;
+				obj[16]=custArNo;
+				obj[17]=customerName;
+			} else {
+				sql=getQuery("UPD_HOME_CUS_DTL");
+				LogManager.info("Query=>"+sql);
+				String orgName="";
+				if ("M/S".equalsIgnoreCase(title)) {
+					orgName = customerName;
+					customerName="";
+				}
+				obj=new Object[17];
+				obj[0]=title;
+				obj[1]=customerName;
+				obj[2]="";
+				obj[3]=mobileNo;
+				obj[4]=email;
+				obj[5]=address1;
+				obj[6]=address2;
+				obj[7]=poBox;
+				obj[8]=city;
+				obj[9]=orgName;
+				obj[10]=loginId;
+				obj[11]=loginId;
+				obj[12]=custAppCode;
+				obj[13]=clientCustomerId;
+				obj[14]=custArNo;
+				obj[15]=customerName;
+				obj[16]=customerId;
+			}
+			LogManager.info("obj[] ==> "+StringUtils.join(obj, ","));
+			removeNull(obj);
+			int res=this.mytemplate.update(sql,obj);
+			if(("33".equalsIgnoreCase(productId) || "30".equalsIgnoreCase(productId)) && StringUtils.isNotEmpty(issuer))
+			{
+				sql=getQuery("update.travel.broker");
+				LogManager.info("Query  => "+sql);
+				LogManager.info("Arguments => "+StringUtils.join(new Object[]{brokerCode,executiveId,customerId}));
+				this.mytemplate.update(sql, new Object[]{brokerCode,executiveId,customerId});
+			}
+			LogManager.info("Result=>"+res);
+			if(res>0)
+				result="SUCCESS";
+		} catch(Exception e) {
+			LogManager.debug(e);
+		}
+		LogManager.popRemove();
+		LogManager.info("getUpdateCustomerDtl - Exit Result=>"+result);
+		return customerId;	
+	}
+	public String getUpdateCustomerDtlMotor(String customerId,String loginId,String branchCode,String productId,String title,String customerName,String mobileNo,String customerType,String email, String custNameArabic) {
+		LogManager.info("getUpdateCustomerDtlMotor - Enter ");
+		String result="";
+		try
+		{
+			String sql = "";
+			Object[] obj= null;
+			if(StringUtils.isBlank(customerId))
+			{
+				customerId = new CommonDAO().getSequenceNo("CUSTOMER_ID", productId, branchCode,"","");
+				sql=getQuery("INS_MOTOR_QUICK_CUS_DTL");
+				LogManager.info("Query=>"+sql);
+				String orgName="";
+				/*if ("M/S".equalsIgnoreCase(title)) {
+					orgName = customerName;
+					customerName="";
+				}
+				obj=new Object[13];
+				obj[0]=customerId;
+				obj[1]=title;
+				obj[2]=customerName;
+				obj[3]="";
+				obj[4]=mobileNo;
+				obj[5]=loginId;
+				obj[6]=orgName;
+				obj[7]=loginId;
+				obj[8]=loginId;
+				obj[9]=customerName;
+				obj[10]=customerType;
+				obj[11] = email;
+				obj[12] = custNameArabic;
+				
+			} else {
+				sql=getQuery("UPD_MOTOR_QUICK_CUS_DTL");
+				LogManager.info("Query=>"+sql);
+				String orgName="";
+				if ("M/S".equalsIgnoreCase(title)) {
+					orgName = customerName;
+					customerName="";
+				}
+				obj=new Object[12];
+				obj[0]=title;
+				obj[1]=customerName;
+				obj[2]="";
+				obj[3]=mobileNo;
+				obj[4]=orgName;
+				obj[5]=loginId;
+				obj[6]=loginId;
+				obj[7]=customerName;
+				obj[8]=customerType;
+				obj[9] = email;
+				obj[10] = custNameArabic;
+				obj[11]=customerId;
+			}
+			removeNull(obj);
+			LogManager.info("obj[] ==> "+StringUtils.join(obj, ","));
+			int res=this.mytemplate.update(sql,obj);
+			LogManager.info("Result=>"+res);
+			if(res>0)
+				result="SUCCESS";
+		}catch(Exception e)
+		{
+			LogManager.debug(e);
+		}
+		LogManager.popRemove();
+		LogManager.info("getUpdateCustomerDtlMotor - Exit Result=>"+result);
+		return customerId;	
+	}
+	public String getUpdateCustomerDtlMotor(String customerId,String loginId,String branchCode,String productId,String title,String customerName,String mobileNo,String email,String address1,String address2,String poBox,String city,String custAppCode,String clientCustomerId,String custArNo, String custLastName, String custnrc, String custPassportNo, String custdob, String custAlterMobileNo, String custLandLineNo, String customerType, String companyRegNo, String custNameArabic, String custdobar,String gender,String occupation,String appicationId) {
+		LogManager.info("getUpdateCustomerDtlMotor - Enter ");
+		String result="";
+		try {
+			String sql = "";
+			Object[] obj = null;
+			if(StringUtils.isBlank(customerId)) {
+				customerId = new CommonDAO().getSequenceNo("CUSTOMER_ID", productId, branchCode,"","");
+				sql=getQuery("INS_MOTOR_CUS_DTL");
+				LogManager.info("Query=>"+sql);
+				String orgName="";
+				if ("M/S".equalsIgnoreCase(title)) {
+					orgName = customerName;
+					customerName="";
+				}
+				obj = new Object[30];
+				obj[0]=customerId;
+				obj[1]=title;
+				obj[2]=customerName;
+				obj[3]=custLastName;
+				obj[4]=mobileNo;
+				obj[5]=email;
+				obj[6]=address1;
+				obj[7]=address2;
+				obj[8]=poBox;
+				obj[9]=city;
+				obj[10]=loginId;
+				obj[11]=orgName;
+				obj[12]=loginId;
+				obj[13]=loginId;
+				obj[14]=custAppCode;
+				obj[15]=clientCustomerId;
+				obj[16]=custArNo;
+				obj[17]=customerName;
+				obj[18]=custnrc;
+				obj[19]=custPassportNo;
+				obj[20]=custdob;
+				obj[21] = custdobar;
+				obj[22] = custAlterMobileNo;
+				obj[23] = custLandLineNo;
+				obj[24] = customerType;
+				obj[25] = companyRegNo;
+				obj[26] = custNameArabic;
+				obj[27] = gender;
+				obj[28] = occupation;
+				obj[29] = appicationId;
+			} else {
+				sql=getQuery("UPD_MOTOR_CUS_DTL");
+				LogManager.info("Query=>"+sql);
+				String orgName="";
+				if ("M/S".equalsIgnoreCase(title)) {
+					orgName = customerName;
+					customerName="";
+				}
+				obj=new Object[28];
+				obj[0]=title;
+				obj[1]=customerName;
+				obj[2]=custLastName;
+				obj[3]=mobileNo;
+				obj[4]=email;
+				obj[5]=address1;
+				obj[6]=address2;
+				obj[7]=poBox;
+				obj[8]=city;
+				obj[9]=orgName;
+				obj[10]=loginId;
+				obj[11]=loginId;
+				obj[12]=custAppCode;
+				obj[13]=clientCustomerId;
+				obj[14]=custArNo;
+				obj[15]=customerName;
+				obj[16]=custnrc;
+				obj[17]=custPassportNo;
+				obj[18]=custdob;
+				obj[19] = custdobar;
+				obj[20] = custAlterMobileNo;
+				obj[21] = custLandLineNo;
+				obj[22] = customerType;
+				obj[23] = companyRegNo;
+				obj[24] = custNameArabic;
+				obj[25] = gender;
+				obj[26] = occupation;
+				obj[27] = customerId;
+			}
+			removeNull(obj);
+			LogManager.info("obj[] ==> "+StringUtils.join(obj, ","));
+			int res=this.mytemplate.update(sql,obj);
+			LogManager.info("Result=>"+res);
+			if(res>0)
+				result="SUCCESS";
+		}catch(Exception e)
+		{
+			LogManager.debug(e);
+		}
+		LogManager.popRemove();
+		LogManager.info("getUpdateCustomerDtlMotor - Exit Result=>"+result);
+		return customerId;	
+	}*/
+	
+	public String insertCustomerDetails(String customerId,String loginId,String branchCode,String productId,String title,String customerName,String mobileNo,String email,String address1,String address2,String poBox,String city,String custAppCode,String clientCustomerId,String custArNo, String custLastName, String custPassportNo, String custdob, String custAlterMobileNo, String custLandLineNo, String customerType, String companyRegNo, String custNameArabic, String custdobar,String gender,String occupation,String type, String custnrc1, String custnrc2, String custnrc3) {
+		LogManager.info("insertCustomerDetails - Enter ");
+		LogManager.info("Type -  "+type);
+		String result="";
+		try {
+			String sql = "";
+			Object[] obj = null;
+			String custnrc = (StringUtils.isNotBlank(custnrc1) && StringUtils.isNotBlank(custnrc2) && StringUtils.isNotBlank(custnrc3))?
+					(custnrc1 + "/" + custnrc2 + "/" + custnrc3):"";
+			
+			if("detailQuote".equalsIgnoreCase(type) || "newUser".equalsIgnoreCase(type) || "newUserCreation".equalsIgnoreCase(type) || "profile".equalsIgnoreCase(type) ){
+				if(StringUtils.isBlank(customerId) || "newUser".equalsIgnoreCase(type)) {
+					customerId = new CommonDAO().getSequenceNo("CUSTOMER_ID", productId, branchCode,"","");
+					sql=getQuery("INS_MOTOR_CUS_DTL");
+					LogManager.info("Query=>"+sql);
+					String orgName="";
+					/*if ("M/S".equalsIgnoreCase(title)) {
+						orgName = customerName;
+						customerName="";
+					}*/
+					obj = new Object[30];
+					obj[0]=customerId;
+					obj[1]=title;
+					obj[2]=customerName;
+					obj[3]=custLastName;
+					obj[4]=mobileNo;
+					obj[5]=email;
+					obj[6]=address1;
+					obj[7]=address2;
+					obj[8]=poBox;
+					obj[9]=city;
+					obj[10]=loginId;
+					obj[11]=orgName;
+					obj[12]=loginId;
+					obj[13]=loginId;
+					obj[14]=custAppCode;
+					obj[15]=clientCustomerId;
+					obj[16]=custArNo;
+					obj[17]=customerName;
+					obj[18]=custnrc;
+					obj[19]=custPassportNo;
+					obj[20]=custdob;
+					obj[21] = custdobar;
+					obj[22] = custAlterMobileNo;
+					obj[23] = custLandLineNo;
+					obj[24] = customerType;
+					obj[25] = companyRegNo;
+					obj[26] = custNameArabic;
+					obj[27] = gender;
+					obj[28] = occupation;
+					if("newUser".equalsIgnoreCase(type) || "profile".equalsIgnoreCase(type)){
+						obj[29] = "2";
+					}else{
+						obj[29] = "1";
+					}
+				} else {
+					sql=getQuery("UPD_MOTOR_CUS_DTL");
+					LogManager.info("Query=>"+sql);
+					String orgName="";
+					/*if ("M/S".equalsIgnoreCase(title)) {
+						orgName = customerName;
+						customerName="";
+					}*/
+					obj=new Object[28];
+					obj[0]=title;
+					obj[1]=customerName;
+					obj[2]=custLastName;
+					obj[3]=mobileNo;
+					obj[4]=email;
+					obj[5]=address1;
+					obj[6]=address2;
+					obj[7]=poBox;
+					obj[8]=city;
+					obj[9]=orgName;
+					obj[10]=loginId;
+					obj[11]=loginId;
+					obj[12]=custAppCode;
+					obj[13]=clientCustomerId;
+					obj[14]=custArNo;
+					obj[15]=customerName;
+					obj[16]=custnrc;
+					obj[17]=custPassportNo;
+					obj[18]=custdob;
+					obj[19] = custdobar;
+					obj[20] = custAlterMobileNo;
+					obj[21] = custLandLineNo;
+					obj[22] = customerType;
+					obj[23] = companyRegNo;
+					obj[24] = custNameArabic;
+					obj[25] = gender;
+					obj[26] = occupation;
+					obj[27] = customerId;
+				}
+			}
+			removeNull(obj);
+			LogManager.info("obj[] ==> "+StringUtils.join(obj, ","));
+			int res=this.mytemplate.update(sql,obj);
+			LogManager.info("Result=>"+res);
+			if(res>0)
+				result="SUCCESS";
+		}catch(Exception e)
+		{
+			LogManager.debug(e);
+		}
+		LogManager.popRemove();
+		LogManager.info("getUpdateCustomerDtlMotor - Exit Result=>"+result);
+		return customerId;	
+	}
+	
+	public String insertCustomerDetails(String customerId,String loginId,String branchCode,String productId,String title,String customerName,String mobileNo,String email,String address1,String address2,String poBox,String city,String custAppCode,String clientCustomerId,String custArNo, String custLastName, String custPassportNo, String custdob, String custAlterMobileNo, String custLandLineNo, String customerType, String companyRegNo, String custNameArabic, String custdobar,String gender,String occupation,String type, String custnrc1, String custnrc2, String custnrc3, String flow) {
+		LogManager.info("insertCustomerDetails - Enter ");
+		LogManager.info("Type -  "+type);
+		String result="";
+		try {
+			String sql = "";
+			Object[] obj = null;
+			String custnrc = (StringUtils.isNotBlank(custnrc1) && StringUtils.isNotBlank(custnrc2) && StringUtils.isNotBlank(custnrc3))?
+					(custnrc1 + "/" + custnrc2 + "/" + custnrc3):"";
+			
+			if("detailQuote".equalsIgnoreCase(type) || "newUser".equalsIgnoreCase(type) || "newUserCreation".equalsIgnoreCase(type) || "profile".equalsIgnoreCase(type) ){
+				String cntQry=" SELECT COUNT(*) FROM PERSONAL_INFO WHERE LOGIN_ID='"+loginId+"' AND APPLICATION_ID = '2'";
+				int count=this.mytemplate.queryForInt(cntQry);
+				if(StringUtils.isBlank(customerId) || "newUser".equalsIgnoreCase(type) || "otpFlow".equalsIgnoreCase(flow) && count==0) {
+					customerId = new CommonDAO().getSequenceNo("CUSTOMER_ID", productId, branchCode,"","");
+					sql=getQuery("INS_MOTOR_CUS_DTL");
+					LogManager.info("Query=>"+sql);
+					String orgName="";
+					/*if ("M/S".equalsIgnoreCase(title)) {
+						orgName = customerName;
+						customerName="";
+					}*/
+					obj = new Object[30];
+					obj[0]=customerId;
+					obj[1]=title;
+					obj[2]=customerName;
+					obj[3]=custLastName;
+					obj[4]=mobileNo;
+					obj[5]=email;
+					obj[6]=address1;
+					obj[7]=address2;
+					obj[8]=poBox;
+					obj[9]=city;
+					obj[10]=loginId;
+					obj[11]=orgName;
+					obj[12]=loginId;
+					obj[13]=loginId;
+					obj[14]=custAppCode;
+					obj[15]=clientCustomerId;
+					obj[16]=custArNo;
+					obj[17]=customerName;
+					obj[18]=custnrc;
+					obj[19]=custPassportNo;
+					obj[20]=custdob;
+					obj[21] = custdobar;
+					obj[22] = custAlterMobileNo;
+					obj[23] = custLandLineNo;
+					obj[24] = customerType;
+					obj[25] = companyRegNo;
+					obj[26] = custNameArabic;
+					obj[27] = gender;
+					obj[28] = occupation;
+					if("newUser".equalsIgnoreCase(type) || "profile".equalsIgnoreCase(type) || "otpFlow".equalsIgnoreCase(flow)){
+						obj[29] = "2";
+					}else{
+						obj[29] = "1";
+					}
+				} else {
+					sql=getQuery("UPD_MOTOR_CUS_DTL");
+					LogManager.info("Query=>"+sql);
+					String orgName="";
+					/*if ("M/S".equalsIgnoreCase(title)) {
+						orgName = customerName;
+						customerName="";
+					}*/
+					obj=new Object[28];
+					obj[0]=title;
+					obj[1]=customerName;
+					obj[2]=custLastName;
+					obj[3]=mobileNo;
+					obj[4]=email;
+					obj[5]=address1;
+					obj[6]=address2;
+					obj[7]=poBox;
+					obj[8]=city;
+					obj[9]=orgName;
+					obj[10]=loginId;
+					obj[11]=loginId;
+					obj[12]=custAppCode;
+					obj[13]=clientCustomerId;
+					obj[14]=custArNo;
+					obj[15]=customerName;
+					obj[16]=custnrc;
+					obj[17]=custPassportNo;
+					obj[18]=custdob;
+					obj[19] = custdobar;
+					obj[20] = custAlterMobileNo;
+					obj[21] = custLandLineNo;
+					obj[22] = customerType;
+					obj[23] = companyRegNo;
+					obj[24] = custNameArabic;
+					obj[25] = gender;
+					obj[26] = occupation;
+					obj[27] = customerId;
+				}
+			}
+			removeNull(obj);
+			LogManager.info("obj[] ==> "+StringUtils.join(obj, ","));
+			int res=this.mytemplate.update(sql,obj);
+			LogManager.info("Result=>"+res);
+			if(res>0)
+				result="SUCCESS";
+		}catch(Exception e)
+		{
+			LogManager.debug(e);
+		}
+		LogManager.popRemove();
+		LogManager.info("getUpdateCustomerDtlMotor - Exit Result=>"+result);
+		return customerId;	
+	}
+
+	
+	public Map<String,Object> getCustomerDetails(String customerId)  {
+		Map<String,Object> resultMap = null;
+		try {
+			String query = getQuery("GET_CUSTOMER_DETAILS");
+			Object[] args = new Object[]{customerId};
+			LogManager.info("Query==>" + query);
+			LogManager.info("Args==> " + StringUtils.join(args, ", "));
+			resultMap = this.mytemplate.queryForMap(query, args);
+		}
+		catch(Exception e) {
+			LogManager.debug(e);
+		}
+		return resultMap;
+	}
+	public List<Map<String,Object>> getB2CCustomerDetails(String loginId){
+		List<Map<String,Object>> result=null;
+		try{
+			String sql=getQuery("c");
+			Object obj[] = new Object[]{loginId};
+			LogManager.info("Query=>"+sql);
+			LogManager.info("Obj[]=>"+StringUtils.join(obj,","));
+			result=this.mytemplate.queryForList(sql,obj);
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
+	/*
+	 * Get Customer Details based on quote number on payment process
+	 */
+	public List<Map<String,Object>> getCustomerInfo(String quoteNo){
+		List<Map<String, Object>> result = null;
+		try {
+			String query = "";
+			query = getQuery("GET_CUST_DETAILS_BASED_ON_QUOTE_NO");
+			Object args[]=new Object[]{quoteNo};
+			LogManager.info("query =>" + query);
+			LogManager.info("Arguments =>" + StringUtils.join(args, ","));
+			result = this.mytemplate.queryForList(query, args);
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
+	/*
+	 * Get Customer Id based on agency code
+	 */
+	public List<Map<String,Object>> getCustomerIdBasedOnLoginId(String loginId){
+		List<Map<String, Object>> result = null;
+		try {
+			String query = "";
+			query = getQuery("GET_CUST_ID_BASED_LOGIN_ID");
+			Object args[]=new Object[]{"2",loginId};
+			LogManager.info("query =>" + query);
+			LogManager.info("Arguments =>" + StringUtils.join(args, ","));
+			result = this.mytemplate.queryForList(query, args);
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
+	public String getCustomerId(String appNo){
+		String result = "";
+		try {
+			String query = "";
+			query = getQuery("GET_MOTOR_NEW_USER_CUST_ID");
+			Object args[]=new Object[]{appNo};
+			LogManager.info("query =>" + query);
+			LogManager.info("Arguments =>" + StringUtils.join(args, ","));
+			result =(String)this.mytemplate.queryForObject(query, args,String.class);
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	public void setCustomerDetails(CustBean bean) {
+		LogManager.info("Enter into setCustomerDetails");
+		try{
+			Map<String,Object> res = getCustomerInfoQuote(bean.getQuoteNo());
+			if(res!=null && res.size() > 0){
+				bean.setCustomerId(res.get("CUSTOMER_ID")==null?"":res.get("CUSTOMER_ID").toString());
+				bean.setTitle(res.get("TITLE")==null?"":res.get("TITLE").toString());
+				bean.setCustomerName(res.get("NAME")==null?"":res.get("NAME").toString());
+				bean.setMobileNo(res.get("MOBILE")==null?"":res.get("MOBILE").toString());
+				bean.setEmail(res.get("EMAIL")==null?"":res.get("EMAIL").toString());
+				bean.setAddress1(res.get("ADDRESS1")==null?"":res.get("ADDRESS1").toString());
+				bean.setAddress2(res.get("ADDRESS2")==null?"":res.get("ADDRESS2").toString());
+				bean.setPoBox(res.get("POBOX")==null?"":res.get("POBOX").toString());
+				bean.setCity(res.get("EMIRATE")==null?"":res.get("EMIRATE").toString());
+				bean.setCity(StringUtils.isBlank(bean.getCity())?ResourceBundleUtil.findDefaultText("MOTOR_DEFAULT_CITY"):bean.getCity());
+				bean.setCustCoreCode(res.get("MISSIPPI_CUSTOMER_CODE")==null?"":res.get("MISSIPPI_CUSTOMER_CODE").toString());
+				bean.setCoreAppCode(res.get("MISSIPPI_CUSTOMER_CODE")==null?"":res.get("MISSIPPI_CUSTOMER_CODE").toString());
+				bean.setClientCustomerId(res.get("CLIENT_CUSTOMER_ID")==null?"":res.get("CLIENT_CUSTOMER_ID").toString());
+				bean.setCustArNo(res.get("CUST_AR_NO")==null?"":res.get("CUST_AR_NO").toString());
+				bean.setCustLastName(res.get("LAST_NAME")==null?"":res.get("LAST_NAME").toString());
+				bean.setCustNameArabic(res.get("CUST_NAME_ARABIC")==null?"":res.get("CUST_NAME_ARABIC").toString());
+				/*bean.setCustnrc(res.get("NRC")==null?"":res.get("NRC").toString());
+				if(StringUtils.isNotBlank(bean.getCustnrc())) {
+					String[] nrc = bean.getCustnrc().split("/");
+					if(nrc.length > 2){
+						bean.setCustnrc1(nrc[0]);
+						bean.setCustnrc2(nrc[1]);
+						bean.setCustnrc3(nrc[2]);
+					}
+				}*/
+				String nrc = res.get("NRC")==null?"":res.get("NRC").toString();
+				if(StringUtils.isNotBlank(nrc)) {
+					String[] nrcarr = nrc.split("/");
+					if(nrcarr.length > 2){
+						bean.setCustnrc1(nrcarr[0]);
+						bean.setCustnrc2(nrcarr[1]);
+						bean.setCustnrc3(nrcarr[2]);
+					}
+				}
+				bean.setCustPassportNo(res.get("PASSPORT_NUMBER")==null?"":res.get("PASSPORT_NUMBER").toString());
+				/*if(bean.getCustdob()== null && bean.getCustdob() == ""){
+				bean.setCustdob(res.get("CUST_DOB")==null?"":res.get("CUST_DOB").toString());
+				}*/
+				bean.setCustdob(res.get("CUST_DOB")==null?"":res.get("CUST_DOB").toString());
+				bean.setCustAlterMobileNo(res.get("ALTERNATE_MOBILE")==null?"":res.get("ALTERNATE_MOBILE").toString());
+				bean.setCustLandLineNo(res.get("TELEPHONE")==null?"":res.get("TELEPHONE").toString());
+				bean.setCustomerType(res.get("CUSTOMER_TYPE")==null?"":res.get("CUSTOMER_TYPE").toString());
+				bean.setCompanyRegNo(res.get("COMPANY_REG_NO")==null?"":res.get("COMPANY_REG_NO").toString());
+				bean.setGender(res.get("GENDER")==null?"":res.get("GENDER").toString());
+				bean.setOccupation(res.get("OCCUPATION")==null?"":res.get("OCCUPATION").toString());
+				bean.setBrokerCode(res.get("BROKER_CODE")==null?"":res.get("BROKER_CODE").toString());
+				bean.setExecutive(res.get("AC_EXECUTIVE_ID")==null?"":res.get("AC_EXECUTIVE_ID").toString());
+				LogManager.info("Exit from setCustomerDetails");
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+	public void setB2CCustomerDetails(CustBean bean,Map<String,Object> res){
+		try{
+			if(res!=null && res.size() > 0){
+				bean.setTitle(res.get("TITLE")==null?"":res.get("TITLE").toString());
+				bean.setCustomerName(res.get("NAME")==null?"":res.get("NAME").toString());
+				bean.setMobileNo(res.get("MOBILE")==null?"":res.get("MOBILE").toString());
+				bean.setEmail(res.get("EMAIL")==null?"":res.get("EMAIL").toString());
+				bean.setAddress1(res.get("ADDRESS1")==null?"":res.get("ADDRESS1").toString());
+				bean.setAddress2(res.get("ADDRESS2")==null?"":res.get("ADDRESS2").toString());
+				bean.setPoBox(res.get("POBOX")==null?"":res.get("POBOX").toString());
+				bean.setCity(res.get("EMIRATE")==null?"":res.get("EMIRATE").toString());
+				bean.setCity(StringUtils.isBlank(bean.getCity())?ResourceBundleUtil.findDefaultText("MOTOR_DEFAULT_CITY"):bean.getCity());
+				bean.setCustCoreCode(res.get("MISSIPPI_CUSTOMER_CODE")==null?"":res.get("MISSIPPI_CUSTOMER_CODE").toString());
+				bean.setCoreAppCode(res.get("MISSIPPI_CUSTOMER_CODE")==null?"":res.get("MISSIPPI_CUSTOMER_CODE").toString());
+				bean.setClientCustomerId(res.get("CLIENT_CUSTOMER_ID")==null?"":res.get("CLIENT_CUSTOMER_ID").toString());
+				bean.setCustArNo(res.get("CUST_AR_NO")==null?"":res.get("CUST_AR_NO").toString());
+				bean.setCustLastName(res.get("LAST_NAME")==null?"":res.get("LAST_NAME").toString());
+				bean.setCustNameArabic(res.get("CUST_NAME_ARABIC")==null?"":res.get("CUST_NAME_ARABIC").toString());
+				/*bean.setCustnrc(res.get("NRC")==null?"":res.get("NRC").toString());
+				if(StringUtils.isNotBlank(bean.getCustnrc())) {
+					String[] nrc = bean.getCustnrc().split("/");
+					if(nrc.length > 2){
+						bean.setCustnrc1(nrc[0]);
+						bean.setCustnrc2(nrc[1]);
+						bean.setCustnrc3(nrc[2]);
+					}
+				}*/
+				String nrc = res.get("NRC")==null?"":res.get("NRC").toString();
+				if(StringUtils.isNotBlank(nrc)) {
+					String[] nrcarr = nrc.split("/");
+					if(nrcarr.length > 2){
+						bean.setCustnrc1(nrcarr[0]);
+						bean.setCustnrc2(nrcarr[1]);
+						bean.setCustnrc3(nrcarr[2]);
+					}
+				}
+				bean.setCustPassportNo(res.get("PASSPORT_NUMBER")==null?"":res.get("PASSPORT_NUMBER").toString());
+				bean.setCustdob(res.get("CUST_DOB")==null?"":res.get("CUST_DOB").toString());
+				bean.setCustAlterMobileNo(res.get("ALTERNATE_MOBILE")==null?"":res.get("ALTERNATE_MOBILE").toString());
+				bean.setCustLandLineNo(res.get("TELEPHONE")==null?"":res.get("TELEPHONE").toString());
+				bean.setCustomerType(res.get("CUSTOMER_TYPE")==null?"":res.get("CUSTOMER_TYPE").toString());
+				bean.setCompanyRegNo(res.get("COMPANY_REG_NO")==null?"":res.get("COMPANY_REG_NO").toString());
+				bean.setGender(res.get("GENDER")==null?"":res.get("GENDER").toString());
+				bean.setOccupation(res.get("OCCUPATION")==null?"":res.get("OCCUPATION").toString());
+				bean.setBrokerCode(res.get("BROKER_CODE")==null?"":res.get("BROKER_CODE").toString());
+				bean.setExecutive(res.get("AC_EXECUTIVE_ID")==null?"":res.get("AC_EXECUTIVE_ID").toString());
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+	/*
+	 * Get Customer Details Based on Login Id and ApplicationId
+	 */
+	public Map<String,Object> getCustomerDetails(String loginId,String applicationId){
+		Map<String, Object> result = null;
+		try {
+			String query = "";
+			query = getQuery("GET_CUSTOMER_DETAILS_lOGIN_ID");
+			Object args[]=new Object[]{loginId,applicationId};
+			LogManager.info("query =>" + query);
+			LogManager.info("Arguments =>" + StringUtils.join(args, ","));
+			result = this.mytemplate.queryForMap(query, args);
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	private Map<String,Object> getCustomerInfoQuote(String quoteNo){
+		Map<String, Object> result = null;
+		try {
+			String query = "";
+			query = getQuery("GET_CUSTOMER_DETAILS_QUOTE_NO");
+			Object args[]=new Object[]{quoteNo};
+			LogManager.info("query =>" + query);
+			LogManager.info("Arguments =>" + StringUtils.join(args, ","));
+			result = this.mytemplate.queryForMap(query, args);
+		}catch (Exception e) {
+			//e.printStackTrace();
+		}
+		return result;
+	}
+	public void updateCustomerPersonal(String userId, String applicationNo) {
+		try{
+			 Map<String,Object>res = new CustomerDAO().getCustomerDetails(userId,"2");
+			String query = "";
+			Object[] args;
+			query = getQuery("MOTOR_EXIT_USER_PER_UPD");
+			args = new Object[22];
+			args[0] = res.get("LAST_NAME")==null?"": res.get("LAST_NAME");
+			args[1] = res.get("NATIONALITY")==null?"": res.get("NATIONALITY");
+			args[2] = res.get("CUST_DOB")==null?"": res.get("CUST_DOB");
+			args[3] = res.get("GENDER")==null?"":res.get("GENDER");
+			args[4] = res.get("TELEPHONE")==null?"":res.get("TELEPHONE");
+			args[5] = res.get("FAX")==null?"":res.get("FAX");
+			args[6] = res.get("ADDRESS1")==null?"":res.get("ADDRESS1");
+			args[7] = res.get("ADDRESS2")==null?"":res.get("ADDRESS2");
+			args[8] = res.get("OCCUPATION")==null?"":res.get("OCCUPATION");
+			args[9] = res.get("POBOX")==null?"":res.get("POBOX");
+			args[10] = res.get("COUNTRY")==null?"":res.get("COUNTRY");
+			args[11] = res.get("EMIRATE")==null?"":res.get("EMIRATE");
+			args[12] = res.get("LOGIN_ID")==null?"":res.get("LOGIN_ID");
+			args[13] = res.get("AGENCY_CODE")==null?"":res.get("AGENCY_CODE");
+			args[14] = res.get("OA_CODE")==null?"":res.get("OA_CODE");
+			args[15] = res.get("COMPANY_NAME")==null?"":res.get("COMPANY_NAME");
+			args[16] = res.get("CITY")==null?"":res.get("CITY");
+			args[17] = res.get("PASSPORT_NUMBER")==null?"":res.get("PASSPORT_NUMBER");
+			args[18] = res.get("NRC")==null?"":res.get("NRC");
+			args[19] = res.get("ALTERNATE_MOBILE")==null?"":res.get("ALTERNATE_MOBILE");
+			args[20] = res.get("COMPANY_REG_NO")==null?"":res.get("COMPANY_REG_NO");
+			args[21] = applicationNo;
+			LogManager.info("Query => "+query);
+			LogManager.info("Arguments => "+StringUtils.join(args,","));
+			this.mytemplate.update(query,args);
+		}catch(Exception e){
+			LogManager.debug("Exception Occured @ "+e);
+		}
+	}
+	private String dateFormat(String name){
+		String arr[]=name.split("/");
+		return arr[1]+"/"+arr[0]+"/"+arr[2];
+	}
+
+	public List<Map<String, Object>> getCustomerList(String mode, String type, String userId) {
+		LogManager.push("ENTER-->Method to getCustomerList()");
+		List<Map<String, Object>> result=null;
+		String query="";
+		try {
+			if("custList".equalsIgnoreCase(mode))
+				query = " SELECT CUSTOMER_TYPE,UPPER(NVL(COMPANY_NAME,FIRST_NAME)) FIRST_NAME,LAST_NAME, EMAIL, POBOX, MOBILE, EMIRATE CITY_NAME,EMIRATE, CUSTOMER_ID, MISSIPPI_CUSTOMER_CODE, TITLE, ADDRESS1, ADDRESS2,CUST_AR_NO, REPLACE( 'P.O.BOX.' || NVL(POBOX, ' ') || NVL(ADDRESS1, ' ') || NVL(ADDRESS2, ' ') || NVL (EMIRATE , ' '), 'select', '') ADDRESS,cust_name,NRC,PASSPORT_NUMBER,COMPANY_REG_NO FROM PERSONAL_INFO WHERE LOGIN_ID IN (SELECT LOGIN_ID FROM LOGIN_MASTER WHERE OA_CODE = (?)) AND APPLICATION_ID = '1' and customer_type = ? ORDER BY FIRST_NAME ";
+			else	
+				query = " SELECT CUSTOMER_TYPE,UPPER(NVL(COMPANY_NAME,FIRST_NAME)) FIRST_NAME,LAST_NAME, EMAIL, POBOX, MOBILE, EMIRATE CITY_NAME,EMIRATE, CUSTOMER_ID, MISSIPPI_CUSTOMER_CODE, TITLE, ADDRESS1, ADDRESS2,CUST_AR_NO, REPLACE( 'P.O.BOX.' || NVL(POBOX, ' ') || NVL(ADDRESS1, ' ') || NVL(ADDRESS2, ' ') || NVL (EMIRATE , ' '), 'select', '') ADDRESS,cust_name,NRC,PASSPORT_NUMBER,COMPANY_REG_NO FROM PERSONAL_INFO WHERE LOGIN_ID IN (SELECT LOGIN_ID FROM LOGIN_MASTER WHERE OA_CODE = (SELECT OA_CODE FROM LOGIN_MASTER WHERE LOGIN_ID = ?)) AND APPLICATION_ID = '1' and customer_type = ? ORDER BY FIRST_NAME ";
+			Object[] args = new Object[]{userId,type};
+			LogManager.info("getCustomerList Query===>" + queryFrammer(query, args));
+			result = this.mytemplate.queryForList(query , args);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	public List<Map<String, Object>> customerDetails(String customerId) {
+		List<Map<String, Object>> resultMap = null;
+			try {
+				String query = getQuery("GET_CUSTOMER_DETAILS_EDIT");
+				Object[] args = new Object[]{customerId};
+				LogManager.info("Query==>" + query);
+				LogManager.info("Args==> " + StringUtils.join(args, ", "));
+				resultMap = this.mytemplate.queryForList(query, args);
+			}
+			catch(Exception e) {
+				LogManager.debug(e);
+			}
+			return resultMap;
+	
+	}
+
+	public List<Map<String, Object>> getSearchCustomerList(CustomerBean cusBean) {
+		LogManager.push("ENTER-->Method to getCustomerList()");
+		List<Map<String, Object>> result=null;
+		String query="";
+		try {
+			if("nrcmobile".equalsIgnoreCase(cusBean.getSearchBy()))
+				query = " SELECT CUSTOMER_TYPE,UPPER(NVL(COMPANY_NAME,FIRST_NAME)) FIRST_NAME,LAST_NAME, EMAIL, POBOX, MOBILE, EMIRATE CITY_NAME,EMIRATE, CUSTOMER_ID, MISSIPPI_CUSTOMER_CODE, TITLE, ADDRESS1, ADDRESS2,CUST_AR_NO, REPLACE( 'P.O.BOX.' || NVL(POBOX, ' ') || NVL(ADDRESS1, ' ') || NVL(ADDRESS2, ' ') || NVL (EMIRATE , ' '), 'select', '') ADDRESS,cust_name,NRC,PASSPORT_NUMBER,COMPANY_REG_NO FROM PERSONAL_INFO WHERE NRC=? AND MOBILE=? ORDER BY FIRST_NAME ";
+			else	
+				query = " SELECT CUSTOMER_TYPE,UPPER(NVL(COMPANY_NAME,FIRST_NAME)) FIRST_NAME,LAST_NAME, EMAIL, POBOX, MOBILE, EMIRATE CITY_NAME,EMIRATE, CUSTOMER_ID, MISSIPPI_CUSTOMER_CODE, TITLE, ADDRESS1, ADDRESS2,CUST_AR_NO, REPLACE( 'P.O.BOX.' || NVL(POBOX, ' ') || NVL(ADDRESS1, ' ') || NVL(ADDRESS2, ' ') || NVL (EMIRATE , ' '), 'select', '') ADDRESS,cust_name,NRC,PASSPORT_NUMBER,COMPANY_REG_NO FROM PERSONAL_INFO WHERE PASSPORT_NUMBER=? AND MOBILE=? ORDER BY FIRST_NAME ";
+			Object[] args = new Object[]{cusBean.getSearchnrc(),cusBean.getSearchmobileNo()};
+			LogManager.info("getCustomerList Query===>" + queryFrammer(query, args));
+			result = this.mytemplate.queryForList(query , args);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+}

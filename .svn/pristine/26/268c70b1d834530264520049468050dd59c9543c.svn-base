@@ -1,0 +1,7 @@
+
+##Zamptel Web Service
+QUOTE_INFO_INTG = <root><?xml version="1.0"?><QuoteInfo><QuoteNo>{0}</QuoteNo><Premium>{1}</Premium><FirstName>{2}</FirstName><LastName>{3}</LastName><Mobile>{4}</Mobile><Product>{5}</Product></QuoteInfo></root>
+RESPONSE_INTG = <root><?xml version="1.0"?><ResponseInfo><Status>{0}</Status></ResponseInfo></root>
+#CLAIM_SEARCH_LINK=http://192.168.1.95:9292/grid/claim/details
+CLAIM_SEARCH_LINK=http://online.madison.co.zm/MadisonApiTest/grid/claim/details
+CLAIM_SEARCH_AUTH=Basic bWFkaXNvbmFwaTptYWRpc29uYXBpQDEyMyM\=

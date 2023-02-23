@@ -1,0 +1,177 @@
+package com.maan.payment;
+
+import java.util.Calendar;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.commons.lang3.StringUtils;
+
+import com.maan.common.LogManager;
+import com.maan.payment.airtel.AirtelService;
+import com.maan.services.util.ValidationFormat;
+
+import proj.date.DateFunction;
+
+public class PaymentService {
+	private PaymentDAO dao = new PaymentDAO();
+	ValidationFormat validationFormat = new ValidationFormat();
+	public Map<String,Object> getPaymentDetails(String merchant_reference) {
+		return dao.getPaymentDetails(merchant_reference);
+	}
+	public void updatePaymentResponse(PaymentBean bean) {
+		dao.updatePaymentResponse(bean);
+	}
+	/*
+	 * Validate Payment Details
+	 */
+	public LinkedList<String> validatePayment(String modeOfPayment,String chequeNo, String chequeDate, String chequeAmount, String totalPremium, String bankName, String micrCode,String cashDepositBank,String cashAmount,String cashChellanNo,String cashInstrumentDate,String installmentYN,String insIntialAmount,String mtnMobileNo){
+		LinkedList<String> list=new LinkedList<String>();
+		try{
+			if(StringUtils.isEmpty(modeOfPayment)){
+				list.add("error.motor.modeOfPayment");
+			}
+			else if("1".equalsIgnoreCase(modeOfPayment)){
+				/*if(StringUtils.isEmpty(cashDepositBank))
+					list.add("error.payment.choose.bank");*/
+				if(StringUtils.isEmpty(cashAmount))
+					list.add("error.payment.enter.cashamount.b2b");
+				else {
+				if("Y".equalsIgnoreCase(installmentYN)){
+					if(Double.valueOf(insIntialAmount)>Double.valueOf(cashAmount))
+						list.add("error.payment.valid.cash.amount.b2b");
+				}else{
+					if(Double.valueOf(totalPremium)>Double.valueOf(cashAmount))
+						list.add("error.payment.valid.cash.amount.b2b");
+				}
+				}
+				if(StringUtils.isEmpty(cashInstrumentDate)){
+					list.add("error.payment.enter.deposit.date.b2b");
+				} else if(!validationFormat.IsDateValidationFormat(cashInstrumentDate)) {
+					list.add("error.payment.valid.deposit.date.format.b2b");
+				} else{
+					final DateFunction datf = new DateFunction();
+					final Calendar cal1 = Calendar.getInstance();
+					String[] dateOfCash=cashInstrumentDate.split("/");
+					cal1.set(Integer.parseInt(dateOfCash[2]),Integer.parseInt(dateOfCash[1]),Integer.parseInt(dateOfCash[0]));
+					final Calendar cal2 = Calendar.getInstance();
+					final Map todayDate =  new com.maan.common.dao.CommonDAO().getTodaysDate();
+					cal2.set(Integer.parseInt(todayDate.get("YEAR").toString()),Integer.parseInt(todayDate.get("MONTH").toString()),Integer.parseInt(todayDate.get("DAY").toString()));
+					long diff = 0;
+					try{
+						diff = datf.getDayDifference(cal1,cal2);
+					}
+					catch(Exception e){
+						LogManager.debug("Exception @ paymentDetails Validation"+e);
+					}
+					if(diff < 0){
+						list.add("error.payment.valid.deposit.date.today.date.b2b");
+					}
+				}
+			}
+			else if("2".equalsIgnoreCase(modeOfPayment))
+			{
+				if(StringUtils.isEmpty(chequeNo)){
+					list.add("error.payment.enter.cheque.no");
+				}else if(!StringUtils.isNumeric(chequeNo)){
+					list.add("Enter Valid Cheque Number");
+				}
+				if(StringUtils.isEmpty(chequeDate)){
+					list.add("error.payment.enter.cheque.date");
+				} else if(!validationFormat.IsDateValidationFormat(chequeDate)) {
+					list.add("error.payment.valid.cheque.date.format");
+				} else{
+					final DateFunction datf = new DateFunction();
+					final Calendar cal1 = Calendar.getInstance();
+					String[] dateOfCheque=chequeDate.split("/");
+					cal1.set(Integer.parseInt(dateOfCheque[2]),Integer.parseInt(dateOfCheque[1]),Integer.parseInt(dateOfCheque[0]));
+					final Calendar cal2 = Calendar.getInstance();
+					final Map todayDate =  new com.maan.common.dao.CommonDAO().getTodaysDate();
+					cal2.set(Integer.parseInt(todayDate.get("YEAR").toString()),Integer.parseInt(todayDate.get("MONTH").toString()),Integer.parseInt(todayDate.get("DAY").toString()));
+					long diff = 0;
+					try{
+						diff = datf.getDayDifference(cal1,cal2);
+					}
+					catch(Exception e){
+						LogManager.debug("Exception @ paymentDetails Validation"+e);
+					}
+					if(diff < 0 || diff > 9){
+						list.add("error.payment.valid.cheque.date.today.date");
+					}
+				}
+				if(StringUtils.isEmpty(chequeAmount)){
+					list.add("error.payment.cheque.amount");
+				} else {
+					if("Y".equalsIgnoreCase(installmentYN)){
+						if(Double.valueOf(insIntialAmount)>Double.valueOf(chequeAmount))
+							list.add("error.payment.cheque.amount.invalid");
+					}else{
+						if(Double.valueOf(totalPremium)>Double.valueOf(chequeAmount))
+							list.add("error.payment.cheque.amount.invalid");
+						}
+					}
+				if(StringUtils.isEmpty(bankName)){
+					list.add("error.payment.choose.bank.name");
+				}
+				if(StringUtils.isEmpty(micrCode)){
+					list.add("error.payment.micr.code");
+				}else if(!StringUtils.isNumeric(micrCode)){
+						list.add("error.payment.valid.micr.code");
+				}else if(micrCode.length() < 9){
+					list.add("error.payment.valid.micr.code");
+				}
+				
+			}else if("101".equalsIgnoreCase(modeOfPayment)){
+				if(StringUtils.isBlank(mtnMobileNo)){
+					list.add("error.payment.mtn.MobileNo.blank");
+				}else if(!StringUtils.isNumeric(mtnMobileNo)){
+					list.add("error.payment.mtn.MobileNo.number");
+				}else if(!mtnMobileNo.startsWith("09") && !mtnMobileNo.startsWith("07")){
+					list.add("error.payment.mtn.MobileNo.start");
+				}else if(mtnMobileNo.length()!=10){
+					list.add("error.payment.mtn.MobileNo.digit");
+				}
+			}
+			else if("102".equalsIgnoreCase(modeOfPayment)){
+				if(StringUtils.isBlank(mtnMobileNo)){
+					list.add("error.payment.airtel.MobileNo.blank");
+				}else if(!StringUtils.isNumeric(mtnMobileNo)){
+					list.add("error.payment.airtel.MobileNo.number");
+				}else{
+					AirtelService ms2 = new AirtelService();
+					boolean userStatus = ms2.userEnquiry(mtnMobileNo);
+					if(userStatus==false)
+						list.add("error.user.airtel.MobileNo.number");
+				}
+			}
+		}catch (Exception e) {
+			e.printStackTrace();
+			list.add("default.error");
+		}
+		return list;
+	}
+	
+	public List<Map<String,Object>> getInstallmentDetailsList(String quoteNo) {
+		return dao.getInstallmentDetailsList(quoteNo);
+	}
+	public void installmentCalc(PaymentBean bean) {
+		dao.installmentCalc(bean);
+	}
+	public Map<String,Object> paymentProfileDetails(String currencyType) {
+		return dao.paymentProfileDetails(currencyType);
+	}
+	public Map<String,Object> getwsQuoteInfo(String quoteNo) throws Exception {
+		return dao.getwsQuoteInfo(quoteNo);
+	}
+	public int insWSReq(String quoteNo, String reqTime,String resStatus){
+		return dao.insWSReq(quoteNo,reqTime,resStatus);
+	}
+	public void updatePaymentWSDetails(String[] result){
+		dao.updatePaymentWSDetails(result);
+	}
+	public void updateMtnPaymentResponse(String transactionId, String transactionStatus, String reason,
+			String referenceNo, String responseTime, String merchant_reference) {
+		dao.updateMtnPaymentResponse(transactionId, transactionStatus, reason,
+				referenceNo, responseTime, merchant_reference);
+	}
+}

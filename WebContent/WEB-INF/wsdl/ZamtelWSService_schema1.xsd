@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://jax.webservice.maan.com/" targetNamespace="http://jax.webservice.maan.com/" version="1.0">
+
+  <xs:element name="PaymentConfirmationMsge" type="tns:PaymentConfirmationMsge"/>
+
+  <xs:element name="PaymentConfirmationMsgeResponse" type="tns:PaymentConfirmationMsgeResponse"/>
+
+  <xs:element name="QuoteInfo" type="tns:QuoteInfo"/>
+
+  <xs:element name="QuoteInfoResponse" type="tns:QuoteInfoResponse"/>
+
+  <xs:complexType name="QuoteInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="quoteNo" type="xs:string"/>
+      <xs:element minOccurs="0" name="authentication" type="tns:soapHeaderIn"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="soapHeaderIn">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="password" type="xs:string"/>
+      <xs:element minOccurs="0" name="userName" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="QuoteInfoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="PaymentConfirmationMsge">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="paymentInfo" type="xs:string"/>
+      <xs:element minOccurs="0" name="authentication" type="tns:soapHeaderIn"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="PaymentConfirmationMsgeResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

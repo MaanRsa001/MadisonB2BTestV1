@@ -1,0 +1,2886 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="CargoOpenCover" pageWidth="595" pageHeight="842" columnWidth="523" leftMargin="36" rightMargin="36" topMargin="0" bottomMargin="21" uuid="96d6e457-bcbd-444d-b5cc-456eba871954">
+	<property name="ireport.zoom" value="1.000000000000003"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5"/>
+			<leftPen lineWidth="0.5"/>
+			<bottomPen lineWidth="0.5"/>
+			<rightPen lineWidth="0.5"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#FFBFBF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5"/>
+			<leftPen lineWidth="0.5"/>
+			<bottomPen lineWidth="0.5"/>
+			<rightPen lineWidth="0.5"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#FFBFBF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5"/>
+			<leftPen lineWidth="0.5"/>
+			<bottomPen lineWidth="0.5"/>
+			<rightPen lineWidth="0.5"/>
+		</box>
+	</style>
+	<style name="table 2_TH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_CH" mode="Opaque" backcolor="#FFBFBF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5"/>
+			<leftPen lineWidth="0.5"/>
+			<bottomPen lineWidth="0.5"/>
+			<rightPen lineWidth="0.5"/>
+		</box>
+	</style>
+	<style name="table 3_TH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.0" lineColor="#000000"/>
+			<topPen lineWidth="0.0"/>
+			<leftPen lineWidth="0.0"/>
+			<bottomPen lineWidth="0.0"/>
+			<rightPen lineWidth="0.0"/>
+		</box>
+	</style>
+	<style name="table 3_CH" mode="Opaque" backcolor="#FFBFBF">
+		<box>
+			<pen lineWidth="0.0" lineColor="#000000"/>
+			<topPen lineWidth="0.0"/>
+			<leftPen lineWidth="0.0"/>
+			<bottomPen lineWidth="0.0"/>
+			<rightPen lineWidth="0.0"/>
+		</box>
+	</style>
+	<style name="table 3_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.0" lineColor="#000000"/>
+			<topPen lineWidth="0.0"/>
+			<leftPen lineWidth="0.0"/>
+			<bottomPen lineWidth="0.0"/>
+			<rightPen lineWidth="0.0"/>
+		</box>
+	</style>
+	<style name="table 4">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5"/>
+			<leftPen lineWidth="0.5"/>
+			<bottomPen lineWidth="0.5"/>
+			<rightPen lineWidth="0.5"/>
+		</box>
+	</style>
+	<style name="table 4_TH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4_CH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.0" lineColor="#000000"/>
+			<topPen lineWidth="0.0"/>
+			<leftPen lineWidth="0.0"/>
+			<bottomPen lineWidth="0.0"/>
+			<rightPen lineWidth="0.0"/>
+		</box>
+	</style>
+	<style name="common" hAlign="Left" fontName="Arial" fontSize="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+	<style name="common1" isBlankWhenNull="false" fontName="Arial" fontSize="9" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="true">
+		<paragraph lineSpacing="Single"/>
+	</style>
+	<style name="table 5">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5"/>
+			<leftPen lineWidth="0.5"/>
+			<bottomPen lineWidth="0.5"/>
+			<rightPen lineWidth="0.5"/>
+		</box>
+	</style>
+	<style name="table 5_TH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.0" lineColor="#000000"/>
+			<topPen lineWidth="0.0"/>
+			<leftPen lineWidth="0.0"/>
+			<bottomPen lineWidth="0.0"/>
+			<rightPen lineWidth="0.0"/>
+		</box>
+	</style>
+	<style name="table 5_CH" mode="Opaque" backcolor="#FFBFBF">
+		<box>
+			<pen lineWidth="0.0" lineColor="#000000"/>
+			<topPen lineWidth="0.0"/>
+			<leftPen lineWidth="0.0"/>
+			<bottomPen lineWidth="0.0"/>
+			<rightPen lineWidth="0.0"/>
+		</box>
+	</style>
+	<style name="table 5_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.0" lineColor="#000000"/>
+			<topPen lineWidth="0.0"/>
+			<leftPen lineWidth="0.0"/>
+			<bottomPen lineWidth="0.0"/>
+			<rightPen lineWidth="0.0"/>
+		</box>
+	</style>
+	<style name="table 6">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5"/>
+			<leftPen lineWidth="0.5"/>
+			<bottomPen lineWidth="0.5"/>
+			<rightPen lineWidth="0.5"/>
+		</box>
+	</style>
+	<style name="table 6_TH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.0" lineColor="#000000"/>
+			<topPen lineWidth="0.0"/>
+			<leftPen lineWidth="0.0"/>
+			<bottomPen lineWidth="0.0"/>
+			<rightPen lineWidth="0.0"/>
+		</box>
+	</style>
+	<style name="table 6_CH" mode="Opaque" backcolor="#FFBFBF">
+		<box>
+			<pen lineWidth="0.0" lineColor="#000000"/>
+			<topPen lineWidth="0.0"/>
+			<leftPen lineWidth="0.0"/>
+			<bottomPen lineWidth="0.0"/>
+			<rightPen lineWidth="0.0"/>
+		</box>
+	</style>
+	<style name="table 6_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box leftPadding="0">
+			<pen lineWidth="0.0" lineColor="#000000"/>
+			<topPen lineWidth="0.0"/>
+			<leftPen lineWidth="0.0"/>
+			<bottomPen lineWidth="0.0"/>
+			<rightPen lineWidth="0.0"/>
+		</box>
+	</style>
+	<style name="table 7">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5"/>
+			<leftPen lineWidth="0.5"/>
+			<bottomPen lineWidth="0.5"/>
+			<rightPen lineWidth="0.5"/>
+		</box>
+	</style>
+	<style name="table 7_TH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 7_CH" mode="Opaque" backcolor="#FFBFBF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 7_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 8">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5"/>
+			<leftPen lineWidth="0.5"/>
+			<bottomPen lineWidth="0.5"/>
+			<rightPen lineWidth="0.5"/>
+		</box>
+	</style>
+	<style name="table 8_TH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.0" lineColor="#000000"/>
+			<topPen lineWidth="0.0"/>
+			<leftPen lineWidth="0.0"/>
+			<bottomPen lineWidth="0.0"/>
+			<rightPen lineWidth="0.0"/>
+		</box>
+	</style>
+	<style name="table 8_CH" mode="Opaque" backcolor="#FFBFBF">
+		<box>
+			<pen lineWidth="0.0" lineColor="#000000"/>
+			<topPen lineWidth="0.0"/>
+			<leftPen lineWidth="0.0"/>
+			<bottomPen lineWidth="0.0"/>
+			<rightPen lineWidth="0.0"/>
+		</box>
+	</style>
+	<style name="table 8_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.0" lineColor="#000000"/>
+			<topPen lineWidth="0.0"/>
+			<leftPen lineWidth="0.0"/>
+			<bottomPen lineWidth="0.0"/>
+			<rightPen lineWidth="0.0"/>
+		</box>
+	</style>
+	<style name="table 9">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5"/>
+			<leftPen lineWidth="0.5"/>
+			<bottomPen lineWidth="0.5"/>
+			<rightPen lineWidth="0.5"/>
+		</box>
+	</style>
+	<style name="table 9_TH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.0" lineColor="#000000"/>
+			<topPen lineWidth="0.0"/>
+			<leftPen lineWidth="0.0"/>
+			<bottomPen lineWidth="0.0"/>
+			<rightPen lineWidth="0.0"/>
+		</box>
+	</style>
+	<style name="table 9_CH" mode="Opaque" backcolor="#FFBFBF">
+		<box>
+			<pen lineWidth="0.0" lineColor="#000000"/>
+			<topPen lineWidth="0.0"/>
+			<leftPen lineWidth="0.0"/>
+			<bottomPen lineWidth="0.0"/>
+			<rightPen lineWidth="0.0"/>
+		</box>
+	</style>
+	<style name="table 9_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.0" lineColor="#000000"/>
+			<topPen lineWidth="0.0"/>
+			<leftPen lineWidth="0.0"/>
+			<bottomPen lineWidth="0.0"/>
+			<rightPen lineWidth="0.0"/>
+		</box>
+	</style>
+	<style name="table 10">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5"/>
+			<leftPen lineWidth="0.5"/>
+			<bottomPen lineWidth="0.5"/>
+			<rightPen lineWidth="0.5"/>
+		</box>
+	</style>
+	<style name="table 10_TH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.0" lineColor="#000000"/>
+			<topPen lineWidth="0.0"/>
+			<leftPen lineWidth="0.0"/>
+			<bottomPen lineWidth="0.0"/>
+			<rightPen lineWidth="0.0"/>
+		</box>
+	</style>
+	<style name="table 10_CH" mode="Opaque" backcolor="#FFBFBF">
+		<box>
+			<pen lineWidth="0.0" lineColor="#000000"/>
+			<topPen lineWidth="0.0"/>
+			<leftPen lineWidth="0.0"/>
+			<bottomPen lineWidth="0.0"/>
+			<rightPen lineWidth="0.0"/>
+		</box>
+	</style>
+	<style name="table 10_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.0" lineColor="#000000"/>
+			<topPen lineWidth="0.0"/>
+			<leftPen lineWidth="0.0"/>
+			<bottomPen lineWidth="0.0"/>
+			<rightPen lineWidth="0.0"/>
+		</box>
+	</style>
+	<style name="table 11">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5"/>
+			<leftPen lineWidth="0.5"/>
+			<bottomPen lineWidth="0.5"/>
+			<rightPen lineWidth="0.5"/>
+		</box>
+	</style>
+	<style name="table 11_TH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.0" lineColor="#000000"/>
+			<topPen lineWidth="0.0"/>
+			<leftPen lineWidth="0.0"/>
+			<bottomPen lineWidth="0.0"/>
+			<rightPen lineWidth="0.0"/>
+		</box>
+	</style>
+	<style name="table 11_CH" mode="Opaque" backcolor="#FFBFBF">
+		<box>
+			<pen lineWidth="0.0" lineColor="#000000"/>
+			<topPen lineWidth="0.0"/>
+			<leftPen lineWidth="0.0"/>
+			<bottomPen lineWidth="0.0"/>
+			<rightPen lineWidth="0.0"/>
+		</box>
+	</style>
+	<style name="table 11_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.0" lineColor="#000000"/>
+			<topPen lineWidth="0.0"/>
+			<leftPen lineWidth="0.0"/>
+			<bottomPen lineWidth="0.0"/>
+			<rightPen lineWidth="0.0"/>
+		</box>
+	</style>
+	<style name="table 12">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5"/>
+			<leftPen lineWidth="0.5"/>
+			<bottomPen lineWidth="0.5"/>
+			<rightPen lineWidth="0.5"/>
+		</box>
+	</style>
+	<style name="table 12_TH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.0" lineColor="#000000"/>
+			<topPen lineWidth="0.0"/>
+			<leftPen lineWidth="0.0"/>
+			<bottomPen lineWidth="0.0"/>
+			<rightPen lineWidth="0.0"/>
+		</box>
+	</style>
+	<style name="table 12_CH" mode="Opaque" backcolor="#FFBFBF">
+		<box>
+			<pen lineWidth="0.0" lineColor="#000000"/>
+			<topPen lineWidth="0.0"/>
+			<leftPen lineWidth="0.0"/>
+			<bottomPen lineWidth="0.0"/>
+			<rightPen lineWidth="0.0"/>
+		</box>
+	</style>
+	<style name="table 12_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.0" lineColor="#000000"/>
+			<topPen lineWidth="0.0"/>
+			<leftPen lineWidth="0.0"/>
+			<bottomPen lineWidth="0.0"/>
+			<rightPen lineWidth="0.0"/>
+		</box>
+	</style>
+	<style name="table 13">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5"/>
+			<leftPen lineWidth="0.5"/>
+			<bottomPen lineWidth="0.5"/>
+			<rightPen lineWidth="0.5"/>
+		</box>
+	</style>
+	<style name="table 13_TH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.0" lineColor="#000000"/>
+			<topPen lineWidth="0.0"/>
+			<leftPen lineWidth="0.0"/>
+			<bottomPen lineWidth="0.0"/>
+			<rightPen lineWidth="0.0"/>
+		</box>
+	</style>
+	<style name="table 13_CH" mode="Opaque" backcolor="#FFBFBF">
+		<box>
+			<pen lineWidth="0.0" lineColor="#000000"/>
+			<topPen lineWidth="0.0"/>
+			<leftPen lineWidth="0.0"/>
+			<bottomPen lineWidth="0.0"/>
+			<rightPen lineWidth="0.0"/>
+		</box>
+	</style>
+	<style name="table 13_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.0" lineColor="#000000"/>
+			<topPen lineWidth="0.0"/>
+			<leftPen lineWidth="0.0"/>
+			<bottomPen lineWidth="0.0"/>
+			<rightPen lineWidth="0.0"/>
+		</box>
+	</style>
+	<style name="table 14">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 14_TH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 14_CH" mode="Opaque" backcolor="#FFBFBF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 14_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 15">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5"/>
+			<leftPen lineWidth="0.5"/>
+			<bottomPen lineWidth="0.5"/>
+			<rightPen lineWidth="0.5"/>
+		</box>
+	</style>
+	<style name="table 15_TH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 15_CH" mode="Opaque" backcolor="#FFBFBF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 15_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 16">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5"/>
+			<leftPen lineWidth="0.5"/>
+			<bottomPen lineWidth="0.5"/>
+			<rightPen lineWidth="0.5"/>
+		</box>
+	</style>
+	<style name="table 16_TH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 16_CH" mode="Opaque" backcolor="#FFBFBF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 16_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 17">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5"/>
+			<leftPen lineWidth="0.5"/>
+			<bottomPen lineWidth="0.5"/>
+			<rightPen lineWidth="0.5"/>
+		</box>
+	</style>
+	<style name="table 17_TH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 17_CH" mode="Opaque" backcolor="#FFBFBF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 17_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 18">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5"/>
+			<leftPen lineWidth="0.5"/>
+			<bottomPen lineWidth="0.5"/>
+			<rightPen lineWidth="0.5"/>
+		</box>
+	</style>
+	<style name="table 18_TH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.0" lineColor="#000000"/>
+			<topPen lineWidth="0.0"/>
+			<leftPen lineWidth="0.0"/>
+			<bottomPen lineWidth="0.0"/>
+			<rightPen lineWidth="0.0"/>
+		</box>
+	</style>
+	<style name="table 18_CH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.0" lineColor="#000000"/>
+			<topPen lineWidth="0.0"/>
+			<leftPen lineWidth="0.0"/>
+			<bottomPen lineWidth="0.0"/>
+			<rightPen lineWidth="0.0"/>
+		</box>
+	</style>
+	<style name="table 18_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.0" lineColor="#000000"/>
+			<topPen lineWidth="0.0"/>
+			<leftPen lineWidth="0.0"/>
+			<bottomPen lineWidth="0.0"/>
+			<rightPen lineWidth="0.0"/>
+		</box>
+	</style>
+	<style name="table 19">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5"/>
+			<leftPen lineWidth="0.5"/>
+			<bottomPen lineWidth="0.5"/>
+			<rightPen lineWidth="0.5"/>
+		</box>
+	</style>
+	<style name="table 19_TH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 19_CH" mode="Opaque" backcolor="#FFBFBF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 19_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 20">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5"/>
+			<leftPen lineWidth="0.5"/>
+			<bottomPen lineWidth="0.5"/>
+			<rightPen lineWidth="0.5"/>
+		</box>
+	</style>
+	<style name="table 20_TH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 20_CH" mode="Opaque" backcolor="#FFBFBF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 20_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.0" lineColor="#000000"/>
+			<topPen lineWidth="0.0"/>
+			<leftPen lineWidth="0.0"/>
+			<bottomPen lineWidth="0.0"/>
+			<rightPen lineWidth="0.0"/>
+		</box>
+	</style>
+	<style name="table 21">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5"/>
+			<leftPen lineWidth="0.5"/>
+			<bottomPen lineWidth="0.5"/>
+			<rightPen lineWidth="0.5"/>
+		</box>
+	</style>
+	<style name="table 21_TH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 21_CH" mode="Opaque" backcolor="#FFBFBF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 21_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.0" lineColor="#000000"/>
+			<topPen lineWidth="0.0"/>
+			<leftPen lineWidth="0.0"/>
+			<bottomPen lineWidth="0.0"/>
+			<rightPen lineWidth="0.0"/>
+		</box>
+	</style>
+	<style name="table 22">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5"/>
+			<leftPen lineWidth="0.5"/>
+			<bottomPen lineWidth="0.5"/>
+			<rightPen lineWidth="0.5"/>
+		</box>
+	</style>
+	<style name="table 22_TH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 22_CH" mode="Opaque" backcolor="#FFBFBF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 22_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.0" lineColor="#000000"/>
+			<topPen lineWidth="0.0"/>
+			<leftPen lineWidth="0.0"/>
+			<bottomPen lineWidth="0.0"/>
+			<rightPen lineWidth="0.0"/>
+		</box>
+	</style>
+	<style name="table 23">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5"/>
+			<leftPen lineWidth="0.5"/>
+			<bottomPen lineWidth="0.5"/>
+			<rightPen lineWidth="0.5"/>
+		</box>
+	</style>
+	<style name="table 23_TH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 23_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 23_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.0" lineColor="#000000"/>
+			<topPen lineWidth="0.0"/>
+			<leftPen lineWidth="0.0"/>
+			<bottomPen lineWidth="0.0"/>
+			<rightPen lineWidth="0.0"/>
+		</box>
+	</style>
+	<style name="table 24">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5"/>
+			<leftPen lineWidth="0.5"/>
+			<bottomPen lineWidth="0.5"/>
+			<rightPen lineWidth="0.5"/>
+		</box>
+	</style>
+	<style name="table 24_TH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 24_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 24_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.0" lineColor="#000000"/>
+			<topPen lineWidth="0.0"/>
+			<leftPen lineWidth="0.0"/>
+			<bottomPen lineWidth="0.0"/>
+			<rightPen lineWidth="0.0"/>
+		</box>
+	</style>
+	<subDataset name="BasicofValuation" uuid="b5eeacfb-bf16-4452-b079-68027cbf9e34">
+		<parameter name="proposalNo" class="java.lang.String"/>
+		<parameter name="branchCode" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[select CODEDESC from table(OPENCOVERSCHEDULE('basisofvaluation',$P{proposalNo},$P{branchCode}))]]>
+		</queryString>
+		<field name="CODEDESC" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="Clause1" uuid="f2c7c0d2-2366-4799-b5d7-2876a0e6d5b1">
+		<parameter name="proposalNo" class="java.lang.String"/>
+		<parameter name="branchCode" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[select CODE, CODEDESC from table(OPENCOVERSCHEDULE('clauses',$P{proposalNo},$P{branchCode})) where CODE=1]]>
+		</queryString>
+		<field name="CODE" class="java.lang.String"/>
+		<field name="CODEDESC" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="Clause0" uuid="850aacc0-7f62-4e8d-8bb6-aabc3234068e">
+		<parameter name="proposalNo" class="java.lang.String"/>
+		<parameter name="branchCode" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[select CODE, CODEDESC from table(OPENCOVERSCHEDULE('clauses',$P{proposalNo},$P{branchCode})) where CODE=0]]>
+		</queryString>
+		<field name="CODE" class="java.lang.String"/>
+		<field name="CODEDESC" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="Exclusion" uuid="31c30703-a292-4f2b-adfd-25db8c58c0ca">
+		<parameter name="proposalNo" class="java.lang.String"/>
+		<parameter name="branchCode" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[select CODE, CODEDESC from table(OPENCOVERSCHEDULE('exclusion',$P{proposalNo},$P{branchCode}))]]>
+		</queryString>
+		<field name="CODE" class="java.lang.String"/>
+		<field name="CODEDESC" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="Warranty" uuid="3121fb87-c7d2-4929-af9b-72390e5f0bab">
+		<parameter name="proposalNo" class="java.lang.String"/>
+		<parameter name="branchCode" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[select CODE, CODEDESC from table(OPENCOVERSCHEDULE('warranty',$P{proposalNo},$P{branchCode}))]]>
+		</queryString>
+		<field name="CODE" class="java.lang.String"/>
+		<field name="CODEDESC" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="WarSrcc" uuid="c64a0c9e-8ddd-4c50-85b3-b6cff977bc7a">
+		<parameter name="proposalNo" class="java.lang.String"/>
+		<parameter name="branchCode" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[select CODE, CODEDESC from table(OPENCOVERSCHEDULE('war',$P{proposalNo},$P{branchCode}))]]>
+		</queryString>
+		<field name="CODE" class="java.lang.String"/>
+		<field name="CODEDESC" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="Clause2" uuid="b4781849-f980-402f-af07-e7753b54fc9a">
+		<parameter name="proposalNo" class="java.lang.String"/>
+		<parameter name="branchCode" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[select CODE, CODEDESC from table(OPENCOVERSCHEDULE('clauses',$P{proposalNo},$P{branchCode})) where CODE=2]]>
+		</queryString>
+		<field name="CODE" class="java.lang.String"/>
+		<field name="CODEDESC" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="Clause3" uuid="5c0fe560-78f9-4a3f-ade2-67cd7040f84e">
+		<parameter name="proposalNo" class="java.lang.String"/>
+		<parameter name="branchCode" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[select CODE, CODEDESC from table(OPENCOVERSCHEDULE('clauses',$P{proposalNo},$P{branchCode})) where CODE=3]]>
+		</queryString>
+		<field name="CODE" class="java.lang.String"/>
+		<field name="CODEDESC" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="CommodityRate" uuid="4ed2c30a-e041-4ce9-bafe-f016cf0fde37">
+		<parameter name="proposalNo" class="java.lang.String"/>
+		<parameter name="branchCode" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[select rownum Sno,CODETEXT1,CODE,CODEDESC, to_number(CODETEXT2)CODETEXT2,codetext3,codetext4,codetext5  from table(OPENCOVERSCHEDULE('commodityrate',$P{proposalNo},$P{branchCode}))]]>
+		</queryString>
+		<field name="SNO" class="java.math.BigDecimal"/>
+		<field name="CODETEXT1" class="java.lang.String"/>
+		<field name="CODE" class="java.lang.String"/>
+		<field name="CODEDESC" class="java.lang.String"/>
+		<field name="CODETEXT2" class="java.math.BigDecimal"/>
+		<field name="CODETEXT3" class="java.lang.String"/>
+		<field name="CODETEXT4" class="java.lang.String"/>
+		<field name="CODETEXT5" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="WarRate" uuid="486dd781-e004-4e74-8df9-2f7fd27f8fbb">
+		<parameter name="proposalNo" class="java.lang.String"/>
+		<parameter name="branchCode" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[select rownum Sno,CODE, to_number(CODEDESC)CODEDESC from table(OPENCOVERSCHEDULE('warrate',$P{proposalNo},$P{branchCode}))]]>
+		</queryString>
+		<field name="SNO" class="java.math.BigDecimal"/>
+		<field name="CODE" class="java.lang.String"/>
+		<field name="CODEDESC" class="java.math.BigDecimal"/>
+	</subDataset>
+	<subDataset name="Deductible" uuid="7358256d-22e3-4e58-98c7-7fa11f0c7bf3">
+		<parameter name="proposalNo" class="java.lang.String"/>
+		<parameter name="branchCode" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[select rownum Sno, CODE, CODEDESC, CODEVALUE, CODETEXT1 from table(OPENCOVERSCHEDULE('deductible',$P{proposalNo},$P{branchCode}))]]>
+		</queryString>
+		<field name="SNO" class="java.math.BigDecimal"/>
+		<field name="CODE" class="java.lang.String"/>
+		<field name="CODEDESC" class="java.lang.String"/>
+		<field name="CODEVALUE" class="java.lang.String"/>
+		<field name="CODETEXT1" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="SubjectMatter" uuid="7e6a132c-4431-4407-94bb-3124b6be36ad">
+		<parameter name="proposalNo" class="java.lang.String"/>
+		<parameter name="branchCode" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[select CODE from table(OPENCOVERSCHEDULE('commodity',$P{proposalNo},$P{branchCode}))]]>
+		</queryString>
+		<field name="CODE" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="Voyage" uuid="a52eb45a-b669-4252-a856-1d092f7d0889">
+		<parameter name="proposalNo" class="java.lang.String"/>
+		<parameter name="branchCode" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[select code from table(OPENCOVERSCHEDULE('country',$P{proposalNo},$P{branchCode}))]]>
+		</queryString>
+		<field name="CODE" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="Conveyance" uuid="203c9c67-5a1d-4c61-83a3-adf23df755af">
+		<parameter name="proposalNo" class="java.lang.String"/>
+		<parameter name="branchCode" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[select CODEDESC,CodeText2 from table(OPENCOVERSCHEDULE('modeoftransport',$P{proposalNo},$P{branchCode}))]]>
+		</queryString>
+		<field name="CODEDESC" class="java.lang.String"/>
+		<field name="CODETEXT2" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="MaximumLimit" uuid="e88d8b66-f225-4a16-8a2b-e6f12f12c472">
+		<parameter name="proposalNo" class="java.lang.String"/>
+		<parameter name="branchCode" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[select CODEDESC,CODEVALUE,trim(to_char(CODETEXT1,'999G999G999G999G999G999D99')) CODETEXT1,CODETEXT2,CODETEXT3 from table(OPENCOVERSCHEDULE('modeoftransport',$P{proposalNo},$P{branchCode}))]]>
+		</queryString>
+		<field name="CODEDESC" class="java.lang.String"/>
+		<field name="CODEVALUE" class="java.lang.String"/>
+		<field name="CODETEXT1" class="java.lang.String"/>
+		<field name="CODETEXT2" class="java.lang.String"/>
+		<field name="CODETEXT3" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="Customer" uuid="d081fc01-0ba8-4933-9d94-cbdabf35b3b2">
+		<parameter name="proposalNo" class="java.lang.String"/>
+		<parameter name="branchCode" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[select CODE from table(OPENCOVERSCHEDULE('customer',$P{proposalNo},$P{branchCode}))]]>
+		</queryString>
+		<field name="CODE" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="Clause4" uuid="a53e93e1-3567-4f9c-b018-ff980b91d093">
+		<parameter name="proposalNo" class="java.lang.String"/>
+		<parameter name="branchCode" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[select CODE, CODEDESC from table(OPENCOVERSCHEDULE('clauses',$P{proposalNo},$P{branchCode})) where CODE=4]]>
+		</queryString>
+		<field name="CODE" class="java.lang.String"/>
+		<field name="CODEDESC" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="Clause5" uuid="c9e0d5f2-7f76-408c-99e7-036cb16eee13">
+		<parameter name="proposalNo" class="java.lang.String"/>
+		<parameter name="branchCode" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[select CODE, CODEDESC from table(OPENCOVERSCHEDULE('clauses',$P{proposalNo},$P{branchCode})) where CODE=5]]>
+		</queryString>
+		<field name="CODE" class="java.lang.String"/>
+		<field name="CODEDESC" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="MaximumLimit_perLocation" uuid="a6fa8e6e-64c2-462b-8d87-50d53936122b">
+		<parameter name="proposalNo" class="java.lang.String"/>
+		<parameter name="branchCode" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[select CODEDESC,CODEVALUE,trim(to_char(CODETEXT1,'999G999G999G999G999G999D99')) CODETEXT1,CODETEXT2,CODETEXT3,trim(to_char(CODETEXT4,'999G999G999G999G999G999D99')) CODETEXT4 from table(OPENCOVERSCHEDULE('modeoftransport',$P{proposalNo},$P{branchCode}))]]>
+		</queryString>
+		<field name="CODEDESC" class="java.lang.String"/>
+		<field name="CODEVALUE" class="java.lang.String"/>
+		<field name="CODETEXT1" class="java.lang.String"/>
+		<field name="CODETEXT2" class="java.lang.String"/>
+		<field name="CODETEXT3" class="java.lang.String"/>
+		<field name="CODETEXT4" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="Co-Insurance" uuid="6cfde6e1-90f1-4cd0-b263-22eea94c0f59">
+		<parameter name="proposalNo" class="java.lang.String"/>
+		<parameter name="branchCode" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[select rownum sno,(select INSURANCE_COMPANY_NAME from OPEN_COVER_INSURANCE oc where INSURANCE_COMPANY_ID=ocsp.INSURANCE_COMPANY_ID and amend_id=(select max(amend_id) from OPEN_COVER_INSURANCE oci where oc.INSURANCE_COMPANY_ID=oci.INSURANCE_COMPANY_ID)) INSURANCE_COMPANY_NAME,ocsp.SHARE_PERCENTAGE, decode(ocsp.LEADER_YN,'L','Leader','P','Participant') LEADER_YN from OPEN_COVER_SHARE_PERCENTAGE ocsp where OCSP.PROPOSAL_NO=$P{proposalNo} and ocsp.INSURANCE_COMPANY_ID='27' and ocsp.amend_id=(select max(amend_id) from OPEN_COVER_SHARE_PERCENTAGE oc where  oc.PROPOSAL_NO=OCSP.PROPOSAL_NO)
+UNION ALL
+select rownum sno,(select INSURANCE_COMPANY_NAME from OPEN_COVER_INSURANCE oc where INSURANCE_COMPANY_ID=ocsp.INSURANCE_COMPANY_ID and amend_id=(select max(amend_id) from OPEN_COVER_INSURANCE oci where oc.INSURANCE_COMPANY_ID=oci.INSURANCE_COMPANY_ID)) INSURANCE_COMPANY_NAME,ocsp.SHARE_PERCENTAGE, decode(ocsp.LEADER_YN,'L','Leader','P','Participant') LEADER_YN from OPEN_COVER_SHARE_PERCENTAGE ocsp where OCSP.PROPOSAL_NO=$P{proposalNo} and ocsp.INSURANCE_COMPANY_ID!='27' and ocsp.amend_id=(select max(amend_id) from OPEN_COVER_SHARE_PERCENTAGE oc where  oc.PROPOSAL_NO=OCSP.PROPOSAL_NO)]]>
+		</queryString>
+		<field name="SNO" class="java.math.BigDecimal"/>
+		<field name="INSURANCE_COMPANY_NAME" class="java.lang.String"/>
+		<field name="SHARE_PERCENTAGE" class="java.math.BigDecimal"/>
+		<field name="LEADER_YN" class="java.lang.String"/>
+	</subDataset>
+	<parameter name="proposalNo" class="java.lang.String"/>
+	<parameter name="openCoverNo" class="java.lang.String"/>
+	<parameter name="endtStatus" class="java.lang.String"/>
+	<parameter name="branchCode" class="java.lang.String"/>
+	<parameter name="imagePath" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT   ocpm.open_cover_no,
+         (select PRODUCT_NAME from open_cover_product_details ocpd where ocpd.PRODUCT_ID= ocm.TYPE and BRANCH_CODE=ocm.branch_code) TYPE,
+            PI.TITLE
+         || '. '
+         || pi.first_name
+         || CHR (10)
+         || 'PO BOX '
+         || pi.pobox
+         || CHR (10)
+         || pi.emirate
+         || CHR (10)
+         || pi.address1
+         || CHR (10)
+         || pi.address2
+            first_name,
+         CASE
+            WHEN ocm.TYPE = 'Standard'
+            THEN
+               ' From ' || TO_CHAR (ocm.policy_start_date, 'dd-mm-yyyy')
+            ELSE
+                  ' From '
+               || TO_CHAR (ocm.policy_start_date, 'dd-mm-yyyy')
+               || ' To '
+               || TO_CHAR (ocm.policy_end_date, 'dd-mm-yyyy')
+         END
+            "Period Of Insurance",
+         cm.short_name || '. ' Short_name,
+         CASE
+            WHEN ocm.country_remarks IS NOT NULL THEN ocm.country_remarks
+            ELSE 'From '
+         END
+            "Voyage",
+         ocsm.tolerance_name,
+         NVL (BM.DECIMAL_PLACES, 0) DECIMAL_PLACES,
+         BM.HEADER_IMG,
+         BM.FOOTER_IMG,
+         BM.SIGN_IMG,
+         BM.STAMP,
+        trim(to_char(ocm.FOREIGN_TURNOVER,'999G999G999G999G999D99'))||'/-'  "Annual Turnover",
+         ocpm.RATE_PRINT_STATUS,
+         ocpm.CANCELLATION_CLAUSE,
+         ocpm.AMENDED_CLAUSE_PRINT_STATUS,
+        ','||ocpm.ENDT_TYPE||',' ENDT_TYPE,
+         TO_CHAR (ocpm.EFFECTIVE_DATE, 'dd/mm/yyyy') EFFECTIVE_DATE,
+         ocpm.amend_id,
+         bm.BRANCH_NAME,ocpm.ORIGINAL_POLICY_NO,
+         PI.TITLE || '. ' || PI.FIRST_NAME CUST_NAME,
+         (select decode(count(*),'0','N','Y') from table(OPENCOVERSCHEDULE('clauses',$P{proposalNo},$P{branchCode})))Clause,
+         (select decode(count(*),'0','N','Y') from table(OPENCOVERSCHEDULE('clauses',$P{proposalNo},$P{branchCode})) where CODE=0)Clause0YN,
+         (select decode(count(*),'0','N','Y') from table(OPENCOVERSCHEDULE('clauses',$P{proposalNo},$P{branchCode})) where CODE=1)Clause1YN,
+         (select decode(count(*),'0','N','Y') from table(OPENCOVERSCHEDULE('clauses',$P{proposalNo},$P{branchCode})) where CODE=2)Clause2YN,
+         (select decode(count(*),'0','N','Y') from table(OPENCOVERSCHEDULE('clauses',$P{proposalNo},$P{branchCode})) where CODE=3)Clause3YN,
+(select decode(count(*),'0','N','Y') from table(OPENCOVERSCHEDULE('clauses',$P{proposalNo},$P{branchCode})) where CODE=4)Clause4YN,
+(select decode(count(*),'0','N','Y') from table(OPENCOVERSCHEDULE('clauses',$P{proposalNo},$P{branchCode})) where CODE=5)Clause5YN,
+         (select decode(count(*),'0','N','Y') from table(OPENCOVERSCHEDULE('commodity',$P{proposalNo},$P{branchCode})))SubjectMIYN,
+         (select decode(count(*),'0','N','Y') from table(OPENCOVERSCHEDULE('country',$P{proposalNo},$P{branchCode})))VoyageYN,
+          (select decode(count(*),'0','N','Y') from table(OPENCOVERSCHEDULE('basisofvaluation',$P{proposalNo},$P{branchCode})))BasicYN,
+         (select decode(count(*),'1','N','Y') from table(OPENCOVERSCHEDULE('customer',$P{proposalNo},$P{branchCode})))CustomerYN,
+         (select decode(count(*),'0','N','Y') from table(OPENCOVERSCHEDULE('modeoftransport',$P{proposalNo},$P{branchCode})))ConveyanceYN,
+         (select decode(count(*),'0','N','Y') from table(OPENCOVERSCHEDULE('war',$P{proposalNo},$P{branchCode})))WarYN,
+         (select decode(count(*),'0','N','Y') from table(OPENCOVERSCHEDULE('commodityrate',$P{proposalNo},$P{branchCode})))RateYN,
+         (select decode(count(*),'0','N','Y') from table(OPENCOVERSCHEDULE('warrate',$P{proposalNo},$P{branchCode})))WarRateYN,
+         (select decode(count(*),'0','N','Y') from table(OPENCOVERSCHEDULE('exclusion',$P{proposalNo},$P{branchCode})) )ExclusionYN,
+         (select decode(count(*),'0','N','Y') from table(OPENCOVERSCHEDULE('warranty',$P{proposalNo},$P{branchCode})) )WarrantyYN,
+         (select decode(count(*),'0','N','Y') from table(OPENCOVERSCHEDULE('deductible',$P{proposalNo},$P{branchCode})) )DeductibleYN,
+         (select decode(count(CodeText2),'0','N','Y') from table(OPENCOVERSCHEDULE('modeoftransport',$P{proposalNo},$P{branchCode})))ConveyanceDescYN,
+         (select  to_char(Wm_concat(upper(ENDT_TYPE_DESC)))  from
+            endt_type_master where endt_type_id in (
+            Select Distinct(Regexp_Substr(Endt_Type,'[^,]+',1,Level)) Lc_Login
+            From
+            (Select Endt_Type From Open_cover_Position_Master com Where com.proposal_no=$P{proposalNo}) B
+            Connect By Level <= Length(Endt_Type) - Length(Replace(Endt_Type,',',''))+1)
+            ) ENDT_TYPE_NAME,to_char(ocm.Effective_date,'ddth month,yyyy')INCEPTION_DATE,ocpm.status,ocm.RSA_SHARED_PERCENTAGE
+  FROM   open_cover_position_master ocpm,
+         open_cover_master ocm,
+         personal_info pi,
+         branch_master bm,
+         currency_master cm,
+         open_cover_sale_term_master ocsm
+ WHERE       ocpm.proposal_no = $P{proposalNo}
+         AND ocpm.proposal_no = ocm.proposal_no
+         AND ocm.amend_id = (SELECT   MAX (amend_id)
+                               FROM   open_cover_master
+                              WHERE   proposal_no = ocm.proposal_no)
+         AND ocm.customer_id = pi.customer_id
+         AND ocm.proposal_no = ocsm.proposal_no
+         AND ocsm.amend_id = (SELECT   MAX (amend_id)
+                                FROM   open_cover_sale_term_master
+                               WHERE   proposal_no = ocsm.proposal_no)
+         AND bm.branch_code = ocm.branch_code
+         AND cm.country_id = bm.origination_country_id
+         AND cm.currency_id = ocm.currency_id
+         AND cm.amend_id =
+               (SELECT   MAX (amend_id)
+                  FROM   currency_master
+                 WHERE       currency_id = cm.currency_id
+                         AND country_id = cm.country_id
+                         AND TRUNC (effective_date) <= TRUNC (SYSDATE))
+         AND TRUNC (cm.effective_date) <= TRUNC (SYSDATE)]]>
+	</queryString>
+	<field name="OPEN_COVER_NO" class="java.lang.String"/>
+	<field name="TYPE" class="java.lang.String"/>
+	<field name="FIRST_NAME" class="java.lang.String"/>
+	<field name="Period Of Insurance" class="java.lang.String"/>
+	<field name="SHORT_NAME" class="java.lang.String"/>
+	<field name="Voyage" class="java.lang.String"/>
+	<field name="TOLERANCE_NAME" class="java.lang.String"/>
+	<field name="DECIMAL_PLACES" class="java.math.BigDecimal"/>
+	<field name="HEADER_IMG" class="java.lang.String"/>
+	<field name="FOOTER_IMG" class="java.lang.String"/>
+	<field name="SIGN_IMG" class="java.lang.String"/>
+	<field name="STAMP" class="java.lang.String"/>
+	<field name="Annual Turnover" class="java.lang.String"/>
+	<field name="RATE_PRINT_STATUS" class="java.lang.String"/>
+	<field name="CANCELLATION_CLAUSE" class="java.math.BigDecimal"/>
+	<field name="AMENDED_CLAUSE_PRINT_STATUS" class="java.lang.String"/>
+	<field name="ENDT_TYPE" class="java.lang.String"/>
+	<field name="EFFECTIVE_DATE" class="java.lang.String"/>
+	<field name="AMEND_ID" class="java.math.BigDecimal"/>
+	<field name="BRANCH_NAME" class="java.lang.String"/>
+	<field name="ORIGINAL_POLICY_NO" class="java.lang.String"/>
+	<field name="CUST_NAME" class="java.lang.String"/>
+	<field name="CLAUSE" class="java.lang.String"/>
+	<field name="CLAUSE0YN" class="java.lang.String"/>
+	<field name="CLAUSE1YN" class="java.lang.String"/>
+	<field name="CLAUSE2YN" class="java.lang.String"/>
+	<field name="CLAUSE3YN" class="java.lang.String"/>
+	<field name="CLAUSE4YN" class="java.lang.String"/>
+	<field name="CLAUSE5YN" class="java.lang.String"/>
+	<field name="SUBJECTMIYN" class="java.lang.String"/>
+	<field name="VOYAGEYN" class="java.lang.String"/>
+	<field name="BASICYN" class="java.lang.String"/>
+	<field name="CUSTOMERYN" class="java.lang.String"/>
+	<field name="CONVEYANCEYN" class="java.lang.String"/>
+	<field name="WARYN" class="java.lang.String"/>
+	<field name="RATEYN" class="java.lang.String"/>
+	<field name="WARRATEYN" class="java.lang.String"/>
+	<field name="EXCLUSIONYN" class="java.lang.String"/>
+	<field name="WARRANTYYN" class="java.lang.String"/>
+	<field name="DEDUCTIBLEYN" class="java.lang.String"/>
+	<field name="CONVEYANCEDESCYN" class="java.lang.String"/>
+	<field name="ENDT_TYPE_NAME" class="java.lang.String"/>
+	<field name="INCEPTION_DATE" class="java.lang.String"/>
+	<field name="STATUS" class="java.lang.String"/>
+	<field name="RSA_SHARED_PERCENTAGE" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="120" splitType="Stretch">
+			<image scaleImage="FillFrame" hAlign="Center">
+				<reportElement uuid="85738eba-70b7-4e96-96ad-4ce5d6c7065a" x="-36" y="0" width="596" height="120"/>
+				<imageExpression><![CDATA[$P{imagePath}+"//"+$F{HEADER_IMG}]]></imageExpression>
+			</image>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement uuid="cbfa79ca-72ea-441f-b1e0-99d1020694de" style="common1" x="1" y="0" width="522" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[(($F{OPEN_COVER_NO}==null) || (!$F{STATUS}.equals("P") && !$F{STATUS}.equals("D")))?"Draft":"Schedule"]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="30">
+			<staticText>
+				<reportElement uuid="a6578bb3-6025-4273-bd88-707d1905b42b" style="common" x="250" y="0" width="121" height="15" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$P{endtStatus}=="true"]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Left"/>
+				<text><![CDATA[Department]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="cfd81d23-6d27-4a39-bf88-3eb1516a8a5d" style="common" x="370" y="0" width="152" height="15" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$P{endtStatus}=="true"]]></printWhenExpression>
+				</reportElement>
+				<box leftPadding="5"/>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA["CARGO & MARINE HULL"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="581b89ac-340b-4593-9e87-8e606f0e0b0b" style="common" x="371" y="15" width="152" height="15">
+					<printWhenExpression><![CDATA[$P{endtStatus}=="true"]]></printWhenExpression>
+				</reportElement>
+				<box leftPadding="5"/>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA["CARGO"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="f31b2ecb-86a1-40e6-b957-ecc6e5ad8a98" style="common" x="250" y="15" width="121" height="15" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$P{endtStatus}=="true"]]></printWhenExpression>
+				</reportElement>
+				<textElement/>
+				<text><![CDATA[Class Of Insurance]]></text>
+			</staticText>
+		</band>
+		<band height="16">
+			<staticText>
+				<reportElement uuid="9881897f-568b-4025-abd8-51f0fe5da4ba" style="common" x="250" y="1" width="121" height="15" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$P{endtStatus}=="true"]]></printWhenExpression>
+				</reportElement>
+				<textElement/>
+				<text><![CDATA[Branch/Agency]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="1abea4c9-1d87-4fbf-9c5e-77530952b7b9" style="common" x="370" y="0" width="153" height="15" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$P{endtStatus}=="true"]]></printWhenExpression>
+				</reportElement>
+				<box leftPadding="5"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{BRANCH_NAME}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="15">
+			<staticText>
+				<reportElement uuid="7f664215-3cac-41cb-b167-8a91720c44aa" style="common" x="250" y="0" width="120" height="15" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$P{endtStatus}=="true"]]></printWhenExpression>
+				</reportElement>
+				<textElement/>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="f52c6c86-1a6a-498e-a1d4-f6835990980a" style="common" x="370" y="0" width="152" height="15" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$P{endtStatus}=="true"]]></printWhenExpression>
+				</reportElement>
+				<box leftPadding="5"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{EFFECTIVE_DATE}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="22">
+			<line>
+				<reportElement uuid="d068d41d-4bad-4d6f-b648-cf9e82090257" x="0" y="2" width="523" height="1" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$P{endtStatus}=="true"]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</line>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="4a308199-2f91-4003-9782-bef7a8683885" style="common" x="0" y="7" width="523" height="15" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$P{endtStatus}=="true"]]></printWhenExpression>
+				</reportElement>
+				<textElement/>
+				<textFieldExpression><![CDATA["\nEndorsement No."+($F{AMEND_ID}==null?"":($F{AMEND_ID}))+" attaching to and forming part of Policy No."+($F{ORIGINAL_POLICY_NO}==null?"":($F{ORIGINAL_POLICY_NO}))+", in the name of "+($F{CUST_NAME}==null?"":($F{CUST_NAME}))+" &/or their all Subsidiaries and Group Companies.\n"]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="20">
+			<line>
+				<reportElement uuid="55c7a9dd-f7d2-4343-aaa3-b2c8ded2b710" x="0" y="2" width="523" height="1" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$P{endtStatus}=="true"]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</line>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="e3705939-a172-4472-9685-842c5a0fb3a1" style="common" x="0" y="5" width="523" height="15" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$P{endtStatus}=="true"]]></printWhenExpression>
+				</reportElement>
+				<textElement/>
+				<textFieldExpression><![CDATA["\nNOTWITHSTANDING anything contained in the Policy/Certificate to the contrary, it is hereby declared and agreed that the following has/ have been incorporated/amended under the above Open Policy as from the date of inception (OR AS FROM   "+($F{EFFECTIVE_DATE}==null?"":($F{EFFECTIVE_DATE}))+")\n\n"+"The Endorsement is done for "+$F{ENDT_TYPE_NAME}+"\n"]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="30">
+			<textField>
+				<reportElement uuid="e2601d43-233f-4e0d-8f8a-ae37a2c44d19" style="common" x="0" y="0" width="167" height="15"/>
+				<box leftPadding="2">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA[$F{OPEN_COVER_NO}==null?"Proposal No":"Policy No"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="4832a785-1e98-425b-ba4d-91678eda966d" style="common" x="0" y="15" width="167" height="15"/>
+				<box leftPadding="3">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<text><![CDATA[Type]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="21ba2009-2d13-4ee7-80c5-8f0167b296a5" style="common" x="167" y="0" width="356" height="15" isPrintWhenDetailOverflows="true"/>
+				<box leftPadding="4">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<textFieldExpression><![CDATA[($F{OPEN_COVER_NO}==null?($P{proposalNo}==null?"":($P{proposalNo})):($F{OPEN_COVER_NO}))]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="52a6d24f-0850-4769-9b4e-e0a314096a85" style="common" mode="Transparent" x="167" y="15" width="356" height="15"/>
+				<box leftPadding="4">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{TYPE}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="15">
+			<printWhenExpression><![CDATA[$F{CUSTOMERYN}.equals("Y")]]></printWhenExpression>
+			<textField>
+				<reportElement uuid="a95f471b-1d3a-4677-8b1b-d1e01dfdcd08" style="common" stretchType="RelativeToTallestObject" x="0" y="0" width="167" height="15"/>
+				<box leftPadding="3">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<textFieldExpression><![CDATA["Name of Assured"]]></textFieldExpression>
+			</textField>
+			<componentElement>
+				<reportElement uuid="c5935f5b-34a7-49d4-8513-c0b6e6bec4f9" key="table 22" style="table 22" x="167" y="0" width="356" height="15"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="Customer" uuid="54be4973-6b64-43be-8412-a5c5ee842eb8">
+						<datasetParameter name="proposalNo">
+							<datasetParameterExpression><![CDATA[$P{proposalNo}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="branchCode">
+							<datasetParameterExpression><![CDATA[$P{branchCode}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="356" uuid="cb3a9cf9-3f31-46f2-9c7f-508107e7984d">
+						<jr:detailCell style="table 22_TD" height="16" rowSpan="1">
+							<textField>
+								<reportElement uuid="c2da054b-c241-4632-aba3-debf7ed72de4" style="common" x="0" y="0" width="356" height="15" isRemoveLineWhenBlank="true" isPrintInFirstWholeBand="true"/>
+								<box leftPadding="4"/>
+								<textElement/>
+								<textFieldExpression><![CDATA[$F{CODE}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+		<band height="15">
+			<printWhenExpression><![CDATA[!($F{CUSTOMERYN}.equals("Y"))]]></printWhenExpression>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="51b63311-820a-4939-85a7-917a1ece8816" style="common" x="167" y="0" width="356" height="15" isPrintWhenDetailOverflows="true"/>
+				<box leftPadding="4">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{FIRST_NAME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="9b2815f0-2975-45b9-bb5a-5fd73551ba2f" style="common" stretchType="RelativeToTallestObject" x="0" y="0" width="167" height="15"/>
+				<box leftPadding="3">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<textFieldExpression><![CDATA["Name of Assured"]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="15" splitType="Prevent">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="480f6d3e-5ce1-469b-b297-3f154fa56ab8" style="common" x="167" y="0" width="356" height="15" isPrintWhenDetailOverflows="true"/>
+				<box leftPadding="4">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{CANCELLATION_CLAUSE}==null?"Always open "+($F{Period Of Insurance}):" Always open "+($F{Period Of Insurance})+" subject to "+($F{CANCELLATION_CLAUSE})+" days Notice of Cancellation."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="87ac2519-97f7-410c-a77f-3106ba2e05ca" style="common" x="0" y="0" width="167" height="15"/>
+				<box leftPadding="3">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<text><![CDATA[Period of Insurance]]></text>
+			</staticText>
+		</band>
+		<band height="15">
+			<printWhenExpression><![CDATA[($P{endtStatus}!="true")||($F{ENDT_TYPE}.contains( ",32," ))&&($F{SUBJECTMIYN}.equals("Y"))]]></printWhenExpression>
+			<componentElement>
+				<reportElement uuid="8dc48691-40f6-4cf8-9a1c-45da569418b1" key="table 18" style="table 18" x="167" y="0" width="356" height="15" isRemoveLineWhenBlank="true"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="SubjectMatter" uuid="6f0b099f-3ac4-4e90-9524-907ed078bbe7">
+						<datasetParameter name="proposalNo">
+							<datasetParameterExpression><![CDATA[$P{proposalNo}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="branchCode">
+							<datasetParameterExpression><![CDATA[$P{branchCode}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="356" uuid="0b305fa6-e9e8-439f-bc35-7c7779fffc36">
+						<jr:detailCell style="table 18_TD" height="15" rowSpan="1">
+							<textField>
+								<reportElement uuid="cd105d82-9df8-4f9f-8d06-0f52cbe420ea" style="common" x="13" y="0" width="343" height="15" isRemoveLineWhenBlank="true" isPrintInFirstWholeBand="true"/>
+								<textElement>
+									<font size="9"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{CODE}]]></textFieldExpression>
+							</textField>
+							<staticText>
+								<reportElement uuid="c068aa25-2637-46e2-a70c-e7cf2919de0f" style="common" x="0" y="0" width="13" height="15"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="9"/>
+								</textElement>
+								<text><![CDATA[*]]></text>
+							</staticText>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<textField>
+				<reportElement uuid="ebce3055-2eed-4eab-92dc-aa48b001d95d" style="common" stretchType="RelativeToTallestObject" x="0" y="0" width="167" height="15" isRemoveLineWhenBlank="true"/>
+				<box leftPadding="3">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<textFieldExpression><![CDATA["Subject Matter Insured"]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="15">
+			<printWhenExpression><![CDATA[($P{endtStatus}!="true")||($F{ENDT_TYPE}.contains( ",35," ))]]></printWhenExpression>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="b014e958-8c8e-4452-973c-c803768581c3" style="common" x="167" y="0" width="356" height="15" isPrintWhenDetailOverflows="true"/>
+				<box leftPadding="4">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<textFieldExpression><![CDATA[($F{SHORT_NAME}==null?"":($F{SHORT_NAME}))+""+($F{Annual Turnover}==null?"":($F{Annual Turnover}))]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="7fef8991-b284-4bdf-af4a-a8447fb794f8" style="common" x="0" y="0" width="167" height="15"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<text><![CDATA[ Total Estimated Annual Turnover]]></text>
+			</staticText>
+		</band>
+		<band height="15">
+			<textField>
+				<reportElement uuid="ab6b8dae-2b32-417b-8565-2a15a8159808" style="common" stretchType="RelativeToTallestObject" x="0" y="0" width="167" height="15" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[($P{endtStatus}!="true")&&("Y".equals($F{VOYAGEYN}))]]></printWhenExpression>
+				</reportElement>
+				<box leftPadding="3">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<textFieldExpression><![CDATA["Voyage"]]></textFieldExpression>
+			</textField>
+			<componentElement>
+				<reportElement uuid="6e2a6e4d-756f-4030-858f-6528d54b6cca" key="table 23" style="table 23" x="167" y="0" width="355" height="15" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[($P{endtStatus}!="true")&&("Y".equals($F{VOYAGEYN}))]]></printWhenExpression>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="Voyage" uuid="2d4f91b2-e744-47f5-9dc4-6749aba422e9">
+						<datasetParameter name="proposalNo">
+							<datasetParameterExpression><![CDATA[$P{proposalNo}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="branchCode">
+							<datasetParameterExpression><![CDATA[$P{branchCode}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="356" uuid="d329c6c5-da25-4e52-a412-61e970c7bc78">
+						<jr:detailCell style="table 23_TD" height="15" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="244c68d3-3a4e-4779-8122-3230ae20fbab" style="common" positionType="Float" x="0" y="0" width="356" height="15" isRemoveLineWhenBlank="true"/>
+								<box leftPadding="3"/>
+								<textElement/>
+								<textFieldExpression><![CDATA[$F{CODE}.trim()]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+		<band height="15">
+			<printWhenExpression><![CDATA[("Y".equals($F{CONVEYANCEDESCYN}))&&($P{endtStatus}!="true")||($F{ENDT_TYPE}.contains( ",33," ))]]></printWhenExpression>
+			<componentElement>
+				<reportElement uuid="592e43d7-4272-41b8-9e86-8c6c01cafa79" key="table 20" style="table 20" x="167" y="0" width="356" height="15" isRemoveLineWhenBlank="true"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="Conveyance" uuid="92bdcf1c-35ef-4fa8-8156-e8f2ef302881">
+						<datasetParameter name="proposalNo">
+							<datasetParameterExpression><![CDATA[$P{proposalNo}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="branchCode">
+							<datasetParameterExpression><![CDATA[$P{branchCode}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="356" uuid="36f3599c-379e-49b9-b36f-9720ca13cb89">
+						<jr:detailCell style="table 20_TD" height="15" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="2028fe7d-0dfc-448f-b1cd-715cbd175dde" style="common" x="13" y="0" width="343" height="15" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true"/>
+								<textElement>
+									<font size="9"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{CODETEXT2}]]></textFieldExpression>
+							</textField>
+							<staticText>
+								<reportElement uuid="9683bf9a-cb10-43fd-9aed-53a9058e6b83" style="common" x="0" y="0" width="13" height="15"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="9"/>
+								</textElement>
+								<text><![CDATA[*]]></text>
+							</staticText>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<textField>
+				<reportElement uuid="aa33b81d-1a01-48dc-9f2d-614c182f3c5d" style="common" stretchType="RelativeToTallestObject" x="0" y="0" width="167" height="15" isRemoveLineWhenBlank="true"/>
+				<box leftPadding="3">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<textFieldExpression><![CDATA["Conveyance"]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="15">
+			<printWhenExpression><![CDATA[($P{endtStatus}!="true")||($F{ENDT_TYPE}.contains( ",24," ))&&($F{BASICYN}.equals("Y"))]]></printWhenExpression>
+			<componentElement>
+				<reportElement uuid="297728c3-bc8e-4958-a19c-20534c50bd22" key="table 2" style="table 2" x="0" y="0" width="523" height="15" isRemoveLineWhenBlank="true" isPrintInFirstWholeBand="true" isPrintWhenDetailOverflows="true"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="BasicofValuation" uuid="ca9dcc99-3d50-493f-9477-945440c7934d">
+						<datasetParameter name="proposalNo">
+							<datasetParameterExpression><![CDATA[$P{proposalNo}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="branchCode">
+							<datasetParameterExpression><![CDATA[$P{branchCode}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="167" uuid="3ff1682f-f300-46d3-b95e-0d5b8ae0dc05">
+						<jr:detailCell height="16" rowSpan="1">
+							<staticText>
+								<reportElement uuid="0d1b4918-aedf-46ed-aa01-e25a51c13da9" style="common" x="0" y="0" width="167" height="16"/>
+								<textElement/>
+								<text><![CDATA[ Basis of Valuation]]></text>
+							</staticText>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="356" uuid="e97ff0dc-b22c-40b0-804e-ee426e42bbb0">
+						<jr:detailCell style="table 2_TD" height="16" rowSpan="1">
+							<textField isStretchWithOverflow="true">
+								<reportElement uuid="faf1efd0-8ee3-405f-b9d9-64f3c9dd7551" style="common" x="5" y="0" width="351" height="16" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true"/>
+								<textElement/>
+								<textFieldExpression><![CDATA[$F{CODEDESC}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+		<band height="15" splitType="Prevent">
+			<printWhenExpression><![CDATA[($P{endtStatus}!="true" || $F{ENDT_TYPE}.contains( ",36," ))&&("Y".equals($F{CONVEYANCEYN}))]]></printWhenExpression>
+			<componentElement>
+				<reportElement uuid="6e6e8edb-41b9-428c-af98-3d6fd2b9616f" key="table 21" style="table 21" stretchType="RelativeToBandHeight" x="167" y="0" width="356" height="15" isRemoveLineWhenBlank="true"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="MaximumLimit" uuid="7a6ca274-c428-47a2-bb83-e2085ea4c0b1">
+						<datasetParameter name="proposalNo">
+							<datasetParameterExpression><![CDATA[$P{proposalNo}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="branchCode">
+							<datasetParameterExpression><![CDATA[$P{branchCode}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="356" uuid="c554fd96-1419-4815-b1fe-ff9819ab470d">
+						<jr:detailCell style="table 21_TD" height="15" rowSpan="1">
+							<textField isStretchWithOverflow="true">
+								<reportElement uuid="8c168c24-a0f1-46f4-a295-f0a486839e78" style="common" stretchType="RelativeToBandHeight" x="13" y="0" width="343" height="15" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true"/>
+								<textElement>
+									<font size="9"/>
+								</textElement>
+								<textFieldExpression><![CDATA[($F{CODEDESC}==null?"":($F{CODEDESC}))+" "+($F{CODEVALUE}==null?"":($F{CODEVALUE}))+" "+($F{CODETEXT1}==null?"":($F{CODETEXT1}))+" "+($F{CODETEXT3}==null?"":($F{CODETEXT3}))+"\n"]]></textFieldExpression>
+							</textField>
+							<staticText>
+								<reportElement uuid="473d650b-0732-4cbf-b4a0-bfd1db618592" style="common" x="0" y="0" width="13" height="15"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="9"/>
+								</textElement>
+								<text><![CDATA[*]]></text>
+							</staticText>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="cc32e09f-5797-4c14-aa4e-f1c339f0165c" style="common" stretchType="RelativeToTallestObject" x="0" y="0" width="167" height="15" isRemoveLineWhenBlank="true"/>
+				<box leftPadding="3">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<textFieldExpression><![CDATA["Maximum Limit Per Shipment/Per Conveyance"]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="15">
+			<componentElement>
+				<reportElement uuid="aa7df39d-3565-49c0-9945-40eedbce7ee8" key="table 21" style="table 21" stretchType="RelativeToBandHeight" x="167" y="0" width="356" height="15" isRemoveLineWhenBlank="true"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="MaximumLimit_perLocation" uuid="cba6fdfa-29f9-4293-a6b2-6a8dfcbdc04c">
+						<datasetParameter name="proposalNo">
+							<datasetParameterExpression><![CDATA[$P{proposalNo}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="branchCode">
+							<datasetParameterExpression><![CDATA[$P{branchCode}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="356" uuid="d8f083df-7180-4819-8b0a-775f0a880717">
+						<jr:detailCell style="table 21_TD" height="15" rowSpan="1">
+							<textField isStretchWithOverflow="true">
+								<reportElement uuid="59bf10fc-3855-41bd-883a-916714ed876f" style="common" stretchType="RelativeToBandHeight" x="13" y="0" width="343" height="15" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true"/>
+								<textElement>
+									<font size="9"/>
+								</textElement>
+								<textFieldExpression><![CDATA[($F{CODEDESC}==null?"":($F{CODEDESC}))+" "+($F{CODEVALUE}==null?"":($F{CODEVALUE}))+" "+($F{CODETEXT4}==null?"":($F{CODETEXT4}))+" "+($F{CODETEXT3}==null?"":($F{CODETEXT3}))+"\n"]]></textFieldExpression>
+							</textField>
+							<staticText>
+								<reportElement uuid="a25b1e4f-17d7-47ad-ba69-6032a13d6ca8" style="common" x="0" y="0" width="13" height="15"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="9"/>
+								</textElement>
+								<text><![CDATA[*]]></text>
+							</staticText>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="ce88f36f-eb7e-4ac5-8df2-f452f75f1626" style="common" stretchType="RelativeToTallestObject" x="0" y="0" width="167" height="15" isRemoveLineWhenBlank="true"/>
+				<box leftPadding="3">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<textFieldExpression><![CDATA["Maximum Limit Per Location/Per Conveyance"]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="15">
+			<printWhenExpression><![CDATA[(($P{endtStatus}!="true")||($F{ENDT_TYPE}.contains( ",23," )))&&("Y".equals($F{CLAUSE}))&&("Y".equals($F{CLAUSE1YN}))]]></printWhenExpression>
+			<componentElement>
+				<reportElement uuid="c2ee338b-1fdb-4bb5-98bd-1b055f37d765" key="table 3" style="table 3" x="0" y="0" width="523" height="15" isRemoveLineWhenBlank="true"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="Clause1" uuid="54ab78b2-7333-4c11-9861-54b7bc951c0c">
+						<datasetParameter name="proposalNo">
+							<datasetParameterExpression><![CDATA[$P{proposalNo}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="branchCode">
+							<datasetParameterExpression><![CDATA[$P{branchCode}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="168" uuid="ea014b7c-ad6e-4a36-baee-0540dbba4c04">
+						<jr:tableHeader height="15" rowSpan="1">
+							<staticText>
+								<reportElement uuid="e6cf1b3a-68c3-43f1-b341-9964139994b0" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="167" height="15"/>
+								<box leftPadding="3">
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement/>
+								<text><![CDATA[Conditions]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table 3_TD" height="15" rowSpan="1">
+							<staticText>
+								<reportElement uuid="e78a1885-ac9a-4e80-9e16-efb62b1c747a" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="167" height="15"/>
+								<box>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement/>
+								<text><![CDATA[]]></text>
+							</staticText>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="355" uuid="cf095143-e284-407c-8b2d-4e876caec553">
+						<jr:tableHeader height="15" rowSpan="1">
+							<staticText>
+								<reportElement uuid="cf5fcd5b-5ac4-46d4-87aa-8b040eb04588" style="common1" x="0" y="0" width="355" height="15" isRemoveLineWhenBlank="true"/>
+								<box leftPadding="3"/>
+								<textElement>
+									<font isBold="true" isUnderline="true"/>
+								</textElement>
+								<text><![CDATA[In respect of Sea shipments:]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table 3_TD" height="15" rowSpan="1">
+							<textField isStretchWithOverflow="true">
+								<reportElement uuid="db06c65d-fbb1-4cec-aa7c-20fa31cdbb52" style="common" x="13" y="0" width="342" height="15" isRemoveLineWhenBlank="true"/>
+								<textElement>
+									<font size="9"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{CODEDESC}]]></textFieldExpression>
+							</textField>
+							<staticText>
+								<reportElement uuid="26123488-1996-4836-9133-ed59bb6618e8" style="common" x="0" y="0" width="13" height="15"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="9"/>
+								</textElement>
+								<text><![CDATA[*]]></text>
+							</staticText>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+		<band height="15">
+			<printWhenExpression><![CDATA[(($P{endtStatus}!="true")||($F{ENDT_TYPE}.contains( ",23," )))&&"Y".equals($F{CLAUSE})&&"Y".equals($F{CLAUSE2YN})]]></printWhenExpression>
+			<componentElement>
+				<reportElement uuid="ebb27efa-0bd6-4e63-b0dc-d0004eef8ff1" key="table 10" style="table 10" stretchType="RelativeToBandHeight" x="0" y="0" width="523" height="15" isRemoveLineWhenBlank="true"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="Clause2" uuid="9e1cc980-5910-40c3-b1b7-dee74fb6cca2">
+						<datasetParameter name="proposalNo">
+							<datasetParameterExpression><![CDATA[$P{proposalNo}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="branchCode">
+							<datasetParameterExpression><![CDATA[$P{branchCode}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="168" uuid="44056e4a-bd62-47ba-bec1-d6ac4cb8f0fe">
+						<jr:tableHeader style="table 10_TH" height="15" rowSpan="1">
+							<staticText>
+								<reportElement uuid="2b56fe81-e8a0-49b5-89a1-2786727549cc" style="common" x="0" y="0" width="167" height="15"/>
+								<box>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement/>
+								<text><![CDATA[]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table 10_TD" height="15" rowSpan="1">
+							<staticText>
+								<reportElement uuid="d1568c8e-6579-4749-aa8b-189fd4e6b276" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="167" height="15"/>
+								<box>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement/>
+								<text><![CDATA[]]></text>
+							</staticText>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="355" uuid="deae991c-2345-4253-b3f0-e21c28280cbb">
+						<jr:tableHeader style="table 10_TH" height="15" rowSpan="1">
+							<staticText>
+								<reportElement uuid="bdbbcf53-6bef-4931-bb04-2ce19bebfa2c" style="common1" x="0" y="0" width="355" height="15" isRemoveLineWhenBlank="true"/>
+								<box leftPadding="3"/>
+								<textElement>
+									<font isUnderline="true"/>
+								</textElement>
+								<text><![CDATA[In respect of Air shipments:]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table 10_TD" height="15" rowSpan="1">
+							<textField isStretchWithOverflow="true">
+								<reportElement uuid="f30acf7b-d72a-4a65-b3ff-039f2312b0fd" style="common" x="13" y="0" width="342" height="15" isRemoveLineWhenBlank="true"/>
+								<textElement>
+									<font size="9"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{CODEDESC}]]></textFieldExpression>
+							</textField>
+							<staticText>
+								<reportElement uuid="56ca3842-5307-49dc-a854-a734768f563e" style="common" x="0" y="0" width="13" height="15"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="9"/>
+								</textElement>
+								<text><![CDATA[*]]></text>
+							</staticText>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+		<band height="15">
+			<printWhenExpression><![CDATA[(($P{endtStatus}!="true")||($F{ENDT_TYPE}.contains( ",23," )))&&("Y".equals($F{CLAUSE}))&&("Y".equals($F{CLAUSE3YN}))]]></printWhenExpression>
+			<componentElement>
+				<reportElement uuid="cca232ad-f12f-4562-a772-bf7bd2824669" key="table 12" style="table 12" x="0" y="0" width="523" height="15" isRemoveLineWhenBlank="true"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="Clause3" uuid="5cb0726c-06c0-4bc6-9eb5-b3e62665eb3e">
+						<datasetParameter name="proposalNo">
+							<datasetParameterExpression><![CDATA[$P{proposalNo}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="branchCode">
+							<datasetParameterExpression><![CDATA[$P{branchCode}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="168" uuid="ed885dcb-dc15-4d4f-b38a-642c16c5d710">
+						<jr:tableHeader style="table 12_TH" height="15" rowSpan="1">
+							<staticText>
+								<reportElement uuid="010746d9-da55-479a-8436-8d6a6867315b" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="167" height="15"/>
+								<box>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement/>
+								<text><![CDATA[]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table 12_TD" height="15" rowSpan="1">
+							<staticText>
+								<reportElement uuid="42f52d9e-0edf-4d6e-8f4e-484c57ba87f6" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="167" height="15"/>
+								<box>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement/>
+								<text><![CDATA[]]></text>
+							</staticText>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="355" uuid="780581a2-9c97-4dbc-a78d-09b2a343c679">
+						<jr:tableHeader style="table 12_TH" height="15" rowSpan="1">
+							<staticText>
+								<reportElement uuid="17e13e7b-33b8-478c-a4ae-f971cbbce0e4" style="common1" x="0" y="0" width="355" height="15"/>
+								<box leftPadding="3"/>
+								<textElement>
+									<font isUnderline="true"/>
+								</textElement>
+								<text><![CDATA[In respect of Land shipments:]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table 12_TD" height="15" rowSpan="1">
+							<textField isStretchWithOverflow="true">
+								<reportElement uuid="5a283c96-fe26-4ab9-a51b-d31613a02129" style="common" x="13" y="0" width="342" height="15" isRemoveLineWhenBlank="true"/>
+								<textElement>
+									<font size="9"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{CODEDESC}]]></textFieldExpression>
+							</textField>
+							<staticText>
+								<reportElement uuid="3fa1c274-4ad7-458a-8076-d4cf13e5db9d" style="common" x="0" y="0" width="13" height="15"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="9"/>
+								</textElement>
+								<text><![CDATA[*]]></text>
+							</staticText>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+		<band height="15">
+			<printWhenExpression><![CDATA[(($P{endtStatus}!="true")||($F{ENDT_TYPE}.contains( ",23," )))&&("Y".equals($F{CLAUSE}))&&("Y".equals($F{CLAUSE4YN}))]]></printWhenExpression>
+			<componentElement>
+				<reportElement uuid="8e08f878-0cc6-4a82-8b30-3a251b003aa0" key="table 12" style="table 12" x="0" y="0" width="523" height="15" isRemoveLineWhenBlank="true"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="Clause4" uuid="6145f16e-6a9c-4d09-9106-493dcf20dc2d">
+						<datasetParameter name="proposalNo">
+							<datasetParameterExpression><![CDATA[$P{proposalNo}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="branchCode">
+							<datasetParameterExpression><![CDATA[$P{branchCode}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="169" uuid="5e9dae58-14f0-4d48-8e95-898b500da325">
+						<jr:tableHeader style="table 12_TH" height="15" rowSpan="1">
+							<staticText>
+								<reportElement uuid="db6f7641-6272-4dca-9ccc-64537c0b0e25" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="167" height="15"/>
+								<box>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement/>
+								<text><![CDATA[]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table 12_TD" height="15" rowSpan="1">
+							<staticText>
+								<reportElement uuid="6d348590-d880-41eb-9eb6-b6f6c31073be" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="167" height="15"/>
+								<box>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement/>
+								<text><![CDATA[]]></text>
+							</staticText>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="355" uuid="4c9bcd4f-7593-4987-9334-ef4d7cc61304">
+						<jr:tableHeader style="table 12_TH" height="15" rowSpan="1">
+							<staticText>
+								<reportElement uuid="0b5f9ed6-d121-4328-ad62-515619ec958e" style="common1" x="0" y="0" width="355" height="15"/>
+								<box leftPadding="3"/>
+								<textElement>
+									<font isUnderline="true"/>
+								</textElement>
+								<text><![CDATA[In respect of Post and Parcel shipments:]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table 12_TD" height="15" rowSpan="1">
+							<textField isStretchWithOverflow="true">
+								<reportElement uuid="11d4ab6c-da64-4a47-9c6b-1d03b8196d21" style="common" x="13" y="0" width="342" height="15" isRemoveLineWhenBlank="true"/>
+								<textElement>
+									<font size="9"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{CODEDESC}]]></textFieldExpression>
+							</textField>
+							<staticText>
+								<reportElement uuid="93229eb1-3e84-42b6-b2cd-5ff9a3b5498c" style="common" x="0" y="0" width="13" height="15"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="9"/>
+								</textElement>
+								<text><![CDATA[*]]></text>
+							</staticText>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+		<band height="15">
+			<printWhenExpression><![CDATA[(($P{endtStatus}!="true")||($F{ENDT_TYPE}.contains( ",23," )))&&("Y".equals($F{CLAUSE}))&&("Y".equals($F{CLAUSE5YN}))]]></printWhenExpression>
+			<componentElement>
+				<reportElement uuid="b79fe6c4-de65-4797-9f7e-91071ec655ab" key="table 12" style="table 12" x="0" y="0" width="523" height="15" isRemoveLineWhenBlank="true"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="Clause5" uuid="aab0fbea-4db8-4de1-99e2-9c967d53e502">
+						<datasetParameter name="proposalNo">
+							<datasetParameterExpression><![CDATA[$P{proposalNo}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="branchCode">
+							<datasetParameterExpression><![CDATA[$P{branchCode}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="168" uuid="7162b828-3609-4d75-8125-11e7e512a88e">
+						<jr:tableHeader style="table 12_TH" height="15" rowSpan="1">
+							<staticText>
+								<reportElement uuid="e1f18f1b-49b7-4d2d-9c1d-fc9eb3626cf0" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="167" height="15"/>
+								<box>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement/>
+								<text><![CDATA[]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table 12_TD" height="15" rowSpan="1">
+							<staticText>
+								<reportElement uuid="9c822261-3faa-40ec-8525-63d4fb9806bd" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="167" height="15"/>
+								<box>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement/>
+								<text><![CDATA[]]></text>
+							</staticText>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="355" uuid="72ba2622-f140-43f2-8810-5c84f0f8754e">
+						<jr:tableHeader style="table 12_TH" height="15" rowSpan="1">
+							<staticText>
+								<reportElement uuid="6f42689c-8150-4e0c-be07-8b1f847216e8" style="common1" x="0" y="0" width="355" height="15"/>
+								<box leftPadding="3"/>
+								<textElement>
+									<font isUnderline="true"/>
+								</textElement>
+								<text><![CDATA[In respect of Sea and Air shipments:]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table 12_TD" height="15" rowSpan="1">
+							<textField isStretchWithOverflow="true">
+								<reportElement uuid="fe52bc72-bfd3-4bf1-995c-fdd417e158ff" style="common" x="13" y="0" width="342" height="15" isRemoveLineWhenBlank="true"/>
+								<textElement>
+									<font size="9"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{CODEDESC}]]></textFieldExpression>
+							</textField>
+							<staticText>
+								<reportElement uuid="96d797fc-877b-4a80-baec-c579b5e830f8" style="common" x="0" y="0" width="13" height="15"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="9"/>
+								</textElement>
+								<text><![CDATA[*]]></text>
+							</staticText>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+		<band height="15">
+			<printWhenExpression><![CDATA[(($P{endtStatus}!="true")||($F{ENDT_TYPE}.contains( ",23," )))&&("Y".equals($F{CLAUSE}))&&("Y".equals($F{CLAUSE0YN}))]]></printWhenExpression>
+			<componentElement>
+				<reportElement uuid="6ee90390-43aa-44ce-a91c-fc7dde701dd9" key="table 5" style="table 5" x="0" y="0" width="523" height="15" isRemoveLineWhenBlank="true"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="Clause0" uuid="05085b31-de46-466e-bddd-16d7dd5b446a">
+						<datasetParameter name="proposalNo">
+							<datasetParameterExpression><![CDATA[$P{proposalNo}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="branchCode">
+							<datasetParameterExpression><![CDATA[$P{branchCode}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="168" uuid="d1fe2357-74ec-4e4a-908b-006849f35708">
+						<jr:tableHeader style="table 5_TH" height="15" rowSpan="1">
+							<staticText>
+								<reportElement uuid="d3f73210-cbd4-425d-9e7f-bd91b2cc0d42" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="167" height="15"/>
+								<box>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement/>
+								<text><![CDATA[]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table 5_TD" height="15" rowSpan="1">
+							<staticText>
+								<reportElement uuid="28d218d1-07d2-49a7-af5f-557d54a1936b" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="167" height="15"/>
+								<box>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement/>
+								<text><![CDATA[]]></text>
+							</staticText>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="355" uuid="060f331d-c077-4f71-ab1b-e6a15cc6cb3b">
+						<jr:tableHeader style="table 5_TH" height="15" rowSpan="1">
+							<staticText>
+								<reportElement uuid="07c957b7-0baa-489b-b387-a2a5ad17b547" style="common1" x="0" y="0" width="355" height="15"/>
+								<box leftPadding="3"/>
+								<textElement>
+									<font isBold="true" isUnderline="true"/>
+								</textElement>
+								<text><![CDATA[In respect of all shipments:]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table 5_TD" height="15" rowSpan="1">
+							<textField isStretchWithOverflow="true">
+								<reportElement uuid="9688122a-7f79-48a7-8ce9-b9b7b0c91bbf" style="common" x="13" y="0" width="342" height="15" isRemoveLineWhenBlank="true"/>
+								<textElement>
+									<font size="9"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{CODEDESC}]]></textFieldExpression>
+							</textField>
+							<staticText>
+								<reportElement uuid="554d1118-942f-4496-b2b5-7a2af5645f63" style="common" x="0" y="0" width="13" height="15"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="9"/>
+								</textElement>
+								<text><![CDATA[*]]></text>
+							</staticText>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+		<band height="15">
+			<printWhenExpression><![CDATA[(($P{endtStatus}!="true")||(($F{ENDT_TYPE}.contains( ",30," ))))&&("Y".equals($F{WARYN}))]]></printWhenExpression>
+			<componentElement>
+				<reportElement uuid="649cbbe8-eae7-4066-b182-4526b4e6113a" key="table 9" style="table 9" x="0" y="0" width="523" height="15" isRemoveLineWhenBlank="true"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="WarSrcc" uuid="0755ca1d-6ffa-4fcd-9527-d1c5752b8fd0">
+						<datasetParameter name="proposalNo">
+							<datasetParameterExpression><![CDATA[$P{proposalNo}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="branchCode">
+							<datasetParameterExpression><![CDATA[$P{branchCode}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="168" uuid="5fe49b0a-ecd0-4692-aee9-9e9dea39cbb8">
+						<jr:tableHeader style="table 9_TH" height="15" rowSpan="1">
+							<staticText>
+								<reportElement uuid="f5191266-77b7-4630-8d04-e0a76289622e" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="167" height="15"/>
+								<box>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement/>
+								<text><![CDATA[]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table 9_TD" height="15" rowSpan="1">
+							<staticText>
+								<reportElement uuid="e06e2b00-e7fb-49cb-be0e-2d44d6b10a32" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="167" height="15"/>
+								<box>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement/>
+								<text><![CDATA[]]></text>
+							</staticText>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="355" uuid="4935fcf9-d18d-455e-b0e9-587dddab26f2">
+						<jr:tableHeader style="table 9_TH" height="15" rowSpan="1">
+							<staticText>
+								<reportElement uuid="502baf13-8296-4002-bde7-b48db8711a1b" style="common1" x="0" y="0" width="355" height="15"/>
+								<box leftPadding="3"/>
+								<textElement>
+									<font isBold="true" isUnderline="true"/>
+								</textElement>
+								<text><![CDATA[War & SRCC Clauses:]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table 9_TD" height="15" rowSpan="1">
+							<textField isStretchWithOverflow="true">
+								<reportElement uuid="0f97a376-47ef-4522-bfc8-506d2736c405" style="common" x="13" y="0" width="342" height="15" isRemoveLineWhenBlank="true"/>
+								<textElement>
+									<font size="9"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{CODEDESC}]]></textFieldExpression>
+							</textField>
+							<staticText>
+								<reportElement uuid="e2262283-c05d-47b3-a48c-3e7e5f894683" style="common" x="0" y="0" width="13" height="15"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="9"/>
+								</textElement>
+								<text><![CDATA[*]]></text>
+							</staticText>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+		<band height="15" splitType="Prevent">
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="c4edbdbc-4a84-4975-80a4-99e81065c37d" style="common" x="167" y="0" width="356" height="15" isPrintWhenDetailOverflows="true">
+					<printWhenExpression><![CDATA[$F{AMENDED_CLAUSE_PRINT_STATUS}.equals("Y")]]></printWhenExpression>
+				</reportElement>
+				<box leftPadding="4">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<textFieldExpression><![CDATA["It is hereby agreed that the exclusion \"loss damage or expense arising from insolvency or financial default of the owners, managers, charterers or operators of the vessel and/or aircraft\" (incorporated in the Institute Cargo Clauses) is amended to read as follows:\n\n\"In no case shall this insurance cover loss, damage or expense arising from insolvency or financial default of the owners, managers, charterers or operators of the vessel and/or aircraft where the Assured is aware, or in the ordinary course of business should know that said financial default may prevent the normal prosecution of the voyage.\n\nThis exclusion shall not apply where this insurance has been assigned to the party claiming hereunder who has bought or agreed to buy the subject-matter insured in good faith under a binding contract"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="edfcd306-8d61-4886-8b1c-1b7d90c6e0ad" style="common" stretchType="RelativeToTallestObject" x="0" y="0" width="167" height="15" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true">
+					<printWhenExpression><![CDATA[$F{AMENDED_CLAUSE_PRINT_STATUS}.equals("Y")]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<text><![CDATA[ Amended Insolvency Exclusion Clause]]></text>
+			</staticText>
+		</band>
+		<band height="15" splitType="Prevent">
+			<printWhenExpression><![CDATA[(($P{endtStatus}!="true")||($F{ENDT_TYPE}.contains( ",25," )))&&("Y".equals($F{EXCLUSIONYN}))]]></printWhenExpression>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="344b22ca-0ae9-47ca-830c-5ee1e411bc2a" style="common" stretchType="RelativeToTallestObject" x="0" y="0" width="167" height="15" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true"/>
+				<box leftPadding="3">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<textFieldExpression><![CDATA["Exclusions"]]></textFieldExpression>
+			</textField>
+			<componentElement>
+				<reportElement uuid="fc1e84f8-cc07-4680-bd5c-f98b7a7bb0cc" key="table 6" style="table 6" x="167" y="0" width="356" height="15" isRemoveLineWhenBlank="true"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="Exclusion" uuid="1e5a3c7b-b6b3-4a4c-b851-0f3327e6580e">
+						<datasetParameter name="proposalNo">
+							<datasetParameterExpression><![CDATA[$P{proposalNo}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="branchCode">
+							<datasetParameterExpression><![CDATA[$P{branchCode}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="356" uuid="66637fa7-b88c-4578-b77a-350f4bbcb01d">
+						<jr:detailCell style="table 6_TD" height="15" rowSpan="1">
+							<textField isStretchWithOverflow="true">
+								<reportElement uuid="e827b3da-c178-46c5-96e2-133afe236893" style="common" x="13" y="0" width="343" height="15" isRemoveLineWhenBlank="true"/>
+								<textElement>
+									<font size="9"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{CODEDESC}]]></textFieldExpression>
+							</textField>
+							<staticText>
+								<reportElement uuid="5bf9d7f0-c0c1-47e8-9901-e5313bf5d0fb" style="common" x="0" y="0" width="13" height="15"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="9"/>
+								</textElement>
+								<text><![CDATA[*]]></text>
+							</staticText>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+		<band height="15" splitType="Prevent">
+			<printWhenExpression><![CDATA[(($P{endtStatus}!="true")||($F{ENDT_TYPE}.contains( ",26," )))&&("Y".equals($F{WARRANTYYN}))]]></printWhenExpression>
+			<componentElement>
+				<reportElement uuid="233af83e-8abf-4082-8c77-01bbb6f0364e" key="table 8" style="table 8" x="167" y="0" width="356" height="15" isRemoveLineWhenBlank="true"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="Warranty" uuid="4e1ccefb-7d42-476e-a517-c1b607f3338a">
+						<datasetParameter name="proposalNo">
+							<datasetParameterExpression><![CDATA[$P{proposalNo}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="branchCode">
+							<datasetParameterExpression><![CDATA[$P{branchCode}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="356" uuid="690ad99f-866b-4ead-8170-07685446f92c">
+						<jr:detailCell style="table 8_TD" height="15" rowSpan="1">
+							<textField isStretchWithOverflow="true">
+								<reportElement uuid="8318e6cd-eacf-4281-8f18-15483230fe35" style="common" x="13" y="0" width="343" height="15" isRemoveLineWhenBlank="true"/>
+								<textElement>
+									<font size="9"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{CODEDESC}]]></textFieldExpression>
+							</textField>
+							<staticText>
+								<reportElement uuid="9a90503d-1122-4d7d-9b9d-479f6570020c" style="common" x="0" y="0" width="13" height="15"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="9"/>
+								</textElement>
+								<text><![CDATA[*]]></text>
+							</staticText>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="667a0540-b927-42b1-9343-a60034585962" style="common" stretchType="RelativeToTallestObject" x="0" y="0" width="167" height="15" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true"/>
+				<box leftPadding="3">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<textFieldExpression><![CDATA["Warranties"]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="19">
+			<printWhenExpression><![CDATA[!($F{RATE_PRINT_STATUS}.equals("Y"))]]></printWhenExpression>
+			<textField>
+				<reportElement uuid="7c966fd3-ab9f-4a38-90d7-d22810e41d41" style="common" x="167" y="0" width="356" height="15" isRemoveLineWhenBlank="true"/>
+				<box leftPadding="4">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<textFieldExpression><![CDATA["As Agreed."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="6ef928df-3e88-408b-91e6-2b1edf9a4074" style="common" x="0" y="0" width="167" height="15" isRemoveLineWhenBlank="true"/>
+				<box leftPadding="3">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<text><![CDATA[Rates]]></text>
+			</staticText>
+		</band>
+		<band height="21">
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="02745340-a6d3-4d8d-b386-fc7bfa02b751" style="common" x="0" y="0" width="523" height="15" isPrintWhenDetailOverflows="true"/>
+				<box leftPadding="3"/>
+				<textElement/>
+				<textFieldExpression><![CDATA["Subject to Important Notice as below\n\nImportant Notice [In case of failure by the Assured or his agent to comply with the following Conditions, the Insurer is discharged from any liability under the policy and/or may avoid the contract"]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="39">
+			<printWhenExpression><![CDATA[($P{endtStatus}!="true")||($F{ENDT_TYPE}.contains( ",37," ))]]></printWhenExpression>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="bb86d8d0-f1c4-4c5c-91f9-e69af6f95a1d" style="common" x="0" y="20" width="523" height="15" isPrintWhenDetailOverflows="true"/>
+				<box leftPadding="3"/>
+				<textElement/>
+				<textFieldExpression><![CDATA["Disclosure\n\nIt is a condition of this insurance that the Assured has disclosed to the Insurer, before the contract was concluded, every material circumstance which was known to the Assured, and the Assured is deemed to know every circumstance which, in the ordinary course of business, ought to be known by him. If the Assured has failed to make such disclosure, the Insurer may avoid the contract. Every circumstance is material which would influence the judgment of a prudent Insurer in fixing the premium, or determining whether he will take the risk.\n\nIt is also a condition of this insurance that the Assured shall notify the Insurer during validity of the contract, and before the renewal(s) are concluded and during the validity of each renewal, of any changes in the material circumstances which may increase the risk to be borne by the Insurer."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="b2e158a2-fd0b-4637-8ee2-b001eb9cbb5b" style="common1" x="0" y="5" width="523" height="15"/>
+				<box leftPadding="3"/>
+				<textElement>
+					<font isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Conditions]]></text>
+			</staticText>
+		</band>
+		<band height="15">
+			<printWhenExpression><![CDATA[($P{endtStatus}!="true")||($F{ENDT_TYPE}.contains( ",37," ))]]></printWhenExpression>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="67487f32-5551-492d-945f-0b2729c41daa" style="common" x="0" y="0" width="523" height="15" isPrintWhenDetailOverflows="true"/>
+				<box leftPadding="3"/>
+				<textElement/>
+				<textFieldExpression><![CDATA["\nRepresentation\n\nEvery material representation made by the Assured or his agent to the Insurer during the negotiations for the contract and/or renewal, before the contract and/or renewal(s) are concluded, and during the currency of the policy and/or renewal(s), must be true. If it be untrue the Insurer may avoid the contract. A representation is material which would influence the judgment of a prudent Insurer in fixing the premium, or determining whether he will take the risk."]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="19">
+			<printWhenExpression><![CDATA[($P{endtStatus}!="true")||($F{ENDT_TYPE}.contains( ",37," ))]]></printWhenExpression>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="6d330e3d-aaf4-4293-828e-df296b9c6c74" style="common" x="0" y="0" width="523" height="15" isPrintWhenDetailOverflows="true"/>
+				<box leftPadding="3"/>
+				<textElement/>
+				<textFieldExpression><![CDATA["\nWARRANTIES\n\nThis policy contains warranties. Warranties are conditions which must be exactly complied with, whether they be material to the risk or not.If they be not so complied with, then, subject to any express provision in this policy, the Insurer is discharged from any liability under the policy as from the date of the breach of warranty, but without prejudice to any liability incurred by him before that date."]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="117" splitType="Prevent">
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="2e3ca0f5-a0f6-40ce-a46e-231015819a8b" style="common1" x="0" y="0" width="523" height="15"/>
+				<box leftPadding="3"/>
+				<textElement/>
+				<textFieldExpression><![CDATA["In witness whereof this policy is signed for and on behalf of the Company at "+($F{BRANCH_NAME}==null?"":($F{BRANCH_NAME}))+" this "+($F{INCEPTION_DATE}==null?"":($F{INCEPTION_DATE}))]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="71e8adcb-580d-4cc2-9788-457e8275cfc0" style="common" x="225" y="101" width="298" height="15" isRemoveLineWhenBlank="true"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["SAUDI ARABIAN COOPERATIVE INSURANCE COMPANY"]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement uuid="3faf56eb-8b04-411b-b877-3ab7ffcae164" x="368" y="15" width="154" height="86">
+					<printWhenExpression><![CDATA[$F{SIGN_IMG}!=null]]></printWhenExpression>
+				</reportElement>
+				<imageExpression><![CDATA[$P{imagePath}+"//"+$F{SIGN_IMG}]]></imageExpression>
+			</image>
+		</band>
+		<band height="30">
+			<printWhenExpression><![CDATA[$F{RSA_SHARED_PERCENTAGE}.intValue()<100]]></printWhenExpression>
+			<textField>
+				<reportElement uuid="b086e004-d518-4c1f-b5c0-ddb67100b643" style="common1" x="1" y="0" width="524" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA["Co-Insurance"]]></textFieldExpression>
+			</textField>
+			<componentElement>
+				<reportElement uuid="45a09c9f-ee8a-411b-8f1f-f169a6d4edc5" key="table 5" style="table 15" x="1" y="15" width="523" height="15"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="Co-Insurance" uuid="cee130e2-5460-461f-ab5d-aa1a4ed94426">
+						<datasetParameter name="proposalNo">
+							<datasetParameterExpression><![CDATA[$P{proposalNo}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="branchCode">
+							<datasetParameterExpression><![CDATA[$P{branchCode}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="67" uuid="ecb8641c-1876-437d-a7de-a37cc2a3fbf5">
+						<jr:tableHeader style="table 15_TH" height="15" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="63c223ce-6166-4200-b275-a3ab9aecc2a4" style="common1" x="0" y="0" width="67" height="15"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA["S.No"]]></textFieldExpression>
+							</textField>
+						</jr:tableHeader>
+						<jr:detailCell style="table 15_TD" height="15" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="d1051783-800e-4009-b6a2-718cd124a7ca" style="common" x="0" y="0" width="67" height="15" isRemoveLineWhenBlank="true"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="244" uuid="f7e4979b-4aa6-47d9-9288-c097ae093a25">
+						<jr:tableHeader style="table 15_TH" height="15" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="d12bc61d-bac7-4018-8fa0-1cbd65f1cce4" style="common1" x="0" y="0" width="244" height="15"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA["Company Name"]]></textFieldExpression>
+							</textField>
+						</jr:tableHeader>
+						<jr:detailCell style="table 15_TD" height="15" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="ab922ddf-ef1b-4da7-aaa7-f65bce89f5cd" style="common" x="0" y="0" width="244" height="15" isRemoveLineWhenBlank="true"/>
+								<box leftPadding="5"/>
+								<textElement/>
+								<textFieldExpression><![CDATA[$F{INSURANCE_COMPANY_NAME}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="1bf7b765-e082-4b4c-8c1c-7895bc0d8874">
+						<jr:tableHeader style="table 15_TH" height="15" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="5560cc5f-e10b-4b0f-a205-9413678a99ae" style="common1" x="0" y="0" width="90" height="15"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA["Shared Percentage"]]></textFieldExpression>
+							</textField>
+						</jr:tableHeader>
+						<jr:detailCell style="table 15_TD" height="15" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="7c0b1e8a-739d-4e51-92dd-a87a43ffe206" style="common" x="0" y="0" width="90" height="15" isRemoveLineWhenBlank="true"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[$F{SHARE_PERCENTAGE}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="121" uuid="cdf30461-bbfc-4d95-8c09-8bdbbcd3fb1e">
+						<jr:tableHeader style="table 15_TH" height="15" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="49607e16-2b37-4ac3-87de-c4e451aad386" style="common1" x="0" y="0" width="121" height="15"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA["Leader / Participant"]]></textFieldExpression>
+							</textField>
+						</jr:tableHeader>
+						<jr:detailCell style="table 15_TD" height="15" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="53c791bf-d277-4ffc-9ba2-0824fee617e1" style="common" x="0" y="0" width="121" height="15" isRemoveLineWhenBlank="true"/>
+								<box leftPadding="5"/>
+								<textElement/>
+								<textFieldExpression><![CDATA[$F{LEADER_YN}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+		<band height="43">
+			<break>
+				<reportElement uuid="32f3c798-a219-47de-911e-f42fcf4f025e" x="0" y="1" width="521" height="1">
+					<printWhenExpression><![CDATA[(($F{RATE_PRINT_STATUS}.equals("Y"))&&(($P{endtStatus}!="true")||(($F{ENDT_TYPE}.contains( "29" )||($F{ENDT_TYPE}.contains( "28" ))))))]]></printWhenExpression>
+				</reportElement>
+			</break>
+			<componentElement>
+				<reportElement uuid="e27bc425-0626-4368-80ed-b4733b9f638a" key="table 15" style="table 15" stretchType="RelativeToBandHeight" x="1" y="27" width="523" height="15" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[(($F{RATE_PRINT_STATUS}.equals("Y"))&&(($P{endtStatus}!="true")||(($F{ENDT_TYPE}.contains( "29" )||($F{ENDT_TYPE}.contains( "28" )))))&&($F{RATEYN}.equals("Y")))]]></printWhenExpression>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="CommodityRate" uuid="ee446b8b-138d-42ea-a946-ee34d1983119">
+						<datasetParameter name="proposalNo">
+							<datasetParameterExpression><![CDATA[$P{proposalNo}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="branchCode">
+							<datasetParameterExpression><![CDATA[$P{branchCode}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="30" uuid="c5208d56-e7ce-43ec-877e-5070e8bc906c">
+						<jr:tableHeader height="15" rowSpan="1">
+							<box>
+								<pen lineWidth="0.5"/>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.5"/>
+								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.5"/>
+							</box>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="2a4faa58-c724-4aba-a5e3-93bab4812af7" style="common" x="0" y="0" width="30" height="15"/>
+								<textElement textAlignment="Center" markup="none"/>
+								<textFieldExpression><![CDATA["SNo"]]></textFieldExpression>
+							</textField>
+						</jr:tableHeader>
+						<jr:detailCell height="15" rowSpan="1">
+							<box>
+								<pen lineWidth="0.5"/>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.5"/>
+								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.5"/>
+							</box>
+							<textField>
+								<reportElement uuid="3fefd537-02e2-470b-81ef-c3493db15d4c" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="30" height="15"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[$F{SNO}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="115" uuid="39cedaf3-924e-4c65-a454-64dc8fcf4e8e">
+						<jr:tableHeader style="table 15_TH" height="15" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="64816b35-acfc-492b-8b68-eacfa6fd76d4" style="common" x="0" y="0" width="115" height="15"/>
+								<textElement textAlignment="Center" markup="none"/>
+								<textFieldExpression><![CDATA["Commodity Desc."]]></textFieldExpression>
+							</textField>
+						</jr:tableHeader>
+						<jr:detailCell style="table 15_TD" height="15" rowSpan="1">
+							<textField isStretchWithOverflow="true">
+								<reportElement uuid="cfd11620-a0f6-4056-87e2-f9f9fdba272d" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="115" height="15" isPrintWhenDetailOverflows="true"/>
+								<box leftPadding="3"/>
+								<textElement/>
+								<textFieldExpression><![CDATA[$F{CODETEXT1}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="100" uuid="b75aaeab-2991-478b-844c-92892c551794">
+						<jr:tableHeader style="table 15_TH" height="15" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="11db5a27-08c0-4086-b327-05ae2e68ec5c" style="common" x="0" y="0" width="100" height="15"/>
+								<textElement textAlignment="Center" markup="none"/>
+								<textFieldExpression><![CDATA["Mode of Transport"]]></textFieldExpression>
+							</textField>
+						</jr:tableHeader>
+						<jr:detailCell style="table 15_TD" height="15" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="1261ea73-c269-4811-a284-c60c0d634ed9" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="100" height="15" isPrintWhenDetailOverflows="true"/>
+								<box leftPadding="3"/>
+								<textElement/>
+								<textFieldExpression><![CDATA[$F{CODE}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="65" uuid="5763cb8d-833a-41db-a5fd-4464e0a477cc">
+						<jr:tableHeader style="table 15_TH" height="15" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="40e1e1a3-3d0b-4c05-a670-ba238be5829e" style="common" x="0" y="0" width="65" height="15"/>
+								<textElement textAlignment="Center" markup="none"/>
+								<textFieldExpression><![CDATA["Coverage"]]></textFieldExpression>
+							</textField>
+						</jr:tableHeader>
+						<jr:detailCell style="table 15_TD" height="15" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="aca3eca8-d859-433e-84dd-52ff29decff0" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="65" height="15" isPrintWhenDetailOverflows="true"/>
+								<box leftPadding="3"/>
+								<textElement/>
+								<textFieldExpression><![CDATA[$F{CODEDESC}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="50" uuid="5a0b28ff-e0df-4eaf-a183-2e65db5e13c0">
+						<jr:tableHeader style="table 15_TH" height="15" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="f0ee0a70-3b06-46fe-9388-0099d4ee4ac5" style="common" x="0" y="0" width="50" height="15"/>
+								<textElement textAlignment="Center" markup="none"/>
+								<textFieldExpression><![CDATA["Rate(%)"]]></textFieldExpression>
+							</textField>
+						</jr:tableHeader>
+						<jr:detailCell style="table 15_TD" height="15" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="d46ffd12-d8ac-4c15-9002-8bef3f71aa32" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="50" height="15" isPrintWhenDetailOverflows="true"/>
+								<box rightPadding="3"/>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$F{CODETEXT2}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="50" uuid="69bf49c2-ca22-44e0-b492-84307312fc20">
+						<jr:tableHeader height="15" rowSpan="1">
+							<box>
+								<pen lineWidth="0.5"/>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.5"/>
+								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.5"/>
+							</box>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="b0bc1565-0add-46ad-a998-338218f88a56" style="common" x="0" y="0" width="50" height="15"/>
+								<textElement textAlignment="Center" markup="none"/>
+								<textFieldExpression><![CDATA["Excess(%)"]]></textFieldExpression>
+							</textField>
+						</jr:tableHeader>
+						<jr:detailCell height="15" rowSpan="1">
+							<box>
+								<pen lineWidth="0.5"/>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.5"/>
+								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.5"/>
+							</box>
+							<textField isStretchWithOverflow="true" pattern="#,##0.0000" isBlankWhenNull="true">
+								<reportElement uuid="197d4000-3941-444e-b970-b63a126d0a87" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="50" height="15" isPrintWhenDetailOverflows="true"/>
+								<box rightPadding="3"/>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[new java.text.DecimalFormat("##,##0.####").format(Double.valueOf($F{CODETEXT3}))]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="55" uuid="397a1eb1-698a-456b-a4e9-da666a112971">
+						<jr:tableHeader height="15" rowSpan="1">
+							<box>
+								<pen lineWidth="0.5"/>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.5"/>
+								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.5"/>
+							</box>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="a436c6c2-7702-43f2-8f01-ac30f08317c3" style="common" x="0" y="0" width="55" height="15"/>
+								<textElement textAlignment="Center" markup="none"/>
+								<textFieldExpression><![CDATA["Excess Value"]]></textFieldExpression>
+							</textField>
+						</jr:tableHeader>
+						<jr:detailCell height="15" rowSpan="1">
+							<box>
+								<pen lineWidth="0.5"/>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.5"/>
+								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.5"/>
+							</box>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="3e5c267d-97d6-46ef-af97-333bf849bd49" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="55" height="15" isPrintWhenDetailOverflows="true"/>
+								<box rightPadding="3"/>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$F{CODETEXT4}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="57" uuid="3e05e3d4-4acb-4ca8-ba2f-fc15c92fe462">
+						<jr:tableHeader height="15" rowSpan="1">
+							<box>
+								<pen lineWidth="0.5"/>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.5"/>
+								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.5"/>
+							</box>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="ae12bc1f-f213-4965-9901-b4539d99de5a" style="common" x="0" y="0" width="57" height="15"/>
+								<textElement textAlignment="Center" markup="none"/>
+								<textFieldExpression><![CDATA["Excess Description"]]></textFieldExpression>
+							</textField>
+						</jr:tableHeader>
+						<jr:detailCell height="15" rowSpan="1">
+							<box>
+								<pen lineWidth="0.5"/>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.5"/>
+								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.5"/>
+							</box>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="2c200b0b-c883-4a57-a1f2-559bbe1b251b" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="57" height="15" isPrintWhenDetailOverflows="true"/>
+								<box leftPadding="2" rightPadding="3"/>
+								<textElement textAlignment="Left"/>
+								<textFieldExpression><![CDATA[$F{CODETEXT5}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<staticText>
+				<reportElement uuid="24d6e7bb-7f7b-4dc8-8c31-58a30674824e" style="common1" x="1" y="12" width="203" height="15" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[(($F{RATE_PRINT_STATUS}.equals("Y"))&&(($P{endtStatus}!="true")||(($F{ENDT_TYPE}.contains( "29" )||($F{ENDT_TYPE}.contains( "28" )))))&&($F{RATEYN}.equals("Y")))]]></printWhenExpression>
+				</reportElement>
+				<box leftPadding="3"/>
+				<textElement>
+					<font isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[RATES]]></text>
+			</staticText>
+		</band>
+		<band height="39">
+			<printWhenExpression><![CDATA[(($F{RATE_PRINT_STATUS}.equals("Y"))&&(($P{endtStatus}!="true")||(($F{ENDT_TYPE}.contains( ",29," )||($F{ENDT_TYPE}.contains( ",28," )))))&&("Y".equals($F{WARRANTYYN})))]]></printWhenExpression>
+			<componentElement>
+				<reportElement uuid="86365bc4-610e-476f-a6d2-eaa815d41158" key="table 16" style="table 16" x="0" y="20" width="523" height="15" isRemoveLineWhenBlank="true"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="WarRate" uuid="5c7c2d1c-289b-48b5-ade7-df4500dfb796">
+						<datasetParameter name="proposalNo">
+							<datasetParameterExpression><![CDATA[$P{proposalNo}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="branchCode">
+							<datasetParameterExpression><![CDATA[$P{branchCode}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="45" uuid="955a8607-c8b8-4623-aa0c-eb7408a877d7">
+						<jr:tableHeader style="table 16_TH" height="15" rowSpan="1">
+							<staticText>
+								<reportElement uuid="e106a2c5-7e0e-4cb8-a60c-92861dd27387" style="common" x="0" y="0" width="45" height="15"/>
+								<textElement textAlignment="Center"/>
+								<text><![CDATA[SNo]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table 16_TD" height="15" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="c26d0935-ae16-420b-bef4-c0b73d518aac" style="common" x="0" y="0" width="45" height="15" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[$F{SNO}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="239" uuid="74b4c043-8e7d-470b-83ef-f8fe09ffbe3b">
+						<jr:tableHeader style="table 16_TH" height="15" rowSpan="1">
+							<staticText>
+								<reportElement uuid="68e13c8b-659c-4b68-a041-5427989e0929" style="common" x="0" y="0" width="239" height="15"/>
+								<textElement textAlignment="Center"/>
+								<text><![CDATA[Mode of Transport]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table 16_TD" height="15" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="30ca6b53-ab24-469f-a9e0-127b2cf577a7" style="common" x="0" y="0" width="239" height="15" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true"/>
+								<box leftPadding="3"/>
+								<textElement/>
+								<textFieldExpression><![CDATA[$F{CODE}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="237" uuid="6b334932-f79c-41d3-bc93-f60ae4ed1b13">
+						<jr:tableHeader style="table 16_TH" height="15" rowSpan="1">
+							<staticText>
+								<reportElement uuid="04663aa0-48c6-4608-91ad-bc44d1664658" style="common" x="0" y="0" width="237" height="15"/>
+								<textElement textAlignment="Center"/>
+								<text><![CDATA[Rate(%)]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table 16_TD" height="15" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="fc63ef18-f33e-4656-b4de-dac4ac4e4ed3" style="common" x="0" y="0" width="237" height="15" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true"/>
+								<box rightPadding="3"/>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$F{CODEDESC}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<staticText>
+				<reportElement uuid="4f6f3bf3-20e5-4236-b8e2-8337a28f0fbf" style="common1" x="0" y="0" width="203" height="15" isRemoveLineWhenBlank="true"/>
+				<box leftPadding="3"/>
+				<textElement>
+					<font isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[WAR & SRCC RATES]]></text>
+			</staticText>
+		</band>
+		<band height="61">
+			<printWhenExpression><![CDATA[((($P{endtStatus}!="true")||(($F{ENDT_TYPE}.contains( "34" )))))&&($F{DEDUCTIBLEYN}.equals("Y"))&&(!$F{RATE_PRINT_STATUS}.equals("Y"))]]></printWhenExpression>
+			<staticText>
+				<reportElement uuid="5ec147e5-a8a2-4659-b2d0-b55cc079422b" style="common1" x="0" y="12" width="201" height="15" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[((($P{endtStatus}!="true")||(($F{ENDT_TYPE}.contains( "34" )))))&&($F{DEDUCTIBLEYN}.equals("Y"))]]></printWhenExpression>
+				</reportElement>
+				<box leftPadding="3"/>
+				<textElement>
+					<font isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[DEDUCTIBLE]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="7d92515f-42a0-431d-9e54-3af1e1d3c580" style="common" x="0" y="27" width="523" height="15" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[((($P{endtStatus}!="true")||(($F{ENDT_TYPE}.contains( "34" )))))&&($F{DEDUCTIBLEYN}.equals("Y"))]]></printWhenExpression>
+				</reportElement>
+				<box leftPadding="3"/>
+				<textElement/>
+				<textFieldExpression><![CDATA["Claims, if any, are payable subject to an excess for each and every loss."]]></textFieldExpression>
+			</textField>
+			<componentElement>
+				<reportElement uuid="9ffb4369-622d-44ab-8ab7-b616e6b1fa25" key="table 17" style="table 17" x="0" y="42" width="523" height="15" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[((($P{endtStatus}!="true")||(($F{ENDT_TYPE}.contains( "34" )))))&&($F{DEDUCTIBLEYN}.equals("Y"))]]></printWhenExpression>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="Deductible" uuid="ac24b8f1-e6cc-4292-8c74-7fbd48e2bce5">
+						<datasetParameter name="proposalNo">
+							<datasetParameterExpression><![CDATA[$P{proposalNo}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="branchCode">
+							<datasetParameterExpression><![CDATA[$P{branchCode}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="45" uuid="441ea947-844d-4dc4-a859-91171380f625">
+						<jr:tableHeader style="table 17_TH" height="15" rowSpan="1">
+							<staticText>
+								<reportElement uuid="0cb9c372-651f-4883-bc03-5e6dca873910" style="common" x="0" y="0" width="45" height="15"/>
+								<textElement textAlignment="Center"/>
+								<text><![CDATA[SNo]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table 17_TD" height="15" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="e2806822-bbc4-4b90-a782-ddd62cd346a8" style="common" x="0" y="0" width="45" height="15" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[$F{SNO}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="119" uuid="dc1c611a-5d60-4491-af16-ba370027d1ea">
+						<jr:tableHeader style="table 17_TH" height="15" rowSpan="1">
+							<staticText>
+								<reportElement uuid="19882d99-74fa-41ef-b5fa-c6fbef4764e1" style="common" x="0" y="0" width="119" height="15"/>
+								<textElement textAlignment="Center"/>
+								<text><![CDATA[Start Range]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table 17_TD" height="15" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="b478f580-dfd8-4cf8-913d-f5c229c39571" style="common" x="0" y="0" width="119" height="15" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true"/>
+								<box rightPadding="4"/>
+								<textElement textAlignment="Right" verticalAlignment="Top"/>
+								<textFieldExpression><![CDATA[$F{CODE}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="112" uuid="8d8fd5bb-9db7-47df-b222-f045f2563201">
+						<jr:tableHeader style="table 17_TH" height="15" rowSpan="1">
+							<staticText>
+								<reportElement uuid="8e6b0209-74c0-4a3b-9617-512dbb401fe7" style="common" x="0" y="0" width="112" height="15"/>
+								<textElement textAlignment="Center"/>
+								<text><![CDATA[End Range]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table 17_TD" height="15" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="fa620af1-4d34-430b-b8bd-747bd27a7d34" style="common" x="0" y="0" width="112" height="15" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true"/>
+								<box rightPadding="4"/>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$F{CODEDESC}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="130" uuid="7df75708-50b0-4015-b598-1585125c9013">
+						<jr:tableHeader style="table 17_TH" height="15" rowSpan="1">
+							<staticText>
+								<reportElement uuid="cd25c12b-28c4-494a-8943-de84e355d9ef" style="common" x="0" y="0" width="130" height="15"/>
+								<textElement textAlignment="Center"/>
+								<text><![CDATA[Excess Amount]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table 17_TD" height="15" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="d98e4940-8954-4b1f-8928-9d050d8c2b3f" style="common" x="0" y="0" width="130" height="15" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true"/>
+								<box rightPadding="4"/>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$F{CODEVALUE}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="118" uuid="aa15fc1f-624d-4bf2-b39b-7f6d5217947a">
+						<jr:tableHeader style="table 17_TH" height="15" rowSpan="1">
+							<staticText>
+								<reportElement uuid="91be0dec-56bb-477f-89de-b0e9c6deb303" style="common" x="0" y="0" width="118" height="15"/>
+								<textElement textAlignment="Center"/>
+								<text><![CDATA[Currency]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table 17_TD" height="15" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="acd9745e-3c8c-426d-8457-c452e1b493e7" style="common" x="0" y="0" width="118" height="15" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[$F{CODETEXT1}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<break>
+				<reportElement uuid="ac8119ea-1675-47d8-9a59-c1a287ca5140" x="0" y="0" width="521" height="1">
+					<printWhenExpression><![CDATA[(($P{endtStatus}!="true")||($F{ENDT_TYPE}.contains( "34" )))&&($F{DEDUCTIBLEYN}.equals("Y"))&&(!$F{RATE_PRINT_STATUS}.equals("Y"))]]></printWhenExpression>
+				</reportElement>
+			</break>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="15" splitType="Stretch">
+			<textField>
+				<reportElement uuid="5589d4d1-2216-45df-8130-186cba124f9e" x="403" y="0" width="80" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement uuid="fd06c7d1-48c8-44a5-b7a1-44e93af39917" x="483" y="0" width="40" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="9907078f-521c-4327-921e-7acd36b3dd26" style="common" x="0" y="0" width="403" height="15" isRemoveLineWhenBlank="true"/>
+				<box leftPadding="3"/>
+				<textElement/>
+				<textFieldExpression><![CDATA["List attaching to and forming part of "+($F{OPEN_COVER_NO}==null?("Proposal No "+$P{proposalNo}):("Policy No "+$F{OPEN_COVER_NO}))+"\n"]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="60" splitType="Stretch">
+			<image scaleImage="FillFrame" hAlign="Center" vAlign="Middle">
+				<reportElement uuid="3a984ba2-38f9-42a8-a24c-19ee9080b5c7" x="0" y="0" width="523" height="60" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$F{FOOTER_IMG}!=null]]></printWhenExpression>
+				</reportElement>
+				<imageExpression><![CDATA[$P{imagePath}+"//"+$F{FOOTER_IMG}]]></imageExpression>
+			</image>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
