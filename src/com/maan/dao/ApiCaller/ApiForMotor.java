@@ -560,7 +560,6 @@ public class ApiForMotor extends ApiConfig implements Callable<Object>{
 	@SuppressWarnings("unchecked")
 	public List<Map<String, Object>> getVehicleTypeDetails(String make, String model, String branchCode,
 			String applicationNo, String vehicleId) {
-		
 		JSONObject hp = new JSONObject();
 		JSONObject json = null;
 		JSONArray array = new JSONArray();

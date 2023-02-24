@@ -223,7 +223,7 @@ public class CommonDAO extends MyJdbcTemplate
 		return refYN;
 	}
 
-	public List<Object> getOptionsList(String option, Object[] objects)
+	public List<Object> getOptionsList(String option,String String, Object[] objects)
 	{
 		LogManager.info("getOptionsList - Enter || option: "+option);
 		List<Object> list=new ArrayList<Object>();

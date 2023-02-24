@@ -7,6 +7,7 @@ import java.util.Map;
 import org.apache.commons.lang3.StringUtils;
 
 import com.maan.Motor.DAO.MotorDAO;
+import com.maan.Motor.controller.MotorBean;
 import com.maan.common.LogManager;
 import com.maan.common.MyJdbcTemplate;
 import com.maan.common.dao.CommonDAO;
@@ -268,8 +269,10 @@ public class PaymentProcessDAOImpl extends MyJdbcTemplate implements PaymentProc
 
 	public List<Map<String, Object>> getvehicleDetails(PaymentProcessBean bean) {
 		List<Map<String,Object>> result=null;
+		MotorBean bean1 = new MotorBean();
+		bean1.setApplicationNo(bean.getApplicationNo());
 		try{
-			  result = new MotorDAO().getMultiVehicleDetails(bean.getApplicationNo(),bean.getProductId(),bean.getBranchCode());
+			  result = new MotorDAO().getMultiVehicleDetails(bean1);
 		}catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -4,6 +4,7 @@ import java.io.UnsupportedEncodingException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.KeySpec;
+import java.util.Base64;
 
 import javax.crypto.Cipher;
 import javax.crypto.NoSuchPaddingException;
@@ -12,8 +13,6 @@ import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.DESKeySpec;
 import javax.crypto.spec.DESedeKeySpec;
 
-import sun.misc.BASE64Decoder;
-import sun.misc.BASE64Encoder;
 
 public class StringEncrypter
 {
@@ -97,8 +96,7 @@ public class StringEncrypter
 			byte[] cleartext = unencryptedString.getBytes( UNICODE_FORMAT );
 			byte[] ciphertext = cipher.doFinal( cleartext );
 
-			BASE64Encoder base64encoder = new BASE64Encoder();
-			return base64encoder.encode( ciphertext );
+			return new String(Base64.getEncoder().encode( ciphertext ));
 		}
 		catch (Exception e)
 		{
@@ -115,8 +113,7 @@ public class StringEncrypter
 		{
 			SecretKey key = keyFactory.generateSecret( keySpec );
 			cipher.init( Cipher.DECRYPT_MODE, key );
-			BASE64Decoder base64decoder = new BASE64Decoder();
-			byte[] cleartext = base64decoder.decodeBuffer( encryptedString );
+			byte[] cleartext = Base64.getDecoder().decode( encryptedString );
 			byte[] ciphertext = cipher.doFinal( cleartext );
 
 			return bytes2String( ciphertext );

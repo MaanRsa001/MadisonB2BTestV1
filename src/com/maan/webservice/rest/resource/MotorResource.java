@@ -34,7 +34,7 @@ import com.maan.webservice.service.ManipulateImage;
 @SuppressWarnings("unused")
 @Path("motor")
 public class MotorResource {
-	
+
 	@POST
 	@Path("/editQuote")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -46,7 +46,7 @@ public class MotorResource {
 		MotorService service = new MotorService();
 		service.editQuote(bean,hasActionErrors(bean.getActionErrorsBean()));
 		if(StringUtils.isNotBlank(bean.getApplicationNo())) {
-			bean.setVehicleDetailsList(service.getMultiVehicleDetails(bean.getApplicationNo(), bean.getProductId(), bean.getBranchCode()));
+			bean.setVehicleDetailsList(service.getMultiVehicleDetails(bean));
 		}
 		LogManager.info("editQuote - Exit");
 		return bean;
@@ -66,7 +66,7 @@ public class MotorResource {
 		bean.setReferralMsg(motorAction.getReferralMsgs());
 		if(!hasActionErrors(bean.getActionErrorsBean())) {
 			MotorService service = new MotorService();
-			bean.setVehicleDetailsList(service.getMultiVehicleDetails(bean.getApplicationNo(), bean.getProductId(), bean.getBranchCode()));
+			bean.setVehicleDetailsList(service.getMultiVehicleDetails(bean));
 		}
 		LogManager.info("Exit - getQuote "+bean);
 		return bean;
@@ -84,7 +84,7 @@ public class MotorResource {
 		motorAction.insertOptionCover();
 		if(!hasActionErrors(bean.getActionErrorsBean())) {
 			MotorService service = new MotorService();
-			bean.setVehicleDetailsList(service.getMultiVehicleDetails(bean.getApplicationNo(), bean.getProductId(), bean.getBranchCode()));
+			bean.setVehicleDetailsList(service.getMultiVehicleDetails(bean));
 		}
 		LogManager.info("Exit - insertOptionCover ");
 		return bean;

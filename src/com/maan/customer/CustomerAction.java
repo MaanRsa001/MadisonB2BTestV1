@@ -49,24 +49,24 @@ public class CustomerAction extends ActionSupport implements ModelDriven<Custome
 	
 	public List<Object> getTitleList()
 	{
-		return new com.maan.common.dao.CommonDAO().getOptionsList("title", getParams());
+		return new com.maan.common.dao.CommonDAO().getOptionsList("title",productId, getParams());
 	}
 	
 	public List<Object> getCityList()
 	{
-		return new com.maan.common.dao.CommonDAO().getOptionsList("city", getParams());
+		return new com.maan.common.dao.CommonDAO().getOptionsList("city",productId, getParams());
 	}
 	public List<Object> getCountryList()
 	{
-		return new com.maan.common.dao.CommonDAO().getOptionsList("country", getParams());
+		return new com.maan.common.dao.CommonDAO().getOptionsList("country",productId, getParams());
 	}
 	public List<Object> getNationalityList()
 	{																			 
-		return new com.maan.common.dao.CommonDAO().getOptionsList("nationality", getParams());
+		return new com.maan.common.dao.CommonDAO().getOptionsList("nationality",productId, getParams());
 	}
 	public List<Object> getOccupationList()
 	{
-		return new com.maan.common.dao.CommonDAO().getOptionsList("occupation", getParams());
+		return new com.maan.common.dao.CommonDAO().getOptionsList("occupation",productId, getParams());
 	}
 	public String getDetail()
 	{
@@ -139,7 +139,7 @@ public class CustomerAction extends ActionSupport implements ModelDriven<Custome
 	}
 	public List<Object> getExecutiveList()
 	{
-		return  new com.maan.common.dao.CommonDAO().getOptionsList("executive", getParams());
+		return  new com.maan.common.dao.CommonDAO().getOptionsList("executive",productId, getParams());
 	}
 	public String executiveList()
 	{
@@ -201,7 +201,7 @@ public class CustomerAction extends ActionSupport implements ModelDriven<Custome
 		return arr[1]+"/"+arr[0]+"/"+arr[2];
 	}
 	public List<Object> getBrokerList() {
-		return  new com.maan.common.dao.CommonDAO().getOptionsList("broker",new Object[]{actualBranch,issuer,selectedBranch,productId});
+		return  new com.maan.common.dao.CommonDAO().getOptionsList("broker",productId,new Object[]{actualBranch,issuer,selectedBranch,productId});
 	}
 	
 	public String editQuoteCustData() {

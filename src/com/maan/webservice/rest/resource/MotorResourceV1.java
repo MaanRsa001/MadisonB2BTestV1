@@ -46,7 +46,7 @@ public class MotorResourceV1 {
 			MotorService service = new MotorService();
 			service.editQuote(bean,hasActionErrors(bean.getActionErrorsBean()));
 			if(StringUtils.isNotBlank(bean.getApplicationNo())) {
-				bean.setVehicleDetailsList(service.getMultiVehicleDetails(bean.getApplicationNo(), bean.getProductId(), bean.getBranchCode()));
+				bean.setVehicleDetailsList(service.getMultiVehicleDetails(bean));
 			}
 			json = getJson(bean);
 		} catch (Exception e) {
@@ -70,7 +70,7 @@ public class MotorResourceV1 {
 			bean.setReferralMsg(motorAction.getReferralMsgs());
 			if(!hasActionErrors(bean.getActionErrorsBean())) {
 				MotorService service = new MotorService();
-				bean.setVehicleDetailsList(service.getMultiVehicleDetails(bean.getApplicationNo(), bean.getProductId(), bean.getBranchCode()));
+				bean.setVehicleDetailsList(service.getMultiVehicleDetails(bean));
 			}
 			json = getJson(bean);
 		} catch (Exception e) {
@@ -93,7 +93,7 @@ public class MotorResourceV1 {
 			motorAction.insertOptionCover();
 			if(!hasActionErrors(bean.getActionErrorsBean())) {
 				MotorService service = new MotorService();
-				bean.setVehicleDetailsList(service.getMultiVehicleDetails(bean.getApplicationNo(), bean.getProductId(), bean.getBranchCode()));
+				bean.setVehicleDetailsList(service.getMultiVehicleDetails(bean));
 			}
 			json = getJson(bean);
 		} catch (Exception e) {

@@ -109,14 +109,14 @@ public class HomeAction extends ActionSupport implements ModelDriven<HomeBean> {
 	}
 
 	public List<Object> getTitleList(){
-		return commonDAO.getOptionsList("title", getParams("title"));
+		return commonDAO.getOptionsList("title",bean.getProductId(), getParams("title"));
 	}
 
 	public List<Object> getCityList(){
-		return commonDAO.getOptionsList("city", getParams("city"));
+		return commonDAO.getOptionsList("city",bean.getProductId(), getParams("city"));
 	}
 	public List<Object> getOccupationList() {
-		return commonDAO.getOptionsList("Occupation", getParams("Occupation"));
+		return commonDAO.getOptionsList("Occupation",bean.getProductId(), getParams("Occupation"));
 	}
 	public List<Object> getBrokerList(){
 		return new com.maan.common.dao.CommonDAO().getOptionsList("broker", bean.getProductId(), new Object[]{bean.getBranchCode(),bean.getIssuer(),bean.getBranchCode(),bean.getProductId()});
@@ -228,7 +228,7 @@ public class HomeAction extends ActionSupport implements ModelDriven<HomeBean> {
 				if(StringUtils.isBlank(bean.getQuoteNo())){
 					bean.setQuoteNo(new CommonDAO().getSequenceNo("Quote",bean.getProductId(),bean.getBranchCode(),"",""));
 				}
-				bean.setCustomerId(new CustomerService().insertCustomerDetails(bean.getCustomerId(),bean.getLoginId(),bean.getBranchCode(),bean.getProductId(),bean.getTitle(),bean.getCustomerName(),bean.getMobileNo(),bean.getEmail(),bean.getAddress1(),bean.getAddress2(),bean.getPoBox(),bean.getCity(),bean.getCoreAppCode(),bean.getClientCustomerId(),bean.getCustArNo(),bean.getCustLastName(),bean.getCustPassportNo(),bean.getCustdob(),bean.getCustAlterMobileNo(),bean.getCustLandLineNo(),bean.getCustomerType(),bean.getCompanyRegNo(),bean.getCustNameArabic(),bean.getCustdobar(),bean.getGender(),bean.getOccupation(),"detailQuote",bean.getCustnrc1(),bean.getCustnrc2(),bean.getCustnrc3()));
+				bean.setCustomerId(new CustomerService().insertCustomerDetails(bean.getCustomerId(),bean.getLoginId(),bean.getBranchCode(),bean.getProductId(),bean.getTitle(),bean.getCustomerName(),bean.getMobileNo(),bean.getEmail(),bean.getAddress1(),bean.getAddress2(),bean.getPoBox(),bean.getCity(),bean.getCoreAppCode(),bean.getClientCustomerId(),bean.getCustArNo(),bean.getCustLastName(),bean.getCustPassportNo(),bean.getCustdob(),bean.getCustAlterMobileNo(),bean.getCustLandLineNo(),bean.getCustomerType(),bean.getCompanyRegNo(),bean.getCustNameArabic(),bean.getCustdobar(),bean.getGender(),bean.getOccupation(),"detailQuote",bean.getCustnrc1(),bean.getCustnrc2(),bean.getCustnrc3(),""));
 				if(StringUtils.isNotBlank(bean.getCustomerId())){
 					if(service.manipulateHomePosition(bean)){
 						service.getQuoteInfo(bean);
@@ -1057,7 +1057,7 @@ public class HomeAction extends ActionSupport implements ModelDriven<HomeBean> {
 						bean.getClientCustomerId(),bean.getCustArNo(),bean.getCustLastName(),bean.getCustPassportNo(),
 						bean.getCustdob(),bean.getCustAlterMobileNo(),bean.getCustLandLineNo(),bean.getCustomerType(),
 						bean.getCompanyRegNo(),bean.getCustNameArabic(),bean.getCustdobar(),bean.getGender(),
-						bean.getOccupation(),"detailQuote",bean.getCustnrc1(),bean.getCustnrc2(),bean.getCustnrc3());
+						bean.getOccupation(),"detailQuote",bean.getCustnrc1(),bean.getCustnrc2(),bean.getCustnrc3(),"");
 				service.updateInceptionDate(bean);
 				commonDAO.updateInstallmentDetail(bean.getQuoteNo(),"HSS",bean.getInstallmentYN());
 				if("N".equalsIgnoreCase(bean.getInstallmentYN()) && service.installmentcount(bean)> 0 ){
@@ -1393,43 +1393,43 @@ public class HomeAction extends ActionSupport implements ModelDriven<HomeBean> {
 	}
 	@JSON(serialize=false)
 	public List<Object> getPaPolicyTypeList() {
-		return commonDAO.getOptionsList("POLICYTYPE", getPACoverParams());
+		return commonDAO.getOptionsList("POLICYTYPE",bean.getProductId(), getPACoverParams());
 	}
 	@JSON(serialize=false)
 	public List<Object> getPaInsurerList() {
-		return commonDAO.getOptionsList("INSURERLIST", getPACoverParams());
+		return commonDAO.getOptionsList("INSURERLIST",bean.getProductId(), getPACoverParams());
 	}
 	@JSON(serialize=false)
 	public List<Object> getPaReliationShipList() {
-		return commonDAO.getOptionsList("RELATIONSHIP", getPACoverParams());
+		return commonDAO.getOptionsList("RELATIONSHIP",bean.getProductId(), getPACoverParams());
 	}
 	@JSON(serialize=false)
 	public List<Object> getPaTableBenifitsList() {
-		return commonDAO.getOptionsList("TABLEBENIFITS", getPACoverParams());
+		return commonDAO.getOptionsList("TABLEBENIFITS",bean.getProductId(), getPACoverParams());
 	}
 	@JSON(serialize=false)
 	public List<Object> getPaOccupationList() {
-		return commonDAO.getOptionsList("PAOCCUPATION", getPACoverParams());
+		return commonDAO.getOptionsList("PAOCCUPATION",bean.getProductId(), getPACoverParams());
 	}
 	@JSON(serialize=false)
 	public List<Object> getPaCostOfTravelList() {
-		return commonDAO.getOptionsList("COSTOFTRAVEL", getPACoverParams());
+		return commonDAO.getOptionsList("COSTOFTRAVEL",bean.getProductId(), getPACoverParams());
 	}
 	@JSON(serialize=false)
 	public List<Object> getPaCriticalExtentionList() {
-		return commonDAO.getOptionsList("CRITICALEXTENTION", getPACoverParams());
+		return commonDAO.getOptionsList("CRITICALEXTENTION",bean.getProductId(), getPACoverParams());
 	}
 	@JSON(serialize=false)
 	public List<Object> getPaMedicalExtnList() {
-		return commonDAO.getOptionsList("MEDICALEXTENSION", getPACoverParams());
+		return commonDAO.getOptionsList("MEDICALEXTENSION",bean.getProductId(), getPACoverParams());
 	}
 	@JSON(serialize=false)
 	public List<Object> getPaPrevInsuranceList() {
-		return commonDAO.getOptionsList("COINSURANCE", getPACoverParams());
+		return commonDAO.getOptionsList("COINSURANCE",bean.getProductId(), getPACoverParams());
 	}
 	@JSON(serialize=false)
 	public List<Object> getPaOptionTypeList() {
-		return commonDAO.getOptionsList("COINSURANCE", getPACoverParams());
+		return commonDAO.getOptionsList("COINSURANCE",bean.getProductId(), getPACoverParams());
 	}
 	private Object[] getPACoverParams() {
 		Object[] objects=new String[]{"",bean.getProductId(),bean.getBranchCode(),"","","","",
@@ -1672,7 +1672,7 @@ public class HomeAction extends ActionSupport implements ModelDriven<HomeBean> {
 	}
 	
 	public List<Object> getPolicyEndList() {
-		return commonDAO.getOptionsList("PolicyExpirydate2", bean.getProductId(), getParams("PolicyExpirydate"));
+		return commonDAO.getOptionsList("PolicyExpirydate2",bean.getProductId(), getParams("PolicyExpirydate"));
 	}
 	/*public List<Map<String,Object>> getExtraBenefitsList() {
 		return service.getExtraBenefitsList();
@@ -1690,13 +1690,13 @@ public class HomeAction extends ActionSupport implements ModelDriven<HomeBean> {
 		return DROPDOWN;
 	}
 	public List<Object> getMakeList() {
-		return commonDAO.getOptionsList("make", getMotorParams());
+		return commonDAO.getOptionsList("make",bean.getProductId(), getMotorParams());
 	}
 	public List<Object> getModelList() {
-		return commonDAO.getOptionsList("model", getMotorParams());
+		return commonDAO.getOptionsList("model",bean.getProductId(), getMotorParams());
 	}
 	public List<Object> getTypeBodyList() {
-		return commonDAO.getOptionsList("TractorHP", getMotorParams());
+		return commonDAO.getOptionsList("TractorHP",bean.getProductId(), getMotorParams());
 	}
 	public LinkedHashMap<Integer,Integer> getMfgYrMap() {
 		LinkedHashMap<Integer,Integer>map=new LinkedHashMap<Integer,Integer>();
@@ -1705,34 +1705,34 @@ public class HomeAction extends ActionSupport implements ModelDriven<HomeBean> {
 		return map;
 	}
 	public List<Object> getNoOfCylinderList() {
-		return commonDAO.getOptionsList("noOfCylinder", getMotorParams());
+		return commonDAO.getOptionsList("noOfCylinder",bean.getProductId(), getMotorParams());
 	}
 	public List<Object> getVehicleUsageList() {
-		return commonDAO.getOptionsList("vehicleUsage", getMotorParams());
+		return commonDAO.getOptionsList("vehicleUsage",bean.getProductId(), getMotorParams());
 	}
 	public List<Object> getAreaCoverageList() {
-		return commonDAO.getOptionsList("areaCoverage", getMotorParams());
+		return commonDAO.getOptionsList("areaCoverage",bean.getProductId(), getMotorParams());
 	}
 	public List<Object> getVehicleColourList() {
-		return commonDAO.getOptionsList("vehicleColour", getMotorParams());
+		return commonDAO.getOptionsList("vehicleColour",bean.getProductId(), getMotorParams());
 	}
 	public List<Object> getBankOfFinanceList() {
-		return commonDAO.getOptionsList("bankOfFinance", getMotorParams());
+		return commonDAO.getOptionsList("bankOfFinance",bean.getProductId(), getMotorParams());
 	}
 	public List<Object> getMotorPolicyTypeList() {
-		return commonDAO.getOptionsList("PolicyType", getMotorParams());
+		return commonDAO.getOptionsList("PolicyType",bean.getProductId(), getMotorParams());
 	}
 	public List<Object> getUnNamedPassengerList() {
-		return commonDAO.getOptionsList("UnNamedPassenger", getMotorParams());
+		return commonDAO.getOptionsList("UnNamedPassenger",bean.getProductId(), getMotorParams());
 	}
 	public List<Object> getPaidDriversList() {
-		return commonDAO.getOptionsList("PaidDrivers", getMotorParams());
+		return commonDAO.getOptionsList("PaidDrivers",bean.getProductId(), getMotorParams());
 	}
 	public List<Object> getNoClaimBonusList() {
-		return commonDAO.getOptionsList("NoClaimBonus", getMotorParams());
+		return commonDAO.getOptionsList("NoClaimBonus",bean.getProductId(), getMotorParams());
 	}
 	public List<Object> getVoluntaryDeductibleList() {
-		return commonDAO.getOptionsList("VolunataryDeductible", getMotorParams());
+		return commonDAO.getOptionsList("VolunataryDeductible",bean.getProductId(), getMotorParams());
 	}
 	private Object[] getMotorParams() {
 		Object[] objects=new String[]{bean.getOption(),bean.getProductId(),bean.getBranchCode(),"","","",bean.getOriginCountry(),

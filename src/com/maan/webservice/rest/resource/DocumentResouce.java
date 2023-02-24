@@ -13,6 +13,7 @@ import javax.ws.rs.core.MediaType;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.maan.Health.controller.UploadBean;
 import com.maan.adminnew.common.CommonService;
 import com.maan.common.DBConstants;
 import com.maan.common.LogManager;
@@ -20,6 +21,7 @@ import com.maan.upload.service.UploadService;
 
 @Path("document")
 public class DocumentResouce {
+	UploadBean bean = new UploadBean();
 	@POST
 	@Path("/getDetails")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -59,7 +61,7 @@ public class DocumentResouce {
 			Map<String,Object> inputParams = new Gson().fromJson(paramDocumentBean, type);
 			
 			String filePath = inputParams.get("filePath")==null?"":inputParams.get("filePath").toString();
-			service.deleteDocument(filePath);
+			service.deleteDocument(null, filePath);
 		} catch (Exception exception) {
 			LogManager.debug(exception);
 		}
@@ -110,7 +112,7 @@ public class DocumentResouce {
 			docDescList.add(inputParams.get("documentDesc")==null?"":inputParams.get("documentDesc").toString());
 			uploadFileNameList.add(inputParams.get("uploadFileName")==null?"":inputParams.get("uploadFileName").toString());
 			
-			service.insertDocumentDetails(documentIdList, docDescList, uploadFileNameList, null, quoteNo, vehicleId, productId, uploadFileStr, DBConstants.DEVICETYPE_HYBRID);
+			service.insertDocumentDetails(bean, productId);
 		} catch (Exception exception) {
 			LogManager.debug(exception);
 		}

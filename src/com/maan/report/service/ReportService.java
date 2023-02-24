@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.List; 
 import java.util.Map;
 
+import com.maan.Motor.controller.MotorBean;
 import com.maan.report.ReportAction;
 import com.maan.report.dao.ReportDAO;
 
@@ -117,7 +118,9 @@ public class ReportService {
 		return report.getHomeApproverPendingList(loginId, branchCode, productId, Status);
 	}
 	public List<Map<String,Object>> getMultiVehicleDetails(String policyNo, String productId, String branchCode) {
-		return new com.maan.Motor.Services.MotorService().getMultiVehicleDetails(new com.maan.common.dao.CommonDAO().getHomeApplicationNo(policyNo), productId, branchCode);
+		MotorBean bean1 = new MotorBean();
+		bean1.setPolicyNo(policyNo);bean1.setProductId(productId);bean1.setBranchCode(branchCode);
+		return new com.maan.Motor.Services.MotorService().getMultiVehicleDetails(bean1);
 	}
 	public List<Map<String, Object>> getMotorVehicleDetails(String quoteNo) {
 		return new com.maan.Motor.Services.MotorService().getMototVehicleDetails(quoteNo);
@@ -129,8 +132,10 @@ public class ReportService {
 		return new com.maan.Home.Service.HomeService().getHomePolicyDetails(policyNo,productId,branchCode);
 	}
 	public List<Map<String, Object>> getEndorseMentDetails(String policyNo,String productId, String branchCode) {
-		if("65".equals(productId)){
-			return new com.maan.Motor.Services.MotorService().getMultiVehicleDetails(new com.maan.common.dao.CommonDAO().getHomeApplicationNo(policyNo), productId, branchCode);	
+		MotorBean bean1 = new MotorBean();
+		bean1.setPolicyNo(policyNo);bean1.setProductId(productId);bean1.setBranchCode(branchCode);
+		if("65".equals(bean1.getProductId())){
+			return new com.maan.Motor.Services.MotorService().getMultiVehicleDetails(bean1);	
 		}else{
 			return new com.maan.Home.Service.HomeService().getHomePolicyDetails(policyNo, productId, branchCode);
 		}

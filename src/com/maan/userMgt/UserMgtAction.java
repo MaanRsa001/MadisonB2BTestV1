@@ -60,13 +60,13 @@ public class UserMgtAction extends ActionSupport implements ModelDriven<UserMgtB
 		return objects;
 	}
 	public List<Object> getTitleList(){
-		return commonDAO.getOptionsList("title", getParams());
+		return commonDAO.getOptionsList("title",bean.getProductId(), getParams());
 	}
 	public List<Object> getCityList(){
-		return commonDAO.getOptionsList("city", getParams());
+		return commonDAO.getOptionsList("city",bean.getProductId(), getParams());
 	}
 	public List<Object> getOccupationList() {
-		return commonDAO.getOptionsList("Occupation", getParams());
+		return commonDAO.getOptionsList("Occupation",bean.getProductId(), getParams());
 	}
 	public void mapRestBean(UserMgtBean bean) {
 		bean.setBranchCode("01");
@@ -388,12 +388,12 @@ public class UserMgtAction extends ActionSupport implements ModelDriven<UserMgtB
 				else 
 					bean.setCustnrc("");*/
 				//New Customer Creation
-				new CustomerService().insertCustomerDetails(bean.getCustomerId(),bean.getUemail(),bean.getBranchCode(),bean.getProductId(),bean.getTitle(),bean.getCustomerName(),bean.getMobileNo(),bean.getEmail(),bean.getAddress1(),bean.getAddress2(),bean.getPoBox(),bean.getCity(),bean.getCoreAppCode(),bean.getClientCustomerId(),bean.getCustArNo(),bean.getCustLastName(),bean.getCustPassportNo(),bean.getCustdob(),bean.getCustAlterMobileNo(),bean.getCustLandLineNo(),bean.getCustomerType(),bean.getCompanyRegNo(),bean.getCustNameArabic(),bean.getCustdobar(),bean.getGender(),bean.getOccupation(),"newUser",bean.getCustnrc1(),bean.getCustnrc2(),bean.getCustnrc3());
+				new CustomerService().insertCustomerDetails(bean.getCustomerId(),bean.getUemail(),bean.getBranchCode(),bean.getProductId(),bean.getTitle(),bean.getCustomerName(),bean.getMobileNo(),bean.getEmail(),bean.getAddress1(),bean.getAddress2(),bean.getPoBox(),bean.getCity(),bean.getCoreAppCode(),bean.getClientCustomerId(),bean.getCustArNo(),bean.getCustLastName(),bean.getCustPassportNo(),bean.getCustdob(),bean.getCustAlterMobileNo(),bean.getCustLandLineNo(),bean.getCustomerType(),bean.getCompanyRegNo(),bean.getCustNameArabic(),bean.getCustdobar(),bean.getGender(),bean.getOccupation(),"newUser",bean.getCustnrc1(),bean.getCustnrc2(),bean.getCustnrc3(),"");
 				
 				if(StringUtils.isNotBlank(bean.getApplicationNo())){
 					bean.setCustomerId(new CustomerDAO().getCustomerId(bean.getApplicationNo()));
 					//	Update Already Created One Customer
-					new CustomerService().insertCustomerDetails(bean.getCustomerId(),bean.getUemail(),bean.getBranchCode(),bean.getProductId(),bean.getTitle(),bean.getCustomerName(),bean.getMobileNo(),bean.getEmail(),bean.getAddress1(),bean.getAddress2(),bean.getPoBox(),bean.getCity(),bean.getCoreAppCode(),bean.getClientCustomerId(),bean.getCustArNo(),bean.getCustLastName(),bean.getCustPassportNo(),bean.getCustdob(),bean.getCustAlterMobileNo(),bean.getCustLandLineNo(),bean.getCustomerType(),bean.getCompanyRegNo(),bean.getCustNameArabic(),bean.getCustdobar(),bean.getGender(),bean.getOccupation(),"newUserCreation",bean.getCustnrc1(),bean.getCustnrc2(),bean.getCustnrc3());
+					new CustomerService().insertCustomerDetails(bean.getCustomerId(),bean.getUemail(),bean.getBranchCode(),bean.getProductId(),bean.getTitle(),bean.getCustomerName(),bean.getMobileNo(),bean.getEmail(),bean.getAddress1(),bean.getAddress2(),bean.getPoBox(),bean.getCity(),bean.getCoreAppCode(),bean.getClientCustomerId(),bean.getCustArNo(),bean.getCustLastName(),bean.getCustPassportNo(),bean.getCustdob(),bean.getCustAlterMobileNo(),bean.getCustLandLineNo(),bean.getCustomerType(),bean.getCompanyRegNo(),bean.getCustNameArabic(),bean.getCustdobar(),bean.getGender(),bean.getOccupation(),"newUserCreation",bean.getCustnrc1(),bean.getCustnrc2(),bean.getCustnrc3(),"");
 					String args2[]={bean.getCustomerId(),bean.getApplicationNo()};
 					service.updateCustomerIdMotorDataDetail(args2);
 				}
@@ -413,7 +413,7 @@ public class UserMgtAction extends ActionSupport implements ModelDriven<UserMgtB
 					for(int i=0;i<custId.size();i++){
 						bean.setCustomerId(custId.get(i).get("CUSTOMER_ID")==null?"":custId.get(i).get("CUSTOMER_ID").toString());
 						if(StringUtils.isNotBlank(bean.getCustomerId()))
-							new CustomerService().insertCustomerDetails(bean.getCustomerId(),bean.getUser(),bean.getBranchCode(),bean.getProductId(),bean.getTitle(),bean.getCustomerName(),bean.getMobileNo(),bean.getEmail(),bean.getAddress1(),bean.getAddress2(),bean.getPoBox(),bean.getCity(),bean.getCoreAppCode(),bean.getClientCustomerId(),bean.getCustArNo(),bean.getCustLastName(),bean.getCustPassportNo(),bean.getCustdob(),bean.getCustAlterMobileNo(),bean.getCustLandLineNo(),bean.getCustomerType(),bean.getCompanyRegNo(),bean.getCustNameArabic(),bean.getCustdobar(),bean.getGender(),bean.getOccupation(),"profile",bean.getCustnrc1(),bean.getCustnrc2(),bean.getCustnrc3());
+							new CustomerService().insertCustomerDetails(bean.getCustomerId(),bean.getUser(),bean.getBranchCode(),bean.getProductId(),bean.getTitle(),bean.getCustomerName(),bean.getMobileNo(),bean.getEmail(),bean.getAddress1(),bean.getAddress2(),bean.getPoBox(),bean.getCity(),bean.getCoreAppCode(),bean.getClientCustomerId(),bean.getCustArNo(),bean.getCustLastName(),bean.getCustPassportNo(),bean.getCustdob(),bean.getCustAlterMobileNo(),bean.getCustLandLineNo(),bean.getCustomerType(),bean.getCompanyRegNo(),bean.getCustNameArabic(),bean.getCustdobar(),bean.getGender(),bean.getOccupation(),"profile",bean.getCustnrc1(),bean.getCustnrc2(),bean.getCustnrc3(),"");
 					}
 				}
 				String args1[]={bean.getCustomerName(),"Y", bean.getEmail(),bean.getUagencyCode()};

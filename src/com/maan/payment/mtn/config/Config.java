@@ -2,7 +2,6 @@ package com.maan.payment.mtn.config;
 
 import java.util.ResourceBundle;
 
-import sun.misc.BASE64Encoder;
 
 public class Config {
 	

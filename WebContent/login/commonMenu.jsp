@@ -20,7 +20,6 @@ b2c = b2c==null ? "" :b2c;
 </jsp:useBean>
 <%--<jsp:useBean id= "tb1"  class = "com.maan.Travel.DAO.TravelBean" >--%>
 <jsp:setProperty name= "tb1" property = "*"/>
-</jsp:useBean>
 
 
 <%
@@ -114,7 +113,7 @@ if(session.getAttribute("officeScheme")!=null)
 	office = (String[][])session.getAttribute("officeScheme");
 }
 //End
---%>
+%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
