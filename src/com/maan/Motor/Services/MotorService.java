@@ -1559,8 +1559,9 @@ public class MotorService {
 		return dao.getPaymentList(bean);
 	}
 
-	public List<Map<String,Object>> makepay(MotorBean bean) {
+	public String makepay(MotorBean bean) {
 		return dao.makepay(bean);
 		
 	}
+
 }

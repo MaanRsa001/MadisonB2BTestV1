@@ -547,8 +547,11 @@ public class ApiForMotor extends ApiConfig implements Callable<Object>{
 			String responseStr=callAPIPost(link, authorization, hp.toString().replaceAll("\"\"", "null"));
 			if(responseStr!=null && responseStr.length()>0) {
 				json = (JSONObject) parser.parse(responseStr);
-				json1 = (JSONObject) json.get("Response");
-				bean.setErrors((JSONArray) json.get("Errors"));
+				if("ERROR".equals(json.get("Message"))) {
+					bean.setErrors((JSONArray) json.get("Errors"));
+				}else {
+					json1 = (JSONObject) json.get("Response");
+				}
 		
 			}
 		} catch (Exception e) {

@@ -1,7 +1,7 @@
 package com.maan.report.service;
 
 import java.io.File;
-import java.util.List; 
+import java.util.List;
 import java.util.Map;
 
 import com.maan.Motor.controller.MotorBean;
@@ -142,5 +142,9 @@ public class ReportService {
 	}
 	public List<Map<String, Object>> getb2cSearchResult(ReportAction action, String userType, String productId) {
 		return report.getb2cSearchResult(action, userType, productId);
+	}
+	
+	public String getCertificate(String quoteNo,String vehicleId) {
+		return report.getCertificate(quoteNo,vehicleId);
 	}
 }

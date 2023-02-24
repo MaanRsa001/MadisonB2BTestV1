@@ -29,7 +29,7 @@
 	</style>
 </head>
 <body>
-<s:form name="policyInfo" theme="simple" action="initReport.action">
+<s:form name="policyInfo" id="policyInfo" theme="simple" action="initReport.action">
 <div id="loading" style="width:100%">
    <img id="loading-image" src="${pageContext.request.contextPath}/images/madisonSymbolLogo.png"/>
 </div>
@@ -587,7 +587,7 @@
 																<td> <s:property value="#view.VehicleValue"/> </td>
 																<td align="center">
 																	<%-- <s:submit type="button" name="Submit2" cssClass="btn btn-sm btn-warning" value="Certificate" onclick="return getFleetPdf('%{#view.QUOTE_NO}','%{#view.VEHICLE_ID}')"/> --%>
-																	<s:submit type="button" name="Submit2" cssClass="btn btn-sm btn-warning" value="Certificate" onclick="return getFleetPdf('%{#view.CertificateNo}')"/>
+																	<s:submit type="button" name="Submit2" cssClass="btn btn-sm btn-warning" value="Certificate" onclick="return getFleetPdf('%{quoteNo}','%{vehicleId}')"/>
 																</td>
 															</tr>
 														</s:iterator>
@@ -839,6 +839,8 @@
 <s:hidden name="policyType"/>
 <s:hidden name="policyStartDate"/>
 <s:hidden name="policyEndDate"/>
+<s:hidden name="gquoteNo" id="gquoteNo"/>
+<s:hidden name="gvehicleId" id="gvehicleId"/>
 
 
 
@@ -885,7 +887,7 @@ function getReceiptPdf(val) {
 	}
 }
 function getFleetPdf(quoteNo, vehicleId) {
-	var URL ='${pageContext.request.contextPath}/motorFleetScheduleReport.action?quoteNo='+quoteNo+'&vehicleId='+vehicleId;
+	var URL ='${pageContext.request.contextPath}/getCertificateReport.action?quoteNo='+quoteNo+'&vehicleId='+vehicleId;
 	var bwidth = window.innerWidth;
 	var bwidth1 = document.body.clientWidth;
 	if(bwidth <= 768) {

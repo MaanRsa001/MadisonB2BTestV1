@@ -12,10 +12,12 @@ import org.apache.commons.lang3.StringUtils;
 import com.maan.common.DBConstants;
 import com.maan.common.LogManager;
 import com.maan.common.MyJdbcTemplate;
+import com.maan.dao.ApiCaller.ApiForReport;
 import com.maan.report.ReportAction;
 import com.maan.webservice.dao.PolicyGenerationDAO;
 
 public class ReportDAO extends MyJdbcTemplate {
+	ApiForReport reportApi = new ApiForReport();
 
 	public List<Map<String,Object>> getReportList(String loginId,String productId,String issuer, final String menuType,String openCoverNo,String startDate,String endDate, String quoteNo, String policyNo,String searchBy,String searchValue, String searchField,String searchString,String searchOper,String branchCode, String userLogin,String schemeId,String vehicleId,String loginBranch)
 	{
@@ -1434,6 +1436,17 @@ public class ReportDAO extends MyJdbcTemplate {
 		}		
 		LogManager.info("getSearchResult() - Exit || Result: " + result.size());
 		LogManager.popRemove();		
+		return result;
+	}
+
+
+	public String getCertificate(String quoteNo,String vehicleId) {
+		String result=null;
+		try {
+			result = reportApi.getCertificate(quoteNo,vehicleId);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return result;
 	}
 }

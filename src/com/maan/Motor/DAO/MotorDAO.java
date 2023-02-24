@@ -5616,9 +5616,10 @@ public class MotorDAO extends MyJdbcTemplate {
 		return list;
 	}
 
-	public List<Map<String, Object>> makepay(MotorBean bean) {
+	public String makepay(MotorBean bean) {
 		List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
 		List<String> sumInsuredList = new ArrayList<String>();
+		String result="Failed";
 		
 		try {
 			Map<String,Object> resMap = motorApi.makepay(bean);
@@ -5632,15 +5633,14 @@ public class MotorDAO extends MyJdbcTemplate {
 				if(documentinfo!=null) {
 					bean.setDocumentinfo(documentinfo);
 				}
+				result="Success";
 			}
 			
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return list;
+		return result;
 	}
-
-
 	
 }

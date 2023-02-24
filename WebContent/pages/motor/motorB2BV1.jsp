@@ -551,7 +551,7 @@
 										    	<button type="button" class="btn btn-danger btn-block" onclick="getBack('newQuote')">Back</button>
 										    </div> 
 										    <div class="col-lg-2 col-md-3 getQuote mb-3">
-												<button type="button" class="btn btn-block" onclick="this.form.actionType.value='getQuotation';fnsubmit('quotationMotor.action');disableForm(this.form,false,'');">Get Quote</button>
+												<button type="button" class="btn btn-block"  onclick="this.form.actionType.value='getQuotation';fnsubmit('quotationMotor.action');disableForm(this.form,false,'');">Get Quote</button>
 										    </div> 
 									     </s:if>
 									     <s:else>

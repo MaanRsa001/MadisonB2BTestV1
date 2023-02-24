@@ -6,6 +6,13 @@ import java.util.Map;
 public class ReportBean{
 
 	private String gquoteNo;
+	private String gvehicleId;
+	public String getGvehicleId() {
+		return gvehicleId;
+	}
+	public void setGvehicleId(String gvehicleId) {
+		this.gvehicleId = gvehicleId;
+	}
 	private String gcustName;
 	private String gquoteDate;
 	private String goverAllPremium;

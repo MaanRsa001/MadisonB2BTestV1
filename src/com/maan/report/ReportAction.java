@@ -6,12 +6,14 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.SequenceInputStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.Date;
 import java.util.Enumeration;
 import java.util.List;
@@ -1532,4 +1534,32 @@ public class ReportAction extends ActionSupport {
 		else if(Validation.INVALID.equals(validation.validateMobile(mobileNo))) 
 			addActionError("Please Enter Valid Mobile No");
 		}
+
+	public String getCertificate() {
+		String forward="";
+			try {
+				String result= service.getCertificate(quoteNo,vehicleId);
+				if(result!=null) {
+					    byte[] decodedBytes = Base64.getDecoder().decode(result);
+					    try (ByteArrayInputStream bis = new ByteArrayInputStream(decodedBytes);
+					         ByteArrayOutputStream bos = new ByteArrayOutputStream()) {
+					        byte[] buffer = new byte[1024];
+					        int len;
+					        while ((len = bis.read(buffer)) > 0) {
+					            bos.write(buffer, 0, len);
+					        }
+					        byte[] pdfBytes = bos.toByteArray();
+					        ByteArrayInputStream pdfStream = new ByteArrayInputStream(pdfBytes);
+					        request.setAttribute("contentType", "application/pdf");
+					        request.setAttribute("inputStream", pdfStream);
+					        forward = "stream";
+					    } catch (Exception e) {
+								e.printStackTrace();
+					}
+						}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			return forward;
+	}
 }

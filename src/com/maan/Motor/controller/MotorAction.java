@@ -3777,12 +3777,17 @@ public String getBuypolicy() {
 public String makePay() {
 	String forward ="makePayment";
 	try {
-		service.makepay(bean);
+		String result =service.makepay(bean);
 		APiValidation();
 		
 		if(!hasActionErrors()) {
+		if("Success".equalsIgnoreCase(result)) {
 			payResponse();
 			forward="policyInfo";
+		}else {
+			service.setCustDetail(bean, "");
+			addActionError("Something Went Wrong Please try Again");
+		}
 		}else {
 			service.setCustDetail(bean, "");
 		}
@@ -3792,5 +3797,6 @@ public String makePay() {
 	}
 	return forward;
 }
+
 
 }
